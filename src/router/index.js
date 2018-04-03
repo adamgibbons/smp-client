@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Start from '@/components/Start'
+import SignUp from '@/components/SignUp'
+import Login from '@/components/Login'
 import Flow from '@/components/Flow'
 import Personal1 from '@/components/Personal1'
 import Personal2 from '@/components/Personal2'
@@ -14,9 +15,14 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Start',
-      component: Start
+      path: '/register',
+      name: 'SignUp',
+      component: SignUp
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/flow',

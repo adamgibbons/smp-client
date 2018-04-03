@@ -9,8 +9,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'App'
+  name: 'App',
+  computed: mapGetters(['authenticated']),
+  watch: {
+    authenticated: function (isAuthenticated) {
+      if (isAuthenticated) {
+        this.$router.push('/flow/personal-1')
+      }
+    }
+  }
 }
 </script>
 
