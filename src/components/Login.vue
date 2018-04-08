@@ -1,15 +1,15 @@
 <template>
-  <div class="body">
+  <form class="body" @submit="handleLogin">
     <input class="text-input" type="text" v-model="loginForm.email" placeholder="Email">
     <input class="text-input" type="text" v-model="loginForm.password" placeholder="Password">
 
     <button type="button" class="button" @click.native="handleLogin">Sign in, click.native</button>
 
-    <button type="button" class="button" @click="handleLogin">Sign in</button>
+    <button type="submit" class="button">Sign in</button>
 
     <v-touch tag="a" v-on:tap="handleLogin">Sign in, v-touch</v-touch>
     <!-- <button @click="start">Start</button> -->
-  </div>
+  </form>
 </template>
 
 <script>
@@ -26,7 +26,10 @@ export default {
   },
   methods: {
     ...mapActions(['login']),
-    handleLogin () {
+    handleLogin (e) {
+      e.preventDefault()
+      console.log('foo')
+
       this.login(this.loginForm)
     }
   }
