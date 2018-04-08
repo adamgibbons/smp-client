@@ -5,6 +5,9 @@ import Login from '@/components/Login'
 
 import Splash from '@/components/Splash'
 import Onboard1 from '@/components/Onboard1'
+import Onboard2 from '@/components/Onboard2'
+import Onboard3 from '@/components/Onboard3'
+import Onboard4 from '@/components/Onboard4'
 
 import Flow from '@/components/Flow'
 import Start from '@/components/Start'
@@ -26,6 +29,18 @@ export default new Router({
     {
       path: '/onboard-1',
       component: Onboard1
+    },
+    {
+      path: '/onboard-2',
+      component: Onboard2
+    },
+    {
+      path: '/onboard-3',
+      component: Onboard3
+    },
+    {
+      path: '/onboard-4',
+      component: Onboard4
     },
     {
       path: '/register',

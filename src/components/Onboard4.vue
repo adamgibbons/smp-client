@@ -2,9 +2,9 @@
   <onboard>
     <div class="body">
       <h3>
-        50% of your income should go
+        The 50/30/20 rule is the ideal
         <br>
-        to absolute necessities in life.
+        way to spend your money.
       </h3>
       <div>
         <button @click="next">Next</button>
@@ -20,7 +20,8 @@ export default {
   components: { Onboard },
   methods: {
     next () {
-      this.$router.push('/onboard-2')
+      // this.$router.push('/onboarding-1')
+      console.log('clicked next')
     }
   }
 }

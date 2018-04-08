@@ -2,9 +2,9 @@
   <onboard>
     <div class="body">
       <h3>
-        50% of your income should go
+        20% of your income should go
         <br>
-        to absolute necessities in life.
+        to saving and paying off debt.
       </h3>
       <div>
         <button @click="next">Next</button>
@@ -20,7 +20,7 @@ export default {
   components: { Onboard },
   methods: {
     next () {
-      this.$router.push('/onboard-2')
+      this.$router.push('/onboard-4')
     }
   }
 }
