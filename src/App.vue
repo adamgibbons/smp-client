@@ -53,7 +53,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   font-family: 'helvetica neue', helvetica;
   background: #234c7b;

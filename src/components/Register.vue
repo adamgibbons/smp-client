@@ -83,6 +83,7 @@ p {
 }
 
 .text-input {
+  border-radius: 0;
   background: none;
   border: none;
   border-bottom: 1px solid white;
@@ -91,11 +92,5 @@ p {
   font-size: .9em;
   padding-bottom: .5em;
   margin-bottom: .3em;
-  /*border: none;
-  border-bottom: 1px solid white;
-  background: none;
-  display: block;
-  margin: 1em auto;
-  padding: .33em;*/
 }
 </style>
