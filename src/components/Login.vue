@@ -1,14 +1,25 @@
 <template>
-  <form class="body" @submit="handleLogin">
-    <input class="text-input" type="text" v-model="loginForm.email" placeholder="Email">
-    <input class="text-input" type="text" v-model="loginForm.password" placeholder="Password">
+  <form class="flow gradient body" @submit="handleLogin">
 
-    <button type="button" class="button" @click.native="handleLogin">Sign in, click.native</button>
+    <br>
+    <br>
+    <br>
 
-    <button type="submit" class="button">Sign in</button>
+    <div class="text-input-wrapper">
+      <input class="text-input" type="email" v-model="loginForm.email" required>
+      <label>email</label>
+    </div>
 
-    <v-touch tag="a" v-on:tap="handleLogin">Sign in, v-touch</v-touch>
-    <!-- <button @click="start">Start</button> -->
+    <div class="text-input-wrapper">
+      <input class="text-input" type="password" v-model="loginForm.password" required>
+      <label>password</label>
+    </div>
+
+    <nav>
+      <button type="submit">Sign in</button>
+      <br>
+    </nav>
+
   </form>
 </template>
 
@@ -38,28 +49,65 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+p {
+  text-align: center;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 a {
   color: #42b983;
+  text-decoration: none;
 }
-.text-input {
-  border: 1px solid gray;
+
+.text-input-wrapper, p {
+  margin: 2em auto;
+  width: 100%;
+  max-width: 250px;
+}
+
+.text-input-wrapper label {
+  font-size: .8em;
+  font-weight: 200;
+  color: lightblue;
+}
+
+.text-input, label {
   display: block;
-  margin: 1em auto;
-  padding: .33em;
 }
+
+.text-input {
+  border-radius: 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  width: 100%;
+  color: white;
+  font-size: .9em;
+  padding-bottom: .5em;
+  margin-bottom: .3em;
+}
+
+nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 button {
-  background: red;
-  padding: 1em;
+  display: block;
+  border-radius: 2em;
+  padding: .33em 1em;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1em;
+  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  margin-left: -3em;
+}
+
+nav p {
+  font-size: .8em;
+  margin-top: 1em;
 }
 </style>
