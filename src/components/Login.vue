@@ -2,7 +2,12 @@
   <div class="body">
     <input class="text-input" type="text" v-model="loginForm.email" placeholder="Email">
     <input class="text-input" type="text" v-model="loginForm.password" placeholder="Password">
-    <div class="button" @click="handleLogin">Sign in</div>
+
+    <button type="button" class="button" @click.native="handleLogin">Sign in, click.native</button>
+
+    <button type="button" class="button" @click="handleLogin">Sign in</button>
+
+    <v-touch tag="a" v-on:tap="handleLogin">Sign in, v-touch</v-touch>
     <!-- <button @click="start">Start</button> -->
   </div>
 </template>
@@ -20,9 +25,6 @@ export default {
     }
   },
   methods: {
-    handleInput (e) {
-      console.log(e)
-    },
     ...mapActions(['login']),
     handleLogin () {
       this.login(this.loginForm)
@@ -53,7 +55,7 @@ a {
   margin: 1em auto;
   padding: .33em;
 }
-.button {
+button {
   background: red;
   padding: 1em;
 }

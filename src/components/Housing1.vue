@@ -7,16 +7,16 @@
       <div class="title">
         Current housing situation
       </div>
-      <button @click="setValueByPath({ path: 'housing.creditScore', value: 'poor'})">Poor</button>
-      <button @click="setValueByPath({ path: 'housing.creditScore', value: 'good'})">Good</button>
+      <button class="button" @click="setValueByPath({ path: 'housing.creditScore', value: 'poor'})">Poor</button>
+      <button class="button" @click="setValueByPath({ path: 'housing.creditScore', value: 'good'})">Good</button>
     </div>
     <div class="block">
       <div class="title">
         Credit score
       </div>
-      <button @click="setValueByPath({ path: 'financial.creditScore', value: 'poor'})">Poor</button>
-      <button @click="setValueByPath({ path: 'financial.creditScore', value: 'good'})">Good</button>
-      <button @click="setValueByPath({ path: 'financial.creditScore', value: 'excellent'})">Excellent</button>
+      <button class="button" @click="setValueByPath({ path: 'financial.creditScore', value: 'poor'})">Poor</button>
+      <button class="button" @click="setValueByPath({ path: 'financial.creditScore', value: 'good'})">Good</button>
+      <button class="button" @click="setValueByPath({ path: 'financial.creditScore', value: 'excellent'})">Excellent</button>
 
       <p>
         <a >I don't know</a>

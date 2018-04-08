@@ -1,7 +1,7 @@
 <template>
   <div class="grid-container">
     <header>
-      <div id="hamburger">hamburger</div>
+      <div id="hamburger">menu</div>
       <div id="home">home</div>
     </header>
     <router-view/>
@@ -10,15 +10,38 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import axios from 'axios'
 
 export default {
   name: 'App',
   computed: mapGetters(['authenticated']),
   watch: {
+    // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
       if (isAuthenticated) {
-        this.$router.push('/flow/personal-1')
+        this.$router.push('/start')
       }
+    }
+  },
+  mounted () {
+    const token = localStorage.getItem('token')
+    if (token) {
+      // login user
+      axios.get(`${process.env.API_URL}whoami`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then((data) => {
+          console.log(data)
+          this.$router.replace('/flow/personal-1')
+        })
+        .catch((err) => {
+          console.log(err)
+          this.$router.replace('/splash')
+        })
+    } else {
+      this.$router.replace('/splash')
     }
   }
 }
@@ -33,6 +56,15 @@ html, body {
   font-size: 16px;
   line-height: 24px;
   font-family: 'helvetica neue', helvetica;
+  background: #234c7b;
+}
+header div {
+  font-size: .9em;
+  font-weight: 100;
+}
+.gradient {
+  color: white;
+  background: linear-gradient(#234c7b, #4d235f);
 }
 .grid-container {
   height: 100%;
@@ -41,22 +73,29 @@ html, body {
 }
 .grid-container > header,
 .grid-container .body {
-  border: 1px solid black;
+  color: white;
 }
 .title {
   text-align: center;
 }
 .block {
   border-top: 1px solid #aaa;
-  padding: 1em;
+  padding: 2em 1.33em;
+}
+.block:nth-of-type(2) {
+  border-top: none;
 }
 .block .title {
   text-align: left;
+  margin-bottom: .33em;
+  font-size: .9em;
 }
 .block button {
-  border: 1px solid;
+  border: 1px solid #aaa;
+  color: #aaa;
   border-radius: 1em;
   background: transparent;
+  padding: .3em .66em;
 }
 #home {
   position: absolute;

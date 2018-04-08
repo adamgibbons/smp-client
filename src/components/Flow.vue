@@ -1,5 +1,6 @@
 <template>
-  <div class="body">
+  <div class="gradient flow body">
+    <div class="progress-bar"></div>
     <router-view></router-view>
     <nav>
       <button @click="back">Back</button>
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data () {
     return {
@@ -24,6 +27,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['update']),
     back () {
       if (this.position === 0) return
 
@@ -31,6 +35,8 @@ export default {
       this.position = this.position - 1
     },
     next () {
+      this.update()
+
       if (this.position + 1 === this.progress.length) return
 
       this.$router.push(this.progress[this.position + 1])
@@ -57,11 +63,14 @@ a {
   color: #42b983;
 }
 nav {
-  border: 1px solid red;
   margin: auto;
   text-align: center;
   position: absolute;
   bottom: 0;
   width: 100%;
+  color: white;
+}
+.button  {
+  border: 1px solid white;
 }
 </style>

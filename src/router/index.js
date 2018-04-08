@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SignUp from '@/components/SignUp'
+import Register from '@/components/Register'
 import Login from '@/components/Login'
+
+import Splash from '@/components/Splash'
+import Onboard1 from '@/components/Onboard1'
+
 import Flow from '@/components/Flow'
+import Start from '@/components/Start'
 import Personal1 from '@/components/Personal1'
 import Personal2 from '@/components/Personal2'
 import Financial from '@/components/Financial'
@@ -15,14 +20,24 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/splash',
+      component: Splash
+    },
+    {
+      path: '/onboard-1',
+      component: Onboard1
+    },
+    {
       path: '/register',
-      name: 'SignUp',
-      component: SignUp
+      component: Register
     },
     {
       path: '/login',
-      name: 'Login',
       component: Login
+    },
+    {
+      path: '/start',
+      component: Start
     },
     {
       path: '/flow',

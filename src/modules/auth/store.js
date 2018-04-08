@@ -1,5 +1,10 @@
 import axios from 'axios'
 
+// function isAuthenticated () {
+//   const expiresAt = JSON.parse(localStorage.getItem('expires_at'))
+//   return new Date().getTime() < expiresAt
+// }
+
 const state = {
   user: {
     name: null,
@@ -20,7 +25,7 @@ const getters = {
 
 const actions = {
   register ({ commit }, { name, email, password }) {
-    axios.post('//localhost:8000/api/register', { name, email, password })
+    axios.post(`${process.env.API_URL}register`, { name, email, password })
       .then(({ data }) => {
         const { auth, token } = data
 
@@ -35,7 +40,7 @@ const actions = {
       })
   },
   login ({ commit }, { email, password }) {
-    axios.post('//localhost:8000/api/login', { email, password })
+    axios.post(`${process.env.API_URL}login`, { email, password })
       .then(({ data }) => {
         const { auth, token } = data
 
