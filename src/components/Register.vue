@@ -18,7 +18,15 @@
       <label>password</label>
     </div>
 
-    <button @click="signUp">Sign up</button>
+    <nav>
+      <div>
+        <button @click="signUp">Sign up</button>
+      </div>
+      <p>
+        <router-link to="/login">I already have an account</router-link>
+      </p>
+
+    </nav>
   </div>
 </template>
 
@@ -46,30 +54,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+p {
+  text-align: center;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 a {
   color: #42b983;
+  text-decoration: none;
 }
 
 .text-input-wrapper, p {
   margin: 2em auto;
   width: 100%;
   max-width: 250px;
-}
-
-p {
-  text-align: center;
-  margin-bottom: 3em;
 }
 
 .text-input-wrapper label {
@@ -92,5 +89,29 @@ p {
   font-size: .9em;
   padding-bottom: .5em;
   margin-bottom: .3em;
+}
+
+nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+button {
+  border-radius: 2em;
+  padding: .33em 1em;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1em;
+  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  margin-left: -3em;
+}
+
+nav p {
+  font-size: .8em;
+  margin-top: 1em;
 }
 </style>

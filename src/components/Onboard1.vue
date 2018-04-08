@@ -1,14 +1,14 @@
 <template>
   <onboard>
-    <div class="body">
+    <div class="content">
       <h3>
         50% of your income should go
         <br>
         to absolute necessities in life.
       </h3>
-      <div>
-        <button @click="next">Next</button>
-      </div>
+    </div>
+    <div class="cta">
+      <button @click="next">Next</button>
     </div>
   </onboard>
 </template>

@@ -1,20 +1,18 @@
 <template>
   <div class="body">
-  <h1>
-    New Perspective
-    <br>
-    on Your Money
-  </h1>
+    <div class="content">
+      <h1>
+        New Perspective on Your Money
+      </h1>
 
-  <h2>
-    Balancing your money is
-    <br>
-    the key to having enough
-  </h2>
+      <h2>
+          Balancing your money is the key to having enough
+      </h2>
+    </div>
 
-  <div>
-      <button @click="next">Show my money score</button>
-  </div>
+    <div class="cta">
+        <button @click="next">Show my money score</button>
+    </div>
   </div>
 </template>
 
@@ -30,11 +28,19 @@ export default {
 
 <style scoped>
   .body {
-    max-width: 300px;
-    margin: 0 auto;
+    margin: 0 auto 3em;
     text-align: center;
     font-size: 1em;
     line-height: 1.2;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+  .content {
+    margin: 0 2em;
+  }
+  .cta {
+
   }
   h1 {
     margin: 5em 0 .66em;

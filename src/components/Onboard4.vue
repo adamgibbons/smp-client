@@ -1,12 +1,12 @@
 <template>
   <onboard>
-    <div class="body">
+    <div class="content">
       <h3>
         The 50/30/20 rule is the ideal
         <br>
         way to spend your money.
       </h3>
-      <div>
+      <div class="cta">
         <button @click="next">Next</button>
       </div>
     </div>

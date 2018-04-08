@@ -1,12 +1,12 @@
 <template>
   <onboard>
-    <div class="body">
+    <div class="content">
       <h3>
         20% of your income should go
         <br>
         to saving and paying off debt.
       </h3>
-      <div>
+      <div class="cta">
         <button @click="next">Next</button>
       </div>
     </div>

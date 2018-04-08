@@ -1,12 +1,12 @@
 <template>
   <onboard>
-    <div class="body">
+    <div class="content">
       <h3>
         30% of your income should go to
         <br>
         the things you want but don't need.
       </h3>
-      <div>
+      <div class="cta">
         <button @click="next">Next</button>
       </div>
     </div>
