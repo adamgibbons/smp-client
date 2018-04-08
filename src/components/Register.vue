@@ -1,33 +1,31 @@
 <template>
-  <div class="flow gradient body">
+  <form class="flow gradient body" @submit="signUp">
 
     <p>First, let's start with your name and email so we can send you your results. Don't worry,no spam.</p>
 
     <div class="text-input-wrapper">
-      <input class="text-input" type="text" v-model="registrationForm.name">
+      <input class="text-input" type="text" v-model="registrationForm.name" required>
       <label>first name</label>
     </div>
 
     <div class="text-input-wrapper">
-      <input class="text-input" type="text" v-model="registrationForm.email">
+      <input class="text-input" type="email" v-model="registrationForm.email" required>
       <label>email</label>
     </div>
 
     <div class="text-input-wrapper">
-      <input class="text-input" type="text" v-model="registrationForm.password">
+      <input class="text-input" type="password" v-model="registrationForm.password" required>
       <label>password</label>
     </div>
 
     <nav>
-      <div>
-        <button @click="signUp">Sign up</button>
-      </div>
+      <button type="submit">Sign up</button>
       <p>
         <router-link to="/login">I already have an account</router-link>
       </p>
 
     </nav>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -45,7 +43,10 @@ export default {
   },
   methods: {
     ...mapActions(['register']),
-    signUp () {
+    signUp (e) {
+      e.preventDefault()
+
+      console.log(e)
       this.register(this.registrationForm)
     }
   }
@@ -98,6 +99,7 @@ nav {
 }
 
 button {
+  display: block;
   border-radius: 2em;
   padding: .33em 1em;
   background: transparent;
