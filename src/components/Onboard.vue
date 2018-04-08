@@ -43,7 +43,7 @@ export default {
   }
   .body {
     padding-bottom: 2em;
-    margin: 0 auto;
+    margin: 0;
     text-align: center;
     font-size: 1em;
     line-height: 1.2;
