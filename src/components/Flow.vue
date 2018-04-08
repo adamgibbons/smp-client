@@ -1,10 +1,9 @@
 <template>
   <div class="gradient flow body">
-    <div class="progress-bar"></div>
     <router-view></router-view>
     <nav>
-      <button @click="back">Back</button>
-      <button @click="next">Next</button>
+      <button class="back" @click="back">&lsaquo;</button>
+      <button class="next" @click="next">Next</button>
     </nav>
   </div>
 </template>
@@ -47,30 +46,68 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+<style>
 a {
   color: #42b983;
 }
 nav {
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   position: absolute;
-  bottom: 0;
+  bottom: 3em;
   width: 100%;
   color: white;
 }
+.next {
+  border-radius: 2em;
+  padding: .33em 1em;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1em;
+  /*margin-left: -1em;*/
+}
+.back {
+  border-radius: 1em;
+  background: transparent;
+  border: 2px solid gray;
+  color: gray;
+  position: absolute;
+  left: 1em;
+  padding: 0em .66em;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 2;
+}
+select {
+  font-size: .9em;
+  color: white;
+  display: inline-block;
+}
 .button  {
   border: 1px solid white;
+}
+.control input[type="radio"] {
+  display: none;
+}
+.control label {
+  border: 1px solid #aaa;
+  color: #aaa;
+  border-radius: 2em;
+  padding: 0em .6em;
+  font-size: .7em;
+  display: inline-block;
+}
+.radio.active {
+  background-color: #6F9FF8;
+  border: 1px solid #6F9FF8;
+  color: white;
+}
+.select-wrapper {
+  border-bottom: 1px solid white;
+}
+.progress-bar {
+  height: 4px;
+  background: white;
 }
 </style>

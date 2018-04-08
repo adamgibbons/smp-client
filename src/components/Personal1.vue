@@ -70,31 +70,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .control input[type="radio"] {
-    display: none;
-  }
-  .control label {
-    border: 1px solid #aaa;
-    color: #aaa;
-    border-radius: 2em;
-    padding: 0em .6em;
-    font-size: .7em;
-    display: inline-block;
-  }
-  .radio.active {
-    background-color: #6F9FF8;
-    border: 1px solid #6F9FF8;
-    color: white;
-  }
-  .select-wrapper {
-    border-bottom: 1px solid white;
-  }
-  select {
-    font-size: .9em;
-    color: white;
-    display: inline-block;
-    /*border-bottom: 1px solid white;*/
-  }
-</style>

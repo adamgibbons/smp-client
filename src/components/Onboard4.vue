@@ -20,8 +20,7 @@ export default {
   components: { Onboard },
   methods: {
     next () {
-      // this.$router.push('/onboarding-1')
-      console.log('clicked next')
+      this.$router.push('/register')
     }
   }
 }
