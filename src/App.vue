@@ -2,7 +2,9 @@
   <div class="grid-container">
     <header>
       <div id="hamburger">menu</div>
-      <div id="home">home</div>
+      <div id="home">
+        <router-link to="/">π TheSocialMoneyProject</router-link>
+      </div>
     </header>
     <router-view/>
   </div>
@@ -19,7 +21,7 @@ export default {
     // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
       if (isAuthenticated) {
-        this.$router.push('/start')
+        this.$router.push('/flow/personal-1')
       }
     }
   },
@@ -38,10 +40,10 @@ export default {
         })
         .catch((err) => {
           console.log(err)
-          this.$router.replace('/splash')
+          this.$router.replace('/')
         })
     } else {
-      this.$router.replace('/splash')
+      this.$router.replace('/')
     }
   }
 }
@@ -63,7 +65,6 @@ header div {
   font-weight: 100;
 }
 .gradient {
-  color: white;
   background: linear-gradient(#234c7b, #4d235f);
 }
 .grid-container {
@@ -102,6 +103,11 @@ header div {
   top: 0;
   left: 0;
   padding: .66em 1em;
+}
+#home a {
+  text-decoration: none;
+  color: white;
+  font-size: .8em;
 }
 #hamburger {
   position: absolute;

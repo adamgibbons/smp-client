@@ -2,13 +2,23 @@
   <onboard>
     <div class="content">
       <h3>
-        50% of your income should go
-        <br>
-        to absolute necessities in life.
+        50% of your income should go to absolute necessities in life.
       </h3>
-    </div>
-    <div class="cta">
-      <button @click="next">Next</button>
+      <p>Expenses that allow you to live, i.e. rent/mortgage, groceries, utilities, etc. The minimum required payment on debts also falls into this category.</p>
+      <div class="graphic">
+      </div>
+      <div class="icons">
+        <span>icon</span>
+        <span>icon</span>
+        <span>icon</span>
+        <span>icon</span>
+      </div>
+      <div class="progress">
+        <span class="active">•</span>
+        <span>•</span>
+        <span>•</span>
+        <span>•</span>
+      </div>
     </div>
   </onboard>
 </template>
@@ -17,11 +27,6 @@
 import Onboard from './onboard'
 
 export default {
-  components: { Onboard },
-  methods: {
-    next () {
-      this.$router.push('/onboard-2')
-    }
-  }
+  components: { Onboard }
 }
 </script>
