@@ -116,6 +116,13 @@ select {
   font-size: 1.1em;
   margin: .5em 0;
 }
+.select-wrapper input[type="number"] {
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 1.1em;
+  margin: .5em 0;
+}
 .progress-bar {
   height: 4px;
   background: white;

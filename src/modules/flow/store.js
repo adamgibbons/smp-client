@@ -12,23 +12,38 @@ const state = {
     age: null,
     maritalStatus: null,
     dependents: null,
-    occupation: null
+    occupation: null,
+    employmentStatus: null
   },
   financial: {
-    monthlyIncome: null,
+    monthlyHouseholdIncome: null,
+    dependents: null,
     creditScore: null
   },
   housing: {
-    situation: null,
-    monthlyPayment: null,
+    status: null,
+    propertyType: null,
     zip: null,
-    monthlyPaymentIncludes: null
+    monthlyMortgagePayment: null,
+    monthlyMortgagePaymentIncludes: null,
+    annualPropertyTax: null,
+    loanBalance: null,
+    currentInterestRate: null,
+    termOnCurrentLoan: null,
+    monthlyRent: null,
+    rentIncludesUtilities: null
   }
 }
 
 const getters = {
   personal: state => {
     return state.personal
+  },
+  financial: state => {
+    return state.financial
+  },
+  housing: state => {
+    return state.housing
   }
 }
 
