@@ -21,6 +21,7 @@
           <option>Other</option>
         </select>
       </div>
+      <div class="choose-one">choose one</div>
     </div>
 
     <div class="block">
@@ -46,6 +47,7 @@
           <option>Other</option>
         </select>
       </div>
+      <div class="choose-one">choose one</div>
     </div>
 
     <div class="block">
@@ -63,6 +65,7 @@
           <option>Zoologist</option>
         </select>
       </div>
+      <div class="choose-one">choose one</div>
     </div>
   </div>
 </template>

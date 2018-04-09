@@ -81,7 +81,8 @@ header div {
 }
 .block {
   border-top: 1px solid #aaa;
-  padding: 2em 1.33em;
+  padding: 1.66em 1.33em;
+  font-size: .95em
 }
 .block:nth-of-type(2) {
   border-top: none;
@@ -89,7 +90,7 @@ header div {
 .block .title {
   text-align: left;
   margin-bottom: .33em;
-  font-size: .9em;
+  font-size: .85em;
 }
 .block button {
   border: 1px solid #aaa;

@@ -52,7 +52,9 @@
         >
           <option v-for="age in ages" :key="age">{{age}}</option>
         </select>
+        <br>
       </div>
+      <div class="choose-one">choose one</div>
     </div>
   </div>
 </template>

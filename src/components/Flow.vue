@@ -54,7 +54,7 @@ nav {
   margin: 0 auto;
   text-align: center;
   position: absolute;
-  bottom: 3em;
+  bottom: 1rem;
   width: 100%;
   color: white;
 }
@@ -73,9 +73,10 @@ nav {
   border: 2px solid gray;
   color: gray;
   position: absolute;
-  left: 1em;
+  bottom: 0;
+  left: 1rem;
   padding: 0em .66em;
-  font-size: 1em;
+  font-size: .8em;
   font-weight: 600;
   line-height: 2;
 }
@@ -113,18 +114,22 @@ select {
   color: white;
   background: transparent;
   border: none;
-  font-size: 1.1em;
   margin: .5em 0;
 }
 .select-wrapper input[type="number"] {
   color: white;
   background: transparent;
   border: none;
-  font-size: 1.1em;
   margin: .5em 0;
 }
 .progress-bar {
   height: 4px;
   background: white;
+}
+.choose-one {
+  font-size: .66em;
+  font-weight: 100;
+  margin-top: .33em;
+  color: lightblue;
 }
 </style>
