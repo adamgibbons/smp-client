@@ -128,8 +128,8 @@ select {
   background: white;
 }
 .choose-one, .info {
-  font-size: .66em;
-  font-weight: 100;
+  font-size: .7em;
+  font-weight: 200;
   margin-top: .33em;
   color: white;
 }
