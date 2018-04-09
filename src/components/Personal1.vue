@@ -43,7 +43,7 @@
         Age
       </div>
       <div class="select-wrapper">
-        <select>
+        <select @change="setValueByPath({path: 'personal.age', value: $event.target.value})">
           <option>18</option>
           <option>19</option>
           <option>20</option>
@@ -60,10 +60,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   methods: {
-    ...mapActions(['setValueByPath']),
-    foo (e) {
-      console.log(e.target)
-    }
+    ...mapActions(['setValueByPath'])
   },
   computed: {
     ...mapGetters(['personal'])
