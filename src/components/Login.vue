@@ -17,9 +17,9 @@
 
     <nav>
       <button v-show="!authenticating" type="submit">Sign in</button>
-      <div v-show="authenticating">
-        Signing in...
-      </div>
+      <p v-show="authenticating">
+        Hang on, signing in...
+      </p>
       <p v-show="!authenticating">
         <router-link to="/register">I don't have an account</router-link>
       </p>
