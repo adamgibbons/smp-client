@@ -19,7 +19,10 @@
     </div>
 
     <nav>
-      <button type="submit">Sign up</button>
+      <button v-show="!authenticating" type="submit">Sign up</button>
+      <div v-show="authenticating">
+        Hang on, creating your account...
+      </div>
       <p>
         <router-link to="/login">I already have an account</router-link>
       </p>
@@ -29,7 +32,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -41,12 +44,11 @@ export default {
       }
     }
   },
+  computed: mapGetters(['authenticating']),
   methods: {
     ...mapActions(['register']),
     signUp (e) {
       e.preventDefault()
-
-      console.log(e)
       this.register(this.registrationForm)
     }
   }

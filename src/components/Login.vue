@@ -16,15 +16,17 @@
     </div>
 
     <nav>
-      <button type="submit">Sign in</button>
-      <br>
+      <button v-show="!authenticating" type="submit">Sign in</button>
+      <div v-show="authenticating">
+        Signing in...
+      </div>
     </nav>
 
   </form>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -35,6 +37,7 @@ export default {
       }
     }
   },
+  computed: mapGetters(['authenticating']),
   methods: {
     ...mapActions(['login']),
     handleLogin (e) {
