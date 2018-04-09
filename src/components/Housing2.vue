@@ -11,7 +11,7 @@
       <div class="slidecontainer">
         <input class="slider" type="range" min="0" max="30" step="1" @input="setValueByPath({path: 'housing.currentInterestRate', value: $event.target.value})">
         <label>
-          <span>$</span>
+          <span>%</span>
           {{housing.currentInterestRate}}</label>
 
         <!-- <label class="radio" :class="{active: housing.monthlyPayment === 'married'}" for="one">
