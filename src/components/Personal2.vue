@@ -13,6 +13,7 @@
           @change="setValueByPath({path: 'personal.education', value: $event.target.value})"
           :value="personal.employmentStatus"
         >
+          <option></option>
           <option>No Diploma</option>
           <option>High School</option>
           <option>Bachelor's</option>
@@ -33,6 +34,7 @@
           @change="setValueByPath({path: 'personal.employmentStatus', value: $event.target.value})"
           :value="personal.employmentStatus"
         >
+          <option></option>
           <option>Full-Time</option>
           <option>Part-Time</option>
           <option>Self Employee</option>
@@ -59,6 +61,7 @@
           @change="setValueByPath({path: 'personal.occupation', value: $event.target.value})"
           :value="personal.occupation"
         >
+          <option></option>
           <option>Accountant</option>
           <option>Philosopher</option>
           <option>Web Designer</option>

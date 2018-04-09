@@ -20,6 +20,9 @@
       <div v-show="authenticating">
         Signing in...
       </div>
+      <p v-show="!authenticating">
+        <router-link to="/register">I don't have an account</router-link>
+      </p>
     </nav>
 
   </form>

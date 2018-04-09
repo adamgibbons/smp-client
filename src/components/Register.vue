@@ -23,7 +23,7 @@
       <div v-show="authenticating">
         Hang on, creating your account...
       </div>
-      <p>
+      <p v-show="!authenticating">
         <router-link to="/login">I already have an account</router-link>
       </p>
 
