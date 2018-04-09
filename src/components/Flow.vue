@@ -126,10 +126,10 @@ select {
   height: 4px;
   background: white;
 }
-.choose-one {
+.choose-one, .info {
   font-size: .66em;
   font-weight: 100;
   margin-top: .33em;
-  color: lightblue;
+  color: white;
 }
 </style>

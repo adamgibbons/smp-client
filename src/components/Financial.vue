@@ -70,7 +70,7 @@
       </div>
 
       <p>
-        <a >I don't know</a>
+        <a class="info">I don't know</a>
       </p>
     </div>
   </div>
