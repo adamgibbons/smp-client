@@ -2,7 +2,7 @@
   <div class="gradient flow body">
     <router-view></router-view>
     <nav>
-      <button class="back" @click="back">&lsaquo;</button>
+      <button class="back" @click="back">Back</button>
       <button class="next" @click="next">Next</button>
     </nav>
   </div>
@@ -105,6 +105,16 @@ select {
 }
 .select-wrapper {
   border-bottom: 1px solid white;
+  color: white;
+  background: transparent;
+  display: inline-block;
+}
+.select-wrapper select {
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 1.1em;
+  margin: .5em 0;
 }
 .progress-bar {
   height: 4px;
