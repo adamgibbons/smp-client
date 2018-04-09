@@ -13,11 +13,6 @@
         <label>
           <span>%</span>
           {{housing.currentInterestRate}}</label>
-
-        <!-- <label class="radio" :class="{active: housing.monthlyPayment === 'married'}" for="one">
-          <input id="one" type="radio" name="one" :checked="housing.monthlyPayment === 'one'" @change="setValueByPath({path: 'housing.monthlyPayment', value: $event.target.value})" value=1>
-          1
-        </label> -->
       </div>
     </div>
   </div>

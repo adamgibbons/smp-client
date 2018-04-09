@@ -120,6 +120,7 @@ select {
   color: white;
   background: transparent;
   border: none;
+  font-size: .9em;
   margin: .5em 0;
 }
 .progress-bar {
