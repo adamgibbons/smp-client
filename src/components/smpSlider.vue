@@ -12,8 +12,8 @@
         @input="setValueByPath({ path, value: $event.target.value})"
       />
       <label>
-        <span>%</span>
-        {{amount}}</label>
+        <span>{{unitSymbol}}</span>
+        {{value}}</label>
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  props: ['title', 'path', 'min', 'max', 'step', 'amount'],
+  props: ['title', 'path', 'min', 'max', 'step', 'value', 'unitSymbol'],
   methods: {
     ...mapActions(['setValueByPath'])
   }

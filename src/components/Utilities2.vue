@@ -10,7 +10,8 @@
       :min="0"
       :max="10000"
       :step="100"
-      :amount="utilities.electricity.amount"
+      :value="utilities.electricity.amount"
+      unitSymbol="$"
     >
     </smp-slider>
 
@@ -20,7 +21,8 @@
       :min="0"
       :max="10000"
       :step="100"
-      :amount="utilities.waterSewer.amount"
+      :value="utilities.waterSewer.amount"
+      unitSymbol="$"
     >
     </smp-slider>
 
@@ -30,7 +32,8 @@
       :min="0"
       :max="10000"
       :step="100"
-      :amount="utilities.trash.amount"
+      :value="utilities.trash.amount"
+      unitSymbol="$"
     >
     </smp-slider>
 
@@ -40,7 +43,8 @@
       :min="0"
       :max="10000"
       :step="100"
-      :amount="utilities.naturalGas.amount"
+      :value="utilities.naturalGas.amount"
+      unitSymbol="$"
     >
     </smp-slider>
 
@@ -50,7 +54,8 @@
       :min="0"
       :max="10000"
       :step="100"
-      :amount="utilities.hoa.amount"
+      :value="utilities.hoa.amount"
+      unitSymbol="$"
     >
     </smp-slider>
 
@@ -60,7 +65,8 @@
       :min="0"
       :max="10000"
       :step="100"
-      :amount="utilities.other.amount"
+      :value="utilities.other.amount"
+      unitSymbol="$"
     >
     </smp-slider>
   </div>

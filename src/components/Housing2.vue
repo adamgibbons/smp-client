@@ -3,23 +3,23 @@
     <div class="title">
       Housing info (cont...)
     </div>
-    <div class="block">
-      <div class="title">
-        What is your current interest rate?
-      </div>
+    <smp-slider
+      title="What is your current interest rate?"
+      path="housing.currentInterestRate"
+      :min="0"
+      :max="20"
+      :step="1"
+      :value="housing.currentInterestRate"
+      unitSymbol="%"
+    >
+    </smp-slider>
 
-      <div class="slidecontainer">
-        <input class="slider" type="range" min="0" max="30" step="1" @input="setValueByPath({path: 'housing.currentInterestRate', value: $event.target.value})">
-        <label>
-          <span>%</span>
-          {{housing.currentInterestRate}}</label>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import smpSlider from './smpSlider'
 
 export default {
   methods: {
@@ -27,66 +27,7 @@ export default {
   },
   computed: {
     ...mapGetters(['housing'])
-  }
+  },
+  components: { smpSlider }
 }
 </script>
-
-<style scoped>
-.slidecontainer {
-    width: 100%; /* Width of the outside container */
-}
-
-.slidecontainer label {
-  float: left;
-  position: relative;
-  top: -2em;
-  left: 1em;
-  font-size: 1.33em;
-  font-weight: 300;
-}
-
-.slidecontainer label span {
-  font-size: .6em;
-  vertical-align: text-bottom;
-}
-
-/* The slider itself */
-.slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 5em; /* Specified height */
-    border: 1px solid lightblue;
-    background: transparent;
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-}
-
-.slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-}
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: white;
-    border-radius: 100%;
-    cursor: pointer; /* Cursor on hover */
-    position: relative;
-    top: 2.6em;
-}
-
-.slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: white;
-    border-radius: 100%;
-    cursor: pointer; /* Cursor on hover */
-    position: relative;
-    top: 2.6em;
-}
-</style>
