@@ -12,57 +12,33 @@
     >
     </smp-select>
 
-    <div class="block">
-      <div class="title">
-        Employment status
-      </div>
-      <div class="select-wrapper">
-        <select
-          @change="setValueByPath({path: 'personal.employmentStatus', value: $event.target.value})"
-          :value="personal.employmentStatus"
-        >
-          <option></option>
-          <option>Full-Time</option>
-          <option>Part-Time</option>
-          <option>Self Employee</option>
-          <option>Internship</option>
-          <option>Active in Military</option>
-          <option>Stay at home parent</option>
-          <option>Commission</option>
-          <option>Retainer</option>
-          <option>Unemployed</option>
-          <option>Pending a Job Offer</option>
-          <option>Retired</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="choose-one">choose one</div>
-    </div>
+    <smp-select
+      title="Employment status"
+      path="personal.employment"
+      :options="employmentOptions"
+      :value="personal.employment"
+    >
+    </smp-select>
 
-    <div class="block">
-      <div class="title">
-        Occupation - TODO
-      </div>
-      <div class="select-wrapper">
-        <select
-          @change="setValueByPath({path: 'personal.occupation', value: $event.target.value})"
-          :value="personal.occupation"
-        >
-          <option></option>
-          <option>Accountant</option>
-          <option>Philosopher</option>
-          <option>Web Designer</option>
-          <option>Zoologist</option>
-        </select>
-      </div>
-      <div class="choose-one">choose one</div>
-    </div>
+    <smp-select
+      title="Occupation"
+      path="personal.occupation"
+      :options="occupationOptions"
+      :value="personal.occupation"
+    >
+    </smp-select>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpSelect from './smpSelect'
+
+function formatOptionsList (options) {
+  return options.map((option) => {
+    return { name: option, value: option }
+  })
+}
 
 export default {
   methods: {
@@ -74,16 +50,34 @@ export default {
   components: { smpSelect },
   data () {
     return {
-      educationOptions: [
+      educationOptions: formatOptionsList([
         'No Diploma',
         'High School',
         'Bachelor\'s',
         'Master\'s',
         'Doctoral Degree',
         'Other'
-      ].map((option) => {
-        return { name: option, value: option }
-      })
+      ]),
+      employmentOptions: formatOptionsList([
+        'Full-Time',
+        'Part-Time',
+        'Self Employee',
+        'Internship',
+        'Active in Military',
+        'Stay at home parent',
+        'Commission',
+        'Retainer',
+        'Unemployed',
+        'Pending a Job Offer',
+        'Retired',
+        'Other'
+      ]),
+      occupationOptions: formatOptionsList([
+        'Accountant',
+        'Philosopher',
+        'Web Designer',
+        'Zoologist'
+      ])
     }
   }
 }
