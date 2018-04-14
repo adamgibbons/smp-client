@@ -32,6 +32,32 @@ const state = {
     termOnCurrentLoan: null,
     monthlyRent: null,
     rentIncludesUtilities: null
+  },
+  utilities: {
+    electricity: {
+      include: false,
+      amount: null
+    },
+    waterSewer: {
+      include: false,
+      amount: null
+    },
+    trash: {
+      include: false,
+      amount: null
+    },
+    naturalGas: {
+      include: false,
+      amount: null
+    },
+    hoa: {
+      include: false,
+      amount: null
+    },
+    other: {
+      include: false,
+      amount: null
+    }
   }
 }
 
@@ -44,6 +70,9 @@ const getters = {
   },
   housing: state => {
     return state.housing
+  },
+  utilities: state => {
+    return state.utilities
   }
 }
 

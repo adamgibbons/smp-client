@@ -20,7 +20,9 @@ export default {
         'financial',
         'housing-1',
         'housing-2',
-        'housing-3'
+        'housing-3',
+        'utilities-1',
+        'utilities-2'
       ],
       position: 0
     }

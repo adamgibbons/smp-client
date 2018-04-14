@@ -1,32 +1,30 @@
 <template>
-  <div class="body">
-    <div class="title">
-      Housing info (cont...)
-    </div>
-    <div class="block">
-      <div class="title">
-        What is your current interest rate?
-      </div>
+  <div class="block">
+    <div class="title">{{title}}</div>
 
-      <div class="slidecontainer">
-        <input class="slider" type="range" min="0" max="30" step="1" @input="setValueByPath({path: 'housing.currentInterestRate', value: $event.target.value})">
-        <label>
-          <span>%</span>
-          {{housing.currentInterestRate}}</label>
-      </div>
+    <div class="slidecontainer">
+      <input
+        class="slider"
+        type="range"
+        :min="min"
+        :max="max"
+        :step="step"
+        @input="setValueByPath({ path, value: $event.target.value})"
+      />
+      <label>
+        <span>%</span>
+        {{amount}}</label>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
+  props: ['title', 'path', 'min', 'max', 'step', 'amount'],
   methods: {
     ...mapActions(['setValueByPath'])
-  },
-  computed: {
-    ...mapGetters(['housing'])
   }
 }
 </script>

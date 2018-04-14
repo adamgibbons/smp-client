@@ -18,6 +18,9 @@ import Housing1 from '@/components/Housing1'
 import Housing2 from '@/components/Housing2'
 import Housing3 from '@/components/Housing3'
 
+import Utilities1 from '@/components/Utilities1'
+import Utilities2 from '@/components/Utilities2'
+
 Vue.use(Router)
 
 export default new Router({
@@ -81,6 +84,14 @@ export default new Router({
         {
           path: 'housing-3',
           component: Housing3
+        },
+        {
+          path: 'utilities-1',
+          component: Utilities1
+        },
+        {
+          path: 'utilities-2',
+          component: Utilities2
         }
       ]
     }
