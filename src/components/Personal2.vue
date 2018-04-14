@@ -4,26 +4,13 @@
       Personal info (cont...)
     </div>
 
-    <div class="block">
-      <div class="title">
-        Highest level of education
-      </div>
-      <div class="select-wrapper">
-        <select
-          @change="setValueByPath({path: 'personal.education', value: $event.target.value})"
-          :value="personal.employmentStatus"
-        >
-          <option></option>
-          <option>No Diploma</option>
-          <option>High School</option>
-          <option>Bachelor's</option>
-          <option>Master's</option>
-          <option>Doctoral Degree</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="choose-one">choose one</div>
-    </div>
+    <smp-select
+      title="Highest level of education"
+      path="personal.education"
+      :options="educationOptions"
+      :value="personal.education"
+    >
+    </smp-select>
 
     <div class="block">
       <div class="title">
@@ -75,6 +62,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import smpSelect from './smpSelect'
 
 export default {
   methods: {
@@ -82,6 +70,21 @@ export default {
   },
   computed: {
     ...mapGetters(['personal'])
+  },
+  components: { smpSelect },
+  data () {
+    return {
+      educationOptions: [
+        'No Diploma',
+        'High School',
+        'Bachelor\'s',
+        'Master\'s',
+        'Doctoral Degree',
+        'Other'
+      ].map((option) => {
+        return { name: option, value: option }
+      })
+    }
   }
 }
 </script>
