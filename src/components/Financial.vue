@@ -3,23 +3,16 @@
     <div class="title">
       Financial info
     </div>
-    <div class="block">
-      <div class="title">
-        Monthly income <span class="smaller">(after taxes - combined)</span>
-      </div>
 
-      <div class="control">
-        <div class="select-wrapper">
-          $
-          <input
-            type="number"
-            min="0"
-            max="1000000"
-            @change="setValueByPath({ path: 'financial.monthlyHouseholdIncome', value: $event.target.value})"
-          />
-        </div>
-      </div>
-    </div>
+    <smp-number
+      title="Monthly income (after taxes - combined)"
+      :min="0"
+      :max="100000"
+      path="financial.monthlyHouseholdIncome"
+      :value="financial.monthlyHouseholdIncome"
+      unitSymbol="$"
+    >
+    </smp-number>
 
     <div class="block">
       <div class="title">
@@ -78,6 +71,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import smpNumber from './smpNumber'
 
 export default {
   methods: {
@@ -85,6 +79,7 @@ export default {
   },
   computed: {
     ...mapGetters(['financial'])
-  }
+  },
+  components: { smpNumber }
 }
 </script>
