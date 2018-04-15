@@ -3,42 +3,41 @@
     <div class="title">
       Housing info (cont...)
     </div>
-    <div class="block">
-      <div class="title">
-        Gender
-      </div>
-      <button @click="setValueByPath({path: 'personalInfo.gender', value: 'male'})">male</button>
-      <button @click="setValueByPath({path: 'personalInfo.gender', value: 'female'})">female</button>
-    </div>
-    <div class="block">
-      <div class="title">
-        Education
-      </div>
-      <button @click="setValueByPath({ path: 'personalInfo.education', value: 'high school'})">high school</button>
-      <button @click="setValueByPath({ path: 'personalInfo.education', value: 'some college'})">some college</button>
-      <button @click="setValueByPath({ path: 'personalInfo.education', value: 'college'})">college</button>
-    </div>
-    <div class="block">
-      <div class="title">
-        Age
-      </div>
-      <select>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-        <option>21</option>
-        <option>22</option>
-      </select>
-    </div>
+
+    <smp-number
+      title="What is your Loan Balance?"
+      path="housing.loanBalance"
+      :min="0"
+      :max="1000000"
+      :value="housing.loanBalance"
+    >
+    </smp-number>
+
+    <smp-slider
+      title="What is your current interest rate?"
+      path="housing.currentInterestRate"
+      :min="0"
+      :max="20"
+      :step="1"
+      :value="housing.currentInterestRate"
+      unitSymbol="%"
+    >
+    </smp-slider>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
+import smpSlider from './smpSlider'
+import smpNumber from './smpNumber'
 
 export default {
   methods: {
     ...mapActions(['setValueByPath'])
-  }
+  },
+  computed: {
+    ...mapGetters(['housing'])
+  },
+  components: { smpSlider, smpNumber }
 }
 </script>
