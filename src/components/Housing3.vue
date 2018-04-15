@@ -23,6 +23,14 @@
       unitSymbol="%"
     >
     </smp-slider>
+
+    <smp-select
+      title="What is the term on your current loan?"
+      path="housing.termOnCurrentLoan"
+      :options="termOptions"
+      :value="housing.termOnCurrentLoan"
+    >
+    </smp-select>
   </div>
 </template>
 
@@ -30,6 +38,9 @@
 import { mapActions, mapGetters } from 'vuex'
 import smpSlider from './smpSlider'
 import smpNumber from './smpNumber'
+import smpSelect from './smpSelect'
+
+import formatOptionsList from '../utils/format-options-list'
 
 export default {
   methods: {
@@ -38,6 +49,19 @@ export default {
   computed: {
     ...mapGetters(['housing'])
   },
-  components: { smpSlider, smpNumber }
+  components: { smpSlider, smpNumber, smpSelect },
+  data () {
+    return {
+      termOptions: formatOptionsList([
+        '30 Yr Fixed',
+        '20 Yr Fixed',
+        '15 Yr Fixed',
+        '10 Yr Fixed',
+        '7/1 ARM',
+        '5/1 ARM',
+        'Other'
+      ])
+    }
+  }
 }
 </script>

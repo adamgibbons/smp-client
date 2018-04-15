@@ -34,11 +34,7 @@
 import { mapActions, mapGetters } from 'vuex'
 import smpSelect from './smpSelect'
 
-function formatOptionsList (options) {
-  return options.map((option) => {
-    return { name: option, value: option }
-  })
-}
+import formatOptionsList from '../utils/format-options-list'
 
 export default {
   methods: {
