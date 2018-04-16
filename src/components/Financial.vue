@@ -5,7 +5,8 @@
     </div>
 
     <smp-number
-      title="Monthly income (after taxes - combined)"
+      title="Monthly income"
+      subtitle="(after taxes - combined)"
       :min="0"
       :max="100000"
       path="financial.monthlyHouseholdIncome"

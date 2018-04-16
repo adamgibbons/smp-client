@@ -1,6 +1,7 @@
 <template>
   <div class="block">
     <div class="title">{{title}}</div>
+    <div v-show="subtitle" class="subtitle">{{subtitle}}</div>
 
     <div class="control">
       <div class="select-wrapper">
@@ -21,7 +22,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  props: ['title', 'path', 'min', 'max', 'value', 'unitSymbol'],
+  props: ['title', 'path', 'min', 'max', 'value', 'unitSymbol', 'subtitle'],
   methods: {
     ...mapActions(['setValueByPath'])
   }

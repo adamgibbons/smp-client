@@ -26,6 +26,9 @@ import Housing4 from '@/components/Housing4'
 import Utilities1 from '@/components/Utilities1'
 import Utilities2 from '@/components/Utilities2'
 
+import Savings1 from '@/components/Savings1'
+import Savings2 from '@/components/Savings2'
+
 Vue.use(Router)
 
 export default new Router({
@@ -105,6 +108,14 @@ export default new Router({
         {
           path: 'utilities-2',
           component: Utilities2
+        },
+        {
+          path: 'savings-1',
+          component: Savings1
+        },
+        {
+          path: 'savings-2',
+          component: Savings2
         }
       ]
     }

@@ -61,6 +61,14 @@ const state = {
       include: false,
       amount: null
     }
+  },
+  savings: {
+    retirementPlusInvestment: null,
+    cashPlusEmergency: null,
+    realEstate: null,
+    averageMonthlySavings: null,
+    averageMonthlyRetirementContribution: null,
+    averageMonthlyDebPayment: null
   }
 }
 
@@ -76,6 +84,9 @@ const getters = {
   },
   utilities: state => {
     return state.utilities
+  },
+  savings: state => {
+    return state.savings
   }
 }
 

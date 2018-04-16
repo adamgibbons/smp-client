@@ -24,7 +24,9 @@ export default {
         'housing-3',
         'housing-4',
         'utilities-1',
-        'utilities-2'
+        'utilities-2',
+        'savings-1',
+        'savings-2'
       ],
       position: 0
     }

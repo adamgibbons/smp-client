@@ -92,6 +92,10 @@ header div {
   margin-bottom: .33em;
   font-size: .85em;
 }
+.block .subtitle {
+  font-size: .7em;
+  margin: -.33em 0 .33em;
+}
 .block button {
   border: 1px solid #aaa;
   color: #aaa;
