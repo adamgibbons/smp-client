@@ -37,3 +37,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  input {
+    display: none;
+  }
+</style>
