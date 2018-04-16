@@ -11,8 +11,11 @@ import Onboard4 from '@/components/Onboard4'
 
 import Flow from '@/components/Flow'
 import Start from '@/components/Start'
+
 import Personal1 from '@/components/Personal1'
 import Personal2 from '@/components/Personal2'
+import Personal3 from '@/components/Personal3'
+
 import Financial from '@/components/Financial'
 import Housing1 from '@/components/Housing1'
 import Housing2 from '@/components/Housing2'
@@ -68,6 +71,10 @@ export default new Router({
         {
           path: 'personal-2',
           component: Personal2
+        },
+        {
+          path: 'personal-3',
+          component: Personal3
         },
         {
           path: 'financial',

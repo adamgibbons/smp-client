@@ -71,7 +71,7 @@ export default {
   },
   data () {
     return {
-      ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(1)
+      ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16)
     }
   }
 }

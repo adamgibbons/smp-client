@@ -17,6 +17,7 @@ export default {
       progress: [
         'personal-1',
         'personal-2',
+        'personal-3',
         'financial',
         'housing-1',
         'housing-2',

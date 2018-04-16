@@ -9,11 +9,14 @@ const state = {
   personal: {
     gender: null,
     education: null,
+    educationSpouse: null,
     age: null,
     maritalStatus: null,
     dependents: null,
+    occupationSpouse: null,
     occupation: null,
-    employmentStatus: null
+    employmentSpouse: null,
+    employment: null
   },
   financial: {
     monthlyHouseholdIncome: null,
