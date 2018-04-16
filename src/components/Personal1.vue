@@ -3,22 +3,14 @@
     <div class="title">
       Personal info
     </div>
-    <div class="block">
-      <div class="title">
-        Gender
-      </div>
 
-      <div class="control">
-        <label class="radio" :class="{active: personal.gender === 'male'}" for="male">
-          <input id="male" type="radio" name="male" :checked="personal.gender === 'male'" @change="setValueByPath({path: 'personal.gender', value: 'male'})" value="male">
-          Male
-        </label>
-        <label class="radio" :class="{active: personal.gender === 'female'}" for="female">
-          <input id="female" type="radio" name="female" :checked="personal.gender === 'female'" @change="setValueByPath({path: 'personal.gender', value: 'female'})" value="female">
-          Female
-        </label>
-      </div>
-    </div>
+    <smp-radios
+      title="Gender"
+      path="personal.gender"
+      :options="genderOptions"
+      :value="personal.gender"
+    >
+    </smp-radios>
 
     <div class="block">
       <div class="title">
@@ -61,6 +53,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import smpRadios from './smpRadios'
 
 export default {
   methods: {
@@ -69,9 +62,11 @@ export default {
   computed: {
     ...mapGetters(['personal'])
   },
+  components: { smpRadios },
   data () {
     return {
-      ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16)
+      ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16),
+      genderOptions: ['male', 'female']
     }
   }
 }
