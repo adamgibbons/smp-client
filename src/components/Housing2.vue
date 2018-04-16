@@ -3,23 +3,40 @@
     <div class="title">
       Housing info (cont...)
     </div>
-    <smp-slider
-      title="What is your current interest rate?"
-      path="housing.currentInterestRate"
+
+    <smp-number
+      title="What is your monthly mortgage payment?"
+      path="housing.monthlyMortgagePayment"
       :min="0"
-      :max="20"
-      :step="1"
-      :value="housing.currentInterestRate"
-      unitSymbol="%"
+      :max="1000000"
+      :value="housing.monthlyMortgagePayment"
     >
-    </smp-slider>
+    </smp-number>
+
+    <smp-checkboxes
+      title="Your monthly mortgage payment includes? (check all that apply)"
+      path="housing.monthlyMortgagePaymentIncludes"
+      :options="options"
+      :value="housing.monthlyMortgagePaymentIncludes"
+    >
+    </smp-checkboxes>
+
+    <smp-number
+      title="What is your Annual Property Tax?"
+      path="housing.annualPropertyTax"
+      :min="0"
+      :max="1000000"
+      :value="housing.annualPropertyTax"
+    >
+    </smp-number>
 
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from './smpSlider'
+import smpNumber from './smpNumber'
+import smpCheckboxes from './smpCheckboxes'
 
 export default {
   methods: {
@@ -28,6 +45,11 @@ export default {
   computed: {
     ...mapGetters(['housing'])
   },
-  components: { smpSlider }
+  components: { smpNumber, smpCheckboxes },
+  data () {
+    return {
+      options: ['Property Tax', 'Home Insurance', 'PMI', 'HOA']
+    }
+  }
 }
 </script>

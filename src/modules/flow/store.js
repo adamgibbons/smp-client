@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { set } from 'lodash'
+import { get, set } from 'lodash'
 
 function getAuthHeader () {
   return `Bearer ${localStorage.getItem('id_token')}`
@@ -28,7 +28,7 @@ const state = {
     propertyType: null,
     zip: null,
     monthlyMortgagePayment: null,
-    monthlyMortgagePaymentIncludes: null,
+    monthlyMortgagePaymentIncludes: [],
     annualPropertyTax: null,
     loanBalance: null,
     currentInterestRate: null,
@@ -80,6 +80,9 @@ const getters = {
 }
 
 const actions = {
+  toggleItemInList ({ commit }, data) {
+    commit('toggleItemInList', data)
+  },
   setValueByPath ({ commit }, data) {
     commit('setValueByPath', data)
   },
@@ -97,6 +100,15 @@ const actions = {
 }
 
 const mutations = {
+  toggleItemInList (state, { path, value }) {
+    console.log(path, value)
+    const index = get(state, path).findIndex(item => item === value)
+    if (index === -1) {
+      get(state, path).push(value)
+      return
+    }
+    get(state, path).splice(index, 1)
+  },
   setValueByPath (state, { path, value }) {
     state = set(state, path, value)
   },
