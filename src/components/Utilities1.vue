@@ -6,8 +6,8 @@
     <div class="block">
       <div class="title">
         Select all your utilities expenses
-        <span>(Check all that apply to you)</span>
       </div>
+      <div class="subtitle">(Check all that apply to you)</div>
       <div class="control">
         <label class="radio" :class="{active: utilities.electricity.include === true}" for="electricity">
           <input

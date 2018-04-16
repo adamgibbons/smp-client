@@ -14,7 +14,8 @@
     </smp-number>
 
     <smp-checkboxes
-      title="Your monthly mortgage payment includes? (check all that apply)"
+      title="Your monthly mortgage payment includes?"
+      subtitle="(Check all that apply)"
       path="housing.monthlyMortgagePaymentIncludes"
       :options="options"
       :value="housing.monthlyMortgagePaymentIncludes"
