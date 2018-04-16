@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <div class="title">
-      Housing info (cont...)
+      Utilities
     </div>
     <div class="block">
       <div class="title">
@@ -81,4 +81,7 @@ export default {
 </script>
 
 <style scoped>
+  input {
+    display: none;
+  }
 </style>

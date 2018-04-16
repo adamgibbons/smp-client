@@ -22,6 +22,7 @@ export default {
         'housing-1',
         'housing-2',
         'housing-3',
+        'housing-4',
         'utilities-1',
         'utilities-2'
       ],

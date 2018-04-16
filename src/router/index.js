@@ -17,9 +17,11 @@ import Personal2 from '@/components/Personal2'
 import Personal3 from '@/components/Personal3'
 
 import Financial from '@/components/Financial'
+
 import Housing1 from '@/components/Housing1'
 import Housing2 from '@/components/Housing2'
 import Housing3 from '@/components/Housing3'
+import Housing4 from '@/components/Housing4'
 
 import Utilities1 from '@/components/Utilities1'
 import Utilities2 from '@/components/Utilities2'
@@ -91,6 +93,10 @@ export default new Router({
         {
           path: 'housing-3',
           component: Housing3
+        },
+        {
+          path: 'housing-4',
+          component: Housing4
         },
         {
           path: 'utilities-1',
