@@ -23,8 +23,7 @@ export default {
         'housing-2',
         'housing-3',
         'housing-4',
-        'utilities-1',
-        'utilities-2',
+        'utilities',
         'savings-1',
         'savings-2'
       ],
@@ -40,10 +39,12 @@ export default {
       this.position = this.position - 1
     },
     next () {
+      if (this.$route.name === 'utilities') {
+        console.log('utilities route')
+        return
+      }
       this.update()
-
       if (this.position + 1 === this.progress.length) return
-
       this.$router.push(this.progress[this.position + 1])
       this.position = this.position + 1
     }

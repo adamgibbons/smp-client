@@ -1,12 +1,9 @@
 <template>
   <div class="body">
-    <div class="title">
-      Utilities (cont...)
-    </div>
-
     <smp-slider
       title="Electricity"
       path="utilities.electricity.amount"
+      v-show="$route.params.billName === 'electricity'"
       :min="0"
       :max="10000"
       :step="100"
@@ -18,6 +15,7 @@
     <smp-slider
       title="Water/Sewer"
       path="utilities.waterSewer.amount"
+      v-show="$route.params.billName === 'waterSewer'"
       :min="0"
       :max="10000"
       :step="100"
@@ -29,6 +27,7 @@
     <smp-slider
       title="Trash"
       path="utilities.trash.amount"
+      v-show="$route.params.billName === 'trash'"
       :min="0"
       :max="10000"
       :step="100"
@@ -40,6 +39,7 @@
     <smp-slider
       title="Natural Gas"
       path="utilities.naturalGas.amount"
+      v-show="$route.params.billName === 'naturalGas'"
       :min="0"
       :max="10000"
       :step="100"
@@ -51,6 +51,7 @@
     <smp-slider
       title="HOA"
       path="utilities.hoa.amount"
+      v-show="$route.params.billName === 'hoa'"
       :min="0"
       :max="10000"
       :step="100"
@@ -62,6 +63,7 @@
     <smp-slider
       title="Other"
       path="utilities.other.amount"
+      v-show="$route.params.billName === 'other'"
       :min="0"
       :max="10000"
       :step="100"
@@ -79,8 +81,7 @@ import smpSlider from './smpSlider'
 export default {
   components: { smpSlider },
   computed: {
-    ...mapGetters(['utilities'])
+    ...mapGetters(['utilities', 'selectedUtilities'])
   }
-
 }
 </script>
