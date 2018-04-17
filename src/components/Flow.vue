@@ -102,9 +102,10 @@ select {
   border: 1px solid #aaa;
   color: #aaa;
   border-radius: 2em;
-  padding: 0em .6em;
-  font-size: .7em;
+  padding: .1em .7em;
+  font-size: .8em;
   display: inline-block;
+  margin: 0 .33em .33em 0;
 }
 .radio.active {
   background-color: #6F9FF8;
@@ -123,12 +124,17 @@ select {
   border: none;
   margin: .5em 0;
 }
+.select-wrapper .unit-symbol {
+  font-size: .8em;
+  font-weight: 300;
+}
 .select-wrapper input[type="number"] {
   color: white;
   background: transparent;
   border: none;
-  font-size: .9em;
+  font-size: 1.1em;
   margin: .5em 0;
+  min-width: 5em;
 }
 .progress-bar {
   height: 4px;

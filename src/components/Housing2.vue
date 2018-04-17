@@ -10,6 +10,7 @@
       :min="0"
       :max="1000000"
       :value="housing.monthlyMortgagePayment"
+      unitSymbol="$"
     >
     </smp-number>
 
@@ -28,6 +29,7 @@
       :min="0"
       :max="1000000"
       :value="housing.annualPropertyTax"
+      unitSymbol="$"
     >
     </smp-number>
 

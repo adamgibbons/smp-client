@@ -66,7 +66,7 @@ export default {
   data () {
     return {
       ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16),
-      genderOptions: ['male', 'female']
+      genderOptions: ['Male', 'Female']
     }
   }
 }

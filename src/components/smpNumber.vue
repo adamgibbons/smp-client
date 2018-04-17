@@ -5,7 +5,7 @@
 
     <div class="control">
       <div class="select-wrapper">
-        $
+        <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
         <input
           type="number"
           :min="min"

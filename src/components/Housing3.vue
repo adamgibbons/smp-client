@@ -10,6 +10,7 @@
       :min="0"
       :max="1000000"
       :value="housing.loanBalance"
+      unitSymbol="$"
     >
     </smp-number>
 
