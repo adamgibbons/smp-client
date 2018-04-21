@@ -7,7 +7,9 @@
         :key="index">
         <div class="cell name">{{billName | prettyName}}</div>
         <div class="cell amount">${{amount}}</div>
-        <div class="cell edit">edit</div>
+        <div @click="edit(billName)" class="cell edit">
+          <a>edit</a>
+        </div>
       </div>
     </div>
   </div>
@@ -18,6 +20,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'utilities',
+  methods: {
+    edit (billName) {
+      this.$router.push(`/flow/utilities/bill/${billName}`)
+    }
+  },
   computed: {
     ...mapGetters(['utilities']),
     activatedUtilities () {
@@ -54,6 +61,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     align-content: flex-start;
+    margin-top: 1em;
   }
   .row {
     border: 1px solid white;
