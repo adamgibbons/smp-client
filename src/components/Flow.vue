@@ -39,13 +39,9 @@ export default {
       this.position = this.position - 1
     },
     next () {
-      if (this.$route.name === 'utilities') {
-        console.log('utilities route')
-        return
-      }
       this.update()
       if (this.position + 1 === this.progress.length) return
-      this.$router.push(this.progress[this.position + 1])
+      this.$router.push('/flow/' + this.progress[this.position + 1])
       this.position = this.position + 1
     }
   }
@@ -72,7 +68,6 @@ nav {
   color: white;
   border: 2px solid white;
   font-size: 1em;
-  /*margin-left: -1em;*/
 }
 .back {
   border-radius: 1em;

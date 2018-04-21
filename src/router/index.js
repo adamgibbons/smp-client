@@ -26,6 +26,7 @@ import Housing4 from '@/components/Housing4'
 import Utilities from '@/components/Utilities'
 import Utilities1 from '@/components/Utilities1'
 import Utilities2 from '@/components/Utilities2'
+import UtilitiesReview from '@/components/UtilitiesReview'
 
 import Savings1 from '@/components/Savings1'
 import Savings2 from '@/components/Savings2'
@@ -111,7 +112,11 @@ export default new Router({
               component: Utilities1
             },
             {
-              path: ':billName',
+              path: 'review',
+              component: UtilitiesReview
+            },
+            {
+              path: 'bill/:billName',
               component: Utilities2
             }
           ]
