@@ -107,7 +107,7 @@ const actions = {
       headers: { 'Authorization': getAuthHeader() }
     })
       .then(({ data }) => {
-        console.log(data, commit)
+        console.log(data)
       })
       .catch((err) => {
         console.log(err)
@@ -117,7 +117,6 @@ const actions = {
 
 const mutations = {
   toggleItemInList (state, { path, value }) {
-    console.log(path, value)
     const index = get(state, path).findIndex(item => item === value)
     if (index === -1) {
       get(state, path).push(value)
