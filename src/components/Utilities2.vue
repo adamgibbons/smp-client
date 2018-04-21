@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <div class="remove" @click="remove">&#10006;</div>
+    <div style="color:white;" class="remove" @click="remove">&#x2716;</div>
     <smp-slider
       title="Electricity"
       path="utilities.electricity.amount"
@@ -95,7 +95,7 @@ export default {
       if (this.remainingSelectedUtilities) {
         this.$router.push(`/flow/utilities/bill/${this.selectedUtilities[0]}`)
       } else {
-        this.$router.push('/flow/utilities')
+        this.$router.push('/flow/utilities/review')
       }
     }
   }
@@ -108,8 +108,9 @@ export default {
     right: 1rem;
     margin-top: .66em;
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 900;
     opacity: .8;
+    margin-right: .33em;
   }
 </style>
