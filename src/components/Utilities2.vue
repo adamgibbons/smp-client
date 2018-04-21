@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <div style="color:white;" class="remove" @click="remove">&#x2716;</div>
+    <div class="remove" @click="remove">x</div>
     <smp-slider
       title="Electricity"
       path="utilities.electricity.amount"
