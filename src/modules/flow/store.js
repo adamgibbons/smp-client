@@ -102,6 +102,9 @@ const actions = {
   setValueByPath ({ commit }, data) {
     commit('setValueByPath', data)
   },
+  removeUtility ({ commit }, { billName }) {
+    commit('removeUtility', { billName })
+  },
   update ({ commit }, data) {
     axios.put(`${process.env.API_URL}users/:id/profile`, data, {
       headers: { 'Authorization': getAuthHeader() }
@@ -123,6 +126,12 @@ const mutations = {
       return
     }
     get(state, path).splice(index, 1)
+  },
+  removeUtility (state, { billName }) {
+    state.utilities[billName] = {
+      include: false,
+      amount: null
+    }
   },
   setValueByPath (state, { path, value }) {
     state = set(state, path, value)

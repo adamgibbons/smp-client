@@ -75,6 +75,5 @@ export default {
     flex: 1;
     position: relative;
     left: 10%;
-
   }
 </style>

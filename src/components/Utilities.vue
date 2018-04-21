@@ -3,8 +3,9 @@
     <div class="title">Utilities</div>
     <router-view></router-view>
     <div class="page-nav">
-      <button class="remove" @click="remove">Remove</button>
-      <button class="done" @click="done">{{buttonCopy}}</button>
+      <div>
+        <button class="done" @click="done">{{buttonCopy}}</button>
+      </div>
     </div>
   </div>
 </template>
@@ -39,14 +40,6 @@ export default {
       } else {
         this.$router.push(`/flow/utilities`)
       }
-    },
-    remove () {
-      // update the item
-      if (this.remainingSelectedUtilities) {
-        this.$router.push(`/flow/utilities`)
-      } else {
-        this.$router.push('/flow/savings-1')
-      }
     }
   }
 }
@@ -56,9 +49,6 @@ export default {
   .page-nav {
     text-align: center;
     margin-top: 2em;
-  }
-  .remove {
-    display: none;
   }
   button.done {
     border-radius: 2em;

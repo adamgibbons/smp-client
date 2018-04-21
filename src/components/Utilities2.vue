@@ -1,5 +1,6 @@
 <template>
   <div class="body">
+    <div class="remove" @click="remove">&#10006;</div>
     <smp-slider
       title="Electricity"
       path="utilities.electricity.amount"
@@ -75,13 +76,40 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import smpSlider from './smpSlider'
 
 export default {
   components: { smpSlider },
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities'])
+    ...mapGetters(['utilities', 'selectedUtilities', 'remainingSelectedUtilities']),
+    remainingSelectedUtilities () {
+      return this.selectedUtilities.length > 0
+    }
+  },
+  methods: {
+    ...mapActions(['removeUtility']),
+    remove () {
+      this.removeUtility(this.$route.params)
+
+      if (this.remainingSelectedUtilities) {
+        this.$router.push(`/flow/utilities/bill/${this.selectedUtilities[0]}`)
+      } else {
+        this.$router.push('/flow/utilities')
+      }
+    }
   }
 }
 </script>
+
+<style scoped>
+  .remove {
+    position: absolute;
+    right: 1rem;
+    margin-top: .66em;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 900;
+    opacity: .8;
+  }
+</style>
