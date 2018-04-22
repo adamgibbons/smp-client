@@ -60,9 +60,8 @@
       </label>
     </div>
     <div class="page-nav" v-show="$route.path.indexOf('splash') === -1">
-      <div>
-        <button class="done" @click="done">Done</button>
-      </div>
+      <router-link class="back" :to="{ name: 'UtilitiesSplash' }">Back</router-link>
+      <button class="done" @click="done">Done</button>
     </div>
   </div>
 </template>
@@ -110,5 +109,11 @@ export default {
     border: 2px solid white;
     font-size: 1em;
     margin: auto;
+  }
+  .back {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    text-decoration: none;
   }
 </style>

@@ -13,9 +13,7 @@
       </div>
     </div>
     <div class="page-nav" v-show="$route.path.indexOf('splash') === -1">
-      <div>
-        <button class="addMore" @click="addMore">+ add more</button>
-      </div>
+      <button class="addMore" @click="addMore">+ add more</button>
     </div>
   </div>
 </template>
@@ -69,20 +67,21 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     align-content: flex-start;
-    margin: 1em 0 2em;
+    margin: 1em 0 1em;
   }
   .row {
     border: 1px solid white;
     border-left: none;
     border-right: none;
     display: flex;
-    padding: 1em 0;
+    padding: .9em 0;
     flex-flow: row nowrap;
   }
   .cell {
     flex: 1;
     position: relative;
     left: 10%;
+    font-size: .9em;
   }
   .page-nav {
     text-align: center;
@@ -94,6 +93,6 @@ export default {
     color: white;
     border: 2px solid white;
     font-size: 1em;
-    margin: auto;
+    margin: 0 auto;
   }
 </style>

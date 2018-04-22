@@ -108,7 +108,9 @@
     >
     </smp-slider>
     <div class="page-nav">
-      <div><button class="done" @click="done">Done</button></div>
+      <router-link class="back-btn" :to="{ name: 'UtilitiesAdd' }">Back</router-link>
+      <br>
+      <button class="done" @click="done">Done</button>
     </div>
   </div>
 </template>
@@ -145,6 +147,20 @@ export default {
 <style scoped>
   .page-nav {
     text-align: center;
+    margin: 1em 0;
+  }
+  a.back-btn {
+    text-decoration: none;
+    border-radius: 1em;
+    background: transparent;
+    border: 2px solid gray;
+    color: gray;
+    left: 1em;
+    padding: 0em .66em;
+    font-size: .8em;
+    font-weight: 600;
+    line-height: 2;
+    position: absolute;
     margin-top: 2em;
   }
   button.done {
@@ -154,7 +170,6 @@ export default {
     color: white;
     border: 2px solid white;
     font-size: 1em;
-    margin: auto;
   }
   .remove {
     position: absolute;
@@ -171,7 +186,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: #2F4161;
     overflow-y: scroll;
   }
 </style>
