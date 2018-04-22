@@ -69,6 +69,36 @@ const state = {
     averageMonthlySavings: null,
     averageMonthlyRetirementContribution: null,
     averageMonthlyDebPayment: null
+  },
+  insurance: {
+    multiPolicy: {
+      include: false,
+      amount: null
+    },
+    health: {
+      include: false,
+      amount: null
+    },
+    car: {
+      include: false,
+      amount: null
+    },
+    homeowners: {
+      include: false,
+      amount: null
+    },
+    life: {
+      include: false,
+      amount: null
+    },
+    disability: {
+      include: false,
+      amount: null
+    },
+    other: {
+      include: false,
+      amount: null
+    }
   }
 }
 
@@ -76,6 +106,11 @@ const getters = {
   selectedUtilities: state => {
     return Object.keys(pickBy(state.utilities, (utility) => {
       return utility.include && !utility.amount
+    }))
+  },
+  selectedInsurance: state => {
+    return Object.keys(pickBy(state.insurance, (policy) => {
+      return policy.include && !policy.amount
     }))
   },
   personal: state => {
@@ -92,6 +127,9 @@ const getters = {
   },
   savings: state => {
     return state.savings
+  },
+  insurance: state => {
+    return state.insurance
   }
 }
 
@@ -104,6 +142,9 @@ const actions = {
   },
   removeUtility ({ commit }, { billName }) {
     commit('removeUtility', { billName })
+  },
+  removeInsurance ({ commit }, { policyName }) {
+    commit('removeInsurance', { policyName })
   },
   update ({ commit }, data) {
     axios.put(`${process.env.API_URL}users/:id/profile`, data, {
@@ -133,11 +174,17 @@ const mutations = {
       amount: null
     }
   },
+  removeInsurance (state, { policyName }) {
+    state.insurance[policyName] = {
+      include: false,
+      amount: null
+    }
+  },
   setValueByPath (state, { path, value }) {
     state = set(state, path, value)
   },
   update (state, { path, value }) {
-
+    console.log('update')
   }
 }
 

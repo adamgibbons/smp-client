@@ -24,6 +24,7 @@ export default {
         'housing-3',
         'housing-4',
         'utilities/splash',
+        'insurance/splash',
         'savings-1',
         'savings-2'
       ],
@@ -37,7 +38,10 @@ export default {
       return [
         'UtilitiesSplash',
         'UtilitiesEdit',
-        'UtilitiesAdd'
+        'UtilitiesAdd',
+        'InsuranceSplash',
+        'InsuranceEdit',
+        'InsuranceAdd'
       ].indexOf(this.$route.name) !== -1
     }
   },

@@ -24,10 +24,12 @@ import Housing3 from '@/components/Housing3'
 import Housing4 from '@/components/Housing4'
 
 import Utilities from '@/components/Utilities'
-// import UtilitiesAdd from '@/components/Utilities/UtilitiesAdd'
-// import UtilitiesEdit from '@/components/Utilities/UtilitiesEdit'
 import UtilitiesReview from '@/components/Utilities/UtilitiesReview'
 import UtilitiesSplash from '@/components/Utilities/UtilitiesSplash'
+
+import Insurance from '@/components/Insurance'
+import InsuranceReview from '@/components/Insurance/InsuranceReview'
+import InsuranceSplash from '@/components/Insurance/InsuranceSplash'
 
 import Savings1 from '@/components/Savings1'
 import Savings2 from '@/components/Savings2'
@@ -117,6 +119,22 @@ export default new Router({
               name: 'UtilitiesReview',
               path: 'review',
               component: UtilitiesReview
+            }
+          ]
+        },
+        {
+          path: 'insurance',
+          component: Insurance,
+          children: [
+            {
+              name: 'InsuranceSplash',
+              path: 'splash',
+              component: InsuranceSplash
+            },
+            {
+              name: 'InsuranceReview',
+              path: 'review',
+              component: InsuranceReview
             }
           ]
         },

@@ -63,12 +63,10 @@ export default {
   methods: {
     ...mapActions(['setValueByPath']),
     addUtilities () {
-      // this.$router.push({ name: 'UtilitiesAdd' })
       this.addingUtilities = true
-      // UtilitiesAdd
     },
     skip () {
-      this.$router.push('/flow/savings-1')
+      this.$router.push({ name: 'InsuranceSplash' })
     },
     closeAddModal () {
       this.addingUtilities = false
