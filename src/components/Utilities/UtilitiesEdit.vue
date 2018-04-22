@@ -117,7 +117,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from './smpSlider'
+import smpSlider from '../smpSlider'
 
 export default {
   components: { smpSlider },
