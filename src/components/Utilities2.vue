@@ -72,7 +72,7 @@
       unitSymbol="$"
     >
     </smp-slider>
-    <div>
+    <div class="page-nav">
       <div><button class="done" @click="done">Done</button></div>
     </div>
   </div>
@@ -107,9 +107,18 @@ export default {
 </script>
 
 <style scoped>
-  .done {
-    font-size: 2em;
+  .page-nav {
+    text-align: center;
+    margin-top: 2em;
+  }
+  button.done {
+    border-radius: 2em;
+    padding: .33em 1em;
+    background: transparent;
     color: white;
+    border: 2px solid white;
+    font-size: 1em;
+    margin: auto;
   }
   .remove {
     position: absolute;

@@ -69,7 +69,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     align-content: flex-start;
-    margin-top: 1em;
+    margin: 1em 0 2em;
   }
   .row {
     border: 1px solid white;
@@ -86,7 +86,6 @@ export default {
   }
   .page-nav {
     text-align: center;
-    margin-top: 2em;
   }
   button.addMore {
     border-radius: 2em;
