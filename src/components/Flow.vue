@@ -1,7 +1,7 @@
 <template>
   <div class="gradient flow body">
     <router-view></router-view>
-    <nav>
+    <nav v-show="!blacklisted">
       <button class="back" @click="back">Back</button>
       <button class="next" @click="next">Next</button>
     </nav>
@@ -28,6 +28,11 @@ export default {
         'savings-2'
       ],
       position: 0
+    }
+  },
+  computed: {
+    blacklisted () {
+      return this.$route.path.indexOf('/utilities/edit') !== -1
     }
   },
   methods: {
