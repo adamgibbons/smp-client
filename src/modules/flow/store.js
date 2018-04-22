@@ -99,6 +99,48 @@ const state = {
       include: false,
       amount: null
     }
+  },
+  livingExpenses: {
+    gymMembership: {
+      include: false,
+      amount: null
+    },
+    fuel: {
+      include: false,
+      amount: null
+    },
+    publicTransportation: {
+      include: false,
+      amount: null
+    },
+    healthcare: {
+      include: false,
+      amount: null
+    },
+    phoneInternetCable: {
+      include: false,
+      amount: null
+    },
+    diningOut: {
+      include: false,
+      amount: null
+    },
+    shopping: {
+      include: false,
+      amount: null
+    },
+    entertainment: {
+      include: false,
+      amount: null
+    },
+    childcare: {
+      include: false,
+      amount: null
+    },
+    other: {
+      include: false,
+      amount: null
+    }
   }
 }
 
@@ -111,6 +153,11 @@ const getters = {
   selectedInsurance: state => {
     return Object.keys(pickBy(state.insurance, (policy) => {
       return policy.include && !policy.amount
+    }))
+  },
+  selectedLivingExpenses: state => {
+    return Object.keys(pickBy(state.livingExpenses, (expense) => {
+      return expense.include && !expense.amount
     }))
   },
   personal: state => {
@@ -130,6 +177,9 @@ const getters = {
   },
   insurance: state => {
     return state.insurance
+  },
+  livingExpenses: state => {
+    return state.livingExpenses
   }
 }
 
@@ -145,6 +195,9 @@ const actions = {
   },
   removeInsurance ({ commit }, { policyName }) {
     commit('removeInsurance', { policyName })
+  },
+  removeLivingExpense ({ commit }, { name }) {
+    commit('removeLivingExpense', { name })
   },
   update ({ commit }, data) {
     axios.put(`${process.env.API_URL}users/:id/profile`, data, {
@@ -176,6 +229,12 @@ const mutations = {
   },
   removeInsurance (state, { policyName }) {
     state.insurance[policyName] = {
+      include: false,
+      amount: null
+    }
+  },
+  removeLivingExpense (state, { name }) {
+    state.livingExpenses[name] = {
       include: false,
       amount: null
     }

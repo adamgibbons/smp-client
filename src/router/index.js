@@ -31,6 +31,10 @@ import Insurance from '@/components/Insurance'
 import InsuranceReview from '@/components/Insurance/InsuranceReview'
 import InsuranceSplash from '@/components/Insurance/InsuranceSplash'
 
+import LivingExpenses from '@/components/LivingExpenses'
+import LivingExpensesReview from '@/components/LivingExpenses/LivingExpensesReview'
+import LivingExpensesSplash from '@/components/LivingExpenses/LivingExpensesSplash'
+
 import Savings1 from '@/components/Savings1'
 import Savings2 from '@/components/Savings2'
 
@@ -135,6 +139,22 @@ export default new Router({
               name: 'InsuranceReview',
               path: 'review',
               component: InsuranceReview
+            }
+          ]
+        },
+        {
+          path: 'living-expenses',
+          component: LivingExpenses,
+          children: [
+            {
+              name: 'LivingExpensesSplash',
+              path: 'splash',
+              component: LivingExpensesSplash
+            },
+            {
+              name: 'LivingExpensesReview',
+              path: 'review',
+              component: LivingExpensesReview
             }
           ]
         },

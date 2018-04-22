@@ -41,7 +41,10 @@ export default {
         'UtilitiesAdd',
         'InsuranceSplash',
         'InsuranceEdit',
-        'InsuranceAdd'
+        'InsuranceAdd',
+        'LivingExpensesSplash',
+        'LivingExpensesEdit',
+        'LivingExpensesAdd'
       ].indexOf(this.$route.name) !== -1
     }
   },
