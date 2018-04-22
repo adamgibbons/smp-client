@@ -25,9 +25,9 @@ import Housing4 from '@/components/Housing4'
 
 import Utilities from '@/components/Utilities'
 import Utilities1 from '@/components/Utilities1'
-import Utilities2 from '@/components/Utilities2'
+import UtilitiesEdit from '@/components/UtilitiesEdit'
 import UtilitiesReview from '@/components/UtilitiesReview'
-import UtilitiesSpash from '@/components/UtilitiesSpash'
+import UtilitiesSplash from '@/components/UtilitiesSplash'
 
 import Savings1 from '@/components/Savings1'
 import Savings2 from '@/components/Savings2'
@@ -109,8 +109,9 @@ export default new Router({
           component: Utilities,
           children: [
             {
+              name: 'UtilitiesSplash',
               path: 'splash',
-              component: UtilitiesSpash
+              component: UtilitiesSplash
             },
             {
               path: 'add',
@@ -122,8 +123,9 @@ export default new Router({
               component: UtilitiesReview
             },
             {
+              name: 'UtilitiesEdit',
               path: 'edit',
-              component: Utilities2
+              component: UtilitiesEdit
             }
           ]
         },

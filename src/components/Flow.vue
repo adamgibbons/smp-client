@@ -32,13 +32,17 @@ export default {
   },
   computed: {
     blacklisted () {
-      return this.$route.path.indexOf('/utilities/edit') !== -1
+      if (!this.$route.name) return false
+
+      return [
+        'UtilitiesSplash',
+        'UtilitiesEdit'
+      ].indexOf(this.$route.name) !== -1
     }
   },
   methods: {
     ...mapActions(['update']),
     back () {
-      console.log(this.$router)
       if (this.position === 0) return
 
       this.$router.go(-1)
