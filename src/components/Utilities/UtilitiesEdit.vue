@@ -1,5 +1,5 @@
 <template>
-  <div class="body modal">
+  <div class="block">
     <div
       v-show="utilityIsSelected('electricity')"
       class="remove"
@@ -108,8 +108,6 @@
     >
     </smp-slider>
     <div class="page-nav">
-      <router-link class="back-btn" :to="{ name: 'UtilitiesAdd' }">Back</router-link>
-      <br>
       <button class="done" @click="done">Done</button>
     </div>
   </div>
@@ -149,20 +147,6 @@ export default {
     text-align: center;
     margin: 1em 0;
   }
-  a.back-btn {
-    text-decoration: none;
-    border-radius: 1em;
-    background: transparent;
-    border: 2px solid gray;
-    color: gray;
-    left: 1em;
-    padding: 0em .66em;
-    font-size: .8em;
-    font-weight: 600;
-    line-height: 2;
-    position: absolute;
-    margin-top: 2em;
-  }
   button.done {
     border-radius: 2em;
     padding: .33em 1em;
@@ -179,14 +163,5 @@ export default {
     color: lightgray;
     opacity: .8;
     margin-right: .33em;
-  }
-  .modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #2F4161;
-    overflow-y: scroll;
   }
 </style>

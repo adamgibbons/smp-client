@@ -2,7 +2,7 @@
   <div class="wrapper">
     <p>Add your utilities like electricity, gas, etc. here</p>
     <div>
-      <button @click="add">+ add</button>
+      <button @click="addUtilities">+ add</button>
     </div>
     <div>
       <button @click="skip">
@@ -12,14 +12,38 @@
     <div>
       <router-link class="back-btn" to="/flow/housing-4">Back</router-link>
     </div>
+
+    <div class="modal" v-show="addingUtilities">
+      <div class="modal-close" @click="closeAddModal">x</div>
+      <UtilitiesAdd v-on:editUtilities="handleEditUtilities" />
+    </div>
+
+    <div class="modal" v-show="editingUtilities">
+      <div class="modal-close" @click="closeEditModal">x</div>
+      <UtilitiesEdit />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import UtilitiesAdd from '@/components/Utilities/UtilitiesAdd'
+import UtilitiesEdit from '@/components/Utilities/UtilitiesEdit'
 
 export default {
   name: 'UtilitiesSplash',
+  mounted () {
+    if (this.$route.params.addingUtilities) {
+      this.addingUtilities = true
+    }
+  },
+  data () {
+    return {
+      addingUtilities: false,
+      editingUtilities: false
+    }
+  },
+  components: { UtilitiesAdd, UtilitiesEdit },
   computed: {
     ...mapGetters(['utilities', 'selectedUtilities']),
     remainingSelectedUtilities () {
@@ -35,11 +59,23 @@ export default {
   },
   methods: {
     ...mapActions(['setValueByPath']),
-    add () {
-      this.$router.push({ name: 'UtilitiesAdd' })
+    addUtilities () {
+      // this.$router.push({ name: 'UtilitiesAdd' })
+      this.addingUtilities = true
+      // UtilitiesAdd
     },
     skip () {
       this.$router.push('/flow/savings-1')
+    },
+    closeAddModal () {
+      this.addingUtilities = false
+    },
+    closeEditModal () {
+      this.editingUtilities = false
+    },
+    handleEditUtilities (e) {
+      this.addingUtilities = false
+      this.editingUtilities = true
     }
   }
 }

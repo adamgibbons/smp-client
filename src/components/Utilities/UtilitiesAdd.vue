@@ -4,6 +4,7 @@
       Select all your utilities expenses
     </div>
     <div class="subtitle">(Check all that apply to you)</div>
+    <br>
     <div class="control">
       <label class="radio" :class="{active: utilities.electricity.include === true}" for="electricity">
         <input
@@ -59,9 +60,8 @@
         Other
       </label>
     </div>
-    <div class="page-nav" v-show="$route.path.indexOf('splash') === -1">
-      <router-link class="back" :to="{ name: 'UtilitiesSplash' }">Back</router-link>
-      <button class="done" @click="done">Done</button>
+    <div class="page-nav">
+      <button class="done" @click="next">Next</button>
     </div>
   </div>
 </template>
@@ -76,12 +76,8 @@ export default {
   },
   methods: {
     ...mapActions(['setValueByPath']),
-    done () {
-      if (this.selectedUtilities.length > 0) {
-        this.$router.push({ name: 'UtilitiesEdit' })
-        return
-      }
-      this.$router.push('/flow/utilities/review')
+    next () {
+      this.$emit('editUtilities')
     }
   }
 }

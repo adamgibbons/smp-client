@@ -25,10 +25,14 @@ export default {
   name: 'UtilitiesReview',
   methods: {
     edit (billName) {
-      this.$router.push('/flow/utilities/edit')
+      // this.$router.push('/flow/utilities/edit')
+      console.log('edit')
     },
     addMore () {
-      this.$router.push('/flow/utilities/add')
+      this.$router.push({
+        name: 'UtilitiesSplash',
+        params: { addingUtilities: true }
+      })
     }
   },
   computed: {

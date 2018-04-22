@@ -120,4 +120,29 @@ header div {
   right: 0;
   padding: .66em 1em;
 }
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90%;
+  right: 0;
+  bottom: 0;
+  margin: 2em 1em;
+  background-color: #2F4161;
+  overflow-y: scroll;
+  overflow-x: none;
+  text-align: left;
+  box-shadow: 0px -10px 100px black;
+}
+.modal .block {
+  border-top: none;
+}
+
+.modal-close {
+  position: absolute;
+  right: .5rem;
+  color: white;
+  font-size: 2em;
+}
 </style>
