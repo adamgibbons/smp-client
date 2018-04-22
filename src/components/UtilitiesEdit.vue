@@ -1,6 +1,11 @@
 <template>
   <div class="body modal">
-    <div class="remove" @click="remove">x</div>
+    <div
+      v-show="utilityIsSelected('electricity')"
+      class="remove"
+      @click="remove('electricity')">
+      remove
+    </div>
     <smp-slider
       title="Electricity"
       path="utilities.electricity.amount"
@@ -13,6 +18,12 @@
     >
     </smp-slider>
 
+    <div
+      v-show="utilityIsSelected('waterSewer')"
+      class="remove"
+      @click="remove('waterSewer')">
+      remove
+    </div>
     <smp-slider
       title="Water/Sewer"
       path="utilities.waterSewer.amount"
@@ -25,6 +36,12 @@
     >
     </smp-slider>
 
+    <div
+      v-show="utilityIsSelected('trash')"
+      class="remove"
+      @click="remove('trash')">
+      remove
+    </div>
     <smp-slider
       title="Trash"
       path="utilities.trash.amount"
@@ -37,6 +54,12 @@
     >
     </smp-slider>
 
+    <div
+      v-show="utilityIsSelected('naturalGas')"
+      class="remove"
+      @click="remove('naturalGas')">
+      remove
+    </div>
     <smp-slider
       title="Natural Gas"
       path="utilities.naturalGas.amount"
@@ -49,6 +72,12 @@
     >
     </smp-slider>
 
+    <div
+      v-show="utilityIsSelected('hoa')"
+      class="remove"
+      @click="remove('hoa')">
+      remove
+    </div>
     <smp-slider
       title="HOA"
       path="utilities.hoa.amount"
@@ -61,6 +90,12 @@
     >
     </smp-slider>
 
+    <div
+      v-show="utilityIsSelected('other')"
+      class="remove"
+      @click="remove('other')">
+      remove
+    </div>
     <smp-slider
       title="Other"
       path="utilities.other.amount"
@@ -99,9 +134,9 @@ export default {
     done () {
       this.$router.push('/flow/utilities/review')
     },
-    remove () {
-      this.removeUtility(this.$route.params)
-      this.$router.push('/flow/utilities/review')
+    remove (billName) {
+      this.removeUtility({ billName })
+      this.$router.push({ name: 'UtilitiesReview' })
     }
   }
 }
@@ -123,11 +158,10 @@ export default {
   }
   .remove {
     position: absolute;
+    font-size: .8em;
     right: 1rem;
-    margin-top: .66em;
-    color: white;
-    font-size: 2em;
-    font-weight: 900;
+    margin-top: 1.5rem;
+    color: lightgray;
     opacity: .8;
     margin-right: .33em;
   }
