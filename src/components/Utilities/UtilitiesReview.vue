@@ -7,12 +7,12 @@
         :key="index">
         <div class="cell name">{{billName | prettyName}}</div>
         <div class="cell amount">${{amount}}</div>
-        <div @click="edit(billName)" class="cell edit">
+        <div class="cell edit" @click="edit">
           <a>edit</a>
         </div>
       </div>
     </div>
-    <div class="page-nav" v-show="$route.path.indexOf('splash') === -1">
+    <div class="page-nav">
       <button class="addMore" @click="addMore">+ add more</button>
     </div>
   </div>
@@ -24,9 +24,11 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'UtilitiesReview',
   methods: {
-    edit (billName) {
-      // this.$router.push('/flow/utilities/edit')
-      console.log('edit')
+    edit () {
+      this.$router.push({
+        name: 'UtilitiesSplash',
+        params: { editingUtilities: true }
+      })
     },
     addMore () {
       this.$router.push({

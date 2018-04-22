@@ -36,6 +36,9 @@ export default {
     if (this.$route.params.addingUtilities) {
       this.addingUtilities = true
     }
+    if (this.$route.params.editingUtilities) {
+      this.editingUtilities = true
+    }
   },
   data () {
     return {

@@ -136,7 +136,6 @@ export default {
     },
     remove (billName) {
       this.removeUtility({ billName })
-      this.$router.push({ name: 'UtilitiesReview' })
     }
   }
 }
