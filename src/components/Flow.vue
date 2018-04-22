@@ -23,7 +23,7 @@ export default {
         'housing-2',
         'housing-3',
         'housing-4',
-        'utilities',
+        'utilities/splash',
         'savings-1',
         'savings-2'
       ],
@@ -33,9 +33,10 @@ export default {
   methods: {
     ...mapActions(['update']),
     back () {
+      console.log(this.$router)
       if (this.position === 0) return
 
-      this.$router.replace(this.progress[this.position - 1])
+      this.$router.go(-1)
       this.position = this.position - 1
     },
     next () {

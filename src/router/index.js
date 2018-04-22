@@ -27,6 +27,7 @@ import Utilities from '@/components/Utilities'
 import Utilities1 from '@/components/Utilities1'
 import Utilities2 from '@/components/Utilities2'
 import UtilitiesReview from '@/components/UtilitiesReview'
+import UtilitiesSpash from '@/components/UtilitiesSpash'
 
 import Savings1 from '@/components/Savings1'
 import Savings2 from '@/components/Savings2'
@@ -108,7 +109,12 @@ export default new Router({
           component: Utilities,
           children: [
             {
-              path: '',
+              path: 'splash',
+              component: UtilitiesSpash
+            },
+            {
+              path: 'add',
+              name: 'add-utilities',
               component: Utilities1
             },
             {
@@ -116,7 +122,7 @@ export default new Router({
               component: UtilitiesReview
             },
             {
-              path: 'bill/:billName',
+              path: 'edit',
               component: Utilities2
             }
           ]

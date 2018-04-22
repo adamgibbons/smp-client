@@ -59,6 +59,11 @@
         Other
       </label>
     </div>
+    <div class="page-nav" v-show="$route.path.indexOf('splash') === -1">
+      <div>
+        <button class="done" @click="done">Done</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -66,12 +71,19 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'utilities',
+  name: 'add-utilities',
   computed: {
     ...mapGetters(['utilities', 'selectedUtilities'])
   },
   methods: {
-    ...mapActions(['setValueByPath'])
+    ...mapActions(['setValueByPath']),
+    done () {
+      if (this.selectedUtilities.length > 0) {
+        this.$router.push('/flow/utilities/edit')
+        return
+      }
+      this.$router.push('/flow/utilities/review')
+    }
   }
 }
 </script>
@@ -85,5 +97,18 @@ export default {
     border: 1px solid white;
     padding: 1em;
     background: transparent;
+  }
+  .page-nav {
+    text-align: center;
+    margin-top: 2em;
+  }
+  button.done {
+    border-radius: 2em;
+    padding: .33em 1em;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 1em;
+    margin: auto;
   }
 </style>

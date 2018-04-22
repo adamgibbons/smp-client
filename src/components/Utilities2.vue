@@ -1,10 +1,10 @@
 <template>
-  <div class="body">
+  <div class="body modal">
     <div class="remove" @click="remove">x</div>
     <smp-slider
       title="Electricity"
       path="utilities.electricity.amount"
-      v-show="$route.params.billName === 'electricity'"
+      v-show="utilityIsSelected('electricity')"
       :min="0"
       :max="10000"
       :step="100"
@@ -16,7 +16,7 @@
     <smp-slider
       title="Water/Sewer"
       path="utilities.waterSewer.amount"
-      v-show="$route.params.billName === 'waterSewer'"
+      v-show="utilityIsSelected('waterSewer')"
       :min="0"
       :max="10000"
       :step="100"
@@ -28,7 +28,7 @@
     <smp-slider
       title="Trash"
       path="utilities.trash.amount"
-      v-show="$route.params.billName === 'trash'"
+      v-show="utilityIsSelected('trash')"
       :min="0"
       :max="10000"
       :step="100"
@@ -40,7 +40,7 @@
     <smp-slider
       title="Natural Gas"
       path="utilities.naturalGas.amount"
-      v-show="$route.params.billName === 'naturalGas'"
+      v-show="utilityIsSelected('naturalGas')"
       :min="0"
       :max="10000"
       :step="100"
@@ -52,7 +52,7 @@
     <smp-slider
       title="HOA"
       path="utilities.hoa.amount"
-      v-show="$route.params.billName === 'hoa'"
+      v-show="utilityIsSelected('hoa')"
       :min="0"
       :max="10000"
       :step="100"
@@ -64,7 +64,7 @@
     <smp-slider
       title="Other"
       path="utilities.other.amount"
-      v-show="$route.params.billName === 'other'"
+      v-show="utilityIsSelected('other')"
       :min="0"
       :max="10000"
       :step="100"
@@ -72,6 +72,9 @@
       unitSymbol="$"
     >
     </smp-slider>
+    <div>
+      <div><button class="done" @click="done">Done</button></div>
+    </div>
   </div>
 </template>
 
@@ -89,20 +92,25 @@ export default {
   },
   methods: {
     ...mapActions(['removeUtility']),
+    utilityIsSelected (utility) {
+      return this.utilities[utility].include === true
+    },
+    done () {
+      this.$router.push('/flow/utilities/review')
+    },
     remove () {
       this.removeUtility(this.$route.params)
-
-      if (this.remainingSelectedUtilities) {
-        this.$router.push(`/flow/utilities/bill/${this.selectedUtilities[0]}`)
-      } else {
-        this.$router.push('/flow/utilities/review')
-      }
+      this.$router.push('/flow/utilities/review')
     }
   }
 }
 </script>
 
 <style scoped>
+  .done {
+    font-size: 2em;
+    color: white;
+  }
   .remove {
     position: absolute;
     right: 1rem;
@@ -112,5 +120,14 @@ export default {
     font-weight: 900;
     opacity: .8;
     margin-right: .33em;
+  }
+  .modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    overflow-y: scroll;
   }
 </style>

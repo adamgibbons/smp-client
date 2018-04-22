@@ -12,6 +12,11 @@
         </div>
       </div>
     </div>
+    <div class="page-nav" v-show="$route.path.indexOf('splash') === -1">
+      <div>
+        <button class="addMore" @click="addMore">+ add more</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,7 +27,10 @@ export default {
   name: 'utilities',
   methods: {
     edit (billName) {
-      this.$router.push(`/flow/utilities/bill/${billName}`)
+      this.$router.push('/flow/utilities/edit')
+    },
+    addMore () {
+      this.$router.push('/flow/utilities/add')
     }
   },
   computed: {
@@ -75,5 +83,18 @@ export default {
     flex: 1;
     position: relative;
     left: 10%;
+  }
+  .page-nav {
+    text-align: center;
+    margin-top: 2em;
+  }
+  button.addMore {
+    border-radius: 2em;
+    padding: .33em 1em;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 1em;
+    margin: auto;
   }
 </style>
