@@ -24,7 +24,7 @@ import Housing3 from '@/components/Housing3'
 import Housing4 from '@/components/Housing4'
 
 import Utilities from '@/components/Utilities'
-import Utilities1 from '@/components/Utilities1'
+import UtilitiesAdd from '@/components/UtilitiesAdd'
 import UtilitiesEdit from '@/components/UtilitiesEdit'
 import UtilitiesReview from '@/components/UtilitiesReview'
 import UtilitiesSplash from '@/components/UtilitiesSplash'
@@ -115,10 +115,11 @@ export default new Router({
             },
             {
               path: 'add',
-              name: 'add-utilities',
-              component: Utilities1
+              name: 'UtilitiesAdd',
+              component: UtilitiesAdd
             },
             {
+              name: 'UtilitiesReview',
               path: 'review',
               component: UtilitiesReview
             },

@@ -36,7 +36,8 @@ export default {
 
       return [
         'UtilitiesSplash',
-        'UtilitiesEdit'
+        'UtilitiesEdit',
+        'UtilitiesAdd'
       ].indexOf(this.$route.name) !== -1
     }
   },
@@ -51,8 +52,14 @@ export default {
     next () {
       this.update()
       if (this.position + 1 === this.progress.length) return
-      this.$router.push('/flow/' + this.progress[this.position + 1])
-      this.position = this.position + 1
+
+      if (this.$route.name === 'UtilitiesReview') {
+        this.$router.push('/flow/savings-1')
+        this.position = this.progress.indexOf('savings-1')
+      } else {
+        this.$router.push('/flow/' + this.progress[this.position + 1])
+        this.position += 1
+      }
     }
   }
 }

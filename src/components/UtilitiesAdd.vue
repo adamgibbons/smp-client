@@ -71,7 +71,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'add-utilities',
+  name: 'UtilitiesAdd',
   computed: {
     ...mapGetters(['utilities', 'selectedUtilities'])
   },
@@ -79,7 +79,7 @@ export default {
     ...mapActions(['setValueByPath']),
     done () {
       if (this.selectedUtilities.length > 0) {
-        this.$router.push('/flow/utilities/edit')
+        this.$router.push({ name: 'UtilitiesEdit' })
         return
       }
       this.$router.push('/flow/utilities/review')

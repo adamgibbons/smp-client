@@ -24,7 +24,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'utilities',
+  name: 'UtilitiesReview',
   methods: {
     edit (billName) {
       this.$router.push('/flow/utilities/edit')
