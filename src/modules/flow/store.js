@@ -141,6 +141,44 @@ const state = {
       include: false,
       amount: null
     }
+  },
+  consumerDebt: {
+    creditCard: {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
+    },
+    paydayLoan: {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
+    },
+    loansFromFamily: {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
+    },
+    personalLoan: {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
+    },
+    homeEquityLine: {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
+    },
+    other: {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
+    }
   }
 }
 
@@ -180,6 +218,9 @@ const getters = {
   },
   livingExpenses: state => {
     return state.livingExpenses
+  },
+  consumerDebt: state => {
+    return state.consumerDebt
   }
 }
 
@@ -237,6 +278,14 @@ const mutations = {
     state.livingExpenses[name] = {
       include: false,
       amount: null
+    }
+  },
+  removeConsumerDebt (state, { name }) {
+    state.consumerDebt[name] = {
+      include: false,
+      minMonthlyPayment: null,
+      averageLoanBalance: null,
+      interestRate: null
     }
   },
   setValueByPath (state, { path, value }) {
