@@ -56,6 +56,7 @@ import { mapActions, mapGetters } from 'vuex'
 import smpRadios from './smpRadios'
 
 export default {
+  name: 'Personal1',
   methods: {
     ...mapActions(['setValueByPath'])
   },

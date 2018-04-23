@@ -14,7 +14,7 @@
       </button>
     </div>
     <div>
-      <router-link class="back-btn" :to="{ name: 'UtilitiesSplash' }">Back</router-link>
+      <router-link class="back-btn" :to="{ name: 'ConsumerDebtSplash' }">Back</router-link>
     </div>
 
     <div class="modal" v-show="addingInsurance">
@@ -57,12 +57,10 @@ export default {
   methods: {
     ...mapActions(['setValueByPath']),
     addInsurance () {
-      // this.$router.push({ name: 'InsuranceAdd' })
       this.addingInsurance = true
-      // InsuranceAdd
     },
     skip () {
-      this.$router.push('/flow/savings-1')
+      this.$router.push({ name: 'ConsumerDebtSplash' })
     },
     closeAddModal () {
       this.addingInsurance = false

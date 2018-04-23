@@ -83,38 +83,47 @@ export default new Router({
       component: Flow,
       children: [
         {
+          name: 'Personal1',
           path: 'personal-1',
           component: Personal1
         },
         {
+          name: 'Personal2',
           path: 'personal-2',
           component: Personal2
         },
         {
+          name: 'Personal3',
           path: 'personal-3',
           component: Personal3
         },
         {
+          name: 'Financial',
           path: 'financial',
           component: Financial
         },
         {
+          name: 'Housing1',
           path: 'housing-1',
           component: Housing1
         },
         {
+          name: 'Housing2',
           path: 'housing-2',
           component: Housing2
         },
         {
+          name: 'Housing3',
           path: 'housing-3',
           component: Housing3
         },
         {
+          name: 'Housing4',
           path: 'housing-4',
           component: Housing4
         },
         {
+          name: 'Utilities',
           path: 'utilities',
           component: Utilities,
           children: [
@@ -131,6 +140,7 @@ export default new Router({
           ]
         },
         {
+          name: 'insurance',
           path: 'insurance',
           component: Insurance,
           children: [
@@ -147,6 +157,7 @@ export default new Router({
           ]
         },
         {
+          name: 'LivingExpenses',
           path: 'living-expenses',
           component: LivingExpenses,
           children: [
@@ -163,6 +174,7 @@ export default new Router({
           ]
         },
         {
+          name: 'ConsumerDebt',
           path: 'consumer-debt',
           component: ConsumerDebt,
           children: [
@@ -179,10 +191,12 @@ export default new Router({
           ]
         },
         {
+          name: 'Savings1',
           path: 'savings-1',
           component: Savings1
         },
         {
+          name: 'Savings2',
           path: 'savings-2',
           component: Savings2
         }

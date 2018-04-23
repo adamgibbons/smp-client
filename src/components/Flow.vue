@@ -15,20 +15,21 @@ export default {
   data () {
     return {
       progress: [
-        'personal-1',
-        'personal-2',
-        'personal-3',
-        'financial',
-        'housing-1',
-        'housing-2',
-        'housing-3',
-        'housing-4',
-        'utilities/splash',
-        'insurance/splash',
-        'savings-1',
-        'savings-2'
-      ],
-      position: 0
+        'Personal1',
+        'Personal2',
+        'Personal3',
+        'Financial',
+        'Housing1',
+        'Housing2',
+        'Housing3',
+        'Housing4',
+        'UtilitiesSplash',
+        'InsuranceSplash',
+        'ConsumerDebtSplash',
+        'LivingExpensesSplash',
+        'Savings1',
+        'Savings2'
+      ]
     }
   },
   computed: {
@@ -59,16 +60,12 @@ export default {
       this.position = this.position - 1
     },
     next () {
-      this.update()
-      if (this.position + 1 === this.progress.length) return
+      // this.update()
+      const position = this.progress.indexOf(this.$route.name)
 
-      if (this.$route.name === 'UtilitiesReview') {
-        this.$router.push('/flow/savings-1')
-        this.position = this.progress.indexOf('savings-1')
-      } else {
-        this.$router.push('/flow/' + this.progress[this.position + 1])
-        this.position += 1
-      }
+      if (position + 1 === this.progress.length) return
+
+      this.$router.push({ name: this.progress[position + 1] })
     }
   }
 }
