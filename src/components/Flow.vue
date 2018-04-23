@@ -83,6 +83,26 @@ export default {
     },
     next () {
       // this.update()
+      if (this.$route.name === 'UtilitiesReview') {
+        this.$router.push({ name: 'InsuranceSplash' })
+        return
+      }
+
+      if (this.$route.name === 'InsuranceReview') {
+        this.$router.push({ name: 'ConsumerDebtSplash' })
+        return
+      }
+
+      if (this.$route.name === 'ConsumerDebtReview') {
+        this.$router.push({ name: 'LivingExpensesSplash' })
+        return
+      }
+
+      if (this.$route.name === 'LivingExpensesReview') {
+        this.$router.push({ name: 'Savings1' })
+        return
+      }
+
       if (this.position + 1 === this.progress.length) return
 
       this.$router.push({ name: this.progress[this.position + 1] })

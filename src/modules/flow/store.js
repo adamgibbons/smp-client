@@ -147,37 +147,37 @@ const state = {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: 1
+      interestRate: null
     },
     paydayLoan: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: 1
+      interestRate: null
     },
     loansFromFamily: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: 1
+      interestRate: null
     },
     personalLoan: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: 1
+      interestRate: null
     },
     homeEquityLine: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: 1
+      interestRate: null
     },
     other: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: 1
+      interestRate: null
     }
   }
 }
