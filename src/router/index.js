@@ -36,7 +36,7 @@ import LivingExpensesReview from '@/components/LivingExpenses/LivingExpensesRevi
 import LivingExpensesSplash from '@/components/LivingExpenses/LivingExpensesSplash'
 
 import ConsumerDebt from '@/components/ConsumerDebt'
-// import ConsumerDebtReview from '@/components/ConsumerDebt/ConsumerDebtReview'
+import ConsumerDebtReview from '@/components/ConsumerDebt/ConsumerDebtReview'
 import ConsumerDebtSplash from '@/components/ConsumerDebt/ConsumerDebtSplash'
 
 import Savings1 from '@/components/Savings1'
@@ -170,12 +170,12 @@ export default new Router({
               name: 'ConsumerDebtSplash',
               path: 'splash',
               component: ConsumerDebtSplash
+            },
+            {
+              name: 'ConsumerDebtReview',
+              path: 'review',
+              component: ConsumerDebtReview
             }
-          //   {
-          //     name: 'ConsumerDebtReview',
-          //     path: 'review',
-          //     component: ConsumerDebtReview
-          //   }
           ]
         },
         {

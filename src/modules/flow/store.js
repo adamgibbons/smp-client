@@ -147,37 +147,37 @@ const state = {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: null
+      interestRate: 1
     },
     paydayLoan: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: null
+      interestRate: 1
     },
     loansFromFamily: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: null
+      interestRate: 1
     },
     personalLoan: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: null
+      interestRate: 1
     },
     homeEquityLine: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: null
+      interestRate: 1
     },
     other: {
       include: false,
       minMonthlyPayment: null,
       averageLoanBalance: null,
-      interestRate: null
+      interestRate: 1
     }
   }
 }
@@ -196,6 +196,11 @@ const getters = {
   selectedLivingExpenses: state => {
     return Object.keys(pickBy(state.livingExpenses, (expense) => {
       return expense.include && !expense.amount
+    }))
+  },
+  selectedConsumerDebt: state => {
+    return Object.keys(pickBy(state.consumerDebt, ({ include, minMonthlyPayment, averageLoanBalance, interestRate }) => {
+      return include === true
     }))
   },
   personal: state => {

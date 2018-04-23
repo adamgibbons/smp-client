@@ -14,12 +14,12 @@
       <p>TODO back router btn</p>
     </div>
 
-    <div class="modal" v-show="addingConsumerDebt">
+    <div class="modal" v-if="addingConsumerDebt">
       <div class="modal-close" @click="closeAddModal">x</div>
       <ConsumerDebtAdd v-on:editConsumerDebt="handleEditConsumerDebt" />
     </div>
 
-    <div class="modal" v-show="editingConsumerDebt">
+    <div class="modal" v-if="editingConsumerDebt">
       <div class="modal-close" @click="closeEditModal">x</div>
       <ConsumerDebtEdit />
     </div>

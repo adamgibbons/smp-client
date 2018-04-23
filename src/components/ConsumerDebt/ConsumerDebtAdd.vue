@@ -70,7 +70,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'LivingExpensesAdd',
+  name: 'ConsumerDebtAdd',
   computed: {
     ...mapGetters(['consumerDebt'])
   },
