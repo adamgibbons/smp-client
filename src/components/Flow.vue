@@ -49,6 +49,9 @@ export default {
         'ConsumerDebtSplash',
         'ConsumerDebtAdd'
       ].indexOf(this.$route.name) !== -1
+    },
+    position () {
+      return this.progress.indexOf(this.$route.name)
     }
   },
   methods: {
@@ -56,16 +59,13 @@ export default {
     back () {
       if (this.position === 0) return
 
-      this.$router.go(-1)
-      this.position = this.position - 1
+      this.$router.replace({ name: this.progress[this.position - 1] })
     },
     next () {
       // this.update()
-      const position = this.progress.indexOf(this.$route.name)
+      if (this.position + 1 === this.progress.length) return
 
-      if (position + 1 === this.progress.length) return
-
-      this.$router.push({ name: this.progress[position + 1] })
+      this.$router.push({ name: this.progress[this.position + 1] })
     }
   }
 }
