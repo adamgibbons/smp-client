@@ -1,13 +1,28 @@
 <template>
   <div class="block">
-    <pre>{{consumerDebt}}</pre>
-    <!-- <pre>{{consumerDebt[selectedConsumerDebt[0]].interestRate}}</pre> -->
 <!--     <div
       v-show="isSelected('gymMembership')"
       class="remove"
       @click="remove('gymMembership')">
       remove
     </div> -->
+    <smp-number
+      title="Minimum Monthly Payment"
+      :path="getPath('minMonthlyPayment')"
+      :min="0"
+      :max="10000"
+      :value="consumerDebt[type].minMonthlyPayment"
+      unitSymbol="$"
+    />
+
+    <smp-number
+      title="Average Loan Balance"
+      :path="getPath('averageLoanBalance')"
+      :min="0"
+      :max="10000"
+      :value="consumerDebt[type].averageLoanBalance"
+      unitSymbol="$"
+    />
 
     <smp-slider
       title="Interest Rate"
@@ -17,8 +32,8 @@
       :step="100"
       :value="consumerDebt[type].interestRate"
       unitSymbol="$"
-    >
-    </smp-slider>
+    />
+
     <div class="page-nav">
       <button class="done" @click="done">Next</button>
     </div>
@@ -28,10 +43,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpSlider from '../smpSlider'
+import smpNumber from '../smpNumber'
 
 export default {
-  components: { smpSlider },
   name: 'ConsumerDebtEdit',
+  components: { smpSlider, smpNumber },
   data () {
     return {
       position: 0
