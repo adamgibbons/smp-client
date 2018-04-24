@@ -148,13 +148,12 @@ export default {
     font-size: 1em;
   }
   button.remove {
-    position: absolute;
     font-size: .8em;
-    bottom: -6em;
-    margin-top: 2em;
-    left: .66em;
-    color: lightgray;
+    color: white;
     opacity: .8;
     border: none;
+    position: absolute;
+    left: .5em;
+    margin-top: 3.5em;
   }
 </style>

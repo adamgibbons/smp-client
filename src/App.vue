@@ -141,10 +141,12 @@ header div {
 }
 
 .modal-close {
-  position: absolute;
-  right: .5rem;
+  position: fixed;
+  right: 1.8rem;
+  top: 2.5rem;
   color: white;
   font-size: 2em;
+  opacity: .8;
 }
 
 /*BEGIN SLIDER*/
