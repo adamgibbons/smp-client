@@ -193,6 +193,9 @@ const getters = {
 }
 
 const actions = {
+  updateConsumerDebt ({ commit }, { index, form }) {
+    commit('updateConsumerDebt', { index, form })
+  },
   addConsumerDebt ({ commit }, { type, minMonthlyPayment, averageLoanBalance, interestRate }) {
     commit('addConsumerDebt', { type, minMonthlyPayment, averageLoanBalance, interestRate })
   },
@@ -225,6 +228,9 @@ const actions = {
 }
 
 const mutations = {
+  updateConsumerDebt (state, { index, form }) {
+    state.consumerDebt.splice(index, 1, form)
+  },
   addConsumerDebt (state, { type, minMonthlyPayment, averageLoanBalance, interestRate }) {
     state.consumerDebt.push({ type, minMonthlyPayment, averageLoanBalance, interestRate })
   },

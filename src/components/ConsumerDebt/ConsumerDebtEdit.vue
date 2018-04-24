@@ -72,12 +72,16 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { clone } from 'lodash'
 
 export default {
   name: 'ConsumerDebtEdit',
+  props: ['indexOfModalItem'],
+  mounted () {
+    this.form = clone(this.consumerDebt[this.indexOfModalItem])
+  },
   data () {
     return {
-      position: 0,
       debtOptions: [
         {
           value: 'creditCard',
@@ -113,26 +117,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['consumerDebt', 'selectedConsumerDebt']),
-    type () {
-      return this.selectedConsumerDebt[this.position]
-    }
+    ...mapGetters(['consumerDebt', 'selectedConsumerDebt'])
   },
   methods: {
-    ...mapActions(['addConsumerDebt', 'removeConsumerDebt']),
+    ...mapActions(['updateConsumerDebt', 'removeConsumerDebt']),
     done () {
-      this.addConsumerDebt(this.form)
-      if (this.$route.name === 'ConsumerDebtReview') {
-        this.$emit('closeModal')
-        return
-      }
-      this.$router.push({
-        name: 'ConsumerDebtReview',
-        params: {
-          addingConsumerDebt: false,
-          editingConsumerDebt: false
-        }
-      })
+      this.updateConsumerDebt({ form: this.form, index: this.indexOfModalItem })
+      this.$emit('closeModal')
     },
     remove (name) {
       this.removeConsumerDebt({ name })

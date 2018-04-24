@@ -8,7 +8,7 @@
         <!-- <div class="cell name">{{name | prettyName}}</div> -->
         <div class="cell name">{{type}}</div>
         <div class="cell amount">${{averageLoanBalance}}</div>
-        <div class="cell edit" @click="edit">
+        <div class="cell edit" @click="edit(index)">
           <a>edit</a>
         </div>
       </div>
@@ -16,9 +16,13 @@
     <div class="page-nav">
       <button class="addMore" @click="addMore">+ add more</button>
     </div>
+    <div class="modal" v-if="editingConsumerDebt">
+      <div class="modal-close" @click="closeModal">x</div>
+      <ConsumerDebtEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" />
+    </div>
     <div class="modal" v-if="addingConsumerDebt">
-      <!-- <div class="modal-close" @click="closeAddModal">x</div> -->
-      <ConsumerDebtEdit v-on:closeModal="closeModal" />
+      <div class="modal-close" @click="closeModal">x</div>
+      <ConsumerDebtAdd v-on:closeModal="closeModal" />
     </div>
   </div>
 </template>
@@ -26,14 +30,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import ConsumerDebtEdit from '@/components/ConsumerDebt/ConsumerDebtEdit'
+import ConsumerDebtAdd from '@/components/ConsumerDebt/ConsumerDebtAdd'
 
 export default {
   name: 'ConsumerDebtReview',
-  components: { ConsumerDebtEdit },
+  components: { ConsumerDebtAdd, ConsumerDebtEdit },
   data () {
     return {
       addingConsumerDebt: false,
-      editingConsumerDebt: false
+      editingConsumerDebt: false,
+      indexOfModalItem: 0
     }
   },
   mounted () {
@@ -45,11 +51,9 @@ export default {
     }
   },
   methods: {
-    edit () {
-      this.$router.push({
-        name: 'ConsumerDebtSplash',
-        params: { editingConsumerDebt: true }
-      })
+    edit (index) {
+      this.indexOfModalItem = index
+      this.editingConsumerDebt = true
     },
     addMore () {
       this.addingConsumerDebt = true

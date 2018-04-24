@@ -134,6 +134,7 @@ header div {
   overflow-x: none;
   text-align: left;
   box-shadow: 0px -10px 100px black;
+  z-index: 100;
 }
 .modal .block {
   border-top: none;
