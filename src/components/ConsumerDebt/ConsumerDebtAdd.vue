@@ -1,101 +1,135 @@
 <template>
   <div class="block">
-    <div class="title">
-      Select all of your forms of consumer debt
+    <div class="block">
+      <div class="title">
+        Type of Debt
+      </div>
+      <div class="select-wrapper">
+        <select v-model="form.type">
+          <option></option>
+          <option
+            v-for="({name, value}, index) in debtOptions"
+            :key="index"
+            :value="value"
+          >{{name}}</option>
+        </select>
+      </div>
+      <div class="choose-one">choose one</div>
     </div>
-    <div class="subtitle">(Check all that apply to you)</div>
-    <br>
-    <div class="control">
-      <label class="radio" :class="{active: consumerDebt.creditCard.include === true}" for="creditCard">
-        <input
-          id="creditCard"
-          type="checkbox"
-          @change="setValueByPath({ path: 'consumerDebt.creditCard.include', value: $event.target.checked })"
-        >
-        Credit Card
-      </label>
 
-      <label class="radio" :class="{active: consumerDebt.paydayLoan.include === true}" for="paydayLoan">
-        <input
-          id="paydayLoan"
-          type="checkbox"
-          @change="setValueByPath({ path: 'consumerDebt.paydayLoan.include', value: $event.target.checked })"
-        >
-        Payday Loan
-      </label>
+    <div class="block">
+      <div class="title">Minimum Monthly Balance</div>
 
-      <label class="radio" :class="{active: consumerDebt.loansFromFamily.include === true}" for="loansFromFamily">
-        <input
-          id="loansFromFamily"
-          type="checkbox"
-          @change="setValueByPath({ path: 'consumerDebt.loansFromFamily.include', value: $event.target.checked })"
-        >
-        Loans From Family
-      </label>
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="100000"
+            v-model="form.minMonthlyPayment"
+          />
+        </div>
+      </div>
+    </div>
 
-      <label class="radio" :class="{active: consumerDebt.personalLoan.include === true}" for="personalLoan">
-        <input
-          id="personalLoan"
-          type="checkbox"
-          @change="setValueByPath({ path: 'consumerDebt.personalLoan.include', value: $event.target.checked })"
-        >
-        Personal Loan
-      </label>
+    <div class="block">
+      <div class="title">Average Loan Balance</div>
 
-      <label class="radio" :class="{active: consumerDebt.homeEquityLine.include === true}" for="homeEquityLine">
-        <input
-          id="homeEquityLine"
-          type="checkbox"
-          @change="setValueByPath({ path: 'consumerDebt.homeEquityLine.include', value: $event.target.checked })"
-        >
-        Home Equity Line
-      </label>
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="100000"
+            v-model="form.averageLoanBalance"
+          />
+        </div>
+      </div>
+    </div>
 
-      <label class="radio" :class="{active: consumerDebt.other.include === true}" for="other">
+    <div class="block">
+      <div class="title">Interest Rate</div>
+
+      <div class="slidecontainer">
         <input
-          id="other"
-          type="checkbox"
-          @change="setValueByPath({ path: 'consumerDebt.other.include', value: $event.target.checked })"
-        >
-        Other
-      </label>
+          class="slider"
+          type="range"
+          :min="0"
+          :max="25"
+          :step="1"
+          v-model="form.interestRate"
+        />
+        <label><span>%</span>{{form.interestRate}}</label>
+      </div>
     </div>
     <div class="page-nav">
-      <button class="done" @click="next">Next</button>
+      <button class="done" @click="done">Next</button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'ConsumerDebtAdd',
-  computed: {
-    ...mapGetters(['consumerDebt'])
+  data () {
+    return {
+      position: 0,
+      debtOptions: [
+        {
+          value: 'creditCard',
+          name: 'Credit Card'
+        },
+        {
+          value: 'paydayLoan',
+          name: 'Payday Loan'
+        },
+        {
+          value: 'loansFromFamily',
+          name: 'Loans from Family'
+        },
+        {
+          value: 'personalLoan',
+          name: 'Personal Loan'
+        },
+        {
+          value: 'homeEquityLine',
+          name: 'Home Equity Line'
+        },
+        {
+          value: 'other',
+          name: 'Other'
+        }
+      ],
+      form: {
+        type: null,
+        averageLoanBalance: null,
+        interestRate: null,
+        minMonthlyPayment: null
+      }
+    }
   },
   methods: {
-    ...mapActions(['setValueByPath']),
-    next () {
-      this.$emit('editConsumerDebt')
+    ...mapActions(['addConsumerDebt']),
+    done () {
+      this.addConsumerDebt(this.form)
+      if (this.$route.name === 'ConsumerDebtReview') {
+        this.$emit('closeModal')
+        return
+      }
+      this.$router.push({ name: 'ConsumerDebtReview' })
     }
   }
 }
 </script>
 
 <style scoped>
-  input {
-    display: none;
-  }
-  button {
-    color: white;
-    border: 1px solid white;
-    padding: 1em;
-    background: transparent;
-  }
   .page-nav {
     text-align: center;
-    margin-top: 2em;
+    margin: 1em 0;
   }
   button.done {
     border-radius: 2em;
@@ -104,12 +138,14 @@ export default {
     color: white;
     border: 2px solid white;
     font-size: 1em;
-    margin: auto;
   }
-  .back {
+  .remove {
     position: absolute;
-    bottom: 1em;
-    left: 1em;
-    text-decoration: none;
+    font-size: .8em;
+    right: 1rem;
+    margin-top: 1.5rem;
+    color: lightgray;
+    opacity: .8;
+    margin-right: .33em;
   }
 </style>
