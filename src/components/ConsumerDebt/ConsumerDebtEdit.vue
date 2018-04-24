@@ -1,39 +1,69 @@
 <template>
   <div class="block">
-<!--     <div
-      v-show="isSelected('gymMembership')"
-      class="remove"
-      @click="remove('gymMembership')">
-      remove
-    </div> -->
-    <smp-number
-      title="Minimum Monthly Payment"
-      :path="getPath('minMonthlyPayment')"
-      :min="0"
-      :max="10000"
-      :value="consumerDebt[type].minMonthlyPayment"
-      unitSymbol="$"
-    />
+    <div class="block">
+      <div class="title">
+        Type of Debt
+      </div>
+      <div class="select-wrapper">
+        <select v-model="form.type">
+          <option></option>
+          <option
+            v-for="({name, value}, index) in debtOptions"
+            :key="index"
+            :value="value"
+          >{{name}}</option>
+        </select>
+      </div>
+      <div class="choose-one">choose one</div>
+    </div>
 
-    <smp-number
-      title="Average Loan Balance"
-      :path="getPath('averageLoanBalance')"
-      :min="0"
-      :max="10000"
-      :value="consumerDebt[type].averageLoanBalance"
-      unitSymbol="$"
-    />
+    <div class="block">
+      <div class="title">Minimum Monthly Balance</div>
 
-    <smp-slider
-      title="Interest Rate"
-      :path="getPath('interestRate')"
-      :min="0"
-      :max="10000"
-      :step="100"
-      :value="consumerDebt[type].interestRate"
-      unitSymbol="$"
-    />
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="100000"
+            v-model="form.minMonthlyPayment"
+          />
+        </div>
+      </div>
+    </div>
 
+    <div class="block">
+      <div class="title">Average Loan Balance</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="100000"
+            v-model="form.averageLoanBalance"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="title">Interest Rate</div>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          :min="0"
+          :max="25"
+          :step="1"
+          v-model="form.interestRate"
+        />
+        <label><span>%</span>{{form.interestRate}}</label>
+      </div>
+    </div>
     <div class="page-nav">
       <button class="done" @click="done">Next</button>
     </div>
@@ -42,15 +72,44 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from '../smpSlider'
-import smpNumber from '../smpNumber'
 
 export default {
   name: 'ConsumerDebtEdit',
-  components: { smpSlider, smpNumber },
   data () {
     return {
-      position: 0
+      position: 0,
+      debtOptions: [
+        {
+          value: 'creditCard',
+          name: 'Credit Card'
+        },
+        {
+          value: 'paydayLoan',
+          name: 'Payday Loan'
+        },
+        {
+          value: 'loansFromFamily',
+          name: 'Loans from Family'
+        },
+        {
+          value: 'personalLoan',
+          name: 'Personal Loan'
+        },
+        {
+          value: 'homeEquityLine',
+          name: 'Home Equity Line'
+        },
+        {
+          value: 'other',
+          name: 'Other'
+        }
+      ],
+      form: {
+        type: null,
+        averageLoanBalance: null,
+        interestRate: null,
+        minMonthlyPayment: null
+      }
     }
   },
   computed: {
@@ -60,20 +119,27 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['removeConsumerDebt']),
+    ...mapActions(['addConsumerDebt', 'removeConsumerDebt']),
     done () {
-      if (this.selectedConsumerDebt.length - 1 === this.position) {
-        this.$router.push('/flow/consumer-debt/review')
+      this.addConsumerDebt(this.form)
+      if (this.$route.name === 'ConsumerDebtReview') {
+        this.$emit('closeModal')
         return
       }
-
-      this.position += 1
+      this.$router.push({
+        name: 'ConsumerDebtReview',
+        params: {
+          addingConsumerDebt: false,
+          editingConsumerDebt: false
+        }
+      })
     },
     remove (name) {
       this.removeConsumerDebt({ name })
     },
     getPath (name) {
-      return `consumerDebt[${this.selectedConsumerDebt[this.position]}].${name}`
+      return 'foo'
+      // return `consumerDebt[${this.selectedConsumerDebt[this.position]}].${name}`
     }
   }
 }

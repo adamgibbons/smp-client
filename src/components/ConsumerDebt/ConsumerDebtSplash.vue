@@ -15,7 +15,7 @@
 
     <div class="modal" v-if="addingConsumerDebt">
       <div class="modal-close" @click="closeAddModal">x</div>
-      <ConsumerDebtAdd v-on:editConsumerDebt="handleEditConsumerDebt" />
+      <ConsumerDebtEdit v-on:editConsumerDebt="handleEditConsumerDebt" />
     </div>
 
     <div class="modal" v-if="editingConsumerDebt">
@@ -26,8 +26,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ConsumerDebtAdd from '@/components/ConsumerDebt/ConsumerDebtAdd'
+import { mapGetters } from 'vuex'
 import ConsumerDebtEdit from '@/components/ConsumerDebt/ConsumerDebtEdit'
 
 export default {
@@ -39,6 +38,9 @@ export default {
     if (this.$route.params.editingConsumerDebt) {
       this.editingConsumerDebt = true
     }
+    if (this.consumerDebt.length > 0) {
+      this.$router.replace({ name: 'ConsumerDebtReview' })
+    }
   },
   data () {
     return {
@@ -46,14 +48,13 @@ export default {
       editingConsumerDebt: false
     }
   },
-  components: { ConsumerDebtAdd, ConsumerDebtEdit },
+  components: { ConsumerDebtEdit },
   computed: {
     ...mapGetters(['consumerDebt'])
   },
   methods: {
-    ...mapActions(['setValueByPath']),
     add () {
-      this.addingConsumerDebt = true
+      this.editingConsumerDebt = true
     },
     skip () {
       this.$router.push({ name: 'LivingExpensesSplash' })

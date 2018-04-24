@@ -3,10 +3,10 @@
     <div class="rows">
       <div
         class="row"
-        v-for="({ name, averageLoanBalance }, index) in activatedConsumerDebt"
+        v-for="({ type, averageLoanBalance }, index) in consumerDebt"
         :key="index">
         <!-- <div class="cell name">{{name | prettyName}}</div> -->
-        <div class="cell name">{{name}}</div>
+        <div class="cell name">{{type}}</div>
         <div class="cell amount">${{averageLoanBalance}}</div>
         <div class="cell edit" @click="edit">
           <a>edit</a>
@@ -16,14 +16,34 @@
     <div class="page-nav">
       <button class="addMore" @click="addMore">+ add more</button>
     </div>
+    <div class="modal" v-if="addingConsumerDebt">
+      <!-- <div class="modal-close" @click="closeAddModal">x</div> -->
+      <ConsumerDebtEdit v-on:closeModal="closeModal" />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import ConsumerDebtEdit from '@/components/ConsumerDebt/ConsumerDebtEdit'
 
 export default {
   name: 'ConsumerDebtReview',
+  components: { ConsumerDebtEdit },
+  data () {
+    return {
+      addingConsumerDebt: false,
+      editingConsumerDebt: false
+    }
+  },
+  mounted () {
+    if (this.$route.params.addingConsumerDebt) {
+      this.addingConsumerDebt = true
+    }
+    if (this.$route.params.editingConsumerDebt) {
+      this.editingConsumerDebt = true
+    }
+  },
   methods: {
     edit () {
       this.$router.push({
@@ -32,21 +52,15 @@ export default {
       })
     },
     addMore () {
-      this.$router.push({
-        name: 'ConsumerDebtSplash',
-        params: { addingConsumerDebt: true }
-      })
+      this.addingConsumerDebt = true
+    },
+    closeModal () {
+      this.addingConsumerDebt = false
+      this.editingConsumerDebt = false
     }
   },
   computed: {
-    ...mapGetters(['consumerDebt']),
-    activatedConsumerDebt () {
-      return Object.entries(this.consumerDebt)
-        .filter(([_, { include }]) => include === true)
-        .map(([name, { include, minMonthlyPayment, averageLoanBalance, interestRate }]) => {
-          return { name, minMonthlyPayment, averageLoanBalance, interestRate }
-        })
-    }
+    ...mapGetters(['consumerDebt'])
   },
   filters: {
     prettyName: (name) => {

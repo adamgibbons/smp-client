@@ -142,44 +142,7 @@ const state = {
       amount: null
     }
   },
-  consumerDebt: {
-    creditCard: {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    },
-    paydayLoan: {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    },
-    loansFromFamily: {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    },
-    personalLoan: {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    },
-    homeEquityLine: {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    },
-    other: {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    }
-  }
+  consumerDebt: []
 }
 
 const getters = {
@@ -230,6 +193,9 @@ const getters = {
 }
 
 const actions = {
+  addConsumerDebt ({ commit }, { type, minMonthlyPayment, averageLoanBalance, interestRate }) {
+    commit('addConsumerDebt', { type, minMonthlyPayment, averageLoanBalance, interestRate })
+  },
   toggleItemInList ({ commit }, data) {
     commit('toggleItemInList', data)
   },
@@ -259,6 +225,9 @@ const actions = {
 }
 
 const mutations = {
+  addConsumerDebt (state, { type, minMonthlyPayment, averageLoanBalance, interestRate }) {
+    state.consumerDebt.push({ type, minMonthlyPayment, averageLoanBalance, interestRate })
+  },
   toggleItemInList (state, { path, value }) {
     const index = get(state, path).findIndex(item => item === value)
     if (index === -1) {
