@@ -193,6 +193,9 @@ const getters = {
 }
 
 const actions = {
+  removeConsumerDebt ({ commit }, { index }) {
+    commit('removeConsumerDebt', { index })
+  },
   updateConsumerDebt ({ commit }, { index, form }) {
     commit('updateConsumerDebt', { index, form })
   },
@@ -260,13 +263,8 @@ const mutations = {
       amount: null
     }
   },
-  removeConsumerDebt (state, { name }) {
-    state.consumerDebt[name] = {
-      include: false,
-      minMonthlyPayment: null,
-      averageLoanBalance: null,
-      interestRate: null
-    }
+  removeConsumerDebt (state, { index }) {
+    state.consumerDebt.splice(index, 1)
   },
   setValueByPath (state, { path, value }) {
     state = set(state, path, value)

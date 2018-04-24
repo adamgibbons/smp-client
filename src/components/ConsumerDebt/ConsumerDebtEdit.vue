@@ -65,7 +65,8 @@
       </div>
     </div>
     <div class="page-nav">
-      <button class="done" @click="done">Next</button>
+      <button class="done" @click="done">Done</button>
+      <button class="remove" @click="remove">Remove</button>
     </div>
   </div>
 </template>
@@ -117,7 +118,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['consumerDebt', 'selectedConsumerDebt'])
+    ...mapGetters(['consumerDebt'])
   },
   methods: {
     ...mapActions(['updateConsumerDebt', 'removeConsumerDebt']),
@@ -125,12 +126,9 @@ export default {
       this.updateConsumerDebt({ form: this.form, index: this.indexOfModalItem })
       this.$emit('closeModal')
     },
-    remove (name) {
-      this.removeConsumerDebt({ name })
-    },
-    getPath (name) {
-      return 'foo'
-      // return `consumerDebt[${this.selectedConsumerDebt[this.position]}].${name}`
+    remove () {
+      this.removeConsumerDebt({ index: this.indexOfModalItem })
+      this.$emit('closeModal')
     }
   }
 }
@@ -149,13 +147,14 @@ export default {
     border: 2px solid white;
     font-size: 1em;
   }
-  .remove {
+  button.remove {
     position: absolute;
     font-size: .8em;
-    right: 1rem;
-    margin-top: 1.5rem;
+    bottom: -6em;
+    margin-top: 2em;
+    left: .66em;
     color: lightgray;
     opacity: .8;
-    margin-right: .33em;
+    border: none;
   }
 </style>
