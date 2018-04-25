@@ -22,7 +22,9 @@
     </div>
     <div class="modal" v-if="addingConsumerDebt">
       <div class="modal-close" @click="closeModal">x</div>
-      <ConsumerDebtAdd v-on:closeModal="closeModal" />
+      <ConsumerDebtAdd
+        v-on:closeModal="closeModal"
+        v-on:scrollTop="scrollTop" />
     </div>
   </div>
 </template>
@@ -61,6 +63,9 @@ export default {
     closeModal () {
       this.addingConsumerDebt = false
       this.editingConsumerDebt = false
+    },
+    scrollTop () {
+      this.$el.querySelector('.modal').scrollTop = 0
     }
   },
   computed: {

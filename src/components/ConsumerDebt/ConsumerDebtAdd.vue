@@ -65,6 +65,8 @@
       </div>
     </div>
     <div class="page-nav">
+      <button class="done add-more" @click="addMore">+ Add more</button>
+      <br>
       <button class="done" @click="done">Done</button>
     </div>
   </div>
@@ -77,7 +79,6 @@ export default {
   name: 'ConsumerDebtAdd',
   data () {
     return {
-      position: 0,
       debtOptions: [
         {
           value: 'creditCard',
@@ -114,6 +115,16 @@ export default {
   },
   methods: {
     ...mapActions(['addConsumerDebt']),
+    addMore () {
+      this.$emit('scrollTop')
+      this.addConsumerDebt(this.form)
+      this.form = {
+        type: null,
+        averageLoanBalance: null,
+        interestRate: null,
+        minMonthlyPayment: null
+      }
+    },
     done () {
       this.addConsumerDebt(this.form)
       if (this.$route.name === 'ConsumerDebtReview') {
@@ -130,6 +141,9 @@ export default {
   .page-nav {
     text-align: center;
     margin: 1em 0;
+  }
+  .add-more {
+    margin-bottom: 2em;
   }
   button.done {
     border-radius: 2em;
