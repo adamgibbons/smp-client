@@ -14,20 +14,14 @@
     </div>
 
     <div class="modal" v-if="addingConsumerDebt">
-      <div class="modal-close" @click="closeAddModal">x</div>
+      <div class="modal-close" @click="closeModal">x</div>
       <ConsumerDebtAdd />
-    </div>
-
-    <div class="modal" v-if="editingConsumerDebt">
-      <div class="modal-close" @click="closeEditModal">x</div>
-      <ConsumerDebtEdit />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import ConsumerDebtEdit from '@/components/ConsumerDebt/ConsumerDebtEdit'
 import ConsumerDebtAdd from '@/components/ConsumerDebt/ConsumerDebtAdd'
 
 export default {
@@ -36,20 +30,16 @@ export default {
     if (this.$route.params.addingConsumerDebt) {
       this.addingConsumerDebt = true
     }
-    if (this.$route.params.editingConsumerDebt) {
-      this.editingConsumerDebt = true
-    }
     if (this.consumerDebt.length > 0) {
       this.$router.replace({ name: 'ConsumerDebtReview' })
     }
   },
   data () {
     return {
-      addingConsumerDebt: false,
-      editingConsumerDebt: false
+      addingConsumerDebt: false
     }
   },
-  components: { ConsumerDebtEdit, ConsumerDebtAdd },
+  components: { ConsumerDebtAdd },
   computed: {
     ...mapGetters(['consumerDebt'])
   },
@@ -60,15 +50,8 @@ export default {
     skip () {
       this.$router.push({ name: 'LivingExpensesSplash' })
     },
-    closeAddModal () {
+    closeModal () {
       this.addingConsumerDebt = false
-    },
-    closeEditModal () {
-      this.editingConsumerDebt = false
-    },
-    handleEditConsumerDebt (e) {
-      this.addingConsumerDebt = false
-      this.editingConsumerDebt = true
     }
   }
 }

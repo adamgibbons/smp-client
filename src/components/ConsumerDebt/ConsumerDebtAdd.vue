@@ -65,7 +65,7 @@
       </div>
     </div>
     <div class="page-nav">
-      <button class="done" @click="done">Next</button>
+      <button class="done" @click="done">Done</button>
     </div>
   </div>
 </template>
