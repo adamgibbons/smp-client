@@ -113,9 +113,6 @@ export default {
   },
   methods: {
     ...mapActions(['addStudentLoan']),
-    foo () {
-      console.log('TODO handle change')
-    },
     selectSchool (school) {
       this.form.school = school
       this.selected = true

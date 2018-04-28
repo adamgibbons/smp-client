@@ -32,7 +32,7 @@ import InsuranceReview from '@/components/Insurance/InsuranceReview'
 import InsuranceSplash from '@/components/Insurance/InsuranceSplash'
 
 import StudentLoans from '@/components/StudentLoans'
-// import StudentLoansReview from '@/components/StudentLoans/StudentLoansReview'
+import StudentLoansReview from '@/components/StudentLoans/StudentLoansReview'
 import StudentLoansSplash from '@/components/StudentLoans/StudentLoansSplash'
 
 import LivingExpenses from '@/components/LivingExpenses'
@@ -203,12 +203,12 @@ export default new Router({
               name: 'StudentLoansSplash',
               path: 'splash',
               component: StudentLoansSplash
+            },
+            {
+              name: 'StudentLoansReview',
+              path: 'review',
+              component: StudentLoansReview
             }
-            // {
-            //   name: 'StudentLoansReview',
-            //   path: 'review',
-            //   component: StudentLoansReview
-            // }
           ]
         },
         {
