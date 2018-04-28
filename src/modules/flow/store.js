@@ -142,7 +142,8 @@ const state = {
       amount: null
     }
   },
-  consumerDebt: []
+  consumerDebt: [],
+  studentLoans: []
 }
 
 const getters = {
@@ -189,6 +190,9 @@ const getters = {
   },
   consumerDebt: state => {
     return state.consumerDebt
+  },
+  studentLoans: state => {
+    return state.studentLoans
   }
 }
 
@@ -202,6 +206,17 @@ const actions = {
   addConsumerDebt ({ commit }, { type, minMonthlyPayment, averageLoanBalance, interestRate }) {
     commit('addConsumerDebt', { type, minMonthlyPayment, averageLoanBalance, interestRate })
   },
+
+  removeStudentLoan ({ commit }, { index }) {
+    commit('removeStudentLoan', { index })
+  },
+  updateStudentLoan ({ commit }, { index, form }) {
+    commit('updateStudentLoan', { index, form })
+  },
+  addStudentLoan ({ commit }, { type, graduationDate, school, balance }) {
+    commit('addStudentLoan', { type, graduationDate, school, balance })
+  },
+
   toggleItemInList ({ commit }, data) {
     commit('toggleItemInList', data)
   },
@@ -237,6 +252,20 @@ const mutations = {
   addConsumerDebt (state, { type, minMonthlyPayment, averageLoanBalance, interestRate }) {
     state.consumerDebt.push({ type, minMonthlyPayment, averageLoanBalance, interestRate })
   },
+  removeConsumerDebt (state, { index }) {
+    state.consumerDebt.splice(index, 1)
+  },
+
+  updateStudentLoan (state, { index, form }) {
+    state.studentLoans.splice(index, 1, form)
+  },
+  addStudentLoan (state, { type, graduationDate, school, balance }) {
+    state.studentLoans.push({ type, graduationDate, school, balance })
+  },
+  removeStudentLoan (state, { index }) {
+    state.studentLoans.splice(index, 1)
+  },
+
   toggleItemInList (state, { path, value }) {
     const index = get(state, path).findIndex(item => item === value)
     if (index === -1) {
@@ -262,9 +291,6 @@ const mutations = {
       include: false,
       amount: null
     }
-  },
-  removeConsumerDebt (state, { index }) {
-    state.consumerDebt.splice(index, 1)
   },
   setValueByPath (state, { path, value }) {
     state = set(state, path, value)

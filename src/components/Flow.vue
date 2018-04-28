@@ -194,6 +194,33 @@ select {
   margin: .5em 0;
   min-width: 5em;
 }
+.search-wrapper {
+  border-bottom: 1px solid white;
+  color: white;
+  background: transparent;
+  display: inline-block;
+}
+.search-wrapper input[type="text"] {
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 1.1em;
+  margin: .5em 0;
+  min-width: 5em;
+}
+.search-results {
+  width: 113%;
+  /*background-color: #031b36;*/
+  margin-left: -1em;
+  max-width: 300px;
+}
+.search-results .search-result {
+  margin: 2px;
+  background: #031b36;
+  font-size: .8em;
+  padding: .5em;
+  line-height: 1.1;
+}
 .progress-bar {
   height: 4px;
   background: white;

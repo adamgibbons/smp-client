@@ -31,6 +31,10 @@ import Insurance from '@/components/Insurance'
 import InsuranceReview from '@/components/Insurance/InsuranceReview'
 import InsuranceSplash from '@/components/Insurance/InsuranceSplash'
 
+import StudentLoans from '@/components/StudentLoans'
+// import StudentLoansReview from '@/components/StudentLoans/StudentLoansReview'
+import StudentLoansSplash from '@/components/StudentLoans/StudentLoansSplash'
+
 import LivingExpenses from '@/components/LivingExpenses'
 import LivingExpensesReview from '@/components/LivingExpenses/LivingExpensesReview'
 import LivingExpensesSplash from '@/components/LivingExpenses/LivingExpensesSplash'
@@ -188,6 +192,23 @@ export default new Router({
               path: 'review',
               component: ConsumerDebtReview
             }
+          ]
+        },
+        {
+          name: 'StudentLoans',
+          path: 'student-loans',
+          component: StudentLoans,
+          children: [
+            {
+              name: 'StudentLoansSplash',
+              path: 'splash',
+              component: StudentLoansSplash
+            }
+            // {
+            //   name: 'StudentLoansReview',
+            //   path: 'review',
+            //   component: StudentLoansReview
+            // }
           ]
         },
         {
