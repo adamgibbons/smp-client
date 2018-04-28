@@ -16,10 +16,10 @@
     <div class="page-nav">
       <button class="addMore" @click="addMore">+ add more</button>
     </div>
-    <!-- <div class="modal" v-if="editingStudentLoan">
+    <div class="modal" v-if="editingStudentLoan">
       <div class="modal-close" @click="closeModal">x</div>
       <StudentLoansEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" />
-    </div> -->
+    </div>
     <div class="modal" v-if="addingStudentLoan">
       <div class="modal-close" @click="closeModal">x</div>
       <StudentLoansAdd
@@ -31,13 +31,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import StudentLoansEdit from '@/components/StudentLoans/StudentLoansEdit'
+import StudentLoansEdit from '@/components/StudentLoans/StudentLoansEdit'
 import StudentLoansAdd from '@/components/StudentLoans/StudentLoansAdd'
 
 export default {
   name: 'StudentLoansReview',
-  // components: { StudentLoansAdd, StudentLoansEdit },
-  components: { StudentLoansAdd },
+  components: { StudentLoansAdd, StudentLoansEdit },
   data () {
     return {
       addingStudentLoan: false,
