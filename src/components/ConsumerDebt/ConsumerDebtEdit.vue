@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <div>
     <div class="block">
       <div class="title">
         Type of Debt
@@ -154,6 +154,7 @@ export default {
     border: none;
     position: absolute;
     left: .5em;
-    margin-top: 3.5em;
+    margin-top: 1.5em;
+    background: transparent;
   }
 </style>

@@ -145,6 +145,7 @@ export default {
     border: none;
     position: absolute;
     left: .5em;
-    margin-top: 3.5em;
+    margin-top: 1.5em;
+    background: transparent;
   }
 </style>
