@@ -170,7 +170,9 @@ select {
   border: 1px solid #6F9FF8;
   color: white;
 }
-.select-wrapper {
+.select-wrapper,
+.search-wrapper,
+.form-wrapper {
   border-bottom: 1px solid white;
   color: white;
   background: transparent;
@@ -194,11 +196,13 @@ select {
   margin: .5em 0;
   min-width: 5em;
 }
-.search-wrapper {
-  border-bottom: 1px solid white;
+.form-wrapper input[type="month"] {
   color: white;
   background: transparent;
-  display: inline-block;
+  border: none;
+  font-size: 1.1em;
+  margin: .5em 0;
+  min-width: 5em;
 }
 .search-wrapper input[type="text"] {
   color: white;

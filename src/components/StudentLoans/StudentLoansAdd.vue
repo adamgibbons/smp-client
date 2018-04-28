@@ -26,10 +26,12 @@
       <div class="title">Graduation Date</div>
 
       <div class="control">
-        <input
-          type="month"
-          v-model="form.graduationDate"
-        />
+        <div class="form-wrapper">
+          <input
+            type="month"
+            v-model="form.graduationDate"
+          />
+        </div>
       </div>
     </div>
 
