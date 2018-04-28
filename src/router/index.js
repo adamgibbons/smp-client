@@ -35,6 +35,10 @@ import StudentLoans from '@/components/StudentLoans'
 import StudentLoansReview from '@/components/StudentLoans/StudentLoansReview'
 import StudentLoansSplash from '@/components/StudentLoans/StudentLoansSplash'
 
+import Vehicles from '@/components/Vehicles'
+import VehiclesReview from '@/components/Vehicles/VehiclesReview'
+import VehiclesSplash from '@/components/Vehicles/VehiclesSplash'
+
 import LivingExpenses from '@/components/LivingExpenses'
 import LivingExpensesReview from '@/components/LivingExpenses/LivingExpensesReview'
 import LivingExpensesSplash from '@/components/LivingExpenses/LivingExpensesSplash'
@@ -208,6 +212,23 @@ export default new Router({
               name: 'StudentLoansReview',
               path: 'review',
               component: StudentLoansReview
+            }
+          ]
+        },
+        {
+          name: 'Vehicles',
+          path: 'vehicles',
+          component: Vehicles,
+          children: [
+            {
+              name: 'VehiclesSplash',
+              path: 'splash',
+              component: VehiclesSplash
+            },
+            {
+              name: 'VehiclesReview',
+              path: 'review',
+              component: VehiclesReview
             }
           ]
         },

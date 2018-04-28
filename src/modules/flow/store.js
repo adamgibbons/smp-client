@@ -143,7 +143,8 @@ const state = {
     }
   },
   consumerDebt: [],
-  studentLoans: []
+  studentLoans: [],
+  vehicles: []
 }
 
 const getters = {
@@ -193,6 +194,9 @@ const getters = {
   },
   studentLoans: state => {
     return state.studentLoans
+  },
+  vehicles: state => {
+    return state.studentLoans
   }
 }
 
@@ -215,6 +219,40 @@ const actions = {
   },
   addStudentLoan ({ commit }, { type, graduationDate, school, balance }) {
     commit('addStudentLoan', { type, graduationDate, school, balance })
+  },
+
+  removeVehicle ({ commit }, { index }) {
+    commit('removeVehicle', { index })
+  },
+  updateVehicle ({ commit }, { index, form }) {
+    commit('updateVehicle', { index, form })
+  },
+  addVehicle ({ commit }, {
+    type,
+    year,
+    make,
+    model,
+    mileage,
+    monthlyPayment,
+    loanBalance,
+    loanPaidOffDate,
+    loanInterestRate,
+    monthlyLeastPayment,
+    leaseTermEndsDate
+  }) {
+    commit('addVehicle', {
+      type,
+      year,
+      make,
+      model,
+      mileage,
+      monthlyPayment,
+      loanBalance,
+      loanPaidOffDate,
+      loanInterestRate,
+      monthlyLeastPayment,
+      leaseTermEndsDate
+    })
   },
 
   toggleItemInList ({ commit }, data) {
@@ -263,6 +301,40 @@ const mutations = {
     state.studentLoans.push({ type, graduationDate, school, balance })
   },
   removeStudentLoan (state, { index }) {
+    state.studentLoans.splice(index, 1)
+  },
+
+  updateVehicle (state, { index, form }) {
+    state.Vehicles.splice(index, 1, form)
+  },
+  addVehicle (state, {
+    type,
+    year,
+    make,
+    model,
+    mileage,
+    monthlyPayment,
+    loanBalance,
+    loanPaidOffDate,
+    loanInterestRate,
+    monthlyLeastPayment,
+    leaseTermEndsDate
+  }) {
+    state.Vehicles.push({
+      type,
+      year,
+      make,
+      model,
+      mileage,
+      monthlyPayment,
+      loanBalance,
+      loanPaidOffDate,
+      loanInterestRate,
+      monthlyLeastPayment,
+      leaseTermEndsDate
+    })
+  },
+  removeVehicle (state, { index }) {
     state.studentLoans.splice(index, 1)
   },
 

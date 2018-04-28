@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <div>
     <div class="block">
       <div class="title">
         Type of Debt
