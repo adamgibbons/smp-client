@@ -60,7 +60,7 @@ export default {
       this.addingInsurance = true
     },
     skip () {
-      this.$router.push({ name: 'ConsumerDebtSplash' })
+      this.$router.push({ name: 'StudentLoansSplash' })
     },
     closeAddModal () {
       this.addingInsurance = false
