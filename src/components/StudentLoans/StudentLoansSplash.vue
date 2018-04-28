@@ -16,7 +16,7 @@
 
     <div class="modal" v-if="addingStudentLoans">
       <div class="modal-close" @click="closeModal">x</div>
-      <StudentLoansAdd />
+      <StudentLoansAdd v-on:scrollTop="scrollTop" />
     </div>
   </div>
 </template>
@@ -54,6 +54,9 @@ export default {
     },
     closeModal () {
       this.addingStudentLoans = false
+    },
+    scrollTop () {
+      this.$el.querySelector('.modal').scrollTop = 0
     }
   }
 }
