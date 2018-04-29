@@ -38,14 +38,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['utilities']),
-    activatedUtilities () {
-      return Object.entries(this.utilities)
-        .filter(([_, { include }]) => include === true)
-        .map(([billName, { include, amount }]) => {
-          return { billName, amount }
-        })
-    }
+    ...mapGetters(['activatedUtilities'])
   },
   filters: {
     prettyName: (name) => {

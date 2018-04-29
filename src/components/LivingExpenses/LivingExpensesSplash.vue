@@ -37,9 +37,6 @@ export default {
     if (this.$route.params.addingLivingExpenses) {
       this.addingLivingExpenses = true
     }
-    if (this.$route.params.editingLivingExpenses) {
-      this.editingLivingExpenses = true
-    }
   },
   data () {
     return {

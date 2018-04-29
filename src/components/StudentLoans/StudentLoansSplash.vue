@@ -23,14 +23,14 @@ import StudentLoansAdd from '@/components/StudentLoans/StudentLoansAdd'
 
 export default {
   name: 'StudentLoansSplash',
-  // mounted () {
-  //   if (this.$route.params.addingStudentLoans) {
-  //     this.addingStudentLoans = true
-  //   }
-  //   if (this.studentLoans.length > 0) {
-  //     this.$router.replace({ name: 'StudentLoansReview' })
-  //   }
-  // },
+  mounted () {
+    if (this.$route.params.addingStudentLoans) {
+      this.addingStudentLoans = true
+    }
+    if (this.studentLoans.length > 0) {
+      this.$router.replace({ name: 'StudentLoansReview' })
+    }
+  },
   data () {
     return {
       addingStudentLoans: false

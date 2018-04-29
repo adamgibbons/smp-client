@@ -168,6 +168,13 @@ const getters = {
       return include === true
     }))
   },
+  activatedUtilities () {
+    return Object.entries(state.utilities)
+      .filter(([_, { include }]) => include === true)
+      .map(([billName, { include, amount }]) => {
+        return { billName, amount }
+      })
+  },
   personal: state => {
     return state.personal
   },

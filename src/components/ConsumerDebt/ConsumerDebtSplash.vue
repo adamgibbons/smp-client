@@ -23,14 +23,14 @@ import ConsumerDebtAdd from '@/components/ConsumerDebt/ConsumerDebtAdd'
 
 export default {
   name: 'ConsumerDebtSplash',
-  // mounted () {
-  //   if (this.$route.params.addingConsumerDebt) {
-  //     this.addingConsumerDebt = true
-  //   }
-  //   if (this.consumerDebt.length > 0) {
-  //     this.$router.replace({ name: 'ConsumerDebtReview' })
-  //   }
-  // },
+  mounted () {
+    if (this.$route.params.addingConsumerDebt) {
+      this.addingConsumerDebt = true
+    }
+    if (this.consumerDebt.length > 0) {
+      this.$router.replace({ name: 'ConsumerDebtReview' })
+    }
+  },
   data () {
     return {
       addingConsumerDebt: false

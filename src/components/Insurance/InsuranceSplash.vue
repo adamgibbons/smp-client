@@ -37,9 +37,6 @@ export default {
     if (this.$route.params.addingInsurance) {
       this.addingInsurance = true
     }
-    if (this.$route.params.editingInsurance) {
-      this.editingInsurance = true
-    }
   },
   data () {
     return {

@@ -33,8 +33,8 @@ export default {
     if (this.$route.params.addingUtilities) {
       this.addingUtilities = true
     }
-    if (this.$route.params.editingUtilities) {
-      this.editingUtilities = true
+    if (this.activatedUtilities.length > 0) {
+      this.$router.replace({ name: 'UtilitiesReview' })
     }
   },
   data () {
@@ -45,7 +45,7 @@ export default {
   },
   components: { UtilitiesAdd, UtilitiesEdit },
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities']),
+    ...mapGetters(['utilities', 'selectedUtilities', 'activatedUtilities']),
     remainingSelectedUtilities () {
       return this.selectedUtilities.length > 0
     },
