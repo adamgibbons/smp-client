@@ -66,7 +66,7 @@ export default {
       this.addingUtilities = true
     },
     skip () {
-      this.$router.push({ name: 'InsuranceSplash' })
+      this.$router.push({ name: 'VehiclesSplash' })
     },
     closeAddModal () {
       this.addingUtilities = false

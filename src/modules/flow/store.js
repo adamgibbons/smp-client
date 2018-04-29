@@ -320,7 +320,7 @@ const mutations = {
     monthlyLeastPayment,
     leaseTermEndsDate
   }) {
-    state.Vehicles.push({
+    state.vehicles.push({
       type,
       year,
       make,

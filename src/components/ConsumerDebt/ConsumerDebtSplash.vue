@@ -10,7 +10,7 @@
       </button>
     </div>
     <div>
-      <router-link class="back-btn" :to="{ name: 'InsuranceSplash' }">Back</router-link>
+      <router-link class="back-btn" :to="{ name: 'StudentLoansSplash' }">Back</router-link>
     </div>
 
     <div class="modal" v-if="addingConsumerDebt">

@@ -10,8 +10,7 @@
       </button>
     </div>
     <div>
-      TODO back btn
-      <!-- <router-link class="back-btn" :to="{ name: 'InsuranceSplash' }">Back</router-link> -->
+      <router-link class="back-btn" :to="{ name: 'UtilitiesSplash' }">Back</router-link>
     </div>
 
     <div class="modal" v-if="addingVehicles">
@@ -49,8 +48,7 @@ export default {
       this.addingVehicles = true
     },
     skip () {
-      console.log('TODO')
-      // this.$router.push({ name: 'LivingExpensesSplash' })
+      this.$router.push({ name: 'InsuranceSplash' })
     },
     closeModal () {
       this.addingVehicles = false
