@@ -68,11 +68,21 @@ export default {
     next () {
       // this.update()
       if (this.$route.name === 'UtilitiesReview') {
+        this.$router.push({ name: 'VehiclesSplash' })
+        return
+      }
+
+      if (this.$route.name === 'VehiclesReview') {
         this.$router.push({ name: 'InsuranceSplash' })
         return
       }
 
       if (this.$route.name === 'InsuranceReview') {
+        this.$router.push({ name: 'StudentLoansSplash' })
+        return
+      }
+
+      if (this.$route.name === 'StudentLoansReview') {
         this.$router.push({ name: 'ConsumerDebtSplash' })
         return
       }
