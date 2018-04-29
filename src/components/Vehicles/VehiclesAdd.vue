@@ -204,12 +204,25 @@
 </template>
 
 <script>
-import { rangeRight } from 'lodash'
+import { clone, rangeRight } from 'lodash'
 import { mapActions } from 'vuex'
 import vehicleTypes from './vehicle-types.json'
 import vehicleMakesModels from './vehicle-makes-models.json'
 
 const years = rangeRight(1980, 2019)
+const FormModel = {
+  type: null,
+  year: null,
+  make: null,
+  model: null,
+  ownership: null,
+  mileage: null,
+  monthlyPayment: null,
+  loanBalance: null,
+  loanPaidOffDate: null,
+  loanInterestRate: null,
+  monthlyLeasePayment: null
+}
 
 export default {
   name: 'VehiclesAdd',
@@ -219,19 +232,7 @@ export default {
       vehicleTypes,
       vehicleMakesModels,
       vehicleOwnershipOptions: ['Owned - Making payments', 'Leased', 'Owned - Paid in Full'],
-      form: {
-        type: null,
-        year: null,
-        make: null,
-        model: null,
-        ownership: null,
-        mileage: null,
-        monthlyPayment: null,
-        loanBalance: null,
-        loanPaidOffDate: null,
-        loanInterestRate: null,
-        monthlyLeasePayment: null
-      }
+      form: clone(FormModel)
     }
   },
   computed: {
@@ -258,19 +259,7 @@ export default {
     addMore () {
       this.$emit('scrollTop')
       this.addVehicle(this.form)
-      this.form = {
-        type: null,
-        year: null,
-        make: null,
-        model: null,
-        ownership: null,
-        mileage: null,
-        monthlyPayment: null,
-        loanBalance: null,
-        loanPaidOffDate: null,
-        loanInterestRate: null,
-        monthlyLeasePayment: null
-      }
+      this.form = clone(FormModel, {})
     },
     done () {
       this.addVehicle(this.form)
