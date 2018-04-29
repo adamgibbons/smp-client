@@ -57,7 +57,8 @@ export default {
       'housing3IsValid',
       'housing4IsValid',
       'savings1IsValid',
-      'personal'
+      'personal',
+      'housing'
     ]),
     backButtonIsVisible () {
       if (this.$route.name === 'Personal1') return false
@@ -158,6 +159,15 @@ export default {
 
         this.$router.push({ name: 'Financial' })
         return
+      }
+
+      // no back equivalent?
+      if (this.$route.name === 'Housing1') {
+        if (this.housing.status === 'own') {
+          return this.$router.push({ name: 'Housing2' })
+        }
+
+        return this.$router.push({ name: 'Housing4' })
       }
 
       if (this.$route.name === 'UtilitiesReview') {
