@@ -27,7 +27,7 @@
         Year/Make/Model
       </div>
       <div class="select-wrapper inline" style="margin-left: 0;">
-        <select v-model="form.type">
+        <select v-model="form.year">
           <option></option>
           <option
             v-for="(year, index) in years"
