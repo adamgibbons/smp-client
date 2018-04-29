@@ -119,33 +119,32 @@ export default {
         return this.$router.replace({ name: 'Housing1' })
       }
 
-      if (this.$route.name === 'UtilitiesReview') {
-        return this.$router.push({ name: 'Housing4' })
+      if (this.$route.name === 'UtilitiesReview' || this.$route.name === 'UtilitiesSplash') {
+        if (this.housing.status === 'own') {
+          return this.$router.replace({ name: 'Housing3' })
+        }
+
+        return this.$router.replace({ name: 'Housing4' })
       }
 
       if (this.$route.name === 'VehiclesReview') {
-        this.$router.push({ name: 'UtilitiesSplash' })
-        return
+        return this.$router.push({ name: 'UtilitiesSplash' })
       }
 
       if (this.$route.name === 'InsuranceReview') {
-        this.$router.push({ name: 'VehiclesSplash' })
-        return
+        return this.$router.push({ name: 'VehiclesSplash' })
       }
 
       if (this.$route.name === 'StudentLoansReview') {
-        this.$router.push({ name: 'InsuranceSplash' })
-        return
+        return this.$router.push({ name: 'InsuranceSplash' })
       }
 
       if (this.$route.name === 'ConsumerDebtReview') {
-        this.$router.push({ name: 'StudentLoansSplash' })
-        return
+        return this.$router.push({ name: 'StudentLoansSplash' })
       }
 
       if (this.$route.name === 'LivingExpensesReview') {
-        this.$router.push({ name: 'ConsumerDebtSplash' })
-        return
+        return this.$router.push({ name: 'ConsumerDebtSplash' })
       }
 
       if (this.position === 0) return
