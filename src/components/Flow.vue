@@ -68,6 +68,36 @@ export default {
   methods: {
     ...mapActions(['update']),
     back () {
+      if (this.$route.name === 'UtilitiesReview') {
+        this.$router.push({ name: 'Housing4' })
+        return
+      }
+
+      if (this.$route.name === 'VehiclesReview') {
+        this.$router.push({ name: 'UtilitiesSplash' })
+        return
+      }
+
+      if (this.$route.name === 'InsuranceReview') {
+        this.$router.push({ name: 'UtilitiesSplash' })
+        return
+      }
+
+      if (this.$route.name === 'StudentLoansReview') {
+        this.$router.push({ name: 'InsuranceSplash' })
+        return
+      }
+
+      if (this.$route.name === 'ConsumerDebtReview') {
+        this.$router.push({ name: 'StudentLoansSplash' })
+        return
+      }
+
+      if (this.$route.name === 'LivingExpensesReview') {
+        this.$router.push({ name: 'ConsumerDebtSplash' })
+        return
+      }
+
       if (this.position === 0) return
 
       this.$router.replace({ name: this.progress[this.position - 1] })
