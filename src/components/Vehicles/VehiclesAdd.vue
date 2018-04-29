@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- type -->
     <div class="block">
       <div class="title">Type of Vehicle</div>
 
@@ -22,6 +23,7 @@
       </div>
     </div>
 
+    <!-- year/make/model -->
     <div class="block">
       <div class="title">
         Year/Make/Model
@@ -58,31 +60,30 @@
       </div>
     </div>
 
+    <!-- ownership -->
     <div class="block">
-      <div class="title">When does this loan get paid off?</div>
+      <div class="title">Your vehicle is</div>
 
       <div class="control">
-        <div class="form-wrapper">
+        <label
+          v-for="(option, index) in vehicleOwnershipOptions"
+          :key="index"
+          class="radio" :class="{active: option === form.ownership}" :for="option"
+        >
           <input
-            type="month"
-            v-model="form.loanPaidOffDate"
+            type="radio"
+            :name="option"
+            :id="option"
+            :value="option"
+            :checked="option === form.ownership"
+            v-model="form.ownership"
           />
-        </div>
+          {{option}}
+        </label>
       </div>
     </div>
 
-    <div class="block">
-      <div class="title">Lease Term Ends</div>
-
-      <div class="control">
-        <div class="form-wrapper">
-          <input
-            type="month"
-            v-model="form.leaseTermEndsDate"
-          />
-        </div>
-      </div>
-    </div>
+    <!-- mileage -->
 
     <div class="page-nav">
       <button class="done add-more" @click="addMore">+ Add more</button>
@@ -107,11 +108,13 @@ export default {
       years,
       vehicleTypes,
       vehicleMakesModels,
+      vehicleOwnershipOptions: ['Owned - Making payments', 'Leased', 'Owned - Paid in Full'],
       form: {
         type: null,
         year: null,
         make: null,
         model: null,
+        ownership: null,
         mileage: null,
         monthlyPayment: null,
         loanBalance: null,
@@ -151,6 +154,7 @@ export default {
         year: null,
         make: null,
         model: null,
+        ownership: null,
         mileage: null,
         monthlyPayment: null,
         loanBalance: null,
