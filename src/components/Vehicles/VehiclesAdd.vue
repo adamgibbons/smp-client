@@ -274,11 +274,11 @@ export default {
     },
     done () {
       this.addVehicle(this.form)
-      if (this.$route.name === 'StudentLoansReview') {
+      if (this.$route.name === 'VehiclesReview') {
         this.$emit('closeModal')
         return
       }
-      this.$router.push({ name: 'StudentLoansReview' })
+      this.$router.push({ name: 'VehiclesReview' })
     }
   }
 }
