@@ -2,11 +2,18 @@
   <div class="gradient flow body">
     <router-view></router-view>
     <nav>
-      <button class="back" @click="back">Back</button>
+      <button
+        v-show="backButtonIsVisible"
+        class="back"
+        @click="back">
+        Back
+      </button>
       <button
         v-show="nextButtonIsVisible"
         class="next"
-        @click="next">Next</button>
+        @click="next">
+        Next
+      </button>
     </nav>
   </div>
 </template>
@@ -38,6 +45,11 @@ export default {
     }
   },
   computed: {
+    backButtonIsVisible () {
+      if (this.$route.name === 'Personal1') return false
+
+      return true
+    },
     nextButtonIsVisible () {
       if (!this.$route.name) return false
 
