@@ -50,7 +50,13 @@ export default {
     ...mapGetters([
       'personal1IsValid',
       'personal2IsValid',
-      'personal3IsValid'
+      'personal3IsValid',
+      'financialIsValid',
+      'housing1IsValid',
+      'housing2IsValid',
+      'housing3IsValid',
+      'housing4IsValid',
+      'savings1IsValid'
     ]),
     backButtonIsVisible () {
       if (this.$route.name === 'Personal1') return false
@@ -86,6 +92,12 @@ export default {
       if (this.$route.name === 'Personal1') return this.personal1IsValid
       if (this.$route.name === 'Personal2') return this.personal2IsValid
       if (this.$route.name === 'Personal3') return this.personal3IsValid
+      if (this.$route.name === 'Financial') return this.financialIsValid
+      if (this.$route.name === 'Housing1') return this.housing1IsValid
+      if (this.$route.name === 'Housing2') return this.housing2IsValid
+      if (this.$route.name === 'Housing3') return this.housing3IsValid
+      if (this.$route.name === 'Housing4') return this.housing4IsValid
+      if (this.$route.name === 'Savings1') return this.savings1IsValid
 
       return true
     }

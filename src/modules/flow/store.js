@@ -213,6 +213,34 @@ const getters = {
     return !!state.personal.educationSpouse &&
       !!state.personal.employmentSpouse &&
       !!state.personal.occupationSpouse
+  },
+  financialIsValid: state => {
+    return !!state.financial.monthlyHouseholdIncome &&
+      !!state.financial.dependents &&
+      !!state.financial.creditScore
+  },
+  housing1IsValid: state => {
+    return !!state.housing.status &&
+      !!state.housing.propertyType &&
+      !!state.housing.zip
+  },
+  housing2IsValid: state => {
+    return !!state.housing.monthlyMortgagePayment &&
+      !!state.housing.annualPropertyTax
+  },
+  housing3IsValid: state => {
+    return !!state.housing.loanBalance &&
+      !!state.housing.currentInterestRate &&
+      !!state.housing.termOnCurrentLoan
+  },
+  housing4IsValid: state => {
+    return !!state.housing.monthlyRent &&
+      !!state.housing.rentIncludesUtilities
+  },
+  savings1IsValid: state => {
+    return !!state.savings.retirementPlusInvestment &&
+      !!state.savings.cashPlusEmergency &&
+      !!state.savings.realEstate
   }
 }
 
