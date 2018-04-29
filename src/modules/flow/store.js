@@ -196,7 +196,7 @@ const getters = {
     return state.studentLoans
   },
   vehicles: state => {
-    return state.studentLoans
+    return state.vehicles
   }
 }
 
@@ -284,6 +284,7 @@ const actions = {
 }
 
 const mutations = {
+  // consumerDebt
   updateConsumerDebt (state, { index, form }) {
     state.consumerDebt.splice(index, 1, form)
   },
@@ -294,6 +295,7 @@ const mutations = {
     state.consumerDebt.splice(index, 1)
   },
 
+  // studentLoans
   updateStudentLoan (state, { index, form }) {
     state.studentLoans.splice(index, 1, form)
   },
@@ -304,8 +306,9 @@ const mutations = {
     state.studentLoans.splice(index, 1)
   },
 
+  // vehicles
   updateVehicle (state, { index, form }) {
-    state.Vehicles.splice(index, 1, form)
+    state.vehicles.splice(index, 1, form)
   },
   addVehicle (state, {
     type,
@@ -335,7 +338,7 @@ const mutations = {
     })
   },
   removeVehicle (state, { index }) {
-    state.studentLoans.splice(index, 1)
+    state.vehicles.splice(index, 1)
   },
 
   toggleItemInList (state, { path, value }) {

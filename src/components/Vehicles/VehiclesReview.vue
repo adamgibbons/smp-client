@@ -3,11 +3,11 @@
     <div class="rows">
       <div
         class="row"
-        v-for="({ type, balance }, index) in studentLoans"
+        v-for="({year, model}, index) in vehicles"
         :key="index">
         <!-- <div class="cell name">{{name | prettyName}}</div> -->
-        <div class="cell name">{{type}}</div>
-        <div class="cell amount">${{balance}}</div>
+        <div class="cell name">{{year}} {{model}}</div>
+        <!-- <div class="cell amount">${{balance}}</div> -->
         <div class="cell edit" @click="edit(index)">
           <a>edit</a>
         </div>
@@ -16,13 +16,13 @@
     <div class="page-nav">
       <button class="addMore" @click="addMore">+ add more</button>
     </div>
-    <div class="modal" v-if="editingStudentLoan">
+    <div class="modal" v-if="editingVehicle">
       <div class="modal-close" @click="closeModal">x</div>
-      <StudentLoansEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" />
+      <!-- <VehiclesEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" /> -->
     </div>
-    <div class="modal" v-if="addingStudentLoan">
+    <div class="modal" v-if="addingVehicle">
       <div class="modal-close" @click="closeModal">x</div>
-      <StudentLoansAdd
+      <VehiclesAdd
         v-on:closeModal="closeModal"
         v-on:scrollTop="scrollTop" />
     </div>
@@ -31,62 +31,47 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import StudentLoansEdit from '@/components/StudentLoans/StudentLoansEdit'
-import StudentLoansAdd from '@/components/StudentLoans/StudentLoansAdd'
+// import VehiclesEdit from '@/components/Vehicles/VehiclesEdit'
+import VehiclesAdd from '@/components/Vehicles/VehiclesAdd'
 
 export default {
-  name: 'StudentLoansReview',
-  components: { StudentLoansAdd, StudentLoansEdit },
+  name: 'VehiclesReview',
+  // components: { VehiclesAdd, VehiclesEdit },
+  components: { VehiclesAdd },
   data () {
     return {
-      addingStudentLoan: false,
-      editingStudentLoan: false,
+      addingVehicle: false,
+      editingVehicle: false,
       indexOfModalItem: 0
     }
   },
   mounted () {
-    if (this.$route.params.addingStudentLoan) {
-      this.addingStudentLoan = true
+    if (this.$route.params.addingVehicle) {
+      this.addingVehicle = true
     }
-    if (this.$route.params.editingStudentLoan) {
-      this.editingStudentLoan = true
+    if (this.$route.params.editingVehicle) {
+      this.editingVehicle = true
     }
   },
   methods: {
     edit (index) {
       this.indexOfModalItem = index
-      this.editingStudentLoan = true
+      this.editingVehicle = true
     },
     addMore () {
-      this.addingStudentLoan = true
+      this.addingVehicle = true
     },
     closeModal () {
-      this.addingStudentLoan = false
-      this.editingStudentLoan = false
+      this.addingVehicle = false
+      this.editingVehicle = false
     },
     scrollTop () {
       this.$el.querySelector('.modal').scrollTop = 0
     }
   },
   computed: {
-    ...mapGetters(['studentLoans'])
+    ...mapGetters(['vehicles'])
   }
-  // filters: {
-  //   prettyName: (name) => {
-  //     return {
-  //       gymMembership: 'Gym Membership',
-  //       fuel: 'Fuel',
-  //       publicTransportation: 'Public Transportation',
-  //       healthCare: 'Healthcare',
-  //       phoneInternetCable: 'Phone/Internet/Cable',
-  //       diningOut: 'Dining Out',
-  //       shopping: 'Shopping',
-  //       entertainment: 'Entertainment',
-  //       childcare: 'Childcare',
-  //       other: 'Other'
-  //     }[name]
-  //   }
-  // }
 }
 </script>
 
