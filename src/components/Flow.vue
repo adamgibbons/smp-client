@@ -127,6 +127,14 @@ export default {
         return this.$router.replace({ name: 'Housing4' })
       }
 
+      if (this.$route.name === 'VehiclesReview' || this.$route.name === 'VehiclesSplash') {
+        if (this.housing.rentIncludesUtilities === 'Yes') {
+          return this.$router.replace({ name: 'Housing4' })
+        }
+
+        return this.$router.replace({ name: 'UtilitiesSplash' })
+      }
+
       if (this.$route.name === 'VehiclesReview') {
         return this.$router.push({ name: 'UtilitiesSplash' })
       }
@@ -173,6 +181,14 @@ export default {
       }
 
       if (this.$route.name === 'Housing3') {
+        return this.$router.push({ name: 'UtilitiesSplash' })
+      }
+
+      if (this.$route.name === 'Housing4') {
+        if (this.housing.rentIncludesUtilities === 'Yes') {
+          return this.$router.push({ name: 'VehiclesSplash' })
+        }
+
         return this.$router.push({ name: 'UtilitiesSplash' })
       }
 
