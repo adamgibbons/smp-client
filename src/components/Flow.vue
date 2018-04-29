@@ -2,7 +2,7 @@
   <div class="gradient flow body">
     <router-view></router-view>
     <nav v-show="!blacklisted">
-      <button class="back" @click="back">Back</button>
+      <!-- <button class="back" @click="back">Back</button> -->
       <button class="next" @click="next">Next</button>
     </nav>
   </div>

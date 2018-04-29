@@ -35,7 +35,7 @@ import InsuranceAdd from '@/components/Insurance/InsuranceAdd'
 import InsuranceEdit from '@/components/Insurance/InsuranceEdit'
 
 export default {
-  name: 'UtilitiesSplash',
+  name: 'InsuranceSplash',
   mounted () {
     if (this.$route.params.addingInsurance) {
       this.addingInsurance = true

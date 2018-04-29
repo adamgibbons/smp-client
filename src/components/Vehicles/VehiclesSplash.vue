@@ -10,7 +10,7 @@
       </button>
     </div>
     <div>
-      <router-link class="back-btn" :to="{ name: 'UtilitiesSplash' }">Back</router-link>
+      <button @click="back" class="back-btn">Back</button>
     </div>
 
     <div class="modal" v-if="addingVehicles">
@@ -50,6 +50,10 @@ export default {
     skip () {
       this.$router.push({ name: 'InsuranceSplash' })
     },
+    back () {
+      console.log('foo')
+      this.$router.push({ name: 'UtilitiesSplash' })
+    },
     closeModal () {
       this.addingVehicles = false
     },
@@ -61,7 +65,7 @@ export default {
 </script>
 
 <style scoped>
-  a.back-btn {
+  .back-btn {
     text-decoration: none;
     border-radius: 1em;
     border: 2px solid gray;
@@ -73,7 +77,8 @@ export default {
     line-height: 2;
     position: absolute;
     left: 1rem;
-    bottom: 1rem;
+    bottom: .33em;
+    z-index: 100;
   }
   .wrapper {
     text-align: center;
