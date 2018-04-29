@@ -11,10 +11,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'utilities',
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities']),
-    remainingSelectedUtilities () {
-      return this.selectedUtilities.length > 0
-    }
+    ...mapGetters(['utilities'])
   },
   methods: {
     ...mapActions(['setValueByPath'])

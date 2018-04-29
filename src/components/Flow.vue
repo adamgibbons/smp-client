@@ -11,7 +11,9 @@
       <button
         v-show="nextButtonIsVisible"
         class="next"
-        @click="next">
+        :class="{disabled: isValid === false}"
+        @click="next"
+        :disabled="!isValid">
         Next
       </button>
     </nav>
@@ -19,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   data () {
@@ -45,6 +47,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'personal1IsValid',
+      'personal2IsValid',
+      'personal3IsValid'
+    ]),
     backButtonIsVisible () {
       if (this.$route.name === 'Personal1') return false
 
@@ -57,7 +64,6 @@ export default {
         'Personal1',
         'Personal2',
         'Personal3',
-        'Personal4',
         'Financial',
         'Housing1',
         'Housing2',
@@ -75,6 +81,13 @@ export default {
     },
     position () {
       return this.progress.indexOf(this.$route.name)
+    },
+    isValid () {
+      if (this.$route.name === 'Personal1') return this.personal1IsValid
+      if (this.$route.name === 'Personal2') return this.personal2IsValid
+      if (this.$route.name === 'Personal3') return this.personal3IsValid
+
+      return true
     }
   },
   methods: {
@@ -174,6 +187,13 @@ nav {
   color: white;
   border: 2px solid white;
   font-size: 1em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  top: 0;
+}
+.next.disabled {
+  opacity: .5;
+  top: 4em;
 }
 .back {
   border-radius: 1em;

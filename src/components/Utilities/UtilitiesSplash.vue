@@ -45,7 +45,7 @@ export default {
   },
   components: { UtilitiesAdd, UtilitiesEdit },
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities', 'activatedUtilities'])
+    ...mapGetters(['utilities', 'activatedUtilities'])
   },
   methods: {
     ...mapActions(['setValueByPath']),

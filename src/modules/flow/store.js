@@ -148,11 +148,6 @@ const state = {
 }
 
 const getters = {
-  selectedUtilities: state => {
-    return Object.keys(pickBy(state.utilities, (utility) => {
-      return utility.include && !utility.amount
-    }))
-  },
   selectedInsurance: state => {
     return Object.keys(pickBy(state.insurance, (policy) => {
       return policy.include && !policy.amount
@@ -218,6 +213,21 @@ const getters = {
   },
   vehicles: state => {
     return state.vehicles
+  },
+  personal1IsValid: state => {
+    return !!state.personal.gender &&
+      !!state.personal.maritalStatus &&
+      !!state.personal.age
+  },
+  personal2IsValid: state => {
+    return !!state.personal.education &&
+      !!state.personal.employment &&
+      !!state.personal.occupation
+  },
+  personal3IsValid: state => {
+    return !!state.personal.educationSpouse &&
+      !!state.personal.employmentSpouse &&
+      !!state.personal.occupationSpouse
   }
 }
 

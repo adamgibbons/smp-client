@@ -72,7 +72,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'UtilitiesAdd',
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities'])
+    ...mapGetters(['utilities'])
   },
   methods: {
     ...mapActions(['setValueByPath']),
