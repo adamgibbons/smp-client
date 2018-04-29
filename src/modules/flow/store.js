@@ -175,6 +175,13 @@ const getters = {
         return { billName, amount }
       })
   },
+  activatedInsurance () {
+    return Object.entries(state.insurance)
+      .filter(([_, { include }]) => include === true)
+      .map(([name, { include, amount }]) => {
+        return { name, amount }
+      })
+  },
   personal: state => {
     return state.personal
   },
@@ -271,8 +278,8 @@ const actions = {
   removeUtility ({ commit }, { billName }) {
     commit('removeUtility', { billName })
   },
-  removeInsurance ({ commit }, { policyName }) {
-    commit('removeInsurance', { policyName })
+  removeInsurance ({ commit }, { name }) {
+    commit('removeInsurance', { name })
   },
   removeLivingExpense ({ commit }, { name }) {
     commit('removeLivingExpense', { name })
@@ -362,8 +369,8 @@ const mutations = {
       amount: null
     }
   },
-  removeInsurance (state, { policyName }) {
-    state.insurance[policyName] = {
+  removeInsurance (state, { name }) {
+    state.insurance[name] = {
       include: false,
       amount: null
     }

@@ -16,12 +16,12 @@
 
     <div class="modal" v-show="addingInsurance">
       <div class="modal-close" @click="closeAddModal">x</div>
-      <InsuranceAdd v-on:editInsurance="handleEditInsurance" />
+      <InsuranceAdd v-on:edit="edit" />
     </div>
 
     <div class="modal" v-show="editingInsurance">
       <div class="modal-close" @click="closeEditModal">x</div>
-      <InsuranceEdit />
+      <InsuranceEdit v-on:update="update" />
     </div>
   </div>
 </template>
@@ -37,6 +37,9 @@ export default {
     if (this.$route.params.addingInsurance) {
       this.addingInsurance = true
     }
+    if (this.activatedInsurance.length > 0) {
+      this.$router.replace({ name: 'InsuranceReview' })
+    }
   },
   data () {
     return {
@@ -46,7 +49,7 @@ export default {
   },
   components: { InsuranceAdd, InsuranceEdit },
   computed: {
-    ...mapGetters(['insurance', 'selectedInsurance'])
+    ...mapGetters(['insurance', 'selectedInsurance', 'activatedInsurance'])
   },
   methods: {
     ...mapActions(['setValueByPath']),
@@ -62,9 +65,12 @@ export default {
     closeEditModal () {
       this.editingInsurance = false
     },
-    handleEditInsurance (e) {
+    edit () {
       this.addingInsurance = false
       this.editingInsurance = true
+    },
+    update () {
+      this.$router.push({ name: 'InsuranceReview' })
     }
   }
 }

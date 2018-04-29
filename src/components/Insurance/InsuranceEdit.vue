@@ -147,10 +147,10 @@ export default {
       return this.insurance[policy].include === true
     },
     done () {
-      this.$router.push('/flow/insurance/review')
+      this.$emit('update')
     },
-    remove (policyName) {
-      this.removeInsurance({ policyName })
+    remove (name) {
+      this.removeInsurance({ name })
     }
   }
 }

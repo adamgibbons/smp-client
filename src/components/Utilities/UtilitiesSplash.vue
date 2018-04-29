@@ -45,17 +45,7 @@ export default {
   },
   components: { UtilitiesAdd, UtilitiesEdit },
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities', 'activatedUtilities']),
-    remainingSelectedUtilities () {
-      return this.selectedUtilities.length > 0
-    },
-    buttonCopy () {
-      if (this.$route.path.indexOf('review') !== -1) {
-        return 'Add more'
-      }
-
-      return 'Done'
-    }
+    ...mapGetters(['utilities', 'selectedUtilities', 'activatedUtilities'])
   },
   methods: {
     ...mapActions(['setValueByPath']),
@@ -71,7 +61,7 @@ export default {
     closeEditModal () {
       this.editingUtilities = false
     },
-    edit (e) {
+    edit () {
       this.addingUtilities = false
       this.editingUtilities = true
     },

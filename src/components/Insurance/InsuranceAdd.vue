@@ -86,7 +86,7 @@ export default {
   methods: {
     ...mapActions(['setValueByPath']),
     next () {
-      this.$emit('editInsurance')
+      this.$emit('edit')
     }
   }
 }

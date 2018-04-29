@@ -121,10 +121,7 @@ export default {
   components: { smpSlider },
   name: 'UtilitiesEdit',
   computed: {
-    ...mapGetters(['utilities', 'selectedUtilities', 'remainingSelectedUtilities']),
-    remainingSelectedUtilities () {
-      return this.selectedUtilities.length > 0
-    }
+    ...mapGetters(['utilities', 'selectedUtilities'])
   },
   methods: {
     ...mapActions(['removeUtility']),

@@ -79,7 +79,7 @@ export default {
       }
 
       if (this.$route.name === 'InsuranceReview') {
-        this.$router.push({ name: 'UtilitiesSplash' })
+        this.$router.push({ name: 'VehiclesSplash' })
         return
       }
 
