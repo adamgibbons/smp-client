@@ -204,7 +204,7 @@ nav {
   top: 0;
 }
 .next.disabled {
-  opacity: .5;
+  opacity: 0;
   top: 4em;
 }
 .back {
