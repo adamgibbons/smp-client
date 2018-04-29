@@ -12,12 +12,12 @@
 
     <div class="modal" v-show="addingUtilities">
       <div class="modal-close" @click="closeAddModal">x</div>
-      <UtilitiesAdd v-on:editUtilities="handleEditUtilities" />
+      <UtilitiesAdd v-on:edit="edit" />
     </div>
 
     <div class="modal" v-show="editingUtilities">
       <div class="modal-close" @click="closeEditModal">x</div>
-      <UtilitiesEdit />
+      <UtilitiesEdit v-on:update="update" />
     </div>
   </div>
 </template>
@@ -71,9 +71,12 @@ export default {
     closeEditModal () {
       this.editingUtilities = false
     },
-    handleEditUtilities (e) {
+    edit (e) {
       this.addingUtilities = false
       this.editingUtilities = true
+    },
+    update () {
+      this.$router.push({ name: 'UtilitiesReview' })
     }
   }
 }

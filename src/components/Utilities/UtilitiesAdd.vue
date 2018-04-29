@@ -77,7 +77,7 @@ export default {
   methods: {
     ...mapActions(['setValueByPath']),
     next () {
-      this.$emit('editUtilities')
+      this.$emit('edit')
     }
   }
 }

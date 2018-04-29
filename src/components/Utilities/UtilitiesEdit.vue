@@ -132,7 +132,7 @@ export default {
       return this.utilities[utility].include === true
     },
     done () {
-      this.$router.push('/flow/utilities/review')
+      this.$emit('update')
     },
     remove (billName) {
       this.removeUtility({ billName })
