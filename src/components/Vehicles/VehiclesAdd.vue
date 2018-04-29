@@ -84,6 +84,116 @@
     </div>
 
     <!-- mileage -->
+    <div class="block">
+      <div class="title">Mileage</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.mileage"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- monthlyPayment -->
+    <div class="block">
+      <div class="title">Monthly Payment (Incl taxes)</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.monthlyPayment"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- loanBalance -->
+    <div class="block">
+      <div class="title">Loan Balance</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.loanBalance"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- loanPaidOffDate -->
+    <div class="block">
+      <div class="title">When does this loan get paid off?</div>
+
+      <div class="control">
+        <div class="form-wrapper">
+          <input
+            type="month"
+            v-model="form.loanPaidOffDate"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- loanInterestRate -->
+    <div class="block">
+      <div class="title">What is the interest rate on your loan?</div>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          :min="0"
+          :max="25"
+          :step="1"
+          v-model="form.loanInterestRate"
+        />
+        <label><span>%</span>{{form.loanInterestRate}}</label>
+      </div>
+    </div>
+
+    <!-- monthlyLeasePayment -->
+    <div class="block">
+      <div class="title">Monthly Lease Payment</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.monthlyLeasePayment"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- leaseTermEnds -->
+    <div class="block">
+      <div class="title">Lease Term Ends</div>
+
+      <div class="control">
+        <div class="form-wrapper">
+          <input
+            type="month"
+            v-model="form.leaseTermEnds"
+          />
+        </div>
+      </div>
+    </div>
 
     <div class="page-nav">
       <button class="done add-more" @click="addMore">+ Add more</button>
@@ -120,8 +230,7 @@ export default {
         loanBalance: null,
         loanPaidOffDate: null,
         loanInterestRate: null,
-        monthlyLeastPayment: null,
-        leaseTermEndsDate: null
+        monthlyLeasePayment: null
       }
     }
   },
@@ -160,8 +269,7 @@ export default {
         loanBalance: null,
         loanPaidOffDate: null,
         loanInterestRate: null,
-        monthlyLeastPayment: null,
-        leaseTermEndsDate: null
+        monthlyLeasePayment: null
       }
     },
     done () {
