@@ -1,9 +1,12 @@
 <template>
   <div class="gradient flow body">
     <router-view></router-view>
-    <nav v-show="!blacklisted">
-      <!-- <button class="back" @click="back">Back</button> -->
-      <button class="next" @click="next">Next</button>
+    <nav>
+      <button class="back" @click="back">Back</button>
+      <button
+        v-show="nextButtonIsVisible"
+        class="next"
+        @click="next">Next</button>
     </nav>
   </div>
 </template>
@@ -24,7 +27,9 @@ export default {
         'Housing3',
         'Housing4',
         'UtilitiesSplash',
+        'VehiclesSplash',
         'InsuranceSplash',
+        'StudentLoansSplash',
         'ConsumerDebtSplash',
         'LivingExpensesSplash',
         'Savings1',
@@ -33,21 +38,20 @@ export default {
     }
   },
   computed: {
-    blacklisted () {
+    nextButtonIsVisible () {
       if (!this.$route.name) return false
 
       return [
-        'UtilitiesSplash',
-        'UtilitiesEdit',
-        'UtilitiesAdd',
-        'InsuranceSplash',
-        'InsuranceEdit',
-        'InsuranceAdd',
-        'LivingExpensesSplash',
-        'LivingExpensesEdit',
-        'LivingExpensesAdd',
-        'ConsumerDebtSplash',
-        'ConsumerDebtAdd'
+        'Personal1',
+        'Personal2',
+        'Personal3',
+        'Personal4',
+        'Financial',
+        'Housing1',
+        'Housing2',
+        'Housing3',
+        'Housing4',
+        'Savings1'
       ].indexOf(this.$route.name) !== -1
     },
     position () {
@@ -57,26 +61,6 @@ export default {
   methods: {
     ...mapActions(['update']),
     back () {
-      if (this.$route.name === 'UtilitiesReview') {
-        this.$router.replace({ name: 'Housing4' })
-        return
-      }
-
-      if (this.$route.name === 'InsuranceReview') {
-        this.$router.replace({ name: 'UtilitiesSplash' })
-        return
-      }
-
-      if (this.$route.name === 'ConsumerDebtReview') {
-        this.$router.replace({ name: 'InsuranceSplash' })
-        return
-      }
-
-      if (this.$route.name === 'LivingExpensesReview') {
-        this.$router.replace({ name: 'ConsumerDebtSplash' })
-        return
-      }
-
       if (this.position === 0) return
 
       this.$router.replace({ name: this.progress[this.position - 1] })

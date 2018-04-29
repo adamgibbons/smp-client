@@ -13,9 +13,6 @@
         skip
       </button>
     </div>
-    <div>
-      <router-link class="back-btn" :to="{ name: 'ConsumerDebtSplash' }">Back</router-link>
-    </div>
 
     <div class="modal" v-show="addingLivingExpenses">
       <div class="modal-close" @click="closeAddModal">x</div>
@@ -79,20 +76,6 @@ export default {
 </script>
 
 <style scoped>
-  a.back-btn {
-    text-decoration: none;
-    border-radius: 1em;
-    border: 2px solid gray;
-    background: transparent;
-    color: gray;
-    padding: 0em .66em;
-    font-size: .8em;
-    font-weight: 600;
-    line-height: 2;
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-  }
   .wrapper {
     text-align: center;
     margin: 3em 2em 0;
