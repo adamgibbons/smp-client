@@ -51,6 +51,13 @@ export default {
         'Housing2',
         'Housing3',
         'Housing4',
+        'Housing4',
+        'UtilitiesReview',
+        'VehiclesReview',
+        'InsuranceReview',
+        'StudentLoansReview',
+        'ConsumerDebtReview',
+        'LivingExpensesReview',
         'Savings1'
       ].indexOf(this.$route.name) !== -1
     },

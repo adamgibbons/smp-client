@@ -5,9 +5,7 @@
         class="row"
         v-for="({year, model}, index) in vehicles"
         :key="index">
-        <!-- <div class="cell name">{{name | prettyName}}</div> -->
         <div class="cell name">{{year}} {{model}}</div>
-        <!-- <div class="cell amount">${{balance}}</div> -->
         <div class="cell edit" @click="edit(index)">
           <a>edit</a>
         </div>
@@ -18,7 +16,7 @@
     </div>
     <div class="modal" v-if="editingVehicle">
       <div class="modal-close" @click="closeModal">x</div>
-      <!-- <VehiclesEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" /> -->
+      <VehiclesEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" />
     </div>
     <div class="modal" v-if="addingVehicle">
       <div class="modal-close" @click="closeModal">x</div>
@@ -31,13 +29,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import VehiclesEdit from '@/components/Vehicles/VehiclesEdit'
+import VehiclesEdit from '@/components/Vehicles/VehiclesEdit'
 import VehiclesAdd from '@/components/Vehicles/VehiclesAdd'
 
 export default {
   name: 'VehiclesReview',
-  // components: { VehiclesAdd, VehiclesEdit },
-  components: { VehiclesAdd },
+  components: { VehiclesAdd, VehiclesEdit },
   data () {
     return {
       addingVehicle: false,

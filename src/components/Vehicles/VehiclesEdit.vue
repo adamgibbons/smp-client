@@ -1,11 +1,12 @@
 <template>
   <div>
+    <!-- type -->
     <div class="block">
-      <div class="title">Type of Loan</div>
+      <div class="title">Type of Vehicle</div>
 
       <div class="control">
         <label
-          v-for="(option, index) in loanOptions"
+          v-for="(option, index) in vehicleTypes"
           :key="index"
           class="radio" :class="{active: option === form.type}" :for="option"
         >
@@ -22,47 +23,85 @@
       </div>
     </div>
 
+    <!-- year/make/model -->
     <div class="block">
-      <div class="title">Graduation Date</div>
-
-      <div class="control">
-        <div class="form-wrapper">
-          <input
-            type="month"
-            v-model="form.graduationDate"
-          />
-        </div>
+      <div class="title">
+        Year/Make/Model
+      </div>
+      <div class="select-wrapper inline" style="margin-left: 0;">
+        <select v-model="form.year">
+          <option></option>
+          <option
+            v-for="(year, index) in years"
+            :key="index"
+            :value="year"
+          >{{year}}</option>
+        </select>
+      </div>
+      <div class="select-wrapper inline">
+        <select v-model="form.make">
+          <option></option>
+          <option
+            v-for="(make, index) in makes"
+            :key="index"
+            :value="make"
+          >{{make}}</option>
+        </select>
+      </div>
+      <div class="select-wrapper inline">
+        <select v-model="form.model">
+          <option></option>
+          <option
+            v-for="(model, index) in models"
+            :key="index"
+            :value="model"
+          >{{model}}</option>
+        </select>
       </div>
     </div>
 
+    <!-- ownership -->
     <div class="block">
-      <div class="title">School</div>
+      <div class="title">Your vehicle is</div>
 
       <div class="control">
-        <div class="search-wrapper">
-          <input
-            type="text"
-            v-model="form.school"
-            placeholder="Type to search"
-            @input="selected = false"
-          />
-        </div>
-      </div>
-      <div
-        v-if="form.school && form.school.length > 2 && selected === false"
-        class="search-results">
-        <div
-          class="search-result"
-          v-for="(school, index) in matchingSchools"
+        <label
+          v-for="(option, index) in vehicleOwnershipOptions"
           :key="index"
-          @click="selectSchool(school)">
-          {{school}}
+          class="radio" :class="{active: option === form.ownership}" :for="option"
+        >
+          <input
+            type="radio"
+            :name="option"
+            :id="option"
+            :value="option"
+            :checked="option === form.ownership"
+            v-model="form.ownership"
+          />
+          {{option}}
+        </label>
+      </div>
+    </div>
+
+    <!-- mileage -->
+    <div class="block">
+      <div class="title">Mileage</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.mileage"
+          />
         </div>
       </div>
     </div>
 
+    <!-- monthlyPayment -->
     <div class="block">
-      <div class="title">Student Loan Balance</div>
+      <div class="title">Monthly Payment (Incl taxes)</div>
 
       <div class="control">
         <div class="select-wrapper">
@@ -70,8 +109,87 @@
           <input
             type="number"
             :min="0"
-            :max="500000"
-            v-model="form.balance"
+            :max="250000"
+            v-model="form.monthlyPayment"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- loanBalance -->
+    <div class="block">
+      <div class="title">Loan Balance</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.loanBalance"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- loanPaidOffDate -->
+    <div class="block">
+      <div class="title">When does this loan get paid off?</div>
+
+      <div class="control">
+        <div class="form-wrapper">
+          <input
+            type="month"
+            v-model="form.loanPaidOffDate"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- loanInterestRate -->
+    <div class="block">
+      <div class="title">What is the interest rate on your loan?</div>
+
+      <div class="slidecontainer">
+        <input
+          class="slider"
+          type="range"
+          :min="0"
+          :max="25"
+          :step="1"
+          v-model="form.loanInterestRate"
+        />
+        <label><span>%</span>{{form.loanInterestRate}}</label>
+      </div>
+    </div>
+
+    <!-- monthlyLeasePayment -->
+    <div class="block">
+      <div class="title">Monthly Lease Payment</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="250000"
+            v-model="form.monthlyLeasePayment"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- leaseTermEnds -->
+    <div class="block">
+      <div class="title">Lease Term Ends</div>
+
+      <div class="control">
+        <div class="form-wrapper">
+          <input
+            type="month"
+            v-model="form.leaseTermEnds"
           />
         </div>
       </div>
@@ -86,39 +204,47 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { clone } from 'lodash'
-import schools from './universities.json'
+import { clone, rangeRight } from 'lodash'
+import vehicleTypes from './vehicle-types.json'
+import vehicleMakesModels from './vehicle-makes-models.json'
+
+const years = rangeRight(1980, 2019)
 
 export default {
-  name: 'StudentLoansEdit',
+  name: 'VehiclesEdit',
   props: ['indexOfModalItem'],
   mounted () {
-    this.form = clone(this.studentLoans[this.indexOfModalItem])
+    // TODO evangelize this
+    this.form = clone(this.vehicles[this.indexOfModalItem])
   },
   data () {
     return {
-      loanOptions: ['Myself', 'Spouse/Partner', 'Child'],
-      form: {
-        type: null,
-        graduationDate: null,
-        school: null,
-        balance: null
-      },
-      schools,
-      selected: false
+      years,
+      vehicleTypes,
+      vehicleMakesModels,
+      vehicleOwnershipOptions: ['Owned - Making payments', 'Leased', 'Owned - Paid in Full'],
+      form: {}
     }
   },
   computed: {
-    ...mapGetters(['studentLoans'])
+    ...mapGetters(['vehicles']),
+    makes () {
+      return Object.keys(this.vehicleMakesModels)
+    },
+    models () {
+      if (!this.form.make) return []
+
+      return this.vehicleMakesModels[this.form.make]
+    }
   },
   methods: {
-    ...mapActions(['updateStudentLoan', 'removeStudentLoan']),
+    ...mapActions(['updateVehicle', 'removeVehicle']),
     done () {
-      this.updateStudentLoan({ form: this.form, index: this.indexOfModalItem })
+      this.updateVehicle({ form: this.form, index: this.indexOfModalItem })
       this.$emit('closeModal')
     },
     remove () {
-      this.removeStudentLoan({ index: this.indexOfModalItem })
+      this.removeVehicle({ index: this.indexOfModalItem })
       this.$emit('closeModal')
     }
   }

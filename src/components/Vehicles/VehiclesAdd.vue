@@ -236,11 +236,6 @@ export default {
     }
   },
   computed: {
-    matchingSchools () {
-      return this.schools.filter((school) => {
-        return school.toLowerCase().indexOf(this.form.school.toLowerCase()) !== -1
-      }).slice(0, 10)
-    },
     makes () {
       return Object.keys(this.vehicleMakesModels)
     },
