@@ -115,6 +115,10 @@ export default {
         return this.$router.replace({ name: 'Personal2' })
       }
 
+      if (this.$route.name === 'Housing4') {
+        return this.$router.replace({ name: 'Housing1' })
+      }
+
       if (this.$route.name === 'UtilitiesReview') {
         return this.$router.push({ name: 'Housing4' })
       }
