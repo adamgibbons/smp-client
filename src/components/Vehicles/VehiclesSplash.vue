@@ -9,9 +9,6 @@
         skip
       </button>
     </div>
-    <div>
-      <button @click="back" class="back-btn">Back</button>
-    </div>
 
     <div class="modal" v-if="addingVehicles">
       <div class="modal-close" @click="closeModal">x</div>
@@ -49,10 +46,6 @@ export default {
     },
     skip () {
       this.$router.push({ name: 'InsuranceSplash' })
-    },
-    back () {
-      console.log('foo')
-      this.$router.push({ name: 'UtilitiesSplash' })
     },
     closeModal () {
       this.addingVehicles = false
