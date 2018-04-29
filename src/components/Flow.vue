@@ -156,8 +156,7 @@ export default {
 
       if (this.$route.name === 'Personal2') {
         if (this.personal.maritalStatus === 'married') {
-          this.$router.push({ name: 'Personal3' })
-          return
+          return this.$router.push({ name: 'Personal3' })
         }
 
         this.$router.push({ name: 'Financial' })
@@ -173,34 +172,32 @@ export default {
         return this.$router.push({ name: 'Housing4' })
       }
 
+      if (this.$route.name === 'Housing3') {
+        return this.$router.push({ name: 'UtilitiesSplash' })
+      }
+
       if (this.$route.name === 'UtilitiesReview') {
-        this.$router.push({ name: 'VehiclesSplash' })
-        return
+        return this.$router.push({ name: 'VehiclesSplash' })
       }
 
       if (this.$route.name === 'VehiclesReview') {
-        this.$router.push({ name: 'InsuranceSplash' })
-        return
+        return this.$router.push({ name: 'InsuranceSplash' })
       }
 
       if (this.$route.name === 'InsuranceReview') {
-        this.$router.push({ name: 'StudentLoansSplash' })
-        return
+        return this.$router.push({ name: 'StudentLoansSplash' })
       }
 
       if (this.$route.name === 'StudentLoansReview') {
-        this.$router.push({ name: 'ConsumerDebtSplash' })
-        return
+        return this.$router.push({ name: 'ConsumerDebtSplash' })
       }
 
       if (this.$route.name === 'ConsumerDebtReview') {
-        this.$router.push({ name: 'LivingExpensesSplash' })
-        return
+        return this.$router.push({ name: 'LivingExpensesSplash' })
       }
 
       if (this.$route.name === 'LivingExpensesReview') {
-        this.$router.push({ name: 'Savings1' })
-        return
+        return this.$router.push({ name: 'Savings1' })
       }
 
       if (this.position + 1 === this.progress.length) return
