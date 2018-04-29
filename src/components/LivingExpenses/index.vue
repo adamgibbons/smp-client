@@ -11,7 +11,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'LivingExpenses',
   computed: {
-    ...mapGetters(['livingExpenses', 'selectedLivingExpenses'])
+    ...mapGetters(['livingExpenses'])
   }
 }
 </script>

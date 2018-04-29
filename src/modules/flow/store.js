@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { get, set, pickBy } from 'lodash'
+import { get, set } from 'lodash'
 
 function getAuthHeader () {
   return `Bearer ${localStorage.getItem('id_token')}`
@@ -148,21 +148,6 @@ const state = {
 }
 
 const getters = {
-  selectedInsurance: state => {
-    return Object.keys(pickBy(state.insurance, (policy) => {
-      return policy.include && !policy.amount
-    }))
-  },
-  selectedLivingExpenses: state => {
-    return Object.keys(pickBy(state.livingExpenses, (expense) => {
-      return expense.include && !expense.amount
-    }))
-  },
-  selectedConsumerDebt: state => {
-    return Object.keys(pickBy(state.consumerDebt, ({ include, minMonthlyPayment, averageLoanBalance, interestRate }) => {
-      return include === true
-    }))
-  },
   activatedUtilities () {
     return Object.entries(state.utilities)
       .filter(([_, { include }]) => include === true)

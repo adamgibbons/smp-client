@@ -11,10 +11,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'insurance',
   computed: {
-    ...mapGetters(['insurance', 'selectedInsurance']),
-    remainingSelectedPolicies () {
-      return this.selectedInsurance.length > 0
-    }
+    ...mapGetters(['insurance'])
   },
   methods: {
     ...mapActions(['setValueByPath'])
