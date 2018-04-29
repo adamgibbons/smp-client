@@ -49,7 +49,7 @@ export default {
   },
   components: { InsuranceAdd, InsuranceEdit },
   computed: {
-    ...mapGetters(['insurance', 'selectedInsurance', 'activatedInsurance'])
+    ...mapGetters(['insurance', 'activatedInsurance'])
   },
   methods: {
     ...mapActions(['setValueByPath']),

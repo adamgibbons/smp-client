@@ -182,6 +182,13 @@ const getters = {
         return { name, amount }
       })
   },
+  activatedLivingExpenses () {
+    return Object.entries(state.livingExpenses)
+      .filter(([_, { include }]) => include === true)
+      .map(([name, { include, amount }]) => {
+        return { name, amount }
+      })
+  },
   personal: state => {
     return state.personal
   },

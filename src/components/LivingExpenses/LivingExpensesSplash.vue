@@ -6,7 +6,7 @@
       (Select All that Apply)
     </p>
     <div>
-      <button @click="addLivingExpense">+ add</button>
+      <button @click="addLivingExpenses">+ add</button>
     </div>
     <div>
       <button @click="skip">
@@ -16,12 +16,12 @@
 
     <div class="modal" v-show="addingLivingExpenses">
       <div class="modal-close" @click="closeAddModal">x</div>
-      <LivingExpensesAdd v-on:editLivingExpenses="handleEditLivingExpenses" />
+      <LivingExpensesAdd v-on:edit="edit" />
     </div>
 
     <div class="modal" v-show="editingLivingExpenses">
       <div class="modal-close" @click="closeEditModal">x</div>
-      <LivingExpensesEdit />
+      <LivingExpensesEdit v-on:update="update" />
     </div>
   </div>
 </template>
@@ -37,6 +37,9 @@ export default {
     if (this.$route.params.addingLivingExpenses) {
       this.addingLivingExpenses = true
     }
+    if (this.activatedLivingExpenses.length > 0) {
+      this.$router.replace({ name: 'LivingExpensesReview' })
+    }
   },
   data () {
     return {
@@ -46,14 +49,12 @@ export default {
   },
   components: { LivingExpensesAdd, LivingExpensesEdit },
   computed: {
-    ...mapGetters(['livingExpenses', 'selectedLivingExpenses'])
+    ...mapGetters(['livingExpenses', 'activatedLivingExpenses'])
   },
   methods: {
     ...mapActions(['setValueByPath']),
-    addLivingExpense () {
-      // this.$router.push({ name: 'LivingExpensesAdd' })
+    addLivingExpenses () {
       this.addingLivingExpenses = true
-      // LivingExpensesAdd
     },
     skip () {
       this.$router.push('/flow/savings-1')
@@ -64,9 +65,12 @@ export default {
     closeEditModal () {
       this.editingLivingExpenses = false
     },
-    handleEditLivingExpenses (e) {
+    edit () {
       this.addingLivingExpenses = false
       this.editingLivingExpenses = true
+    },
+    update () {
+      this.$router.push({ name: 'LivingExpensesReview' })
     }
   }
 }

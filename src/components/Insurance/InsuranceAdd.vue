@@ -81,7 +81,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'InsuranceAdd',
   computed: {
-    ...mapGetters(['insurance', 'selectedInsurance'])
+    ...mapGetters(['insurance'])
   },
   methods: {
     ...mapActions(['setValueByPath']),

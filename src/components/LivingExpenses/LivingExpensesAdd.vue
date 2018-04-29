@@ -108,12 +108,12 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'LivingExpensesAdd',
   computed: {
-    ...mapGetters(['livingExpenses', 'selectedLivingExpenses'])
+    ...mapGetters(['livingExpenses'])
   },
   methods: {
     ...mapActions(['setValueByPath']),
     next () {
-      this.$emit('editLivingExpenses')
+      this.$emit('edit')
     }
   }
 }

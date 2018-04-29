@@ -193,7 +193,7 @@ export default {
   components: { smpSlider },
   name: 'LivingExpensesEdit',
   computed: {
-    ...mapGetters(['livingExpenses', 'selectedlivingExpenses'])
+    ...mapGetters(['livingExpenses'])
   },
   methods: {
     ...mapActions(['removeLivingExpense']),
@@ -201,7 +201,7 @@ export default {
       return this.livingExpenses[name].include === true
     },
     done () {
-      this.$router.push('/flow/living-expenses/review')
+      this.$emit('update')
     },
     remove (name) {
       this.removeLivingExpense({ name })

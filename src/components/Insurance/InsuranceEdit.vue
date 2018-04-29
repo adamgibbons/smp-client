@@ -139,7 +139,7 @@ export default {
   components: { smpSlider },
   name: 'InsuranceEdit',
   computed: {
-    ...mapGetters(['insurance', 'selectedInsurance'])
+    ...mapGetters(['insurance'])
   },
   methods: {
     ...mapActions(['removeInsurance']),

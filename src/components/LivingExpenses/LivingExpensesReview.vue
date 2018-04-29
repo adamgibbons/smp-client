@@ -15,38 +15,66 @@
     <div class="page-nav">
       <button class="addMore" @click="addMore">+ add more</button>
     </div>
+    <div class="modal" v-if="editingLivingExpenses">
+      <div class="modal-close" @click="closeModal">x</div>
+      <LivingExpensesEdit
+        v-on:closeModal="closeModal"
+        v-on:update="update" />
+    </div>
+    <div class="modal" v-if="addingLivingExpenses">
+      <div class="modal-close" @click="closeModal">x</div>
+      <LivingExpensesAdd
+        v-on:closeModal="closeModal"
+        v-on:scrollTop="scrollTop"
+        v-on:edit="edit" />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import LivingExpensesAdd from './LivingExpensesAdd'
+import LivingExpensesEdit from './LivingExpensesEdit'
 
 export default {
   name: 'LivingExpensesReview',
-  methods: {
-    edit () {
-      this.$router.push({
-        name: 'LivingExpensesSplash',
-        params: { editingLivingExpenses: true }
-      })
-    },
-    addMore () {
-      this.$router.push({
-        name: 'LivingExpensesSplash',
-        params: { addingLivingExpenses: true }
-      })
+  mounted () {
+    if (this.$route.params.addingLivingExpenses) {
+      this.addingLivingExpenses = true
+    }
+    if (this.$route.params.editingLivingExpenses) {
+      this.editingLivingExpenses = true
     }
   },
   computed: {
-    ...mapGetters(['livingExpenses']),
-    activatedLivingExpenses () {
-      return Object.entries(this.livingExpenses)
-        .filter(([_, { include }]) => include === true)
-        .map(([name, { include, amount }]) => {
-          return { name, amount }
-        })
+    ...mapGetters(['activatedLivingExpenses'])
+  },
+  methods: {
+    edit () {
+      this.addingLivingExpenses = false
+      this.editingLivingExpenses = true
+    },
+    addMore () {
+      this.addingLivingExpenses = true
+    },
+    closeModal () {
+      this.addingLivingExpenses = false
+      this.editingLivingExpenses = false
+    },
+    scrollTop () {
+      this.$el.querySelector('.modal').scrollTop = 0
+    },
+    update () {
+      this.closeModal()
     }
   },
+  data () {
+    return {
+      addingLivingExpenses: false,
+      editingLivingExpenses: false
+    }
+  },
+  components: { LivingExpensesAdd, LivingExpensesEdit },
   filters: {
     prettyName: (name) => {
       return {
