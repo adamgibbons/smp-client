@@ -77,10 +77,6 @@ export default {
     text-align: center;
     margin: 3em 2em 0;
   }
-  .page-nav {
-    text-align: center;
-    margin-top: 2em;
-  }
   button {
     border-radius: 2em;
     padding: .33em 1em;

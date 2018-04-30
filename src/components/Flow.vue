@@ -244,7 +244,9 @@ nav {
   bottom: 1rem;
   width: 100%;
   color: white;
+  /*overflow: hidden;*/
 }
+
 .next {
   border-radius: 2em;
   padding: .33em 1em;
@@ -255,10 +257,11 @@ nav {
   transition: all 0.2s ease-in-out;
   position: relative;
   top: 0;
+  opacity: 1;
 }
 .next.disabled {
   opacity: 0;
-  top: 4em;
+  top: 1em;
 }
 .back {
   border-radius: 1em;
