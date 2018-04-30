@@ -23,40 +23,58 @@
       </div>
     </div>
 
-    <!-- year/make/model -->
-    <div class="block">
-      <div class="title">
-        Year/Make/Model
+    <!-- year/make/model and mileage -->
+    <div v-show="form.type === 'Car/SUV'">
+      <!-- year/make/model -->
+      <div class="block">
+        <div class="title">
+          Year/Make/Model
+        </div>
+        <div class="select-wrapper inline" style="margin-left: 0;">
+          <select v-model="form.year">
+            <option></option>
+            <option
+              v-for="(year, index) in years"
+              :key="index"
+              :value="year"
+            >{{year}}</option>
+          </select>
+        </div>
+        <div class="select-wrapper inline">
+          <select v-model="form.make">
+            <option></option>
+            <option
+              v-for="(make, index) in makes"
+              :key="index"
+              :value="make"
+            >{{make}}</option>
+          </select>
+        </div>
+        <div class="select-wrapper inline">
+          <select v-model="form.model">
+            <option></option>
+            <option
+              v-for="(model, index) in models"
+              :key="index"
+              :value="model"
+            >{{model}}</option>
+          </select>
+        </div>
       </div>
-      <div class="select-wrapper inline" style="margin-left: 0;">
-        <select v-model="form.year">
-          <option></option>
-          <option
-            v-for="(year, index) in years"
-            :key="index"
-            :value="year"
-          >{{year}}</option>
-        </select>
-      </div>
-      <div class="select-wrapper inline">
-        <select v-model="form.make">
-          <option></option>
-          <option
-            v-for="(make, index) in makes"
-            :key="index"
-            :value="make"
-          >{{make}}</option>
-        </select>
-      </div>
-      <div class="select-wrapper inline">
-        <select v-model="form.model">
-          <option></option>
-          <option
-            v-for="(model, index) in models"
-            :key="index"
-            :value="model"
-          >{{model}}</option>
-        </select>
+      <!-- mileage -->
+      <div class="block">
+        <div class="title">Mileage</div>
+
+        <div class="control">
+          <div class="select-wrapper">
+            <input
+              type="number"
+              :min="0"
+              :max="250000"
+              v-model="form.mileage"
+            />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -80,22 +98,6 @@
           />
           {{option}}
         </label>
-      </div>
-    </div>
-
-    <!-- mileage -->
-    <div class="block">
-      <div class="title">Mileage</div>
-
-      <div class="control">
-        <div class="select-wrapper">
-          <input
-            type="number"
-            :min="0"
-            :max="250000"
-            v-model="form.mileage"
-          />
-        </div>
       </div>
     </div>
 
