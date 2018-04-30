@@ -58,7 +58,8 @@ export default {
       'housing4IsValid',
       'savings1IsValid',
       'personal',
-      'housing'
+      'housing',
+      'skipHousingInfo'
     ]),
     backButtonIsVisible () {
       if (this.$route.name === 'Personal1') return false
@@ -128,6 +129,10 @@ export default {
       }
 
       if (this.$route.name === 'VehiclesReview' || this.$route.name === 'VehiclesSplash') {
+        if (this.skipHousingInfo) {
+          return this.$router.replace({ name: 'Housing1' })
+        }
+
         if (this.housing.rentIncludesUtilities === 'Yes') {
           return this.$router.replace({ name: 'Housing4' })
         }
@@ -171,10 +176,13 @@ export default {
         return
       }
 
-      // no back equivalent?
       if (this.$route.name === 'Housing1') {
         if (this.housing.status === 'own') {
           return this.$router.push({ name: 'Housing2' })
+        }
+
+        if (this.skipHousingInfo) {
+          return this.$router.push({ name: 'VehiclesSplash' })
         }
 
         return this.$router.push({ name: 'Housing4' })

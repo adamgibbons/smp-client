@@ -241,6 +241,9 @@ const getters = {
     return !!state.savings.retirementPlusInvestment &&
       !!state.savings.cashPlusEmergency &&
       !!state.savings.realEstate
+  },
+  skipHousingInfo: state => {
+    return ['Living w/ Parents', 'No Rent'].indexOf(state.housing.status) !== -1
   }
 }
 
