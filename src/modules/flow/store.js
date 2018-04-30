@@ -220,9 +220,9 @@ const getters = {
       !!state.financial.creditScore
   },
   housing1IsValid: state => {
-    return !!state.housing.status &&
-      !!state.housing.propertyType &&
-      !!state.housing.zip
+    return (!!(state.housing.status === 'Living w/ Parents')) ||
+      (!!(state.housing.status === 'No Rent')) ||
+      (!!state.housing.propertyType && !!state.housing.zip)
   },
   housing2IsValid: state => {
     return !!state.housing.monthlyMortgagePayment &&
