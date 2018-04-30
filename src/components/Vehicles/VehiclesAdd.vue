@@ -101,7 +101,8 @@
       </div>
     </div>
 
-    <div v-show="!paidOff">
+    <!-- 9b -->
+    <div v-show="form.ownership === 'Owned - Making payments'">
       <!-- monthlyPayment -->
       <div class="block">
         <div class="title">Monthly Payment (Incl taxes)</div>
@@ -166,7 +167,10 @@
           <label><span>%</span>{{form.loanInterestRate}}</label>
         </div>
       </div>
+    </div>
 
+    <!-- 9c -->
+    <div v-show="form.ownership === 'Leased'">
       <!-- monthlyLeasePayment -->
       <div class="block">
         <div class="title">Monthly Lease Payment</div>
@@ -247,9 +251,6 @@ export default {
       if (!this.form.make) return []
 
       return this.vehicleMakesModels[this.form.make]
-    },
-    paidOff () {
-      return this.form.ownership === 'Owned - Paid in Full'
     }
   },
   methods: {
