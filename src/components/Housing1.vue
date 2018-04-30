@@ -16,9 +16,13 @@
           <input id="rent" type="radio" name="rent" :checked="housing.status === 'rent'" @change="setValueByPath({path: 'housing.status', value: 'rent'})" value="rent">
           Rent
         </label>
-        <label class="radio" :class="{active: housing.status === 'other'}" for="other">
-          <input id="other" type="radio" name="other" :checked="housing.status === 'other'" @change="setValueByPath({path: 'housing.status', value: 'other'})" value="other">
-          Other
+        <label class="radio" :class="{active: housing.status === 'Living w/ Parents'}" for="livingWithParents">
+          <input id="livingWithParents" type="radio" name="livingWithParents" :checked="housing.status === 'other'" @change="setValueByPath({path: 'housing.status', value: 'Living w/ Parents'})" value="Living w/ Parents">
+          Living w/ Parents
+        </label>
+        <label class="radio" :class="{active: housing.status === 'No Rent'}" for="noRent">
+          <input id="noRent" type="radio" name="noRent" :checked="housing.status === 'No Rent'" @change="setValueByPath({path: 'housing.status', value: 'No Rent'})" value="No Rent">
+          No Rent
         </label>
       </div>
     </div>
