@@ -294,12 +294,16 @@ select {
   padding: .1em .7em;
   font-size: .8em;
   display: inline-block;
-  margin: 0 .33em .33em 0;
+  margin: .33em .33em .33em 0;
+  line-height: 1.6;
 }
 .radio.active {
   background-color: #6F9FF8;
   border: 1px solid #6F9FF8;
   color: white;
+}
+.search-wrapper {
+  width: 100%;
 }
 .select-wrapper,
 .search-wrapper,
@@ -342,6 +346,7 @@ select {
   font-size: 1.1em;
   margin: .5em 0;
   min-width: 5em;
+  width: 100%;
 }
 .search-results {
   width: 113%;
@@ -351,10 +356,11 @@ select {
 }
 .search-results .search-result {
   margin: 2px;
-  background: #031b36;
+  background: #65758e;
   font-size: .8em;
-  padding: .5em;
+  padding: 1.5em 1em;
   line-height: 1.1;
+  color: white;
 }
 .progress-bar {
   height: 4px;

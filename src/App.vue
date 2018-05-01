@@ -55,7 +55,7 @@ html, body {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 24px;
   font-family: 'helvetica neue', helvetica;
   background: #234c7b;
@@ -78,11 +78,13 @@ header div {
 }
 .title {
   text-align: center;
+  font-size: .8rem;
+  margin-bottom: 1em;
 }
 .block {
-  border-top: 1px solid #aaa;
-  padding: 1.66em 1.33em;
-  font-size: .95em
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  padding: 1.5em 1.66em;
+  font-size: 1em
 }
 .block:nth-of-type(2) {
   border-top: none;
@@ -90,7 +92,8 @@ header div {
 .block .title {
   text-align: left;
   margin-bottom: .33em;
-  font-size: .85em;
+  font-size: 1rem;
+  margin-bottom: .1em;
 }
 .block .subtitle {
   font-size: .7em;
