@@ -1,15 +1,15 @@
 <template>
-  <div class="wrapper">
+  <div class="splash">
     <p>
       Last step to add your expenses.<br>
       Select all the rest of your expenses that we didn’t capture.<br>
       (Select All that Apply)
     </p>
     <div>
-      <button @click="addLivingExpenses">+ add</button>
+      <button class="button" @click="addLivingExpenses">+ add</button>
     </div>
     <div>
-      <button @click="skip">
+      <button class="button" @click="skip">
         skip
       </button>
     </div>
@@ -75,23 +75,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .wrapper {
-    text-align: center;
-    margin: 3em 2em 0;
-  }
-  .page-nav {
-    text-align: center;
-    margin-top: 2em;
-  }
-  button {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: 1em auto;
-  }
-</style>

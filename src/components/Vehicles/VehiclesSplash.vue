@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapper">
+  <div class="splash">
     <p>Add your vehicles here</p>
     <div>
-      <button @click="add">+ add</button>
+      <button class="button" @click="add">+ add</button>
     </div>
     <div>
-      <button @click="skip">
+      <button class="button" @click="skip">
         skip
       </button>
     </div>
@@ -56,38 +56,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .back-btn {
-    text-decoration: none;
-    border-radius: 1em;
-    border: 2px solid gray;
-    background: transparent;
-    color: gray;
-    padding: 0em .66em;
-    font-size: .8em;
-    font-weight: 600;
-    line-height: 2;
-    position: absolute;
-    left: 1rem;
-    bottom: .33em;
-    z-index: 100;
-  }
-  .wrapper {
-    text-align: center;
-    margin: 3em 2em 0;
-  }
-  .page-nav {
-    text-align: center;
-    margin-top: 2em;
-  }
-  button {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: 1em auto;
-  }
-</style>

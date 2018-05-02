@@ -232,7 +232,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 a {
   color: #42b983;
@@ -244,7 +243,6 @@ nav {
   bottom: 1rem;
   width: 100%;
   color: white;
-  /*overflow: hidden;*/
 }
 
 .next {
@@ -282,7 +280,13 @@ select {
   display: inline-block;
 }
 .button  {
-  border: 1px solid white;
+  border-radius: 2em;
+  padding: .33em 1em;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1em;
+  margin: 1em auto;
 }
 .control input[type="radio"] {
   display: none;
@@ -405,5 +409,10 @@ select {
   position: relative;
   left: 10%;
   font-size: .9em;
+}
+
+.splash {
+  text-align: center;
+  margin: 3em 2em 0;
 }
 </style>

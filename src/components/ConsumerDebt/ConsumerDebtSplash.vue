@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapper">
+  <div class="splash">
     <p>Add your consumer debt here</p>
     <div>
-      <button @click="add">+ add</button>
+      <button class="button" @click="add">+ add</button>
     </div>
     <div>
-      <button @click="skip">
+      <button class="button" @click="skip">
         skip
       </button>
     </div>
@@ -56,23 +56,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .wrapper {
-    text-align: center;
-    margin: 3em 2em 0;
-  }
-  .page-nav {
-    text-align: center;
-    margin-top: 2em;
-  }
-  button {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: 1em auto;
-  }
-</style>

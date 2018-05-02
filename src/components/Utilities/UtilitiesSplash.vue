@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapper">
+  <div class="splash">
     <p>Add your utilities like electricity, gas, etc. here</p>
     <div>
-      <button @click="addUtilities">+ add</button>
+      <button class="button" @click="addUtilities">+ add</button>
     </div>
     <div>
-      <button @click="skip">
+      <button class="button" @click="skip">
         skip
       </button>
     </div>
@@ -71,19 +71,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .wrapper {
-    text-align: center;
-    margin: 3em 2em 0;
-  }
-  button {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: 1em auto;
-  }
-</style>
