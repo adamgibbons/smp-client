@@ -372,4 +372,38 @@ select {
   margin-top: .33em;
   color: white;
 }
+
+.year-make-model-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+.year-make-model-cell {
+  flex: 1 0 30%;
+  margin-right: 5px;
+}
+.year-make-model-cell > div {
+  width: 100%;
+}
+
+.rows {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: flex-start;
+  margin: 1em 0 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
+}
+.row {
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  display: flex;
+  padding: .9em 0;
+  flex-flow: row nowrap;
+}
+.cell {
+  flex: 1;
+  position: relative;
+  left: 10%;
+  font-size: .9em;
+}
 </style>

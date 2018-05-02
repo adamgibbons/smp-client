@@ -97,26 +97,6 @@ export default {
     padding: 1em;
     background: transparent;
   }
-  .rows {
-    display: flex;
-    flex-flow: column nowrap;
-    align-content: flex-start;
-    margin: 1em 0 1em;
-  }
-  .row {
-    border: 1px solid white;
-    border-left: none;
-    border-right: none;
-    display: flex;
-    padding: .9em 0;
-    flex-flow: row nowrap;
-  }
-  .cell {
-    flex: 1;
-    position: relative;
-    left: 10%;
-    font-size: .9em;
-  }
   .page-nav {
     text-align: center;
   }
