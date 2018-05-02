@@ -1,0 +1,20 @@
+{
+  "Financial": {
+    "incomeVaries": {
+      "question": "What if my income varies from month to month?",
+      "answer": "If your income varies, just do your best to estimate what comes in on average. You may want to calculate the average across several months, so you can account for the ups and downs. Or you can pull out last year’s tax return, and divide your total income by 12."
+    }
+  },
+  "Personal1": {
+    "myQuestionId": [
+      {
+        "question": "What if this scenario happens?",
+        "answer": "Then this will be the outcome"
+      },
+      {
+        "question": "And how do I know if foo bar baz?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris justo ex, tristique congue massa vitae, venenatis mattis ligula. Sed ex mauris, rutrum eget interdum quis, commodo vel elit. Ut non tempus lorem, et interdum nisi. Etiam velit diam, pretium ac efficitur non, pellentesque sed magna. In hac habitasse platea dictumst. Donec eget dolor risus. Suspendisse non convallis felis. Aenean nec posuere lorem. Donec egestas tortor at arcu semper aliquam. Maecenas pharetra nibh ante, in consequat odio vehicula a. Donec elementum consectetur diam, at viverra arcu aliquet consequat."
+      }
+    ]
+  }
+}

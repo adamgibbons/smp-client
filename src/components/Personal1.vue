@@ -15,7 +15,7 @@
     <div class="block">
       <div class="title">
         Marital Status
-        <info>This is the info text</info>
+        <info questionId="myQuestionId" />
       </div>
 
       <div class="control">
