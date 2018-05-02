@@ -11,8 +11,8 @@
         </div>
       </div>
     </div>
-    <div class="page-nav">
-      <button class="addMore" @click="addMore">+ add more</button>
+    <div class="text-center">
+      <button class="button" @click="addMore">+ add more</button>
     </div>
     <div class="modal" v-if="editingVehicle">
       <div class="modal-close" @click="closeModal">x</div>
@@ -71,24 +71,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  button {
-    color: white;
-    border: 1px solid white;
-    padding: 1em;
-    background: transparent;
-  }
-  .page-nav {
-    text-align: center;
-  }
-  button.addMore {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: 0 auto;
-  }
-</style>

@@ -1,5 +1,6 @@
 <template>
-  <div class="block">
+  <div>
+    <br>
     <div
       v-show="policyIsSelected('multiPolicy')"
       class="remove"

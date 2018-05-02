@@ -97,7 +97,8 @@ header div {
 }
 .block .subtitle {
   font-size: .7em;
-  margin: -.33em 0 .33em;
+  line-height: 1.33em;
+  font-weight: 300;
 }
 .block button {
   border: 1px solid #aaa;
@@ -212,4 +213,7 @@ header div {
     top: 2.6em;
 }
 /*END SLIDER*/
+.text-center {
+  text-align: center;
+}
 </style>
