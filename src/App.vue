@@ -213,7 +213,10 @@ header div {
     top: 2.6em;
 }
 /*END SLIDER*/
+
+/*TODO better naming - this is nav wrapper*/
 .text-center {
   text-align: center;
+  margin-top: 1em;
 }
 </style>

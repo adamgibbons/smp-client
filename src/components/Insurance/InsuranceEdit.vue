@@ -126,8 +126,8 @@
       unitSymbol="$"
     >
     </smp-slider>
-    <div class="page-nav">
-      <button class="done" @click="done">Done</button>
+    <div class="text-center">
+      <button class="button" @click="done">Done</button>
     </div>
   </div>
 </template>
@@ -156,27 +156,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .page-nav {
-    text-align: center;
-    margin: 1em 0;
-  }
-  button.done {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-  }
-  .remove {
-    position: absolute;
-    font-size: .8em;
-    right: 1rem;
-    margin-top: 1.5rem;
-    color: lightgray;
-    opacity: .8;
-    margin-right: .33em;
-  }
-</style>

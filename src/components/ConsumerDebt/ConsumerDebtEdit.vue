@@ -64,8 +64,8 @@
         <label><span>%</span>{{form.interestRate}}</label>
       </div>
     </div>
-    <div class="page-nav">
-      <button class="done" @click="done">Done</button>
+    <div class="text-center">
+      <button class="button" @click="done">Done</button>
       <button class="remove" @click="remove">Remove</button>
     </div>
   </div>
@@ -135,18 +135,6 @@ export default {
 </script>
 
 <style scoped>
-  .page-nav {
-    text-align: center;
-    margin: 1em 0;
-  }
-  button.done {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-  }
   button.remove {
     font-size: .8em;
     color: white;

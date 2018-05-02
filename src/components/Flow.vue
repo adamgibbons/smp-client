@@ -417,4 +417,14 @@ select {
   text-align: center;
   margin: 3em 2em 0;
 }
+
+.remove {
+  position: absolute;
+  font-size: .8em;
+  right: 1rem;
+  margin-top: 1.5rem;
+  color: lightgray;
+  opacity: .8;
+  margin-right: .33em;
+}
 </style>
