@@ -15,6 +15,7 @@
     <div class="block">
       <div class="title">
         Marital Status
+        <info questionId="myQuestionId" />
       </div>
 
       <div class="control">
@@ -54,6 +55,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpRadios from './smpRadios'
+import info from './Info'
 
 export default {
   name: 'Personal1',
@@ -63,7 +65,7 @@ export default {
   computed: {
     ...mapGetters(['personal'])
   },
-  components: { smpRadios },
+  components: { smpRadios, info },
   data () {
     return {
       ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16),
