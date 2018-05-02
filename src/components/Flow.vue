@@ -279,6 +279,8 @@ select {
   color: white;
   display: inline-block;
 }
+
+.block .button,
 .button  {
   border-radius: 2em;
   padding: .33em 1em;

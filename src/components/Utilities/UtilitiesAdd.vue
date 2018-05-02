@@ -60,8 +60,8 @@
         Other
       </label>
     </div>
-    <div class="page-nav">
-      <button class="done" @click="next">Next</button>
+    <div class="text-center">
+      <button class="button" @click="next">Next</button>
     </div>
   </div>
 </template>
@@ -86,30 +86,5 @@ export default {
 <style scoped>
   input {
     display: none;
-  }
-  button {
-    color: white;
-    border: 1px solid white;
-    padding: 1em;
-    background: transparent;
-  }
-  .page-nav {
-    text-align: center;
-    margin-top: 2em;
-  }
-  button.done {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: auto;
-  }
-  .back {
-    position: absolute;
-    bottom: 1em;
-    left: 1em;
-    text-decoration: none;
   }
 </style>
