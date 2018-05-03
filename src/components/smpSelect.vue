@@ -4,11 +4,12 @@
       {{title}}
     </div>
     <div class="select-wrapper">
+      <div v-show="!value" class="choose-one">choose one</div>
       <select
         @change="setValueByPath({path, value: $event.target.value })"
         :value="value"
       >
-        <option></option>
+        <option value="" disabled></option>
         <option
           v-for="(option, index) in options"
           :value="option.value"
@@ -16,7 +17,6 @@
         >{{option.name}}</option>
       </select>
     </div>
-    <div class="choose-one">choose one</div>
   </div>
 </template>
 
@@ -30,3 +30,18 @@ export default {
   }
 }
 </script>
+
+<style>
+select {
+  position: relative;
+  z-index: 1;
+}
+.choose-one {
+  position: absolute;
+  font-size: .8em;
+  opacity: .6;
+  margin-top: .5em;
+  margin-left: .1em;
+  z-index: 0;
+}
+</style>

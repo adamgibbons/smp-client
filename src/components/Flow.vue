@@ -311,6 +311,7 @@ select {
 .search-wrapper {
   width: 100%;
 }
+
 .select-wrapper,
 .search-wrapper,
 .form-wrapper {
@@ -373,12 +374,12 @@ select {
   height: 4px;
   background: white;
 }
-.choose-one, .info {
+/*.choose-one, .info {
   font-size: .7em;
   font-weight: 200;
   margin-top: .33em;
   color: white;
-}
+}*/
 
 .year-make-model-row {
   display: flex;

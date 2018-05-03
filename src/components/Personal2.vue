@@ -78,3 +78,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  select option {
+    color: red;
+  }
+</style>
