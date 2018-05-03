@@ -84,6 +84,7 @@ export default {
     font-weight: 300;
   }
   .info-modal {
-    margin: 4em 2.5em;
+    margin: 4em 2.66em;
+    height: 80%;
   }
 </style>
