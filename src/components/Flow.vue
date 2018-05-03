@@ -6,7 +6,7 @@
         v-show="backButtonIsVisible"
         class="back"
         @click="back">
-        Back
+        &lsaquo;
       </button>
       <button
         v-show="nextButtonIsVisible"
@@ -269,10 +269,9 @@ nav {
   position: absolute;
   bottom: 0;
   left: 1rem;
-  padding: 0em .66em;
-  font-size: .8em;
-  font-weight: 600;
-  line-height: 2;
+  padding: .33em .66em;
+  font-size: 1em;
+  font-weight: 900;
 }
 select {
   font-size: .9em;
