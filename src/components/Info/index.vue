@@ -1,15 +1,13 @@
 <template>
   <aside>
     <span class="info-icon" @click="toggleVisibilty">?</span>
-    <div v-show="active" class="modal">
+    <div v-show="active" class="modal info-modal">
+      <div class="close-modal" @click="toggleVisibilty">x</div>
       <div class="modal-content">
         <div class="question-answer" v-for="({question, answer}, index) in content" :key="index">
           <div class="question">{{question}}</div>
           <div class="answer">{{answer}}</div>
         </div>
-      </div>
-      <div class="page-nav">
-        <button class="done" @click="toggleVisibilty">OK</button>
       </div>
     </div>
   </aside>
@@ -61,6 +59,12 @@ export default {
     top: -.5em;
     left: .5em;
   }
+  .close-modal {
+    position: absolute;
+    right: .2em;
+    top: .2em;
+    font-size: 3em;
+  }
   .info-icon {
     color: black;
   }
@@ -79,16 +83,7 @@ export default {
   .answer {
     font-weight: 300;
   }
-  .page-nav {
-    text-align: center;
-  }
-  button.done {
-    border-radius: 2em;
-    padding: .33em 1em;
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 1em;
-    margin: 1em 0;
+  .info-modal {
+    margin: 4em 2.5em;
   }
 </style>
