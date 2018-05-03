@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
+  width: 100%; /* Width of the outside container */
 }
 
 .slidecontainer label {
@@ -53,11 +53,10 @@ export default {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%; /* Full-width */
-    height: 5em; /* Specified height */
-    border: 1px solid lightblue;
+    height: 4em; /* Specified height */
+    border-bottom: 1px solid white;
     background: transparent;
     outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
 }
@@ -69,22 +68,22 @@ export default {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
     background: white;
     border-radius: 100%;
     cursor: pointer; /* Cursor on hover */
     position: relative;
-    top: 2.6em;
+    top: 2em;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
     background: white;
     border-radius: 100%;
     cursor: pointer; /* Cursor on hover */
     position: relative;
-    top: 2.6em;
+    top: 2em;
 }
 </style>
