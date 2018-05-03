@@ -34,27 +34,18 @@
       </div>
     </div>
 
-    <div class="block">
-      <div class="title">
-        Age
-      </div>
-      <div class="select-wrapper">
-        <select
-          @change="setValueByPath({path: 'personal.age', value: $event.target.value})"
-          :value="personal.age"
-        >
-          <option v-for="age in ages" :key="age">{{age}}</option>
-        </select>
-        <br>
-      </div>
-      <div class="choose-one">choose one</div>
-    </div>
+    <smp-number
+      title="Age"
+      path="personal.age"
+      :value="personal.age"
+    />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpRadios from './smpRadios'
+import smpNumber from './smpNumber'
 import info from './Info'
 
 export default {
@@ -65,7 +56,7 @@ export default {
   computed: {
     ...mapGetters(['personal'])
   },
-  components: { smpRadios, info },
+  components: { smpRadios, info, smpNumber },
   data () {
     return {
       ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16),
