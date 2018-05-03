@@ -7,8 +7,6 @@
     <smp-number
       title="Monthly income"
       subtitle="(after taxes - combined)"
-      :min="0"
-      :max="100000"
       path="financial.monthlyHouseholdIncome"
       :value="financial.monthlyHouseholdIncome"
       unitSymbol="$"

@@ -329,12 +329,13 @@ select {
   font-size: .8em;
   font-weight: 300;
 }
-.select-wrapper input[type="number"] {
+.select-wrapper input[type="number"],
+.select-wrapper input[type="tel"] {
   color: white;
   background: transparent;
   border: none;
   font-size: 1.1em;
-  margin: .5em 0;
+  margin: 0 0 .3em;
   min-width: 5em;
 }
 .form-wrapper input[type="month"] {

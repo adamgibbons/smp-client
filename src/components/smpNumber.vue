@@ -1,15 +1,15 @@
 <template>
   <div class="block">
-    <div class="title">{{title}}</div>
-    <div v-show="subtitle" class="subtitle">{{subtitle}}</div>
+    <div class="title">
+      {{title}}
+      <span v-show="subtitle" class="subtitle">{{subtitle}}</span>
+    </div>
 
     <div class="control">
       <div class="select-wrapper">
         <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
         <input
-          type="number"
-          :min="min"
-          :max="max"
+          type="tel"
           :value="value"
           @input="setValueByPath({ path, value: $event.target.value })"
         />

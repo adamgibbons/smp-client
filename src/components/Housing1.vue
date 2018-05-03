@@ -27,45 +27,41 @@
       </div>
     </div>
 
-    <div v-show="!skipHousingInfo">
-      <div class="block">
-        <div class="title">
-          Type of property
-        </div>
-        <div class="control">
-          <label class="radio" :class="{active: housing.propertyType === 'singleFamilyHome'}" for="singleFamilyHome">
-            <input id="singleFamilyHome" type="radio" name="singleFamilyHome" :checked="housing.propertyType === 'singleFamilyHome'" @change="setValueByPath({path: 'housing.propertyType', value: 'singleFamilyHome'})" value="singleFamilyHome">
-            Single-Family House
-          </label>
-          <label class="radio" :class="{active: housing.propertyType === 'mobileHome'}" for="mobileHome">
-            <input id="mobileHome" type="radio" name="mobileHome" :checked="housing.propertyType === 'mobileHome'" @change="setValueByPath({path: 'housing.propertyType', value: 'mobileHome'})" value="mobileHome">
-            Mobile-House
-          </label>
-          <label class="radio" :class="{active: housing.propertyType === 'apartment'}" for="apartment">
-            <input id="apartment" type="radio" name="apartment" :checked="housing.propertyType === 'apartment'" @change="setValueByPath({path: 'housing.propertyType', value: 'apartment'})" value="apartment">
-            Apartment
-          </label>
-          <label class="radio" :class="{active: housing.propertyType === 'condo'}" for="condo">
-            <input id="condo" type="radio" name="condo" :checked="housing.propertyType === 'condo'" @change="setValueByPath({path: 'housing.propertyType', value: 'condo'})" value="condo">
-            Condo
-          </label>
-        </div>
+    <div v-show="!skipHousingInfo" class="block">
+      <div class="title">
+        Type of property
+      </div>
+      <div class="control">
+        <label class="radio" :class="{active: housing.propertyType === 'singleFamilyHome'}" for="singleFamilyHome">
+          <input id="singleFamilyHome" type="radio" name="singleFamilyHome" :checked="housing.propertyType === 'singleFamilyHome'" @change="setValueByPath({path: 'housing.propertyType', value: 'singleFamilyHome'})" value="singleFamilyHome">
+          Single-Family House
+        </label>
+        <label class="radio" :class="{active: housing.propertyType === 'mobileHome'}" for="mobileHome">
+          <input id="mobileHome" type="radio" name="mobileHome" :checked="housing.propertyType === 'mobileHome'" @change="setValueByPath({path: 'housing.propertyType', value: 'mobileHome'})" value="mobileHome">
+          Mobile-House
+        </label>
+        <label class="radio" :class="{active: housing.propertyType === 'apartment'}" for="apartment">
+          <input id="apartment" type="radio" name="apartment" :checked="housing.propertyType === 'apartment'" @change="setValueByPath({path: 'housing.propertyType', value: 'apartment'})" value="apartment">
+          Apartment
+        </label>
+        <label class="radio" :class="{active: housing.propertyType === 'condo'}" for="condo">
+          <input id="condo" type="radio" name="condo" :checked="housing.propertyType === 'condo'" @change="setValueByPath({path: 'housing.propertyType', value: 'condo'})" value="condo">
+          Condo
+        </label>
+      </div>
+    </div>
+
+    <div v-show="!skipHousingInfo" class="block">
+      <div class="title">
+        Zip code
       </div>
 
-      <div class="block">
-        <div class="title">
-          Zip code
-        </div>
-
-        <div class="control">
-          <div class="select-wrapper">
-            <input
-              type="number"
-              min="0"
-              max="99999"
-              @change="setValueByPath({ path: 'housing.zip', value: $event.target.value})"
-            />
-          </div>
+      <div class="control">
+        <div class="select-wrapper">
+          <input
+            type="tel"
+            @change="setValueByPath({ path: 'housing.zip', value: $event.target.value})"
+          />
         </div>
       </div>
     </div>

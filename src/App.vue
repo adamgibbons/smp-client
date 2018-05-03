@@ -92,13 +92,14 @@ header div {
 .block .title {
   text-align: left;
   margin-bottom: .33em;
-  font-size: 1rem;
+  font-size: .8rem;
   margin-bottom: .1em;
 }
 .block .subtitle {
-  font-size: .7em;
+  font-size: .9em;
   line-height: 1.33em;
   font-weight: 300;
+  margin-left: .33em;
 }
 .block button {
   border: 1px solid #aaa;
