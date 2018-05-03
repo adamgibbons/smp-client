@@ -39,6 +39,7 @@ select {
 .choose-one {
   position: absolute;
   font-size: .8em;
+  font-weight: 300;
   opacity: .6;
   margin-top: .5em;
   margin-left: .1em;

@@ -374,13 +374,12 @@ select {
   height: 4px;
   background: white;
 }
-/*.choose-one, .info {
+.info {
   font-size: .7em;
   font-weight: 200;
   margin-top: .33em;
   color: white;
-}*/
-
+}
 .year-make-model-row {
   display: flex;
   flex-flow: row wrap;
