@@ -9,7 +9,7 @@
         <div class="cell name">{{type}}</div>
         <div class="cell amount">${{averageLoanBalance}}</div>
         <div class="cell edit" @click="edit(index)">
-          <a>edit</a>
+          <i class="fas fa-pencil-alt"></i>
         </div>
       </div>
     </div>

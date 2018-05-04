@@ -8,7 +8,7 @@
         <div class="cell name">{{name | prettyName}}</div>
         <div class="cell amount">${{amount}}</div>
         <div class="cell edit" @click="edit">
-          <a>edit</a>
+          <i class="fas fa-pencil-alt"></i>
         </div>
       </div>
     </div>

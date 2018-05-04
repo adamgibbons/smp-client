@@ -406,11 +406,21 @@ select {
   padding: .9em 0;
   flex-flow: row nowrap;
 }
+
 .cell {
   flex: 1;
   position: relative;
-  left: 10%;
-  font-size: .9em;
+  font-size: .85em;
+}
+.cell.name {
+  padding-left: 1.5em;
+}
+.cell.amount {
+  text-align: center;
+}
+.cell.edit {
+  padding-right: 1.5em;
+  text-align: right;
 }
 
 .splash {
