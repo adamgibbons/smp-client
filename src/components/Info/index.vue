@@ -2,7 +2,9 @@
   <aside>
     <span class="info-icon" @click="toggleVisibilty">?</span>
     <div v-show="active" class="modal info-modal">
-      <div class="close-modal" @click="toggleVisibilty">x</div>
+      <div class="close-modal" @click="toggleVisibilty">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <div class="modal-content">
         <div class="question-answer" v-for="({question, answer}, index) in content" :key="index">
           <div class="question">{{question}}</div>
@@ -61,9 +63,8 @@ export default {
   }
   .close-modal {
     position: absolute;
-    right: .2em;
-    top: .2em;
-    font-size: 3em;
+    right: 0;
+    top: 0em;
   }
   .info-icon {
     color: black;
