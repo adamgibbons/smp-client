@@ -11,12 +11,16 @@
     </div>
 
     <div class="modal" v-show="addingUtilities">
-      <div class="modal-close" @click="closeAddModal">x</div>
+      <div class="modal-close" @click="closeAddModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <UtilitiesAdd v-on:edit="edit" />
     </div>
 
     <div class="modal" v-show="editingUtilities">
-      <div class="modal-close" @click="closeEditModal">x</div>
+      <div class="modal-close" @click="closeEditModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <UtilitiesEdit v-on:update="update" />
     </div>
   </div>

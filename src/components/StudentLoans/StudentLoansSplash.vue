@@ -11,7 +11,9 @@
     </div>
 
     <div class="modal" v-if="addingStudentLoans">
-      <div class="modal-close" @click="closeModal">x</div>
+      <div class="modal-close" @click="closeModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <StudentLoansAdd v-on:scrollTop="scrollTop" />
     </div>
   </div>

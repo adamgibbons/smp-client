@@ -133,12 +133,12 @@ header div {
   height: 90%;
   right: 0;
   bottom: 0;
-  margin: 2em 1em;
+  margin: 2em 1.33em;
   background-color: #2F4161;
   overflow-y: scroll;
   overflow-x: none;
   text-align: left;
-  box-shadow: 0px -10px 100px black;
+  box-shadow: 0px -15px 100px black;
   z-index: 100;
 }
 .modal .block {
@@ -147,11 +147,11 @@ header div {
 
 .modal-close {
   position: fixed;
-  right: 1.8rem;
-  top: 2.5rem;
-  color: white;
-  font-size: 2em;
-  opacity: .8;
+  right: 1.2rem;
+  top: 1.7rem;
+  /*color: white;*/
+  /*font-size: 2em;*/
+  /*opacity: .8;*/
 }
 
 /*TODO better naming - this is nav wrapper*/

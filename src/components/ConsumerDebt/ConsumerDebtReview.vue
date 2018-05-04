@@ -17,11 +17,15 @@
       <button class="button" @click="addMore">+ add more</button>
     </div>
     <div class="modal" v-if="editingConsumerDebt">
-      <div class="modal-close" @click="closeModal">x</div>
+      <div class="modal-close" @click="closeModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <ConsumerDebtEdit v-on:closeModal="closeModal" :indexOfModalItem="indexOfModalItem" />
     </div>
     <div class="modal" v-if="addingConsumerDebt">
-      <div class="modal-close" @click="closeModal">x</div>
+      <div class="modal-close" @click="closeModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <ConsumerDebtAdd
         v-on:closeModal="closeModal"
         v-on:scrollTop="scrollTop" />

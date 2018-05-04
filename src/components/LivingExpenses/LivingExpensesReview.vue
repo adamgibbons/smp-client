@@ -16,13 +16,17 @@
       <button class="button" @click="addMore">+ add more</button>
     </div>
     <div class="modal" v-if="editingLivingExpenses">
-      <div class="modal-close" @click="closeModal">x</div>
+      <div class="modal-close" @click="closeModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <LivingExpensesEdit
         v-on:closeModal="closeModal"
         v-on:update="update" />
     </div>
     <div class="modal" v-if="addingLivingExpenses">
-      <div class="modal-close" @click="closeModal">x</div>
+      <div class="modal-close" @click="closeModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <LivingExpensesAdd
         v-on:closeModal="closeModal"
         v-on:scrollTop="scrollTop"

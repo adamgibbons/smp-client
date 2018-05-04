@@ -15,12 +15,16 @@
     </div>
 
     <div class="modal" v-show="addingInsurance">
-      <div class="modal-close" @click="closeAddModal">x</div>
+      <div class="modal-close" @click="closeAddModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <InsuranceAdd v-on:edit="edit" />
     </div>
 
     <div class="modal" v-show="editingInsurance">
-      <div class="modal-close" @click="closeEditModal">x</div>
+      <div class="modal-close" @click="closeEditModal">
+        <i class="far fa-times-circle fa-2x"></i>
+      </div>
       <InsuranceEdit v-on:update="update" />
     </div>
   </div>
