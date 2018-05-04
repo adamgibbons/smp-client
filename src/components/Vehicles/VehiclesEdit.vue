@@ -217,7 +217,9 @@
 
     <div class="text-center">
       <button class="button" @click="done">Done</button>
-      <button class="remove" @click="remove">Remove</button>
+      <button class="remove" @click="remove">
+        <i class="far fa-trash-alt"></i>
+      </button>
     </div>
   </div>
 </template>

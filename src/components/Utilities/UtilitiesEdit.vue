@@ -5,7 +5,7 @@
       v-show="utilityIsSelected('electricity')"
       class="remove"
       @click="remove('electricity')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Electricity"
@@ -23,7 +23,7 @@
       v-show="utilityIsSelected('waterSewer')"
       class="remove"
       @click="remove('waterSewer')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Water/Sewer"
@@ -41,7 +41,7 @@
       v-show="utilityIsSelected('trash')"
       class="remove"
       @click="remove('trash')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Trash"
@@ -59,7 +59,7 @@
       v-show="utilityIsSelected('naturalGas')"
       class="remove"
       @click="remove('naturalGas')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Natural Gas"
@@ -77,7 +77,7 @@
       v-show="utilityIsSelected('hoa')"
       class="remove"
       @click="remove('hoa')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="HOA"
@@ -95,7 +95,7 @@
       v-show="utilityIsSelected('other')"
       class="remove"
       @click="remove('other')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Other"

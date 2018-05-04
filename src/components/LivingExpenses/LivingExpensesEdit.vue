@@ -5,7 +5,7 @@
       v-show="isSelected('gymMembership')"
       class="remove"
       @click="remove('gymMembership')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Gym Membership"
@@ -23,7 +23,7 @@
       v-show="isSelected('fuel')"
       class="remove"
       @click="remove('fuel')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Fuel"
@@ -41,7 +41,7 @@
       v-show="isSelected('publicTransportation')"
       class="remove"
       @click="remove('publicTransportation')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Public Transportation"
@@ -59,7 +59,7 @@
       v-show="isSelected('healthcare')"
       class="remove"
       @click="remove('healthcare')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Healthcare"
@@ -77,7 +77,7 @@
       v-show="isSelected('phoneInternetCable')"
       class="remove"
       @click="remove('phoneInternetCable')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Phone/Internet/Cable"
@@ -95,7 +95,7 @@
       v-show="isSelected('diningOut')"
       class="remove"
       @click="remove('diningOut')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Dining Out"
@@ -113,7 +113,7 @@
       v-show="isSelected('shopping')"
       class="remove"
       @click="remove('shopping')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Shopping"
@@ -131,7 +131,7 @@
       v-show="isSelected('entertainment')"
       class="remove"
       @click="remove('entertainment')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Entertainment"
@@ -149,7 +149,7 @@
       v-show="isSelected('childcare')"
       class="remove"
       @click="remove('childcare')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Childcare"
@@ -167,7 +167,7 @@
       v-show="isSelected('other')"
       class="remove"
       @click="remove('other')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Other"

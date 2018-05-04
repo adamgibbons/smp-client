@@ -5,7 +5,7 @@
       v-show="policyIsSelected('multiPolicy')"
       class="remove"
       @click="remove('multiPolicy')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Multi-Policy"
@@ -23,7 +23,7 @@
       v-show="policyIsSelected('health')"
       class="remove"
       @click="remove('health')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Health"
@@ -41,7 +41,7 @@
       v-show="policyIsSelected('car')"
       class="remove"
       @click="remove('car')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Car"
@@ -59,7 +59,7 @@
       v-show="policyIsSelected('homeowners')"
       class="remove"
       @click="remove('homeowners')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Homeowners"
@@ -77,7 +77,7 @@
       v-show="policyIsSelected('life')"
       class="remove"
       @click="remove('life')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Life"
@@ -95,7 +95,7 @@
       v-show="policyIsSelected('disability')"
       class="remove"
       @click="remove('disability')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Disability"
@@ -113,7 +113,7 @@
       v-show="policyIsSelected('other')"
       class="remove"
       @click="remove('other')">
-      remove
+      <i class="far fa-trash-alt"></i>
     </div>
     <smp-slider
       title="Other"
