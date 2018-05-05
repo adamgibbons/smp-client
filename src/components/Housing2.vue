@@ -24,6 +24,7 @@
     </smp-checkboxes>
 
     <smp-number
+      v-show="!monthlyMortgagePaymentIncludesPropertyTax"
       title="What is your Annual Property Tax?"
       path="housing.annualPropertyTax"
       :min="0"
@@ -46,7 +47,7 @@ export default {
     ...mapActions(['setValueByPath'])
   },
   computed: {
-    ...mapGetters(['housing'])
+    ...mapGetters(['housing', 'monthlyMortgagePaymentIncludesPropertyTax'])
   },
   components: { smpNumber, smpCheckboxes },
   data () {

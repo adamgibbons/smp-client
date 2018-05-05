@@ -35,12 +35,11 @@ export default {
     text-align: center;
   }
   ol {
-    text-align: left;
     margin: 0;
     padding: 0 0 0 1em;
     line-height: 1.4;
-    font-size: .9em;
-    list-style-position: outside;
+    font-size: .85em;
+    list-style-position: inside;
   }
   ol li {
     margin: .33em 0;

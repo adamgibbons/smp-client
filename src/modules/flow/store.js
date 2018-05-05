@@ -224,7 +224,12 @@ const getters = {
       (!!(state.housing.status === 'No Rent')) ||
       (!!state.housing.propertyType && !!state.housing.zip)
   },
-  housing2IsValid: state => {
+  housing2IsValid: (state, getters) => {
+    // if mortgage includes property tax, we don't need to require it
+    if (getters.monthlyMortgagePaymentIncludesPropertyTax) {
+      return !!state.housing.monthlyMortgagePayment
+    }
+
     return !!state.housing.monthlyMortgagePayment &&
       !!state.housing.annualPropertyTax
   },
@@ -244,6 +249,9 @@ const getters = {
   },
   skipHousingInfo: state => {
     return ['Living w/ Parents', 'No Rent'].indexOf(state.housing.status) !== -1
+  },
+  monthlyMortgagePaymentIncludesPropertyTax: state => {
+    return state.housing.monthlyMortgagePaymentIncludes.indexOf('Property Tax') !== -1
   }
 }
 
