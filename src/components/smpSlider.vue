@@ -59,6 +59,7 @@ export default {
     outline: none; /* Remove outline */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
+    border-radius: 0;
 }
 
 .slider:hover {
