@@ -20,7 +20,7 @@
 export default {
   methods: {
     next () {
-      this.$router.push('/onboard-1')
+      this.$router.push({ name: 'Pages1' })
     }
   }
 }

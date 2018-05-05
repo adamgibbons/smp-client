@@ -233,30 +233,6 @@ export default {
 </script>
 
 <style>
-a {
-  color: #42b983;
-}
-nav {
-  margin: 0 auto;
-  text-align: center;
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
-  color: white;
-}
-
-.next {
-  border-radius: 2em;
-  padding: .33em 1em;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  font-size: 1em;
-  transition: all 0.2s ease-in-out;
-  position: relative;
-  top: 0;
-  opacity: 1;
-}
 .next.disabled {
   opacity: 0;
   top: 1em;
@@ -277,17 +253,6 @@ select {
   font-size: .9em;
   color: white;
   display: inline-block;
-}
-
-.block .button,
-.button  {
-  border-radius: 2em;
-  padding: .33em 1em;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  font-size: 1em;
-  margin: 1em auto;
 }
 .control input[type="radio"] {
   display: none;
