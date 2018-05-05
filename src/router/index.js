@@ -9,6 +9,10 @@ import Onboard2 from '@/components/Onboard2'
 import Onboard3 from '@/components/Onboard3'
 import Onboard4 from '@/components/Onboard4'
 
+import Pages from '@/components/Pages'
+import Pages1 from '@/components/Pages/Page1'
+// import Pages2 from '@/components/Pages/Personal2'
+
 import Flow from '@/components/Flow'
 import Start from '@/components/Start'
 
@@ -85,6 +89,19 @@ export default new Router({
     {
       path: '/start',
       component: Start
+    },
+    {
+      path: '/pages',
+      component: Pages,
+      name: 'pages',
+      redirect: '/pages/1',
+      children: [
+        {
+          name: 'pages-1',
+          path: '1',
+          component: Pages1
+        }
+      ]
     },
     {
       path: '/flow',
