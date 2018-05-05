@@ -4,14 +4,23 @@
       <router-view></router-view>
     </div>
     <nav>
-      <button class="next button">Next</button>
+      <button class="next button" @click="next">Next</button>
     </nav>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'pages'
+  name: 'Pages',
+  methods: {
+    next () {
+      if (this.$route.name === 'Pages1') {
+        return this.$router.push({ name: 'Pages2' })
+      }
+
+      return this.$router.push({ name: 'Register' })
+    }
+  }
 }
 </script>
 
@@ -22,11 +31,19 @@ export default {
     flex-flow: column nowrap;
   }
   .page .content {
-    margin: 3em;
+    margin: 3em 2em;
     text-align: center;
   }
-  .page .content p {
-    margin: 2em 0;
+  ol {
+    text-align: left;
+    margin: 0;
+    padding: 0 0 0 1em;
+    line-height: 1.4;
+    font-size: .9em;
+    list-style-position: outside;
+  }
+  ol li {
+    margin: .33em 0;
   }
   .block .button,
   .button  {

@@ -11,7 +11,7 @@ import Onboard4 from '@/components/Onboard4'
 
 import Pages from '@/components/Pages'
 import Pages1 from '@/components/Pages/Page1'
-// import Pages2 from '@/components/Pages/Personal2'
+import Pages2 from '@/components/Pages/Page2'
 
 import Flow from '@/components/Flow'
 import Start from '@/components/Start'
@@ -79,10 +79,12 @@ export default new Router({
       component: Onboard4
     },
     {
+      name: 'Register',
       path: '/register',
       component: Register
     },
     {
+      name: 'Login',
       path: '/login',
       component: Login
     },
@@ -93,13 +95,18 @@ export default new Router({
     {
       path: '/pages',
       component: Pages,
-      name: 'pages',
+      name: 'Pages',
       redirect: '/pages/1',
       children: [
         {
-          name: 'pages-1',
+          name: 'Pages1',
           path: '1',
           component: Pages1
+        },
+        {
+          name: 'Pages2',
+          path: '2',
+          component: Pages2
         }
       ]
     },
