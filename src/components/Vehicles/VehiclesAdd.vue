@@ -91,7 +91,7 @@
     </div>
 
     <!-- ownership -->
-    <div class="block">
+    <div class="block" v-show="!!form.type">
       <div class="title">Your vehicle is</div>
 
       <div class="control">
