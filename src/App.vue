@@ -89,6 +89,16 @@ nav {
   top: 0;
   opacity: 1;
 }
+.block .button,
+.button  {
+  border-radius: 2em;
+  padding: .33em 1em;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 1em;
+  margin: 1em auto;
+}
 
 .gradient {
   background: linear-gradient(#234c7b, #4d235f);
