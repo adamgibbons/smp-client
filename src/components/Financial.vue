@@ -33,8 +33,8 @@
           <input id="three" type="radio" name="three" :checked="financial.dependents === '3'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value=3>
           3
         </label>
-        <label class="radio" :class="{active: financial.dependents === '4'}" for="four">
-          <input id="four" type="radio" name="four" :checked="financial.dependents === '4'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value="4+">
+        <label class="radio" :class="{active: financial.dependents === '4+'}" for="four">
+          <input id="four" type="radio" name="four" :checked="financial.dependents === '4+'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value="4+">
           4+
         </label>
       </div>
