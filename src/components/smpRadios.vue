@@ -1,5 +1,6 @@
 <template>
-  <div class="block">
+  <div class="block" :class="{muted: value === 'skip'}">
+    <a v-if="allowSkip" class="idk" @click="setValueByPath({ path, value: 'skip' })">Don't know</a>
     <div class="title">{{title}}</div>
 
     <div class="control">
@@ -27,9 +28,20 @@
 import { mapActions } from 'vuex'
 
 export default {
-  props: ['title', 'path', 'options', 'value'],
+  props: ['title', 'path', 'options', 'value', 'allowSkip'],
   methods: {
     ...mapActions(['setValueByPath'])
   }
 }
 </script>
+
+<style scoped>
+  .idk {
+    float: right;
+    font-size: .7em;
+    font-weight: 200;
+    opacity: .8;
+    position: relative;
+    z-index: 100;
+  }
+</style>
