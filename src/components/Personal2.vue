@@ -4,6 +4,8 @@
       Personal info (cont...)
     </div>
 
+    <Progress />
+
     <smp-select
       title="Highest level of education"
       path="personal.education"
@@ -32,7 +34,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSelect from './smpSelect'
+import smpSelect from '@/components/smpSelect'
+import Progress from '@/components/Progress'
 
 import formatOptionsList from '../utils/format-options-list'
 
@@ -43,7 +46,7 @@ export default {
   computed: {
     ...mapGetters(['personal'])
   },
-  components: { smpSelect },
+  components: { smpSelect, Progress },
   data () {
     return {
       educationOptions: formatOptionsList([

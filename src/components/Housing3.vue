@@ -4,6 +4,8 @@
       Housing info (cont...)
     </div>
 
+    <Progress />
+
     <smp-number
       title="What is your Loan Balance?"
       path="housing.loanBalance"
@@ -37,9 +39,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from './smpSlider'
-import smpNumber from './smpNumber'
-import smpSelect from './smpSelect'
+import smpSlider from '@/components/smpSlider'
+import smpNumber from '@/components/smpNumber'
+import smpSelect from '@/components/smpSelect'
+import Progress from '@/components/Progress'
 
 import formatOptionsList from '../utils/format-options-list'
 
@@ -50,7 +53,7 @@ export default {
   computed: {
     ...mapGetters(['housing'])
   },
-  components: { smpSlider, smpNumber, smpSelect },
+  components: { smpSlider, smpNumber, smpSelect, Progress },
   data () {
     return {
       termOptions: formatOptionsList([

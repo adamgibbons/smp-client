@@ -4,6 +4,8 @@
       Housing info (cont...)
     </div>
 
+    <Progress />
+
     <smp-number
       title="What is your monthly mortgage payment?"
       path="housing.monthlyMortgagePayment"
@@ -39,8 +41,9 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpNumber from './smpNumber'
-import smpCheckboxes from './smpCheckboxes'
+import smpNumber from '@/components/smpNumber'
+import smpCheckboxes from '@/components/smpCheckboxes'
+import Progress from '@/components/Progress'
 
 export default {
   methods: {
@@ -49,7 +52,7 @@ export default {
   computed: {
     ...mapGetters(['housing', 'monthlyMortgagePaymentIncludesPropertyTax'])
   },
-  components: { smpNumber, smpCheckboxes },
+  components: { smpNumber, smpCheckboxes, Progress },
   data () {
     return {
       options: ['Property Tax', 'Home Insurance', 'PMI', 'HOA']

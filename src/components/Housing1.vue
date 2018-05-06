@@ -3,6 +3,9 @@
     <div class="title">
       Housing info
     </div>
+
+    <Progress />
+
     <div class="block">
       <div class="title">
         Current housing situation
@@ -70,8 +73,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Progress from '@/components/Progress'
 
 export default {
+  components: { Progress },
   methods: {
     ...mapActions(['setValueByPath'])
   },

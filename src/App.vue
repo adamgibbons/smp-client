@@ -122,7 +122,7 @@ nav {
   padding: 1.5em 1.66em;
   font-size: 1em
 }
-.block:nth-of-type(2) {
+.progress-wrapper + .block {
   border-top: none;
 }
 .block .title {
