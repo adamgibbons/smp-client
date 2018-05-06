@@ -12,6 +12,8 @@
       :min="0"
       :max="1000000"
       :value="savings.retirementPlusInvestment"
+      :allowSkip="true"
+      unitSymbol="$"
     >
     </smp-number>
 

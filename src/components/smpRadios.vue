@@ -1,6 +1,6 @@
 <template>
   <div class="block" :class="{muted: value === 'skip'}">
-    <a v-if="allowSkip" class="idk" @click="setValueByPath({ path, value: 'skip' })">Don't know</a>
+    <a v-if="allowSkip" class="idk" @click="setValueByPath({ path, value: 'skip' })">Skip</a>
     <div class="title">{{title}}</div>
 
     <div class="control">
@@ -34,14 +34,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .idk {
-    float: right;
-    font-size: .7em;
-    font-weight: 200;
-    opacity: .8;
-    position: relative;
-    z-index: 100;
-  }
-</style>

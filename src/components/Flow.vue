@@ -283,7 +283,8 @@ select {
   border: none;
   font-size: 1.1em;
   margin: 0 0 .3em;
-  min-width: 5em;
+  width: 100%;
+  max-width: 6em;
 }
 .form-wrapper input[type="month"] {
   color: white;
@@ -373,5 +374,14 @@ select {
   color: lightgray;
   opacity: .8;
   margin-right: .33em;
+}
+
+.idk {
+  float: right;
+  font-size: .7em;
+  font-weight: 200;
+  opacity: .8;
+  position: relative;
+  z-index: 100;
 }
 </style>

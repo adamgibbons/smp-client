@@ -12,6 +12,7 @@
       path="financial.monthlyHouseholdIncome"
       :value="financial.monthlyHouseholdIncome"
       unitSymbol="$"
+      :allowSkip="true"
     />
 
     <smpRadios
