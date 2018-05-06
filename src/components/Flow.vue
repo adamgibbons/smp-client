@@ -335,7 +335,7 @@ select {
   display: flex;
   flex-flow: column nowrap;
   align-content: flex-start;
-  margin: 1em 0 1em;
+  margin: 0 0 1em;
   border-bottom: 1px solid rgba(255, 255, 255, .25);
 }
 .row {
