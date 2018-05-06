@@ -183,11 +183,8 @@ nav {
 
 .modal-close {
   position: fixed;
-  right: 1.2rem;
-  top: 1.7rem;
-  /*color: white;*/
-  /*font-size: 2em;*/
-  /*opacity: .8;*/
+  right: 1.5em;
+  top: 2.1em;
 }
 
 /*TODO better naming - this is nav wrapper*/
