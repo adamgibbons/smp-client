@@ -316,12 +316,6 @@ select {
   line-height: 1.1;
   color: white;
 }
-.info {
-  font-size: .7em;
-  font-weight: 200;
-  margin-top: .33em;
-  color: white;
-}
 .year-make-model-row {
   display: flex;
   flex-flow: row wrap;

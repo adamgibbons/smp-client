@@ -6,41 +6,29 @@
 
     <Progress />
 
-    <smp-number
+    <smpNumber
       title="Monthly income"
       subtitle="(after taxes - combined)"
       path="financial.monthlyHouseholdIncome"
       :value="financial.monthlyHouseholdIncome"
       unitSymbol="$"
-    >
-    </smp-number>
+    />
 
-    <div class="block">
-      <div class="title">
-        Dependents
-      </div>
+    <smpRadios
+      title="Dependents"
+      path="financial.dependents"
+      :options="dependentsOptions"
+      :value="financial.dependents"
+    />
 
-      <div class="control">
-        <label class="radio" :class="{active: financial.dependents === '1'}" for="one">
-          <input id="one" type="radio" name="one" :checked="financial.dependents === '1'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value=1>
-          1
-        </label>
-        <label class="radio" :class="{active: financial.dependents === '2'}" for="two">
-          <input id="two" type="radio" name="two" :checked="financial.dependents === '2'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value=2>
-          2
-        </label>
-        <label class="radio" :class="{active: financial.dependents === '3'}" for="three">
-          <input id="three" type="radio" name="three" :checked="financial.dependents === '3'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value=3>
-          3
-        </label>
-        <label class="radio" :class="{active: financial.dependents === '4+'}" for="four">
-          <input id="four" type="radio" name="four" :checked="financial.dependents === '4+'" @change="setValueByPath({path: 'financial.dependents', value: $event.target.value})" value="4+">
-          4+
-        </label>
-      </div>
-    </div>
+    <smpRadios
+      title="Credit score"
+      path="financial.creditScore"
+      :options="creditScoreOptions"
+      :value="financial.creditScore"
+    />
 
-    <div class="block">
+<!--     <div class="block">
       <div class="title">
         Credit score
       </div>
@@ -62,17 +50,14 @@
           Excellent
         </label>
       </div>
-
-      <p>
-        <a class="info">I don't know</a>
-      </p>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpNumber from '@/components/smpNumber'
+import smpRadios from '@/components/smpRadios'
 import Progress from '@/components/Progress'
 
 export default {
@@ -82,6 +67,12 @@ export default {
   computed: {
     ...mapGetters(['financial'])
   },
-  components: { smpNumber, Progress }
+  components: { smpNumber, smpRadios, Progress },
+  data () {
+    return {
+      creditScoreOptions: ['Poor', 'Fair', 'Good', 'Excellent'],
+      dependentsOptions: ['1', '2', '3', '4+']
+    }
+  }
 }
 </script>
