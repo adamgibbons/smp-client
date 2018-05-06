@@ -64,6 +64,7 @@
           <input
             type="tel"
             @change="setValueByPath({ path: 'housing.zip', value: $event.target.value})"
+            :value="housing.zip"
           />
         </div>
       </div>
