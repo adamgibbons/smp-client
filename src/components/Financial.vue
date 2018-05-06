@@ -27,30 +27,6 @@
       :options="creditScoreOptions"
       :value="financial.creditScore"
     />
-
-<!--     <div class="block">
-      <div class="title">
-        Credit score
-      </div>
-      <div class="control">
-        <label class="radio" :class="{active: financial.creditScore === 'poor'}" for="poor">
-          <input id="poor" type="radio" name="poor" :checked="financial.creditScore === 'poor'" @change="setValueByPath({path: 'financial.creditScore', value: 'poor'})" value="poor">
-          Poor
-        </label>
-        <label class="radio" :class="{active: financial.creditScore === 'fair'}" for="fair">
-          <input id="fair" type="radio" name="fair" :checked="financial.creditScore === 'fair'" @change="setValueByPath({path: 'financial.creditScore', value: 'fair'})" value="fair">
-          Fair
-        </label>
-        <label class="radio" :class="{active: financial.creditScore === 'good'}" for="good">
-          <input id="good" type="radio" name="good" :checked="financial.creditScore === 'good'" @change="setValueByPath({path: 'financial.creditScore', value: 'good'})" value="good">
-          Good
-        </label>
-        <label class="radio" :class="{active: financial.creditScore === 'excellent'}" for="excellent">
-          <input id="excellent" type="radio" name="excellent" :checked="financial.creditScore === 'excellent'" @change="setValueByPath({path: 'financial.creditScore', value: 'excellent'})" value="excellent">
-          Excellent
-        </label>
-      </div>
-    </div> -->
   </div>
 </template>
 
