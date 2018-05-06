@@ -4,6 +4,8 @@
       Personal info
     </div>
 
+    <Progress />
+
     <smp-radios
       title="Gender"
       path="personal.gender"
@@ -15,7 +17,7 @@
     <div class="block">
       <div class="title">
         Marital Status
-        <info questionId="myQuestionId" />
+        <Info questionId="myQuestionId" />
       </div>
 
       <div class="control">
@@ -46,7 +48,8 @@
 import { mapActions, mapGetters } from 'vuex'
 import smpRadios from './smpRadios'
 import smpNumber from './smpNumber'
-import info from './Info'
+import Info from './Info'
+import Progress from './Progress'
 
 export default {
   name: 'Personal1',
@@ -56,7 +59,7 @@ export default {
   computed: {
     ...mapGetters(['personal'])
   },
-  components: { smpRadios, info, smpNumber },
+  components: { smpRadios, Info, smpNumber, Progress },
   data () {
     return {
       ages: Array.apply(null, {length: 100}).map(Number.call, Number).slice(16),

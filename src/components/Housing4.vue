@@ -4,6 +4,8 @@
       Housing info (cont...)
     </div>
 
+    <Progress />
+
     <smp-number
       title="What is your monthly rent?"
       path="housing.monthlyRent"
@@ -25,14 +27,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import smpNumber from './smpNumber'
-import smpRadios from './smpRadios'
+import smpNumber from '@/components/smpNumber'
+import smpRadios from '@/components/smpRadios'
+import Progress from '@/components/Progress'
 
 export default {
   computed: {
     ...mapGetters(['housing'])
   },
-  components: { smpNumber, smpRadios },
+  components: { smpNumber, smpRadios, Progress },
   data () {
     return {
       options: ['Yes', 'No', 'Some']

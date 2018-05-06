@@ -4,6 +4,8 @@
       Savings (cont...)
     </div>
 
+    <Progress />
+
     <smp-number
       title="Average Amount you save per month"
       subtitle="(Cash)"
@@ -39,11 +41,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import smpNumber from './smpNumber'
+import Progress from '@/components/Progress'
 
 export default {
   computed: {
     ...mapGetters(['savings'])
   },
-  components: { smpNumber }
+  components: { smpNumber, Progress }
 }
 </script>

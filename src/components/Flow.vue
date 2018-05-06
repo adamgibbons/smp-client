@@ -22,29 +22,11 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import routesList from '@/data/routes-list.json'
 
 export default {
   data () {
-    return {
-      progress: [
-        'Personal1',
-        'Personal2',
-        'Personal3',
-        'Financial',
-        'Housing1',
-        'Housing2',
-        'Housing3',
-        'Housing4',
-        'UtilitiesSplash',
-        'VehiclesSplash',
-        'InsuranceSplash',
-        'StudentLoansSplash',
-        'ConsumerDebtSplash',
-        'LivingExpensesSplash',
-        'Savings1',
-        'Savings2'
-      ]
-    }
+    return { routesList }
   },
   computed: {
     ...mapGetters([
@@ -89,7 +71,7 @@ export default {
       ].indexOf(this.$route.name) !== -1
     },
     position () {
-      return this.progress.indexOf(this.$route.name)
+      return this.routesList.indexOf(this.$route.name)
     },
     isValid () {
       if (this.$route.name === 'Personal1') return this.personal1IsValid
@@ -162,7 +144,7 @@ export default {
 
       if (this.position === 0) return
 
-      this.$router.replace({ name: this.progress[this.position - 1] })
+      this.$router.replace({ name: this.routesList[this.position - 1] })
     },
     next () {
       // this.update()
@@ -224,9 +206,9 @@ export default {
         return this.$router.push({ name: 'Savings1' })
       }
 
-      if (this.position + 1 === this.progress.length) return
+      if (this.position + 1 === this.routesList.length) return
 
-      this.$router.push({ name: this.progress[this.position + 1] })
+      this.$router.push({ name: this.routesList[this.position + 1] })
     }
   }
 }
@@ -333,10 +315,6 @@ select {
   padding: 1.5em 1em;
   line-height: 1.1;
   color: white;
-}
-.progress-bar {
-  height: 4px;
-  background: white;
 }
 .info {
   font-size: .7em;

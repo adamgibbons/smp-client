@@ -4,6 +4,8 @@
       Savings
     </div>
 
+    <Progress />
+
     <smp-number
       title="Retirement + Investment + 401K saved?"
       path="savings.retirementPlusInvestment"
@@ -36,12 +38,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import smpNumber from './smpNumber'
+import smpNumber from '@/components/smpNumber'
+import Progress from '@/components/Progress'
 
 export default {
   computed: {
     ...mapGetters(['savings'])
   },
-  components: { smpNumber }
+  components: { smpNumber, Progress }
 }
 </script>

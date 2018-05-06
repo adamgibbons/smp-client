@@ -4,6 +4,8 @@
       Financial info
     </div>
 
+    <Progress />
+
     <smp-number
       title="Monthly income"
       subtitle="(after taxes - combined)"
@@ -70,7 +72,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpNumber from './smpNumber'
+import smpNumber from '@/components/smpNumber'
+import Progress from '@/components/Progress'
 
 export default {
   methods: {
@@ -79,6 +82,6 @@ export default {
   computed: {
     ...mapGetters(['financial'])
   },
-  components: { smpNumber }
+  components: { smpNumber, Progress }
 }
 </script>

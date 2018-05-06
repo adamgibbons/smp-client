@@ -172,7 +172,7 @@ export default new Router({
           ]
         },
         {
-          name: 'insurance',
+          name: 'Insurance',
           path: 'insurance',
           component: Insurance,
           children: [
