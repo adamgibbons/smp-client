@@ -122,6 +122,10 @@ nav {
   padding: 1.5em 1.66em;
   font-size: 1em
 }
+.block.muted .control label,
+.block.muted .title {
+  opacity: .6;
+}
 .progress-wrapper + .block {
   border-top: none;
 }

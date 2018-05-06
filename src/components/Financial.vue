@@ -26,6 +26,7 @@
       path="financial.creditScore"
       :options="creditScoreOptions"
       :value="financial.creditScore"
+      :allowSkip="true"
     />
   </div>
 </template>
