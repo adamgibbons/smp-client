@@ -7,7 +7,9 @@
         :key="index">
         <!-- <div class="cell name">{{name | prettyName}}</div> -->
         <div class="cell name">{{type}}</div>
-        <div class="cell amount">${{balance}}</div>
+        <div class="cell amount">
+          <span class="currency">$</span>{{balance | currency}}
+        </div>
         <div class="cell edit" @click="edit(index)">
           <i class="fas fa-pencil-alt"></i>
         </div>
@@ -37,6 +39,7 @@
 import { mapGetters } from 'vuex'
 import StudentLoansEdit from '@/components/StudentLoans/StudentLoansEdit'
 import StudentLoansAdd from '@/components/StudentLoans/StudentLoansAdd'
+import currency from '@/utils/format-currency'
 
 export default {
   name: 'StudentLoansReview',
@@ -74,8 +77,8 @@ export default {
   },
   computed: {
     ...mapGetters(['studentLoans'])
-  }
-  // filters: {
+  },
+  filters: { currency }
   //   prettyName: (name) => {
   //     return {
   //       gymMembership: 'Gym Membership',
@@ -90,6 +93,5 @@ export default {
   //       other: 'Other'
   //     }[name]
   //   }
-  // }
 }
 </script>

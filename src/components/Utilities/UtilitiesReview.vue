@@ -6,7 +6,9 @@
         v-for="({ billName, amount }, index) in activatedUtilities"
         :key="index">
         <div class="cell name">{{billName | prettyName}}</div>
-        <div class="cell amount">${{amount}}</div>
+        <div class="cell amount">
+          <span class="currency">$</span>{{amount | currency}}
+        </div>
         <div class="cell edit" @click="edit">
           <i class="fas fa-pencil-alt"></i>
         </div>
@@ -38,6 +40,7 @@
 <script>
 import UtilitiesAdd from './UtilitiesAdd'
 import UtilitiesEdit from './UtilitiesEdit'
+import currency from '@/utils/format-currency'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -80,6 +83,7 @@ export default {
   },
   components: { UtilitiesAdd, UtilitiesEdit },
   filters: {
+    currency,
     prettyName: (name) => {
       return {
         electricity: 'Electricity',

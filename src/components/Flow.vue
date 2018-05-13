@@ -408,4 +408,10 @@ select {
   position: relative;
   z-index: 100;
 }
+
+.currency {
+  font-size: .8em;
+  margin-right: 2px;
+}
+
 </style>

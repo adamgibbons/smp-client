@@ -6,7 +6,9 @@
         v-for="({ name, amount }, index) in activatedLivingExpenses"
         :key="index">
         <div class="cell name">{{name | prettyName}}</div>
-        <div class="cell amount">${{amount}}</div>
+        <div class="cell amount">
+          <span class="currency">$</span>{{amount | currency}}
+        </div>
         <div class="cell edit" @click="edit">
           <i class="fas fa-pencil-alt"></i>
         </div>
@@ -39,6 +41,7 @@
 import { mapGetters } from 'vuex'
 import LivingExpensesAdd from './LivingExpensesAdd'
 import LivingExpensesEdit from './LivingExpensesEdit'
+import currency from '@/utils/format-currency'
 
 export default {
   name: 'LivingExpensesReview',
@@ -80,6 +83,7 @@ export default {
   },
   components: { LivingExpensesAdd, LivingExpensesEdit },
   filters: {
+    currency,
     prettyName: (name) => {
       return {
         gymMembership: 'Gym Membership',
