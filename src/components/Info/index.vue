@@ -1,6 +1,8 @@
 <template>
   <aside>
-    <span class="info-icon" @click="toggleVisibilty">?</span>
+    <span class="help" @click="toggleVisibilty">
+      <i class="far fa-question-circle"></i>
+    </span>
     <div v-show="active" class="modal info-modal">
       <div class="close-modal" @click="toggleVisibilty">
         <i class="far fa-times-circle fa-2x"></i>
@@ -49,25 +51,15 @@ export default {
   aside {
     display: inline;
   }
-  span {
-    font-weight: 900;
-    font-size: .8em;
-    border-radius: 50%;
-    padding: .1em .5em;
-    color: black;
-    background: white;
-    opacity: .5;
+  .help {
     position: relative;
-    top: -.5em;
-    left: .5em;
+    top: -5px;
+    left: 2px;
   }
   .close-modal {
     position: absolute;
     right: 0;
     top: 0em;
-  }
-  .info-icon {
-    color: black;
   }
   .modal-content {
     margin: 1.5em;

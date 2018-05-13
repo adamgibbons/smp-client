@@ -1,6 +1,6 @@
 <template>
   <div>
-    <br>
+    <p style="margin: 2.5em 1.5em 1em;">What do you pay for these expenses per month?</p>
     <div
       v-show="policyIsSelected('multiPolicy')"
       class="remove"
