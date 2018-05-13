@@ -12,7 +12,7 @@
         <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
         <input
           type="tel"
-          :value="value | hideSkip"
+          :value="value | hideSkip | currency(unitSymbol)"
           @input="setValueByPath({ path, value: $event.target.value })"
         />
       </div>
@@ -40,6 +40,13 @@ export default {
   filters: {
     hideSkip (val) {
       return val === 'skip' ? '' : val
+    },
+    currency (val, unitSymbol) {
+      if (val && val.length && unitSymbol === '$') {
+        return parseInt(val.replace(/,/gi, '')).toLocaleString()
+      }
+
+      return val
     }
   }
 }
