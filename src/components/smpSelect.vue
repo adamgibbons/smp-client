@@ -38,10 +38,10 @@ select {
 }
 .choose-one {
   position: absolute;
-  font-size: .8em;
-  font-weight: 300;
-  opacity: .6;
-  margin-top: .5em;
+  font-size: .75em;
+  font-weight: 100;
+  opacity: .5;
+  margin-top: .66em;
   margin-left: .1em;
   z-index: 0;
 }

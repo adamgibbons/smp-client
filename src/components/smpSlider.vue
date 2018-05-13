@@ -12,8 +12,14 @@
         @input="setValueByPath({ path, value: $event.target.value})"
       />
       <label>
-        <span>{{unitSymbol}}</span>
-        {{value}}</label>
+        <span v-if="unitSymbol !== '%'">
+          {{unitSymbol}}
+        </span>
+        {{value}}
+        <span v-if="unitSymbol === '%'">
+          {{unitSymbol}}
+        </span>
+      </label>
     </div>
   </div>
 </template>
