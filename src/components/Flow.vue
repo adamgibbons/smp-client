@@ -303,6 +303,30 @@ select {
   min-width: 5em;
   width: 100%;
 }
+.search-wrapper input[type="text"]::-webkit-input-placeholder {
+  color: white;
+  opacity: .5;
+  font-weight: 100;
+  font-size: 13px;
+}
+.search-wrapper input[type="text"]::-moz-placeholder {
+  color: white;
+  opacity: .5;
+  font-weight: 100;
+  font-size: 13px;
+}
+.search-wrapper input[type="text"]:-ms-input-placeholder {
+  color: white;
+  opacity: .5;
+  font-weight: 100;
+  font-size: 13px;
+}
+.search-wrapper input[type="text"]:-moz-placeholder {
+  color: white;
+  opacity: .5;
+  font-weight: 100;
+  font-size: 13px;
+}
 .search-results {
   width: 113%;
   /*background-color: #031b36;*/
