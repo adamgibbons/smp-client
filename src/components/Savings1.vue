@@ -23,6 +23,8 @@
       :min="0"
       :max="1000000"
       :value="savings.cashPlusEmergency"
+      :allowSkip="true"
+      unitSymbol="$"
     >
     </smp-number>
 
@@ -33,6 +35,8 @@
       :min="0"
       :max="1000000"
       :value="savings.realEstate"
+      :allowSkip="true"
+      unitSymbol="$"
     >
     </smp-number>
   </div>

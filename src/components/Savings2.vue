@@ -13,6 +13,8 @@
       :min="0"
       :max="1000000"
       :value="savings.averageMonthlySavings"
+      :allowSkip="true"
+      unitSymbol="$"
     >
     </smp-number>
 
@@ -23,6 +25,8 @@
       :min="0"
       :max="1000000"
       :value="savings.averageMonthlyRetirementContribution"
+      :allowSkip="true"
+      unitSymbol="$"
     >
     </smp-number>
 
@@ -33,6 +37,8 @@
       :min="0"
       :max="1000000"
       :value="savings.averageMonthlyDebPayment"
+      :allowSkip="true"
+      unitSymbol="$"
     >
     </smp-number>
   </div>
