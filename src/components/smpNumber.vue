@@ -1,7 +1,12 @@
 <template>
   <div class="block" :class="{muted: value === 'skip'}">
-    <a v-if="allowSkip" class="idk" @click="setValueByPath({ path,
-      value: 'skip' })">Skip</a>
+    <a
+      v-if="allowSkip"
+      class="idk"
+      @click="setValueByPath({ path, value: 'skip' })">
+      Skip
+    </a>
+
     <div class="title">
       {{title}}
       <span v-show="subtitle" class="subtitle">{{subtitle}}</span>

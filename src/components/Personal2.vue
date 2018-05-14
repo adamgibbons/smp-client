@@ -27,6 +27,7 @@
       path="personal.occupation"
       :options="occupationOptions"
       :value="personal.occupation"
+      :allowSkip="true"
     >
     </smp-select>
   </div>

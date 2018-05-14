@@ -1,5 +1,12 @@
 <template>
   <div class="block">
+    <a
+      v-if="allowSkip"
+      class="idk"
+      @click="setValueByPath({ path, value: 'skip' })">
+      Skip
+    </a>
+
     <div class="title">
       {{title}}
     </div>
@@ -7,7 +14,7 @@
       <div v-show="!value" class="choose-one">choose one</div>
       <select
         @change="setValueByPath({path, value: $event.target.value })"
-        :value="value"
+        :value="value | hideSkip"
       >
         <option value="" disabled></option>
         <option
@@ -24,9 +31,14 @@
 import { mapActions } from 'vuex'
 
 export default {
-  props: ['title', 'path', 'options', 'value'],
+  props: ['title', 'path', 'options', 'value', 'allowSkip'],
   methods: {
     ...mapActions(['setValueByPath'])
+  },
+  filters: {
+    hideSkip (val) {
+      return val === 'skip' ? '' : val
+    }
   }
 }
 </script>
