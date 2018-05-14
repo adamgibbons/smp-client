@@ -397,6 +397,11 @@ const mutations = {
   },
 
   toggleItemInList (state, { path, value }) {
+    const indexOfSkip = get(state, path).findIndex(item => item === 'skip')
+    if (indexOfSkip !== -1) {
+      get(state, path).splice(indexOfSkip, 1)
+    }
+
     const index = get(state, path).findIndex(item => item === value)
     if (index === -1) {
       get(state, path).push(value)

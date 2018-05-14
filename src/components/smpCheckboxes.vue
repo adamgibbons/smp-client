@@ -1,5 +1,6 @@
 <template>
-  <div class="block">
+  <div class="block" :class="{muted: isSkipped === true}">
+    <a v-if="allowSkip" class="idk" @click="clearList({ path, value: 'skip' })">Skip</a>
     <div class="title">
       {{title}}
       <span v-show="subtitle" class="subtitle">{{subtitle}}</span>
@@ -31,11 +32,26 @@
 import { mapActions } from 'vuex'
 
 export default {
-  props: ['title', 'subtitle', 'path', 'options', 'value'],
+  props: ['title', 'subtitle', 'path', 'options', 'value', 'allowSkip'],
   methods: {
-    ...mapActions(['toggleItemInList']),
+    ...mapActions(['toggleItemInList', 'setValueByPath']),
     isActive (option) {
       return this.value.some(item => item === option)
+    },
+    clearList () {
+      this.setValueByPath({ path: this.path, value: ['skip'] })
+    }
+  },
+  computed: {
+    isSkipped () {
+      return this.value.indexOf('skip') !== -1
+    }
+  },
+  watch: {
+    isSkipped: (truthy) => {
+      if (truthy) {
+        this.value = ['skip']
+      }
     }
   }
 }

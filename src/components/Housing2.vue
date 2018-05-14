@@ -22,6 +22,7 @@
       path="housing.monthlyMortgagePaymentIncludes"
       :options="options"
       :value="housing.monthlyMortgagePaymentIncludes"
+      :allowSkip="true"
     >
     </smp-checkboxes>
 
