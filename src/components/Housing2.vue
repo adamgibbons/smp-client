@@ -34,6 +34,7 @@
       :max="1000000"
       :value="housing.annualPropertyTax"
       unitSymbol="$"
+      :allowSkip="true"
     >
     </smp-number>
 
