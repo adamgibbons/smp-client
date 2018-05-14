@@ -13,6 +13,7 @@
       :max="1000000"
       :value="housing.loanBalance"
       unitSymbol="$"
+      :allowSkip="true"
     >
     </smp-number>
 
@@ -32,6 +33,7 @@
       path="housing.termOnCurrentLoan"
       :options="termOptions"
       :value="housing.termOnCurrentLoan"
+      :allowSkip="true"
     >
     </smp-select>
   </div>

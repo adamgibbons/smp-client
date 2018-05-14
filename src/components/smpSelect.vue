@@ -1,5 +1,5 @@
 <template>
-  <div class="block">
+  <div class="block" :class="{muted: value === 'skip'}">
     <a
       v-if="allowSkip"
       class="idk"
