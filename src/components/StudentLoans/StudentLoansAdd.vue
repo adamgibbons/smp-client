@@ -77,6 +77,22 @@
       </div>
     </div>
 
+    <div class="block">
+      <div class="title">Minimum Monthly Payment</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="500000"
+            v-model="form.minMonthlyPayment"
+          />
+        </div>
+      </div>
+    </div>
+
     <div class="text-center">
       <button class="button" @click="addMore">+ Add more</button>
       <br>
@@ -98,7 +114,8 @@ export default {
         type: null,
         graduationDate: null,
         school: null,
-        balance: null
+        balance: null,
+        minMonthlyPayment: null
       },
       schools,
       selected: false
@@ -124,7 +141,8 @@ export default {
         type: null,
         graduationDate: null,
         school: null,
-        balance: null
+        balance: null,
+        minMonthlyPayment: null
       }
     },
     done () {

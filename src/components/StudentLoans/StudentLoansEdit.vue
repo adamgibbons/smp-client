@@ -77,6 +77,22 @@
       </div>
     </div>
 
+    <div class="block">
+      <div class="title">Minimum Monthly Payment</div>
+
+      <div class="control">
+        <div class="select-wrapper">
+          <span class="unit-symbol">$</span>
+          <input
+            type="number"
+            :min="0"
+            :max="500000"
+            v-model="form.minMonthlyPayment"
+          />
+        </div>
+      </div>
+    </div>
+
     <div class="text-center">
       <button class="button" @click="done">Done</button>
       <button class="remove" @click="remove">
@@ -104,17 +120,27 @@ export default {
         type: null,
         graduationDate: null,
         school: null,
-        balance: null
+        balance: null,
+        minMonthlyPayment: null
       },
       schools,
       selected: false
     }
   },
   computed: {
-    ...mapGetters(['studentLoans'])
+    ...mapGetters(['studentLoans']),
+    matchingSchools () {
+      return this.schools.filter((school) => {
+        return school.toLowerCase().indexOf(this.form.school.toLowerCase()) !== -1
+      }).slice(0, 10)
+    }
   },
   methods: {
     ...mapActions(['updateStudentLoan', 'removeStudentLoan']),
+    selectSchool (school) {
+      this.form.school = school
+      this.selected = true
+    },
     done () {
       this.updateStudentLoan({ form: this.form, index: this.indexOfModalItem })
       this.$emit('closeModal')

@@ -272,8 +272,8 @@ const actions = {
   updateStudentLoan ({ commit }, { index, form }) {
     commit('updateStudentLoan', { index, form })
   },
-  addStudentLoan ({ commit }, { type, graduationDate, school, balance }) {
-    commit('addStudentLoan', { type, graduationDate, school, balance })
+  addStudentLoan ({ commit }, { type, minMonthlyPayment, graduationDate, school, balance }) {
+    commit('addStudentLoan', { type, minMonthlyPayment, graduationDate, school, balance })
   },
 
   removeVehicle ({ commit }, { index }) {
@@ -354,8 +354,8 @@ const mutations = {
   updateStudentLoan (state, { index, form }) {
     state.studentLoans.splice(index, 1, form)
   },
-  addStudentLoan (state, { type, graduationDate, school, balance }) {
-    state.studentLoans.push({ type, graduationDate, school, balance })
+  addStudentLoan (state, { type, minMonthlyPayment, graduationDate, school, balance }) {
+    state.studentLoans.push({ type, minMonthlyPayment, graduationDate, school, balance })
   },
   removeStudentLoan (state, { index }) {
     state.studentLoans.splice(index, 1)
