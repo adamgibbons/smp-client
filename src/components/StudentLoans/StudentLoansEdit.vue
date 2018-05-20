@@ -68,7 +68,7 @@
         <div class="select-wrapper">
           <span class="unit-symbol">$</span>
           <input
-            type="number"
+            type="tel"
             :min="0"
             :max="500000"
             v-model="form.balance"
@@ -84,7 +84,7 @@
         <div class="select-wrapper">
           <span class="unit-symbol">$</span>
           <input
-            type="number"
+            type="tel"
             :min="0"
             :max="500000"
             v-model="form.minMonthlyPayment"

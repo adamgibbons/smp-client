@@ -80,7 +80,7 @@
         <div class="control">
           <div class="select-wrapper">
             <input
-              type="number"
+              type="tel"
               :min="0"
               :max="250000"
               v-model="form.mileage"
@@ -123,7 +123,7 @@
           <div class="select-wrapper">
             <span class="unit-symbol">$</span>
             <input
-              type="number"
+              type="tel"
               :min="0"
               :max="250000"
               v-model="form.monthlyPayment"
@@ -140,7 +140,7 @@
           <div class="select-wrapper">
             <span class="unit-symbol">$</span>
             <input
-              type="number"
+              type="tel"
               :min="0"
               :max="250000"
               v-model="form.loanBalance"
@@ -191,7 +191,7 @@
           <div class="select-wrapper">
             <span class="unit-symbol">$</span>
             <input
-              type="number"
+              type="tel"
               :min="0"
               :max="250000"
               v-model="form.monthlyLeasePayment"

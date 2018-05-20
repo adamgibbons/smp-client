@@ -232,9 +232,9 @@ export default {
   font-weight: 900;
 }
 select {
-  font-size: .9em;
   color: white;
   display: inline-block;
+  font-size: 1em;
 }
 .control input[type="radio"] {
   display: none;
@@ -299,31 +299,31 @@ select {
   background: transparent;
   border: none;
   font-size: 1.1em;
-  margin: .5em 0;
+  margin: .5em 0 .1em;
   min-width: 5em;
   width: 100%;
 }
 .search-wrapper input[type="text"]::-webkit-input-placeholder {
   color: white;
-  opacity: .5;
+  opacity: .4;
   font-weight: 100;
   font-size: 13px;
 }
 .search-wrapper input[type="text"]::-moz-placeholder {
   color: white;
-  opacity: .5;
+  opacity: .4;
   font-weight: 100;
   font-size: 13px;
 }
 .search-wrapper input[type="text"]:-ms-input-placeholder {
   color: white;
-  opacity: .5;
+  opacity: .4;
   font-weight: 100;
   font-size: 13px;
 }
 .search-wrapper input[type="text"]:-moz-placeholder {
   color: white;
-  opacity: .5;
+  opacity: .4;
   font-weight: 100;
   font-size: 13px;
 }
