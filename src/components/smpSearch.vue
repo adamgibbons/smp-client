@@ -22,7 +22,7 @@
       </div>
     </div>
     <div
-      v-if="results && results.length > 2 && selected === false"
+      v-if="results && results.length > 0 && selected === false"
       class="search-results">
       <div
         class="search-result"
@@ -49,7 +49,6 @@ export default {
   computed: {
     results () {
       if (!this.selectedResult) return []
-      if (this.selectedResult.length < 3) return []
       return this.options.filter((option) => {
         return option.toLowerCase().indexOf((this.selectedResult).toLowerCase()) !== -1
       }).slice(0, 10)

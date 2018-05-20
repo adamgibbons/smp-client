@@ -22,23 +22,25 @@
     >
     </smp-select>
 
-    <smp-select
+    <smp-search
       title="Occupation"
       path="personal.occupationSpouse"
       :options="occupationOptions"
       :value="personal.occupationSpouse"
       :allowSkip="true"
     >
-    </smp-select>
+    </smp-search>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpSelect from '@/components/smpSelect'
+import smpSearch from '@/components/smpSearch'
 import Progress from '@/components/Progress'
 
 import formatOptionsList from '../utils/format-options-list'
+import occupationOptions from '@/data/occupations.json'
 
 export default {
   methods: {
@@ -47,7 +49,7 @@ export default {
   computed: {
     ...mapGetters(['personal'])
   },
-  components: { smpSelect, Progress },
+  components: { smpSelect, smpSearch, Progress },
   data () {
     return {
       educationOptions: formatOptionsList([
@@ -72,12 +74,7 @@ export default {
         'Retired',
         'Other'
       ]),
-      occupationOptions: formatOptionsList([
-        'Accountant',
-        'Philosopher',
-        'Web Designer',
-        'Zoologist'
-      ])
+      occupationOptions
     }
   }
 }
