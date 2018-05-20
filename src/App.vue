@@ -42,8 +42,6 @@ export default {
           console.log(err)
           this.$router.replace('/')
         })
-    } else {
-      this.$router.replace('/')
     }
   }
 }
