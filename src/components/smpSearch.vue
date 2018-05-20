@@ -54,6 +54,15 @@ export default {
       }).slice(0, 10)
     }
   },
+  mounted () {
+    if (this.value) {
+      this.selectedResult = this.value
+      this.selected = true
+    }
+    if (this.value === 'skip') {
+      this.selectedResult = ''
+    }
+  },
   methods: {
     ...mapActions(['setValueByPath']),
     selectResult (value) {
