@@ -329,15 +329,18 @@ select {
 }
 .search-results {
   width: 113%;
-  /*background-color: #031b36;*/
+  padding: 1em;
   margin-left: -1em;
   max-width: 300px;
+  height: 10em;
+  overflow-y: scroll;
 }
 .search-results .search-result {
-  margin: 2px;
-  background: #65758e;
-  font-size: .8em;
-  padding: 1.5em 1em;
+  background-color: #1b2440;
+  opacity: .8;
+  margin: 2px 0;
+  /*font-size: 1em;*/
+  padding: .6em 1em;
   line-height: 1.1;
   color: white;
 }
