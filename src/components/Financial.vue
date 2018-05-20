@@ -15,7 +15,7 @@
     />
 
     <smpRadios
-      title="Dependents"
+      title="Dependents (including yourself)"
       path="financial.dependents"
       :options="dependentsOptions"
       :value="financial.dependents"
