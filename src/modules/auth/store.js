@@ -7,7 +7,15 @@ const state = {
   },
   auth: false,
   token: null,
-  authenticating: false
+  authenticating: false,
+  forgotMessage: {
+    success: false,
+    error: null
+  },
+  resetMessage: {
+    success: false,
+    error: null
+  }
 }
 
 const getters = {
@@ -19,10 +27,34 @@ const getters = {
   },
   authenticating: state => {
     return state.authenticating
+  },
+  forgotMessage: state => {
+    return state.forgotMessage
+  },
+  resetMessage: state => {
+    return state.resetMessage
   }
 }
 
 const actions = {
+  createResetToken ({ commit }, { email }) {
+    axios.post(`${process.env.API_URL}forgot`, { email })
+      .then(() => {
+        commit('setForgotMessage', { success: true, error: null })
+      })
+      .catch((error) => {
+        commit('setForgotMessage', { success: false, error: error.response.data })
+      })
+  },
+  resetPassword ({ commit }, { token, password }) {
+    axios.post(`${process.env.API_URL}forgot/${token}`, { password })
+      .then(({ data }) => {
+        commit('setResetMessage', { success: true, error: null })
+      })
+      .catch((error) => {
+        commit('setResetMessage', { success: false, error: error.response.data })
+      })
+  },
   register ({ commit }, { name, email, password }) {
     commit('toggleAuthenticating', { isAuthenticating: true })
 
@@ -67,6 +99,12 @@ const actions = {
 }
 
 const mutations = {
+  setForgotMessage (state, { success, error }) {
+    state.forgotMessage = { success, error }
+  },
+  setResetMessage (state, { success, error }) {
+    state.resetMessage = { success, error }
+  },
   toggleAuthenticating (state, { isAuthenticating }) {
     state.authenticating = isAuthenticating
   },

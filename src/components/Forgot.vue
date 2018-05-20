@@ -1,28 +1,25 @@
 <template>
-  <form class="flow gradient body" @submit="handleLogin">
+  <form class="flow gradient body" @submit="handleSubmit">
 
-    <br>
-    <br>
-    <br>
+    <p>Enter your email address below and we'll send you a link to reset your password.</p>
 
     <div class="text-input-wrapper">
-      <input class="text-input" type="email" v-model="loginForm.email" required>
+      <input :disable="!forgotMessage.success" class="text-input" type="email" v-model="form.email" required>
       <label>email</label>
     </div>
 
-    <div class="text-input-wrapper">
-      <input class="text-input" type="password" v-model="loginForm.password" required>
-      <label>password</label>
-    </div>
+    <!-- Success message -->
+    <p v-show="forgotMessage.success">
+      An email containing instructions to reset your password was sent to {{form.email}}. If you don't see it, make sure it didn't land in your spam folder.
+    </p>
 
-    <nav>
-      <button v-show="!authenticating" type="submit">Sign in</button>
-      <p v-show="authenticating">
-        Hang on, signing in...
-      </p>
-      <p v-show="!authenticating">
-        <router-link to="/register">I don't have an account</router-link>
-      </p>
+    <!-- Error message -->
+    <p v-show="!forgotMessage.success && forgotMessage.error">
+      Error: {{forgotMessage.error}}
+    </p>
+
+    <nav v-show="!forgotMessage.success">
+      <button type="submit">Reset password</button>
     </nav>
 
   </form>
@@ -34,19 +31,18 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      loginForm: {
-        email: null,
-        password: null
+      form: {
+        email: null
       }
     }
   },
-  computed: mapGetters(['authenticating']),
+  computed: mapGetters(['forgotMessage']),
   methods: {
-    ...mapActions(['login']),
-    handleLogin (e) {
+    ...mapActions(['createResetToken']),
+    handleSubmit (e) {
       e.preventDefault()
 
-      this.login(this.loginForm)
+      this.createResetToken(this.form)
     }
   }
 }
@@ -93,26 +89,18 @@ a {
 
 nav {
   position: absolute;
-  bottom: 0;
+  bottom: 1em;
   width: 100%;
+  margin: auto;
+  text-align: center;
 }
 
 button {
-  display: block;
   border-radius: 2em;
   padding: .33em 1em;
   background: transparent;
   color: white;
   border: 2px solid white;
   font-size: 1em;
-  margin: 0 auto;
-  position: relative;
-  left: 50%;
-  margin-left: -3em;
-}
-
-nav p {
-  font-size: .8em;
-  margin-top: 1em;
 }
 </style>
