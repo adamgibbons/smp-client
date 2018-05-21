@@ -5,11 +5,13 @@
 
     <div class="text-input-wrapper">
       <input class="text-input" type="password" v-model="form.password" required>
-      <label>password</label>
+      <span v-show="form.password && form.password.length > 4"><i class="far fa-check-circle"></i></span>
+      <label>password (at least five characters)</label>
     </div>
 
     <div class="text-input-wrapper">
       <input class="text-input" type="password" v-model="form.secondPassword" required>
+      <span v-show="form.password && form.password === form.secondPassword"><i class="far fa-check-circle"></i></span>
       <label>confirm password</label>
     </div>
 
@@ -77,6 +79,13 @@ a {
   margin: 2em auto;
   width: 100%;
   max-width: 250px;
+}
+
+.text-input-wrapper span {
+  float:right;
+  color: #6ad265;
+  position: relative;
+  top: -2em;
 }
 
 .text-input-wrapper label {
