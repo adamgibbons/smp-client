@@ -19,6 +19,10 @@ const state = {
   loginMessage: {
     success: false,
     error: null
+  },
+  registerMessage: {
+    success: false,
+    error: null
   }
 }
 
@@ -40,10 +44,16 @@ const getters = {
   },
   loginMessage: state => {
     return state.loginMessage
+  },
+  registerMessage: state => {
+    return state.registerMessage
   }
 }
 
 const actions = {
+  acknowledgeRegisterError ({ commit }) {
+    commit('acknowledgeError', { messageType: 'registerMessage' })
+  },
   createResetToken ({ commit }, { email }) {
     axios.post(`${process.env.API_URL}forgot`, { email })
       .then(() => {
@@ -64,6 +74,7 @@ const actions = {
   },
   register ({ commit }, { name, email, password }) {
     commit('toggleAuthenticating', { isAuthenticating: true })
+    commit('setRegisterMessage', { success: false, error: null })
 
     axios.post(`${process.env.API_URL}register`, { name, email, password })
       .then(({ data }) => {
@@ -76,8 +87,9 @@ const actions = {
         commit('login', { name, email, token, auth })
         commit('toggleAuthenticating', { isAuthenticating: false })
       })
-      .catch((err) => {
-        console.log(err)
+      .catch((error) => {
+        commit('setRegisterMessage', { success: false, error: error.response.data })
+        commit('toggleAuthenticating', { isAuthenticating: false })
       })
   },
   login ({ commit }, { email, password }) {
@@ -108,6 +120,10 @@ const actions = {
 }
 
 const mutations = {
+  acknowledgeError (state, { messageType }) {
+    state[messageType].success = false
+    state[messageType].error = null
+  },
   setForgotMessage (state, { success, error }) {
     state.forgotMessage = { success, error }
   },
@@ -116,6 +132,9 @@ const mutations = {
   },
   setLoginMessage (state, { success, error }) {
     state.loginMessage = { success, error }
+  },
+  setRegisterMessage (state, { success, error }) {
+    state.registerMessage = { success, error }
   },
 
   toggleAuthenticating (state, { isAuthenticating }) {

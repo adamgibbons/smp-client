@@ -18,6 +18,13 @@
       <label>password</label>
     </div>
 
+    <!-- Error message -->
+    <p v-show="!registerMessage.success && registerMessage.error" class="error error-modal">
+      {{registerMessage.error}}
+      <br>
+      <button type="button" class="button" @click.prevent="acknowledgeRegisterError">Ok</button>
+    </p>
+
     <nav class="auth-nav">
       <button class="button" v-show="!authenticating" type="submit">Sign up</button>
       <p v-show="authenticating">
@@ -44,9 +51,9 @@ export default {
       }
     }
   },
-  computed: mapGetters(['authenticating']),
+  computed: mapGetters(['authenticating', 'registerMessage']),
   methods: {
-    ...mapActions(['register']),
+    ...mapActions(['register', 'acknowledgeRegisterError']),
     signUp (e) {
       e.preventDefault()
       this.register(this.registrationForm)
@@ -92,5 +99,16 @@ a {
   font-size: .9em;
   padding-bottom: .5em;
   margin-bottom: .3em;
+}
+
+.error-modal {
+  position: absolute;
+  top: 33%;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  padding: 2em 1em;
+  box-shadow: 0px 0px 400px black;
 }
 </style>
