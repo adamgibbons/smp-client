@@ -11,7 +11,7 @@
 
     <div class="text-input-wrapper">
       <input class="text-input" type="password" v-model="form.secondPassword" required>
-      <span v-show="form.password && form.password === form.secondPassword"><i class="far fa-check-circle"></i></span>
+      <span v-show="form.secondPassword && form.secondPassword.length > 4 && passwordsMatch"><i class="far fa-check-circle"></i></span>
       <label>confirm password</label>
     </div>
 
@@ -25,7 +25,7 @@
       Error: {{resetMessage.error}}. Please <router-link to="/forgot">reset</router-link> your password.
     </p>
 
-    <nav v-show="passwordsMatch && !resetMessage.success">
+    <nav v-show="passwordsMatch && !resetMessage.success && form.secondPassword.length > 4">
       <button type="submit">Reset password</button>
     </nav>
   </form>
@@ -50,7 +50,7 @@ export default {
   computed: {
     ...mapGetters(['resetMessage']),
     passwordsMatch () {
-      return (this.form.password && this.form.secondPassword && this.form.password === this.form.secondPassword) || false
+      return (this.form.password && this.form.secondPassword && this.form.password === this.form.secondPassword && this.form.secondPassword.length > 4) || false
     }
   },
   methods: {
