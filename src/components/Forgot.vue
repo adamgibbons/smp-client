@@ -14,12 +14,17 @@
     </p>
 
     <!-- Error message -->
-    <p v-show="!forgotMessage.success && forgotMessage.error">
-      Error: {{forgotMessage.error}}
+    <p v-show="!forgotMessage.success && forgotMessage.error" class="error">
+      {{forgotMessage.error}}
     </p>
 
-    <nav v-show="!forgotMessage.success">
-      <button type="submit">Reset password</button>
+    <nav class="auth-nav" v-show="!forgotMessage.success">
+      <button class="button" type="submit">Reset password</button>
+      <p>
+        <router-link to="/register">Sign up</router-link>
+        <span style="margin: 0 .33em;opacity:.1">|</span>
+        <router-link to="/forgot">Login</router-link>
+      </p>
     </nav>
 
   </form>
@@ -85,22 +90,5 @@ a {
   font-size: .9em;
   padding-bottom: .5em;
   margin-bottom: .3em;
-}
-
-nav {
-  position: absolute;
-  bottom: 1em;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-}
-
-button {
-  border-radius: 2em;
-  padding: .33em 1em;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  font-size: 1em;
 }
 </style>

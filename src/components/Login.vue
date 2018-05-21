@@ -15,13 +15,20 @@
       <label>password</label>
     </div>
 
-    <nav>
-      <button v-show="!authenticating" type="submit">Sign in</button>
+    <!-- Error message -->
+    <p v-show="!loginMessage.success && loginMessage.error" class="error">
+      {{loginMessage.error}}
+    </p>
+
+    <nav class="auth-nav">
+      <button v-show="!authenticating" class="button" type="submit">Sign in</button>
       <p v-show="authenticating">
         Hang on, signing in...
       </p>
       <p v-show="!authenticating">
-        <router-link to="/register">I don't have an account</router-link>
+        <router-link to="/register">Sign up</router-link>
+        <span style="margin: 0 .33em;opacity:.1">|</span>
+        <router-link to="/forgot">Forgot password?</router-link>
       </p>
     </nav>
 
@@ -40,7 +47,7 @@ export default {
       }
     }
   },
-  computed: mapGetters(['authenticating']),
+  computed: mapGetters(['authenticating', 'loginMessage']),
   methods: {
     ...mapActions(['login']),
     handleLogin (e) {
@@ -89,30 +96,5 @@ a {
   font-size: .9em;
   padding-bottom: .5em;
   margin-bottom: .3em;
-}
-
-nav {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-button {
-  display: block;
-  border-radius: 2em;
-  padding: .33em 1em;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  font-size: 1em;
-  margin: 0 auto;
-  position: relative;
-  left: 50%;
-  margin-left: -3em;
-}
-
-nav p {
-  font-size: .8em;
-  margin-top: 1em;
 }
 </style>

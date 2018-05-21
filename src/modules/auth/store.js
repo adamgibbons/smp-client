@@ -15,6 +15,10 @@ const state = {
   resetMessage: {
     success: false,
     error: null
+  },
+  loginMessage: {
+    success: false,
+    error: null
   }
 }
 
@@ -33,6 +37,9 @@ const getters = {
   },
   resetMessage: state => {
     return state.resetMessage
+  },
+  loginMessage: state => {
+    return state.loginMessage
   }
 }
 
@@ -75,6 +82,7 @@ const actions = {
   },
   login ({ commit }, { email, password }) {
     commit('toggleAuthenticating', { isAuthenticating: true })
+    commit('setLoginMessage', { success: false, error: null })
 
     axios.post(`${process.env.API_URL}login`, { email, password })
       .then(({ data }) => {
@@ -88,8 +96,9 @@ const actions = {
         commit('login', { token, auth, email })
         commit('toggleAuthenticating', { isAuthenticating: false })
       })
-      .catch((err) => {
-        console.log(err)
+      .catch((error) => {
+        commit('toggleAuthenticating', { isAuthenticating: false })
+        commit('setLoginMessage', { success: false, error: error.response.data })
       })
   },
   logout ({ commit }) {
@@ -105,6 +114,10 @@ const mutations = {
   setResetMessage (state, { success, error }) {
     state.resetMessage = { success, error }
   },
+  setLoginMessage (state, { success, error }) {
+    state.loginMessage = { success, error }
+  },
+
   toggleAuthenticating (state, { isAuthenticating }) {
     state.authenticating = isAuthenticating
   },

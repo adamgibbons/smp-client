@@ -1,9 +1,11 @@
 <template>
   <div class="grid-container">
     <header>
-      <div id="hamburger">menu</div>
+      <div id="login">
+        <router-link to="/login">Login</router-link>
+      </div>
       <div id="home">
-        <router-link to="/">π TheSocialMoneyProject</router-link>
+        <router-link to="/">icon</router-link>
       </div>
     </header>
     <router-view/>
@@ -152,16 +154,18 @@ nav {
   left: 0;
   padding: .66em 1em;
 }
-#home a {
-  text-decoration: none;
-  color: white;
-  font-size: .8em;
-}
-#hamburger {
+#login {
   position: absolute;
   top: 0;
   right: 0;
   padding: .66em 1em;
+}
+
+#home a,
+#login a {
+  color: white;
+  text-decoration: none;
+  font-size: .9rem;
 }
 
 .modal {
@@ -193,5 +197,28 @@ nav {
 .text-center {
   text-align: center;
   margin-top: 1em;
+}
+
+.auth-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.auth-nav button {
+  margin: 0;
+}
+
+.auth-nav p {
+  font-size: .8em;
+  margin: 0;
+  padding: 0;
+  max-width: unset;
+}
+.error {
+  background-color: #b32a2a;
+  color: white;
+  padding-top: .66em;
+  padding-bottom: .66em;
 }
 </style>

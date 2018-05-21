@@ -18,8 +18,8 @@
       <label>password</label>
     </div>
 
-    <nav>
-      <button v-show="!authenticating" type="submit">Sign up</button>
+    <nav class="auth-nav">
+      <button class="button" v-show="!authenticating" type="submit">Sign up</button>
       <p v-show="authenticating">
         Hang on, creating your account...
       </p>
@@ -92,30 +92,5 @@ a {
   font-size: .9em;
   padding-bottom: .5em;
   margin-bottom: .3em;
-}
-
-nav {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-button {
-  display: block;
-  border-radius: 2em;
-  padding: .33em 1em;
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  font-size: 1em;
-  margin: 0 auto;
-  position: relative;
-  left: 50%;
-  margin-left: -3em;
-}
-
-nav p {
-  font-size: .8em;
-  margin-top: 1em;
 }
 </style>
