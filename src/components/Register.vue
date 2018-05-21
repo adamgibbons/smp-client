@@ -33,7 +33,7 @@
       <p v-show="authenticating">
         Hang on, creating your account...
       </p>
-      <p v-show="!authenticating">
+      <p v-show="!authenticating" style="margin: 1em auto;">
         <router-link to="/login">I already have an account</router-link>
       </p>
 

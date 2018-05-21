@@ -211,6 +211,7 @@ nav {
 
 .auth-nav p {
   font-size: .8em;
+  /*margin: .33em 0;*/
   margin: 0;
   padding: 0;
   max-width: unset;
