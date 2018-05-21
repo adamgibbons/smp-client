@@ -9,7 +9,7 @@
     </div>
 
     <!-- Success message -->
-    <p v-show="forgotMessage.success">
+    <p v-show="forgotMessage.success" style="background: #1c8bb1;padding: 1em;">
       An email containing instructions to reset your password was sent to {{form.email}}. If you don't see it, make sure it didn't land in your spam folder.
     </p>
 
