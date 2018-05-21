@@ -4,6 +4,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Forgot from '@/components/Forgot'
 import ResetPassword from '@/components/ResetPassword'
+import Logout from '@/components/Logout'
 
 import Splash from '@/components/Splash'
 import Onboard1 from '@/components/Onboard1'
@@ -89,6 +90,11 @@ export default new Router({
       name: 'Login',
       path: '/login',
       component: Login
+    },
+    {
+      name: 'Logout',
+      path: '/logout',
+      component: Logout
     },
     {
       name: 'Forgot',
