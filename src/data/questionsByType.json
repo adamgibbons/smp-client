@@ -1,0 +1,44 @@
+{
+  "income": [
+    "financial.monthlyHouseholdIncome"
+  ],
+  "needs": [
+    "housing.monthlyMortgagePayment",
+    "housing.annualPropertyTax",
+    "housing.monthlyRent",
+    "utilities.electricity",
+    "utilities.waterSewer",
+    "utilities.trash",
+    "utilities.naturalGas",
+    "utilities.hoa",
+    "utilities.other",
+    "vehicles.monthlyPayment",
+    "vehicles.monthlyLeasePayment",
+    "insurance.multiPolicy",
+    "insurance.health",
+    "insurance.car",
+    "insurance.homeowners",
+    "insurance.life",
+    "insurance.disability",
+    "insurance.other",
+    "studentLoans.minMonthlyPayment",
+    "consumerDebt.minMonthlyPayment",
+    "livingExpenses.fuel",
+    "livingExpenses.other"
+    "livingExpenses.publicTransportation",
+    "livingExpenses.healthcare",
+    "livingExpenses.childcare",
+    "livingExpenses.phoneInternetCable"
+  ],
+  "wants": [
+    "livingExpenses.diningOut",
+    "livingExpenses.shopping",
+    "livingExpenses.entertainment",
+    "livingExpenses.gymMembership"
+  ],
+  "savings": [
+    "averageMonthlySavings",
+    "averageMonthlyRetirementContribution",
+    "averageMonthlyDebPayment"
+  ]
+}
