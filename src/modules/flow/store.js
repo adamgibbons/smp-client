@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { get, set } from 'lodash'
+import { get, set, sum } from 'lodash'
+import questionsByType from '@/data/questions-by-type.json'
 
 function getAuthHeader () {
   return `Bearer ${localStorage.getItem('id_token')}`
@@ -252,6 +253,11 @@ const getters = {
   },
   monthlyMortgagePaymentIncludesPropertyTax: state => {
     return state.housing.monthlyMortgagePaymentIncludes.indexOf('Property Tax') !== -1
+  },
+  needs: state => {
+    return sum(questionsByType.needs.map((path) => {
+      return parseInt(get(state, path, 0) || 0)
+    }))
   }
 }
 
