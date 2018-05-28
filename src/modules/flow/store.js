@@ -256,6 +256,21 @@ const getters = {
   },
   needs: state => {
     return sum(questionsByType.needs.map((path) => {
+      if (path.indexOf('vehicles') !== -1) {
+        return state.vehicles.map(({ monthlyLeasePayment = 0, monthlyPayment = 0 }) => {
+          return parseInt(monthlyLeasePayment) + parseInt(monthlyPayment)
+        })
+      }
+      if (path.indexOf('consumerDebt') !== -1) {
+        return state.consumerDebt.map(({ minMonthlyPayment = 0 }) => {
+          return parseInt(minMonthlyPayment)
+        })
+      }
+      if (path.indexOf('studentLoans') !== -1) {
+        return state.studentLoans.map(({ minMonthlyPayment = 0 }) => {
+          return parseInt(minMonthlyPayment)
+        })
+      }
       return parseInt(get(state, path, 0) || 0)
     }))
   }
@@ -298,7 +313,7 @@ const actions = {
     loanBalance,
     loanPaidOffDate,
     loanInterestRate,
-    monthlyLeastPayment,
+    monthlyLeasePayment,
     leaseTermEndsDate
   }) {
     commit('addVehicle', {
@@ -311,7 +326,7 @@ const actions = {
       loanBalance,
       loanPaidOffDate,
       loanInterestRate,
-      monthlyLeastPayment,
+      monthlyLeasePayment,
       leaseTermEndsDate
     })
   },
@@ -381,7 +396,7 @@ const mutations = {
     loanBalance,
     loanPaidOffDate,
     loanInterestRate,
-    monthlyLeastPayment,
+    monthlyLeasePayment,
     leaseTermEndsDate
   }) {
     state.vehicles.push({
@@ -394,7 +409,7 @@ const mutations = {
       loanBalance,
       loanPaidOffDate,
       loanInterestRate,
-      monthlyLeastPayment,
+      monthlyLeasePayment,
       leaseTermEndsDate
     })
   },

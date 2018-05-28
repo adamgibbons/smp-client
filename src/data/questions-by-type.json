@@ -24,7 +24,11 @@
     "livingExpenses.publicTransportation.amount",
     "livingExpenses.healthcare.amount",
     "livingExpenses.childcare.amount",
-    "livingExpenses.phoneInternetCable.amount"
+    "livingExpenses.phoneInternetCable.amount",
+    "consumerDebt.minMonthlyPayment",
+    "studentLoans.minMonthlyPayment",
+    "vehicles.monthlyPayment",
+    "vehicles.monthlyLeasePayment"
   ],
   "wants": [
     "livingExpenses.diningOut.amount",
