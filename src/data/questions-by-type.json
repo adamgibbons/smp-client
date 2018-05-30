@@ -38,6 +38,7 @@
   "savings": [
     "savings.averageMonthlySavings",
     "savings.averageMonthlyRetirementContribution",
-    "savings.averageMonthlyDebPayment"
+    "savings.averageMonthlyDebPayment",
+    "livingExpenses.other.amount"
   ]
 }

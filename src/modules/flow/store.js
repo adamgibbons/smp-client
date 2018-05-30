@@ -254,7 +254,7 @@ const getters = {
   monthlyMortgagePaymentIncludesPropertyTax: state => {
     return state.housing.monthlyMortgagePaymentIncludes.indexOf('Property Tax') !== -1
   },
-  needs: state => {
+  needsResults: state => {
     const needs = questionsByType.needs.map((path) => {
       if (path.indexOf('vehicles') !== -1) {
         return state.vehicles.map(({ monthlyLeasePayment, monthlyPayment }) => {
@@ -280,7 +280,7 @@ const getters = {
       return parseInt(need)
     }))
   },
-  wants: state => {
+  wantsResults: state => {
     const wants = questionsByType.wants.map((path) => {
       return get(state, path, 0) || 0
     })
@@ -289,6 +289,23 @@ const getters = {
       if (want === 'skip') return 0
       return parseInt(want)
     }))
+  },
+  savingsResults: state => {
+    const savings = questionsByType.savings.map((path) => {
+      return get(state, path, 0) || 0
+    })
+
+    return sum(savings.map((saving) => {
+      if (saving === 'skip') return 0
+      return parseInt(saving)
+    }))
+  },
+  results: (state, getters) => {
+    return {
+      needs: getters.needsResults,
+      wants: getters.wantsResults,
+      savings: getters.savingsResults
+    }
   }
 }
 
