@@ -69,7 +69,7 @@ const state = {
     realEstate: null,
     averageMonthlySavings: null,
     averageMonthlyRetirementContribution: null,
-    averageMonthlyDebPayment: null
+    averageMonthlyDebtPayment: null
   },
   insurance: {
     multiPolicy: {
@@ -247,6 +247,11 @@ const getters = {
     return !!state.savings.retirementPlusInvestment &&
       !!state.savings.cashPlusEmergency &&
       !!state.savings.realEstate
+  },
+  savings2IsValid: state => {
+    return !!state.savings.averageMonthlySavings &&
+      !!state.savings.averageMonthlyRetirementContribution &&
+      !!state.savings.averageMonthlyDebtPayment
   },
   skipHousingInfo: state => {
     return ['Living w/ Parents', 'No Rent'].indexOf(state.housing.status) !== -1

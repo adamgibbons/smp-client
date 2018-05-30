@@ -33,10 +33,10 @@
     <smp-number
       title="Extra amount you pay towards any of your debt"
       subtitle="(This is payments to any of your legal obligations above the Minimum amount due)"
-      path="savings.averageMonthlyDebPayment"
+      path="savings.averageMonthlyDebtPayment"
       :min="0"
       :max="1000000"
-      :value="savings.averageMonthlyDebPayment"
+      :value="savings.averageMonthlyDebtPayment"
       :allowSkip="true"
       unitSymbol="$"
     >

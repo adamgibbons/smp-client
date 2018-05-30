@@ -39,6 +39,7 @@ export default {
       'housing3IsValid',
       'housing4IsValid',
       'savings1IsValid',
+      'savings2IsValid',
       'personal',
       'housing',
       'skipHousingInfo'
@@ -67,7 +68,8 @@ export default {
         'StudentLoansReview',
         'ConsumerDebtReview',
         'LivingExpensesReview',
-        'Savings1'
+        'Savings1',
+        'Savings2'
       ].indexOf(this.$route.name) !== -1
     },
     position () {
@@ -83,6 +85,7 @@ export default {
       if (this.$route.name === 'Housing3') return this.housing3IsValid
       if (this.$route.name === 'Housing4') return this.housing4IsValid
       if (this.$route.name === 'Savings1') return this.savings1IsValid
+      if (this.$route.name === 'Savings2') return this.savings2IsValid
 
       return true
     }
@@ -204,6 +207,10 @@ export default {
 
       if (this.$route.name === 'LivingExpensesReview') {
         return this.$router.push({ name: 'Savings1' })
+      }
+
+      if (this.$route.name === 'Savings2') {
+        return this.$router.push({ name: 'Results' })
       }
 
       if (this.position + 1 === this.routesList.length) return

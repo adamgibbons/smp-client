@@ -57,6 +57,8 @@ import ConsumerDebtSplash from '@/components/ConsumerDebt/ConsumerDebtSplash'
 import Savings1 from '@/components/Savings1'
 import Savings2 from '@/components/Savings2'
 
+import Results from '@/components/Results'
+
 Vue.use(Router)
 
 export default new Router({
@@ -285,6 +287,11 @@ export default new Router({
           component: Savings2
         }
       ]
+    },
+    {
+      name: 'Results',
+      path: '/results',
+      component: Results
     }
   ]
 })
