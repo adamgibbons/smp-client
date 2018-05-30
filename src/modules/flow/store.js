@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { get, set, sum } from 'lodash'
+import { get, set, sum, flatten } from 'lodash'
 import questionsByType from '@/data/questions-by-type.json'
 
 function getAuthHeader () {
@@ -255,8 +255,29 @@ const getters = {
     return state.housing.monthlyMortgagePaymentIncludes.indexOf('Property Tax') !== -1
   },
   needs: state => {
-    return sum(questionsByType.needs.map((path) => {
-      return parseInt(get(state, path, 0) || 0)
+    const needs = questionsByType.needs.map((path) => {
+      if (path.indexOf('vehicles') !== -1) {
+        return state.vehicles.map(({ monthlyLeasePayment, monthlyPayment }) => {
+          return monthlyPayment || monthlyLeasePayment || 0
+        })
+      }
+      if (path.indexOf('consumerDebt') !== -1) {
+        return state.consumerDebt.map(({ minMonthlyPayment }) => {
+          return minMonthlyPayment || 0
+        })
+      }
+      if (path.indexOf('studentLoans') !== -1) {
+        return state.studentLoans.map(({ minMonthlyPayment }) => {
+          return minMonthlyPayment || 0
+        })
+      }
+
+      return get(state, path, 0) || 0
+    })
+
+    return sum(flatten(needs).map((need) => {
+      if (need === 'skip') return 0
+      return parseInt(need)
     }))
   }
 }
@@ -298,7 +319,7 @@ const actions = {
     loanBalance,
     loanPaidOffDate,
     loanInterestRate,
-    monthlyLeastPayment,
+    monthlyLeasePayment,
     leaseTermEndsDate
   }) {
     commit('addVehicle', {
@@ -311,7 +332,7 @@ const actions = {
       loanBalance,
       loanPaidOffDate,
       loanInterestRate,
-      monthlyLeastPayment,
+      monthlyLeasePayment,
       leaseTermEndsDate
     })
   },
@@ -381,7 +402,7 @@ const mutations = {
     loanBalance,
     loanPaidOffDate,
     loanInterestRate,
-    monthlyLeastPayment,
+    monthlyLeasePayment,
     leaseTermEndsDate
   }) {
     state.vehicles.push({
@@ -394,7 +415,7 @@ const mutations = {
       loanBalance,
       loanPaidOffDate,
       loanInterestRate,
-      monthlyLeastPayment,
+      monthlyLeasePayment,
       leaseTermEndsDate
     })
   },
