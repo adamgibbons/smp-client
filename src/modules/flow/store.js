@@ -279,6 +279,16 @@ const getters = {
       if (need === 'skip') return 0
       return parseInt(need)
     }))
+  },
+  wants: state => {
+    const wants = questionsByType.wants.map((path) => {
+      return get(state, path, 0) || 0
+    })
+
+    return sum(wants.map((want) => {
+      if (want === 'skip') return 0
+      return parseInt(want)
+    }))
   }
 }
 
