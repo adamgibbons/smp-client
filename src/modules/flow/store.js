@@ -257,20 +257,21 @@ const getters = {
   needs: state => {
     return sum(questionsByType.needs.map((path) => {
       if (path.indexOf('vehicles') !== -1) {
-        return state.vehicles.map(({ monthlyLeasePayment = 0, monthlyPayment = 0 }) => {
-          return parseInt(monthlyLeasePayment) + parseInt(monthlyPayment)
-        })
+        return sum(state.vehicles.map(({ monthlyLeasePayment, monthlyPayment }) => {
+          return parseInt(monthlyPayment || monthlyLeasePayment || 0)
+        }))
       }
       if (path.indexOf('consumerDebt') !== -1) {
-        return state.consumerDebt.map(({ minMonthlyPayment = 0 }) => {
-          return parseInt(minMonthlyPayment)
-        })
+        return sum(state.consumerDebt.map(({ minMonthlyPayment }) => {
+          return parseInt(minMonthlyPayment || 0)
+        }))
       }
       if (path.indexOf('studentLoans') !== -1) {
-        return state.studentLoans.map(({ minMonthlyPayment = 0 }) => {
-          return parseInt(minMonthlyPayment)
-        })
+        return sum(state.studentLoans.map(({ minMonthlyPayment }) => {
+          return parseInt(minMonthlyPayment || 0)
+        }))
       }
+
       return parseInt(get(state, path, 0) || 0)
     }))
   }
