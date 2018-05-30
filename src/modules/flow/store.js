@@ -304,7 +304,15 @@ const getters = {
     return {
       needs: getters.needsResults,
       wants: getters.wantsResults,
-      savings: getters.savingsResults
+      savings: getters.savingsResults,
+      income: parseInt(state.financial.monthlyHouseholdIncome || 0)
+    }
+  },
+  score: (state, getters) => {
+    return {
+      needs: (getters.results.needs / getters.results.income) * 100,
+      wants: (getters.results.wants / getters.results.income) * 100,
+      savings: (getters.results.savings / getters.results.income) * 100
     }
   }
 }
