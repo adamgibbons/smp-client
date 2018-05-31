@@ -57,11 +57,11 @@
           class="slider"
           type="range"
           :min="0"
-          :max="25"
-          :step="1"
+          :max="30"
+          :step="0.1"
           v-model="form.interestRate"
         />
-        <label><span>%</span>{{form.interestRate}}</label>
+        <label>{{form.interestRate}}<span> %</span></label>
       </div>
     </div>
     <div class="text-center">
