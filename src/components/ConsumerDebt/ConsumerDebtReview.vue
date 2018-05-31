@@ -5,9 +5,8 @@
         class="row"
         v-for="({ type, averageLoanBalance }, index) in consumerDebt"
         :key="index">
-        <!-- <div class="cell name">{{name | prettyName}}</div> -->
-        <div class="cell name">{{type}}</div>
-        <div class="cell amount">
+        <div class="cell name" style="flex-basis:30%;">{{type | prettyName}}</div>
+        <div class="cell amount" style="text-align:left;">
           <span class="currency">$</span>{{averageLoanBalance | currency}}
         </div>
         <div class="cell edit" @click="edit(index)">
@@ -82,15 +81,11 @@ export default {
     currency,
     prettyName: (name) => {
       return {
-        gymMembership: 'Gym Membership',
-        fuel: 'Fuel',
-        publicTransportation: 'Public Transportation',
-        healthCare: 'Healthcare',
-        phoneInternetCable: 'Phone/Internet/Cable',
-        diningOut: 'Dining Out',
-        shopping: 'Shopping',
-        entertainment: 'Entertainment',
-        childcare: 'Childcare',
+        creditCard: 'Credit Card',
+        paydayLoan: 'Payday Loan',
+        loansFromFamily: 'Loans from Family',
+        personalLoan: 'Personal Loan',
+        homeEquityLine: 'Home Equity Line',
         other: 'Other'
       }[name]
     }

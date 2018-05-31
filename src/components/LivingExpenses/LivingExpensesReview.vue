@@ -89,7 +89,7 @@ export default {
         gymMembership: 'Gym Membership',
         fuel: 'Fuel',
         publicTransportation: 'Public Transportation',
-        healthCare: 'Healthcare',
+        healthcare: 'Healthcare',
         phoneInternetCable: 'Phone/Internet/Cable',
         diningOut: 'Dining Out',
         shopping: 'Shopping',
