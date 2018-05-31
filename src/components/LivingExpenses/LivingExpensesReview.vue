@@ -5,8 +5,8 @@
         class="row"
         v-for="({ name, amount }, index) in activatedLivingExpenses"
         :key="index">
-        <div class="cell name">{{name | prettyName}}</div>
-        <div class="cell amount">
+        <div class="cell name" style="flex-basis:30%;">{{name | prettyName}}</div>
+        <div class="cell amount" style="text-align:left;">
           <span class="currency">$</span>{{amount | currency}}
         </div>
         <div class="cell edit" @click="edit">
