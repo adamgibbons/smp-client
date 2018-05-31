@@ -65,6 +65,7 @@
             type="tel"
             @change="setValueByPath({ path: 'housing.zip', value: $event.target.value})"
             :value="housing.zip"
+            maxlength="5"
           />
         </div>
       </div>
