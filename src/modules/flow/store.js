@@ -313,6 +313,14 @@ const getters = {
       income: parseInt(state.financial.monthlyHouseholdIncome || 0)
     }
   },
+  suggested: (state, getters) => {
+    const income = parseInt(state.financial.monthlyHouseholdIncome || 0)
+    return {
+      needs: income * 0.5,
+      wants: income * 0.3,
+      savings: income * 0.2
+    }
+  },
   score: (state, getters) => {
     return {
       needs: (getters.results.needs / getters.results.income) * 100,

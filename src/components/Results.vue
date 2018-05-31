@@ -20,7 +20,7 @@
       <div class="cell darkblue">
         <div class="results-cell">
           <div>50%</div>
-          <div>foo</div>
+          <div>{{suggested.needs | currency}}</div>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
       <div class="cell darkblue">
         <div class="results-cell">
           <div>30%</div>
-          <div>foo</div>
+          <div>{{suggested.wants | currency}}</div>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
       <div class="cell darkblue">
         <div class="results-cell">
           <div>20%</div>
-          <div>foo</div>
+          <div>{{suggested.savings | currency}}</div>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['results', 'score'])
+    ...mapGetters(['results', 'score', 'suggested'])
   },
   filters: {
     currency: (val) => {
