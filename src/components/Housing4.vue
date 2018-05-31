@@ -12,6 +12,7 @@
       :min="0"
       :max="1000000"
       :value="housing.monthlyRent"
+      unitSymbol="$"
     >
     </smp-number>
 

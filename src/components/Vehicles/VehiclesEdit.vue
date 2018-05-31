@@ -172,11 +172,11 @@
             class="slider"
             type="range"
             :min="0"
-            :max="25"
-            :step="1"
+            :max="10"
+            :step="0.1"
             v-model="form.loanInterestRate"
           />
-          <label><span>%</span>{{form.loanInterestRate}}</label>
+          <label>{{form.loanInterestRate}}<span> %</span></label>
         </div>
       </div>
     </div>

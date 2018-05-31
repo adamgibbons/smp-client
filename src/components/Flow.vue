@@ -424,4 +424,61 @@ select {
   margin-right: 2px;
 }
 
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+.slidecontainer label {
+  float: left;
+  position: relative;
+  top: -2em;
+  left: 1em;
+  font-size: 1.33em;
+  font-weight: 300;
+}
+
+.slidecontainer label span {
+  font-size: .6em;
+  vertical-align: text-bottom;
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 4em; /* Specified height */
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none; /* Remove outline */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 0;
+}
+
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
+    background: white;
+    border-radius: 100%;
+    cursor: pointer; /* Cursor on hover */
+    position: relative;
+    top: 2em;
+}
+
+.slider::-moz-range-thumb {
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
+    background: white;
+    border-radius: 100%;
+    cursor: pointer; /* Cursor on hover */
+    position: relative;
+    top: 2em;
+}
 </style>

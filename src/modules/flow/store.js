@@ -368,7 +368,8 @@ const actions = {
     loanPaidOffDate,
     loanInterestRate,
     monthlyLeasePayment,
-    leaseTermEndsDate
+    leaseTermEndsDate,
+    ownership
   }) {
     commit('addVehicle', {
       type,
@@ -381,7 +382,8 @@ const actions = {
       loanPaidOffDate,
       loanInterestRate,
       monthlyLeasePayment,
-      leaseTermEndsDate
+      leaseTermEndsDate,
+      ownership
     })
   },
 
@@ -451,7 +453,8 @@ const mutations = {
     loanPaidOffDate,
     loanInterestRate,
     monthlyLeasePayment,
-    leaseTermEndsDate
+    leaseTermEndsDate,
+    ownership
   }) {
     state.vehicles.push({
       type,
@@ -464,7 +467,8 @@ const mutations = {
       loanPaidOffDate,
       loanInterestRate,
       monthlyLeasePayment,
-      leaseTermEndsDate
+      leaseTermEndsDate,
+      ownership
     })
   },
   removeVehicle (state, { index }) {
