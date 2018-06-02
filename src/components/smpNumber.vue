@@ -18,7 +18,7 @@
         <input
           type="tel"
           :value="value | hideSkip | currency(unitSymbol)"
-          @input="setValueByPath({ path, value: $event.target.value })"
+          @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
         />
       </div>
     </div>
