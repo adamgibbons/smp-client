@@ -3,7 +3,7 @@ import { get, set, sum, flatten } from 'lodash'
 import questionsByType from '@/data/questions-by-type.json'
 
 function getAuthHeader () {
-  return `Bearer ${localStorage.getItem('id_token')}`
+  return `Bearer ${localStorage.getItem('token')}`
 }
 
 const state = {
@@ -402,8 +402,8 @@ const actions = {
   removeLivingExpense ({ commit }, { name }) {
     commit('removeLivingExpense', { name })
   },
-  update ({ commit }, data) {
-    axios.put(`${process.env.API_URL}users/:id/profile`, data, {
+  update ({ commit, state }, { id }) {
+    axios.put(`${process.env.API_URL}users/${id}/profile`, { data: state }, {
       headers: { 'Authorization': getAuthHeader() }
     })
       .then(({ data }) => {

@@ -42,7 +42,8 @@ export default {
       'savings2IsValid',
       'personal',
       'housing',
-      'skipHousingInfo'
+      'skipHousingInfo',
+      'user'
     ]),
     backButtonIsVisible () {
       if (this.$route.name === 'Personal1') return false
@@ -150,7 +151,7 @@ export default {
       this.$router.replace({ name: this.routesList[this.position - 1] })
     },
     next () {
-      // this.update()
+      this.update({ id: this.user.id })
 
       if (this.$route.name === 'Personal2') {
         if (this.personal.maritalStatus === 'married') {

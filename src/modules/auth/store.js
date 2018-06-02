@@ -3,7 +3,8 @@ import axios from 'axios'
 const state = {
   user: {
     name: null,
-    email: null
+    email: null,
+    id: null
   },
   auth: false,
   token: null,
@@ -78,13 +79,13 @@ const actions = {
 
     axios.post(`${process.env.API_URL}register`, { name, email, password })
       .then(({ data }) => {
-        const { auth, token } = data
+        const { auth, token, id } = data
 
         if (auth) {
           localStorage.setItem('token', token)
         }
 
-        commit('login', { name, email, token, auth })
+        commit('login', { id, name, email, token, auth })
         commit('toggleAuthenticating', { isAuthenticating: false })
       })
       .catch((error) => {
@@ -98,14 +99,14 @@ const actions = {
 
     axios.post(`${process.env.API_URL}login`, { email, password })
       .then(({ data }) => {
-        const { auth, token } = data
+        const { id, auth, token } = data
 
         if (auth) {
           localStorage.setItem('token', token)
         }
 
         // TODO set name
-        commit('login', { token, auth, email })
+        commit('login', { id, token, auth, email })
         commit('toggleAuthenticating', { isAuthenticating: false })
       })
       .catch((error) => {
@@ -136,19 +137,20 @@ const mutations = {
   setRegisterMessage (state, { success, error }) {
     state.registerMessage = { success, error }
   },
-
   toggleAuthenticating (state, { isAuthenticating }) {
     state.authenticating = isAuthenticating
   },
-  login (state, { name, email, token, auth }) {
+  login (state, { id, name, email, token, auth }) {
     state.user.name = name
     state.user.email = email
+    state.user.id = id
     state.auth = auth
     state.token = token
   },
   logout (state) {
     state.user.name = null
     state.user.email = null
+    state.user.id = null
     state.auth = false
     state.token = null
   }
