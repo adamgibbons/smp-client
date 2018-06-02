@@ -403,7 +403,7 @@ const actions = {
     commit('removeLivingExpense', { name })
   },
   update ({ commit, state }, { id }) {
-    axios.put(`${process.env.API_URL}users/${id}/profile`, { data: state }, {
+    axios.put(`${process.env.API_URL}users/${id}/profile`, { profile: state }, {
       headers: { 'Authorization': getAuthHeader() }
     })
       .then(({ data }) => {
