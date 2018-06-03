@@ -64,8 +64,11 @@
         <label>{{form.interestRate}}<span> %</span></label>
       </div>
     </div>
+
     <div class="text-center">
       <button class="button" @click="done">Done</button>
+    </div>
+    <div class="text-right">
       <button class="remove" @click="remove">
         <i class="far fa-trash-alt"></i>
       </button>
@@ -137,14 +140,7 @@ export default {
 </script>
 
 <style scoped>
-  button.remove {
-    font-size: .8em;
-    color: white;
-    opacity: .8;
-    border: none;
-    position: absolute;
-    left: .5em;
-    margin-top: 1.5em;
-    background: transparent;
+  .remove {
+    margin-top: 0;
   }
 </style>
