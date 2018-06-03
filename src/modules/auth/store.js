@@ -119,7 +119,8 @@ const actions = {
       })
   },
   logout ({ commit }) {
-    localStorage.removeItem('id_token')
+    localStorage.removeItem('token')
+    commit('setLoginMessage', { success: false, error: null })
     commit('logout')
   }
 }

@@ -2,10 +2,13 @@
   <div class="grid-container">
     <header>
       <div id="login">
-        <router-link to="/login">Login</router-link>
+        <router-link v-show="!user.id" to="/login">Login</router-link>
+        <span v-show="user.id" @click="logout">Logout</span>
       </div>
       <div id="home">
-        <router-link to="/">icon</router-link>
+        <router-link to="/">
+          <!-- <i class="fas fa-home"></i> -->
+        </router-link>
       </div>
     </header>
     <router-view/>
@@ -19,13 +22,19 @@ import axios from 'axios'
 export default {
   name: 'App',
   computed: mapGetters(['authenticated', 'user']),
-  methods: mapActions(['loadUserProfile', 'setUserId']),
+  methods: mapActions(['loadUserProfile', 'setUserId', 'logout']),
   watch: {
     // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
       if (isAuthenticated) {
         this.$router.push('/flow/personal-1')
         this.loadUserProfile({ userId: this.user.id })
+      }
+    },
+    'user.id': function (newToken, oldToken) {
+      // user logged out
+      if (!newToken && oldToken) {
+        this.$router.push('/login')
       }
     }
   },
@@ -163,13 +172,9 @@ nav {
   top: 0;
   right: 0;
   padding: .66em 1em;
-}
-
-#home a,
-#login a {
-  color: white;
-  text-decoration: none;
-  font-size: .9rem;
+  font-weight: 400;
+  font-size: 0.7em;
+  opacity: .8;
 }
 
 .modal {
@@ -225,5 +230,8 @@ nav {
   color: white;
   padding-top: .66em;
   padding-bottom: .66em;
+}
+.fa-home {
+  opacity: 0.8;
 }
 </style>
