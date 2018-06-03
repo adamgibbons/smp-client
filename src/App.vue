@@ -119,7 +119,7 @@ nav {
 .grid-container {
   height: 100%;
   display: grid;
-  grid-template-rows: 8% 92%;
+  grid-template-rows: 6% 94%;
 }
 .grid-container > header,
 .grid-container .body {
