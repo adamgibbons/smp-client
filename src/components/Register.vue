@@ -1,7 +1,7 @@
 <template>
   <form class="flow gradient body" @submit="signUp">
 
-    <p>First, let's start with your name and email so we can send you your results. Don't worry,no spam.</p>
+    <p style="margin: 1em auto;">First, let's start with your name and email so we can send you your results. Don't worry,no spam.</p>
 
     <div class="text-input-wrapper">
       <input class="text-input" type="text" v-model="form.name" required>
