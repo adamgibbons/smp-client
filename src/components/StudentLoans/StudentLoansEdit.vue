@@ -156,16 +156,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  button.remove {
-    font-size: .8em;
-    color: white;
-    opacity: .8;
-    border: none;
-    position: absolute;
-    left: .5em;
-    margin-top: 1.5em;
-    background: transparent;
-  }
-</style>
