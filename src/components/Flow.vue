@@ -488,4 +488,18 @@ select {
     position: relative;
     top: 2em;
 }
+
+.modal-bottom-menu .remove {
+  position: static;
+  margin: -3em 0 0 0;
+  padding: 1em;
+  font-size: .8em;
+  color: white;
+  opacity: .8;
+  border: none;
+  background: transparent;
+}
+.modal-bottom-menu .pull-up {
+  margin-top: -2em;
+}
 </style>

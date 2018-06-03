@@ -65,13 +65,15 @@
       </div>
     </div>
 
-    <div class="text-center">
-      <button class="button" @click="done">Done</button>
-    </div>
-    <div class="text-right">
-      <button class="remove" @click="remove">
-        <i class="far fa-trash-alt"></i>
-      </button>
+    <div class="modal-bottom-menu">
+      <div class="text-center">
+        <button class="button" @click="done">Done</button>
+      </div>
+      <div class="pull-left pull-up">
+        <button class="remove" @click="remove">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -138,9 +140,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .remove {
-    margin-top: 0;
-  }
-</style>
