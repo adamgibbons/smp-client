@@ -331,6 +331,19 @@ const getters = {
 }
 
 const actions = {
+  loadUserProfile ({ commit }, { userId }) {
+    axios.get(`${process.env.API_URL}users/${userId}`, {
+      headers: { 'Authorization': getAuthHeader() }
+    })
+      .then(({ data }) => {
+        console.log(data)
+        commit('setProfile', { profile: data.profile })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  },
+
   removeConsumerDebt ({ commit }, { index }) {
     commit('removeConsumerDebt', { index })
   },
@@ -416,6 +429,29 @@ const actions = {
 }
 
 const mutations = {
+  setProfile (state, { profile }) {
+    const {
+      personal,
+      financial,
+      housing,
+      savings,
+      insurance,
+      livingExpenses,
+      consumerDebt,
+      studentLoans,
+      vehicles
+    } = profile
+
+    state.personal = personal
+    state.financial = financial
+    state.housing = housing
+    state.savings = savings
+    state.insurance = insurance
+    state.livingExpenses = livingExpenses
+    state.consumerDebt = consumerDebt
+    state.studentLoans = studentLoans
+    state.vehicles = vehicles
+  },
   // consumerDebt
   updateConsumerDebt (state, { index, form }) {
     state.consumerDebt.splice(index, 1, form)

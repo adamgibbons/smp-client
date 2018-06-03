@@ -13,12 +13,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-// import axios from 'axios'
+import { mapActions, mapGetters } from 'vuex'
+import axios from 'axios'
 
 export default {
   name: 'App',
   computed: mapGetters(['authenticated']),
+  methods: mapActions(['loadUserProfile', 'setUserId']),
   watch: {
     // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
@@ -26,26 +27,28 @@ export default {
         this.$router.push('/flow/personal-1')
       }
     }
+  },
+  mounted () {
+    const token = localStorage.getItem('token')
+    if (token) {
+      // login user
+      axios.get(`${process.env.API_URL}whoami`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+        .then(({ data }) => {
+          const { userId } = data
+          this.setUserId({ userId })
+          this.loadUserProfile({ userId })
+          this.$router.replace('/flow/personal-1')
+        })
+        .catch((err) => {
+          console.log(err)
+          this.$router.replace('/')
+        })
+    }
   }
-  // mounted () {
-  //   const token = localStorage.getItem('token')
-  //   if (token) {
-  //     // login user
-  //     axios.get(`${process.env.API_URL}whoami`, {
-  //       headers: {
-  //         'Authorization': `Bearer ${localStorage.getItem('token')}`
-  //       }
-  //     })
-  //       .then((data) => {
-  //         console.log(data)
-  //         this.$router.replace('/flow/personal-1')
-  //       })
-  //       .catch((err) => {
-  //         console.log(err)
-  //         this.$router.replace('/')
-  //       })
-  //   }
-  // }
 }
 </script>
 

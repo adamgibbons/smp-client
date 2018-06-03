@@ -52,6 +52,9 @@ const getters = {
 }
 
 const actions = {
+  setUserId ({ commit }, { userId }) {
+    commit('setUserId', { userId })
+  },
   acknowledgeRegisterError ({ commit }) {
     commit('acknowledgeError', { messageType: 'registerMessage' })
   },
@@ -121,6 +124,9 @@ const actions = {
 }
 
 const mutations = {
+  setUserId (state, { userId }) {
+    state.user.id = userId
+  },
   acknowledgeError (state, { messageType }) {
     state[messageType].success = false
     state[messageType].error = null
