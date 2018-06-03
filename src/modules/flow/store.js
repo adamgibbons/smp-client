@@ -336,7 +336,6 @@ const actions = {
       headers: { 'Authorization': getAuthHeader() }
     })
       .then(({ data }) => {
-        console.log(data)
         commit('setProfile', { profile: data.profile })
       })
       .catch((err) => {
@@ -420,7 +419,7 @@ const actions = {
       headers: { 'Authorization': getAuthHeader() }
     })
       .then(({ data }) => {
-        console.log(data)
+        // console.log(data)
       })
       .catch((err) => {
         console.log(err)

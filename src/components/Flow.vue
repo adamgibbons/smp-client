@@ -43,7 +43,8 @@ export default {
       'personal',
       'housing',
       'skipHousingInfo',
-      'user'
+      'user',
+      'authenticated'
     ]),
     backButtonIsVisible () {
       if (this.$route.name === 'Personal1') return false
@@ -91,8 +92,13 @@ export default {
       return true
     }
   },
+  mounted () {
+    if (this.$route.query.loadUser) {
+      this.loadUserProfile({ userId: this.user.id })
+    }
+  },
   methods: {
-    ...mapActions(['update']),
+    ...mapActions(['update', 'loadUserProfile']),
     back () {
       if (this.$route.name === 'Financial') {
         if (this.personal.maritalStatus === 'married') {

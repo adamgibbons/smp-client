@@ -18,13 +18,14 @@ import axios from 'axios'
 
 export default {
   name: 'App',
-  computed: mapGetters(['authenticated']),
+  computed: mapGetters(['authenticated', 'user']),
   methods: mapActions(['loadUserProfile', 'setUserId']),
   watch: {
     // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
       if (isAuthenticated) {
         this.$router.push('/flow/personal-1')
+        this.loadUserProfile({ userId: this.user.id })
       }
     }
   },
