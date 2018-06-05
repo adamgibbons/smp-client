@@ -4,6 +4,7 @@
       <div class="title">
         Type of Debt
       </div>
+
       <div class="select-wrapper">
         <select v-model="form.type">
           <option></option>
@@ -20,8 +21,8 @@
     <div class="block">
       <div class="title">Minimum Monthly Balance</div>
 
-      <div class="control">
-        <div class="select-wrapper">
+      <div class="modal-number">
+        <div class="control">
           <span class="unit-symbol">$</span>
           <input
             type="tel"
@@ -36,8 +37,8 @@
     <div class="block">
       <div class="title">Average Loan Balance</div>
 
-      <div class="control">
-        <div class="select-wrapper">
+      <div class="modal-number">
+        <div class="control">
           <span class="unit-symbol">$</span>
           <input
             type="tel"
@@ -54,15 +55,16 @@
         Interest Rate
       </div>
 
-      <div class="control">
-        <span class="unit-symbol">$</span>
-        <input
-          type="text"
-          v-model="form.interestRate"
-        />
+      <div class="modal-number">
+        <div class="control">
+          <span class="unit-symbol">$</span>
+          <input
+            type="text"
+            v-model="form.interestRate"
+          />
+        </div>
       </div>
     </div>
-
     <div class="modal-bottom-menu">
       <div class="text-center">
         <button class="button" @click="done">Done</button>
@@ -139,8 +141,8 @@ export default {
 }
 </script>
 
-<style scoped>
-  input {
+<style>
+  .modal-number input {
     background-color: white;
     color: black;
     font-size: 1em;
@@ -149,13 +151,10 @@ export default {
     border-radius: 5px;
     border: none;
   }
-  span, input {
+  .modal-number span, input {
     display: inline;
   }
-  .title {
-    margin-bottom: .33rem;
-  }
-  .unit-symbol {
+  .modal-number .unit-symbol {
     color: #42b983;
     /*margin-right: .33em;*/
   }
