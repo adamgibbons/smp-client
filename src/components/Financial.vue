@@ -7,11 +7,13 @@
     <Progress />
 
     <smpNumber
-      title="Monthly Household Income (after taxes - combined)"
-      subtitle="Include all automatic deductions ex: 401K, Health Insurance, etc. We will enter those expenses in other sections"
+      title="Monthly Household Income"
+      subtitle="(after taxes - combined)"
+      tiny="Include all automatic deductions ex: 401K, Health Insurance, etc. We will enter those expenses in other sections"
       path="financial.monthlyHouseholdIncome"
       :value="financial.monthlyHouseholdIncome"
       unitSymbol="$"
+      :newStyle="true"
     />
 
     <smpRadios

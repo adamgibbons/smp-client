@@ -4,6 +4,7 @@
       <div class="title">
         Type of Debt
       </div>
+
       <div class="select-wrapper">
         <select v-model="form.type">
           <option></option>
@@ -20,8 +21,8 @@
     <div class="block">
       <div class="title">Minimum Monthly Balance</div>
 
-      <div class="control">
-        <div class="select-wrapper">
+      <div class="modal-number">
+        <div class="control">
           <span class="unit-symbol">$</span>
           <input
             type="tel"
@@ -36,8 +37,8 @@
     <div class="block">
       <div class="title">Average Loan Balance</div>
 
-      <div class="control">
-        <div class="select-wrapper">
+      <div class="modal-number">
+        <div class="control">
           <span class="unit-symbol">$</span>
           <input
             type="tel"
@@ -50,21 +51,20 @@
     </div>
 
     <div class="block">
-      <div class="title">Interest Rate</div>
+      <div class="title">
+        Interest Rate
+      </div>
 
-      <div class="slidecontainer">
-        <input
-          class="slider"
-          type="range"
-          :min="0"
-          :max="30"
-          :step="0.1"
-          v-model="form.interestRate"
-        />
-        <label>{{form.interestRate}}<span> %</span></label>
+      <div class="modal-number">
+        <div class="control">
+          <span class="unit-symbol">$</span>
+          <input
+            type="text"
+            v-model="form.interestRate"
+          />
+        </div>
       </div>
     </div>
-
     <div class="modal-bottom-menu">
       <div class="text-center">
         <button class="button" @click="done">Done</button>

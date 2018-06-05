@@ -7,7 +7,7 @@
       @click="remove('gymMembership')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Gym Membership"
       path="livingExpenses.gymMembership.amount"
       v-show="isSelected('gymMembership')"
@@ -17,7 +17,7 @@
       :value="livingExpenses.gymMembership.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('fuel')"
@@ -25,7 +25,7 @@
       @click="remove('fuel')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Fuel"
       path="livingExpenses.fuel.amount"
       v-show="isSelected('fuel')"
@@ -35,7 +35,7 @@
       :value="livingExpenses.fuel.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('publicTransportation')"
@@ -43,7 +43,7 @@
       @click="remove('publicTransportation')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Public Transportation"
       path="livingExpenses.publicTransportation.amount"
       v-show="isSelected('publicTransportation')"
@@ -53,7 +53,7 @@
       :value="livingExpenses.publicTransportation.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('healthcare')"
@@ -61,7 +61,7 @@
       @click="remove('healthcare')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Healthcare"
       path="livingExpenses.healthcare.amount"
       v-show="isSelected('healthcare')"
@@ -71,7 +71,7 @@
       :value="livingExpenses.healthcare.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('phoneInternetCable')"
@@ -79,7 +79,7 @@
       @click="remove('phoneInternetCable')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Phone/Internet/Cable"
       path="livingExpenses.phoneInternetCable.amount"
       v-show="isSelected('phoneInternetCable')"
@@ -89,7 +89,7 @@
       :value="livingExpenses.phoneInternetCable.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('diningOut')"
@@ -97,7 +97,7 @@
       @click="remove('diningOut')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Dining Out"
       path="livingExpenses.diningOut.amount"
       v-show="isSelected('diningOut')"
@@ -107,7 +107,7 @@
       :value="livingExpenses.diningOut.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('shopping')"
@@ -115,7 +115,7 @@
       @click="remove('shopping')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Shopping"
       path="livingExpenses.shopping.amount"
       v-show="isSelected('shopping')"
@@ -125,7 +125,7 @@
       :value="livingExpenses.shopping.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('entertainment')"
@@ -133,7 +133,7 @@
       @click="remove('entertainment')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Entertainment"
       path="livingExpenses.entertainment.amount"
       v-show="isSelected('entertainment')"
@@ -143,7 +143,7 @@
       :value="livingExpenses.entertainment.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('childcare')"
@@ -151,7 +151,7 @@
       @click="remove('childcare')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Childcare"
       path="livingExpenses.childcare.amount"
       v-show="isSelected('childcare')"
@@ -161,7 +161,7 @@
       :value="livingExpenses.childcare.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="isSelected('other')"
@@ -169,7 +169,7 @@
       @click="remove('other')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Other"
       path="livingExpenses.other.amount"
       v-show="isSelected('other')"
@@ -179,7 +179,7 @@
       :value="livingExpenses.other.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
     <div class="text-center">
       <button class="button" @click="done">Done</button>
     </div>
@@ -188,10 +188,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from '../smpSlider'
+import smpModalNumber from '../smpModalNumber'
 
 export default {
-  components: { smpSlider },
+  components: { smpModalNumber },
   name: 'LivingExpensesEdit',
   computed: {
     ...mapGetters(['livingExpenses'])

@@ -7,7 +7,7 @@
       @click="remove('multiPolicy')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Multi-Policy"
       path="insurance.multiPolicy.amount"
       v-show="policyIsSelected('multiPolicy')"
@@ -17,7 +17,7 @@
       :value="insurance.multiPolicy.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="policyIsSelected('health')"
@@ -25,7 +25,7 @@
       @click="remove('health')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Health"
       path="insurance.health.amount"
       v-show="policyIsSelected('health')"
@@ -35,7 +35,7 @@
       :value="insurance.health.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="policyIsSelected('car')"
@@ -43,7 +43,7 @@
       @click="remove('car')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Car"
       path="insurance.car.amount"
       v-show="policyIsSelected('car')"
@@ -53,7 +53,7 @@
       :value="insurance.car.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="policyIsSelected('homeowners')"
@@ -61,7 +61,7 @@
       @click="remove('homeowners')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Homeowners"
       path="insurance.homeowners.amount"
       v-show="policyIsSelected('homeowners')"
@@ -71,7 +71,7 @@
       :value="insurance.homeowners.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="policyIsSelected('life')"
@@ -79,7 +79,7 @@
       @click="remove('life')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Life"
       path="insurance.life.amount"
       v-show="policyIsSelected('life')"
@@ -89,7 +89,7 @@
       :value="insurance.life.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="policyIsSelected('disability')"
@@ -97,7 +97,7 @@
       @click="remove('disability')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Disability"
       path="insurance.disability.amount"
       v-show="policyIsSelected('disability')"
@@ -107,7 +107,7 @@
       :value="insurance.disability.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="policyIsSelected('other')"
@@ -115,7 +115,7 @@
       @click="remove('other')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Other"
       path="insurance.other.amount"
       v-show="policyIsSelected('other')"
@@ -125,7 +125,7 @@
       :value="insurance.other.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
     <div class="text-center">
       <button class="button" @click="done">Done</button>
     </div>
@@ -134,10 +134,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from '../smpSlider'
+import smpModalNumber from '../smpModalNumber'
 
 export default {
-  components: { smpSlider },
+  components: { smpModalNumber },
   name: 'InsuranceEdit',
   computed: {
     ...mapGetters(['insurance'])

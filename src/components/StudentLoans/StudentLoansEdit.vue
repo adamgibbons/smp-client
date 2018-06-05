@@ -64,8 +64,8 @@
     <div class="block">
       <div class="title">Student Loan Balance</div>
 
-      <div class="control">
-        <div class="select-wrapper">
+      <div class="modal-number">
+        <div class="control">
           <span class="unit-symbol">$</span>
           <input
             type="tel"
@@ -80,8 +80,8 @@
     <div class="block">
       <div class="title">Minimum Monthly Payment</div>
 
-      <div class="control">
-        <div class="select-wrapper">
+      <div class="modal-number">
+        <div class="control">
           <span class="unit-symbol">$</span>
           <input
             type="tel"

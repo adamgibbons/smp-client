@@ -12,27 +12,13 @@
       <span v-show="subtitle" class="subtitle">{{subtitle}}</span>
     </div>
 
-    <div v-if="!newStyle" class="control">
-      <div class="select-wrapper">
-        <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
-        <input
-          type="tel"
-          :value="value | hideSkip | currency(unitSymbol)"
-          @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
-        />
-      </div>
-    </div>
-
-    <div v-else class="modal-number">
-      <div class="tiny">{{tiny}}</div>
-      <div class="control">
-        <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
-        <input
-          type="tel"
-          :value="value | hideSkip | currency(unitSymbol)"
-          @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
-        />
-      </div>
+    <div class="control">
+      <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
+      <input
+        type="tel"
+        :value="value | hideSkip | currency(unitSymbol)"
+        @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
+      />
     </div>
   </div>
 </template>
@@ -49,9 +35,7 @@ export default {
     'value',
     'unitSymbol',
     'subtitle',
-    'allowSkip',
-    'newStyle',
-    'tiny'
+    'allowSkip'
   ],
   methods: {
     ...mapActions(['setValueByPath'])
@@ -70,3 +54,25 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  input {
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    max-width: 8em;
+    padding: .66em;
+    border-radius: 5px;
+    border: none;
+  }
+  span, input {
+    display: inline;
+  }
+  .title {
+    margin-bottom: .33rem;
+  }
+  .unit-symbol {
+    color: #42b983;
+    /*margin-right: .33em;*/
+  }
+</style>

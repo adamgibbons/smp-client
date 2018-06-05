@@ -132,8 +132,8 @@ nav {
 }
 .block {
   border-top: 1px solid rgba(255, 255, 255, .25);
-  padding: 1.5em 1.66em;
-  font-size: 1em
+  padding: 1.33em;
+  font-size: 1em;
 }
 .block.muted .control label,
 .block.muted .title {
@@ -234,4 +234,29 @@ nav {
 .fa-home {
   opacity: 0.8;
 }
+
+.modal-number input {
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  max-width: 8em;
+  padding: .66em;
+  border-radius: 5px;
+  border: none;
+}
+.modal-number span, input {
+  display: inline;
+}
+.modal-number .unit-symbol {
+  color: #42b983;
+  /*margin-right: .33em;*/
+}
+
+.modal-number .tiny {
+  font-size: .6rem;
+  line-height: 1.2;
+  font-weight: 300;
+  margin: .33rem 0 .66rem;
+}
+
 </style>
