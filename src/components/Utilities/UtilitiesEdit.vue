@@ -7,7 +7,7 @@
       @click="remove('electricity')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Electricity"
       path="utilities.electricity.amount"
       v-show="utilityIsSelected('electricity')"
@@ -17,7 +17,7 @@
       :value="utilities.electricity.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="utilityIsSelected('waterSewer')"
@@ -117,9 +117,10 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import smpSlider from '../smpSlider'
+import smpModalNumber from '../smpModalNumber'
 
 export default {
-  components: { smpSlider },
+  components: { smpSlider, smpModalNumber },
   name: 'UtilitiesEdit',
   computed: {
     ...mapGetters(['utilities'])
