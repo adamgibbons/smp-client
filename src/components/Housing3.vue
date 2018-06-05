@@ -21,8 +21,8 @@
       title="What is your current interest rate?"
       path="housing.currentInterestRate"
       :min="0"
-      :max="20"
-      :step="1"
+      :max="10"
+      :step="0.1"
       :value="housing.currentInterestRate"
       unitSymbol="%"
     >
