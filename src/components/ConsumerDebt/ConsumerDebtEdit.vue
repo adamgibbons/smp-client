@@ -50,18 +50,16 @@
     </div>
 
     <div class="block">
-      <div class="title">Interest Rate</div>
+      <div class="title">
+        Interest Rate
+      </div>
 
-      <div class="slidecontainer">
+      <div class="control">
+        <span class="unit-symbol">$</span>
         <input
-          class="slider"
-          type="range"
-          :min="0"
-          :max="30"
-          :step="0.1"
+          type="text"
           v-model="form.interestRate"
         />
-        <label>{{form.interestRate}}<span> %</span></label>
       </div>
     </div>
 
@@ -140,3 +138,25 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  input {
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    max-width: 8em;
+    padding: .66em;
+    border-radius: 5px;
+    border: none;
+  }
+  span, input {
+    display: inline;
+  }
+  .title {
+    margin-bottom: .33rem;
+  }
+  .unit-symbol {
+    color: #42b983;
+    /*margin-right: .33em;*/
+  }
+</style>

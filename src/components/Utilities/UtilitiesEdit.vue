@@ -25,7 +25,7 @@
       @click="remove('waterSewer')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Water/Sewer"
       path="utilities.waterSewer.amount"
       v-show="utilityIsSelected('waterSewer')"
@@ -35,7 +35,7 @@
       :value="utilities.waterSewer.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="utilityIsSelected('trash')"
@@ -43,7 +43,7 @@
       @click="remove('trash')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Trash"
       path="utilities.trash.amount"
       v-show="utilityIsSelected('trash')"
@@ -53,7 +53,7 @@
       :value="utilities.trash.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="utilityIsSelected('naturalGas')"
@@ -61,7 +61,7 @@
       @click="remove('naturalGas')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Natural Gas"
       path="utilities.naturalGas.amount"
       v-show="utilityIsSelected('naturalGas')"
@@ -71,7 +71,7 @@
       :value="utilities.naturalGas.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="utilityIsSelected('hoa')"
@@ -79,7 +79,7 @@
       @click="remove('hoa')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="HOA"
       path="utilities.hoa.amount"
       v-show="utilityIsSelected('hoa')"
@@ -89,7 +89,7 @@
       :value="utilities.hoa.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
 
     <div
       v-show="utilityIsSelected('other')"
@@ -97,7 +97,7 @@
       @click="remove('other')">
       <i class="far fa-trash-alt"></i>
     </div>
-    <smp-slider
+    <smp-modal-number
       title="Other"
       path="utilities.other.amount"
       v-show="utilityIsSelected('other')"
@@ -107,7 +107,7 @@
       :value="utilities.other.amount"
       unitSymbol="$"
     >
-    </smp-slider>
+    </smp-modal-number>
     <div class="text-center">
       <button class="button" @click="done">Done</button>
     </div>
@@ -116,11 +116,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from '../smpSlider'
 import smpModalNumber from '../smpModalNumber'
 
 export default {
-  components: { smpSlider, smpModalNumber },
+  components: { smpModalNumber },
   name: 'UtilitiesEdit',
   computed: {
     ...mapGetters(['utilities'])
