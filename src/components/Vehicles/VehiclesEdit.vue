@@ -77,8 +77,8 @@
       <div class="block">
         <div class="title">Mileage</div>
 
-        <div class="control">
-          <div class="select-wrapper">
+        <div class="modal-number">
+          <div class="control">
             <input
               type="tel"
               :min="0"
@@ -119,8 +119,8 @@
       <div class="block">
         <div class="title">Monthly Payment (Incl taxes)</div>
 
-        <div class="control">
-          <div class="select-wrapper">
+        <div class="modal-number">
+          <div class="control">
             <span class="unit-symbol">$</span>
             <input
               type="tel"
@@ -136,8 +136,8 @@
       <div class="block">
         <div class="title">Loan Balance</div>
 
-        <div class="control">
-          <div class="select-wrapper">
+        <div class="modal-number">
+          <div class="control">
             <span class="unit-symbol">$</span>
             <input
               type="tel"
@@ -167,16 +167,15 @@
       <div class="block">
         <div class="title">What is the interest rate on your loan?</div>
 
-        <div class="slidecontainer">
-          <input
-            class="slider"
-            type="range"
-            :min="0"
-            :max="10"
-            :step="0.1"
-            v-model="form.loanInterestRate"
-          />
-          <label>{{form.loanInterestRate}}<span> %</span></label>
+        <div class="control">
+          <div class="modal-number">
+            <input
+              type="number"
+              v-model="form.loanInterestRate"
+              style="max-width:5em;"
+            />
+            <span class="unit-symbol">%</span>
+          </div>
         </div>
       </div>
     </div>
