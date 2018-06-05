@@ -12,8 +12,20 @@
       <span v-show="subtitle" class="subtitle">{{subtitle}}</span>
     </div>
 
-    <div class="control">
+    <div v-if="!newStyle" class="control">
       <div class="select-wrapper">
+        <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
+        <input
+          type="tel"
+          :value="value | hideSkip | currency(unitSymbol)"
+          @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
+        />
+      </div>
+    </div>
+
+    <div v-else class="modal-number">
+      <div class="tiny">{{tiny}}</div>
+      <div class="control">
         <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
         <input
           type="tel"
@@ -37,7 +49,9 @@ export default {
     'value',
     'unitSymbol',
     'subtitle',
-    'allowSkip'
+    'allowSkip',
+    'newStyle',
+    'tiny'
   ],
   methods: {
     ...mapActions(['setValueByPath'])

@@ -140,22 +140,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .modal-number input {
-    background-color: white;
-    color: black;
-    font-size: 1em;
-    max-width: 8em;
-    padding: .66em;
-    border-radius: 5px;
-    border: none;
-  }
-  .modal-number span, input {
-    display: inline;
-  }
-  .modal-number .unit-symbol {
-    color: #42b983;
-    /*margin-right: .33em;*/
-  }
-</style>
