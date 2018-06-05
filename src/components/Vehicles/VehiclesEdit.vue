@@ -187,8 +187,8 @@
       <div class="block">
         <div class="title">Monthly Lease Payment</div>
 
-        <div class="control">
-          <div class="select-wrapper">
+        <div class="modal-number">
+          <div class="control">
             <span class="unit-symbol">$</span>
             <input
               type="tel"
