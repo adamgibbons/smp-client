@@ -50,7 +50,7 @@ export default {
   data () {
     return {
       creditScoreOptions: ['Poor', 'Fair', 'Good', 'Excellent'],
-      dependentsOptions: ['1', '2', '3+']
+      dependentsOptions: ['1', '2', '3', '4+']
     }
   }
 }
