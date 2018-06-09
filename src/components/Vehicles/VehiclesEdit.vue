@@ -262,6 +262,15 @@ export default {
       return this.vehicleMakesModels[this.form.make]
     }
   },
+  watch: {
+    form: function (newVal, oldVal) {
+      if (newVal.type === 'Motorcycle') {
+        this.form.make = ''
+        this.form.model = ''
+      }
+      this.updateVehicle({ form: this.form, index: this.indexOfModalItem })
+    }
+  },
   methods: {
     ...mapActions(['updateVehicle', 'removeVehicle']),
     done () {

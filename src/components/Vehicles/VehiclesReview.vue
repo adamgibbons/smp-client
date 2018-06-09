@@ -3,9 +3,10 @@
     <div class="rows">
       <div
         class="row"
-        v-for="({year, model}, index) in vehicles"
+        v-for="(vehicle, index) in vehicles"
         :key="index">
-        <div class="cell name">{{year}} {{model}}</div>
+        <div class="cell name">{{displayVehicleName(vehicle)}}</div>
+        <div class="cell name">{{getDollarValue(vehicle) | dollars}}</div>
         <div class="cell edit" @click="edit(index)">
           <i class="fas fa-pencil-alt"></i>
         </div>
@@ -46,6 +47,11 @@ export default {
       indexOfModalItem: 0
     }
   },
+  filters: {
+    dollars (input) {
+      return `$${parseInt(input).toLocaleString()}`
+    }
+  },
   mounted () {
     if (this.$route.params.addingVehicle) {
       this.addingVehicle = true
@@ -68,6 +74,24 @@ export default {
     },
     scrollTop () {
       this.$el.querySelector('.modal').scrollTop = 0
+    },
+    getDollarValue (vehicle) {
+      if (vehicle.ownership === 'Owned - Paid in Full') {
+        return 0
+      }
+      if (vehicle.ownership === 'Leased') {
+        return parseInt(vehicle.monthlyLeasePayment)
+      }
+      if (vehicle.ownership === 'Owned - Making payments') {
+        return parseInt(vehicle.monthlyPayment)
+      }
+    },
+    displayVehicleName (vehicle) {
+      if (vehicle.type !== 'Car/SUV') {
+        return vehicle.type
+      }
+
+      return `${vehicle.year} ${vehicle.model}`
     }
   },
   computed: {
