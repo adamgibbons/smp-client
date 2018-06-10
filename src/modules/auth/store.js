@@ -115,7 +115,7 @@ const actions = {
       })
       .catch((error) => {
         commit('toggleAuthenticating', { isAuthenticating: false })
-        commit('setLoginMessage', { success: false, error: error })
+        commit('setLoginMessage', { success: false, error: error.response.data })
       })
   },
   logout ({ commit }) {
