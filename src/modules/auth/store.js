@@ -111,7 +111,6 @@ const actions = {
         // TODO set name
         commit('login', { id, token, auth, email })
         commit('toggleAuthenticating', { isAuthenticating: false })
-        this.$router.replace('/flow/personal-1')
       })
       .catch((error) => {
         commit('toggleAuthenticating', { isAuthenticating: false })
