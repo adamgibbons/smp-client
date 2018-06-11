@@ -4,7 +4,7 @@
       v-if="allowSkip"
       class="idk"
       @click="skip">
-      Skip
+      <img src="../assets/skip.png" alt="Skip">
     </a>
 
     <div class="title">

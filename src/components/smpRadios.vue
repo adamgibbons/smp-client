@@ -1,6 +1,8 @@
 <template>
   <div class="block" :class="{muted: value === 'skip'}">
-    <a v-if="allowSkip" class="idk" @click="setValueByPath({ path, value: 'skip' })">Skip</a>
+    <a v-if="allowSkip" class="idk" @click="setValueByPath({ path, value: 'skip' })">
+      <img src="../assets/skip.png" alt="Skip">
+    </a>
     <div class="title">{{title}}</div>
 
     <div class="control">

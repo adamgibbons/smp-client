@@ -1,6 +1,8 @@
 <template>
   <div class="block" :class="{muted: isSkipped === true}">
-    <a v-if="allowSkip" class="idk" @click="clearList({ path, value: 'skip' })">Skip</a>
+    <a v-if="allowSkip" class="idk" @click="clearList({ path, value: 'skip' })">
+      <img src="../assets/skip.png" alt="Skip">
+    </a>
     <div class="title">
       {{title}}
       <span v-show="subtitle" class="subtitle">{{subtitle}}</span>

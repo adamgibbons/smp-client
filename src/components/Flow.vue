@@ -419,11 +419,19 @@ select {
 
 .idk {
   float: right;
-  font-size: .7em;
+  font-size: 1rem;
   font-weight: 200;
-  opacity: .8;
   position: relative;
   z-index: 100;
+  width: 1.33rem;
+  margin: 0 0 0 0.3rem;
+  top: -0.5rem;
+  left: 0.5rem;
+}
+
+.idk img {
+  width: 100%;
+  opacity: .9;
 }
 
 .currency {
