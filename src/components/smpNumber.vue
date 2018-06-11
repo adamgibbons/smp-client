@@ -14,13 +14,14 @@
 
     <div v-if="!newStyle" class="control">
       <div class="select-wrapper">
-        <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
+        <span v-show="unitSymbol&& !unitSymbol === '%'" class="unit-symbol">{{unitSymbol}}</span>
         <input
           :type="!!floatingPoint ? 'number' : 'tel'"
           :value="value | hideSkip | currency(unitSymbol)"
           @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
         />
       </div>
+      <span v-show="unitSymbol === '%'" class="unit-symbol cheat-left">{{unitSymbol}}</span>
     </div>
 
     <div v-else class="modal-number">
@@ -71,3 +72,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .cheat-left {
+    position: relative;
+    left: -1.33em;
+  }
+</style>
