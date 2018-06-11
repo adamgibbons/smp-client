@@ -17,7 +17,7 @@
     >
     </smp-number>
 
-    <smp-slider
+    <smp-number
       title="What is your current interest rate?"
       path="housing.currentInterestRate"
       :min="0"
@@ -25,8 +25,8 @@
       :step="0.1"
       :value="housing.currentInterestRate"
       unitSymbol="%"
-    >
-    </smp-slider>
+      :floatingPoint="true"
+    />
 
     <smp-select
       title="What is the term on your current loan?"

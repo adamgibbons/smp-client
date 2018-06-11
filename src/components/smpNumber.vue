@@ -16,7 +16,7 @@
       <div class="select-wrapper">
         <span v-show="unitSymbol" class="unit-symbol">{{unitSymbol}}</span>
         <input
-          type="tel"
+          :type="!!floatingPoint ? 'number' : 'tel'"
           :value="value | hideSkip | currency(unitSymbol)"
           @input="setValueByPath({ path, value: $event.target.value.replace(/,/g, '') })"
         />
@@ -51,7 +51,8 @@ export default {
     'subtitle',
     'allowSkip',
     'newStyle',
-    'tiny'
+    'tiny',
+    'floatingPoint'
   ],
   methods: {
     ...mapActions(['setValueByPath'])
