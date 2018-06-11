@@ -137,7 +137,7 @@ nav {
 }
 .block.muted .control label,
 .block.muted .title {
-  opacity: .6;
+  opacity: .5;
 }
 .progress-wrapper + .block {
   border-top: none;
