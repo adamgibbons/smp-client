@@ -39,24 +39,27 @@
       <div class="title">School</div>
 
       <div class="control">
-        <div class="search-wrapper">
+        <div class="search-wrapper modal-search-wrapper" :class="{'active': focused === true}">
           <input
             type="text"
             v-model="form.school"
             placeholder="Type to search"
-            @input="selected = false"
+            @focus="focus"
           />
-        </div>
-      </div>
-      <div
-        v-if="form.school && form.school.length > 2 && selected === false"
-        class="search-results">
-        <div
-          class="search-result"
-          v-for="(school, index) in matchingSchools"
-          :key="index"
-          @click="selectSchool(school)">
-          {{school}}
+          <div
+            v-if="matchingSchools && matchingSchools.length > 2 && selected === false"
+            class="search-results">
+            <div
+              class="search-result"
+              v-for="(school, index) in matchingSchools"
+              :key="index"
+              @click="selectSchool(school)">
+              {{school}}
+            </div>
+          </div>
+          <nav v-show="focused === true">
+            <button class="button done" @click="closeSearch">Done</button>
+          </nav>
         </div>
       </div>
     </div>
@@ -127,6 +130,7 @@ export default {
         balance: null,
         minMonthlyPayment: null
       },
+      focused: false,
       schools,
       selected: false
     }
@@ -134,16 +138,26 @@ export default {
   computed: {
     ...mapGetters(['studentLoans']),
     matchingSchools () {
-      return this.schools.filter((school) => {
-        return school.toLowerCase().indexOf(this.form.school.toLowerCase()) !== -1
-      }).slice(0, 10)
+      try {
+        return this.schools.filter((school) => {
+          return school.toLowerCase().indexOf(this.form.school.toLowerCase()) !== -1
+        }).slice(0, 10)
+      } catch (e) {}
+      return []
     }
   },
   methods: {
     ...mapActions(['updateStudentLoan', 'removeStudentLoan']),
+    focus () {
+      this.$el.querySelector('.modal-search-wrapper').scrollTop = 0
+      this.focused = true
+      this.selected = false
+      this.form.school = null
+    },
     selectSchool (school) {
       this.form.school = school
       this.selected = true
+      this.focused = false
     },
     done () {
       this.updateStudentLoan({ form: this.form, index: this.indexOfModalItem })
@@ -152,7 +166,23 @@ export default {
     remove () {
       this.removeStudentLoan({ index: this.indexOfModalItem })
       this.$emit('closeModal')
+    },
+    closeSearch () {
+      this.selected = true
+      this.focused = false
     }
   }
 }
 </script>
+
+<style scoped>
+  .modal-search-wrapper.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 200;
+    overflow: hidden;
+  }
+</style>
