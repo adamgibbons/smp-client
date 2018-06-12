@@ -14,7 +14,7 @@
 
     <div v-if="!newStyle" class="control">
       <div class="select-wrapper">
-        <span v-show="unitSymbol&& !unitSymbol === '%'" class="unit-symbol">{{unitSymbol}}</span>
+        <span v-show="unitSymbol && unitSymbol !== '%'" class="unit-symbol">{{unitSymbol}}</span>
         <input
           :type="!!floatingPoint ? 'number' : 'tel'"
           :value="value | hideSkip | currency(unitSymbol)"
