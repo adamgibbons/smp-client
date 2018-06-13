@@ -273,6 +273,7 @@ select {
   border-bottom: 1px solid white;
   color: white;
   background: transparent;
+  padding-bottom: 0.33em;
 }
 
 .select-wrapper,
@@ -312,6 +313,7 @@ select {
 }
 
 .search-wrapper input[type="text"] {
+  border-radius: 0;
   color: white;
   background: transparent;
   border: none;
@@ -319,6 +321,7 @@ select {
   margin: .5em 0 .1em;
   min-width: 5em;
   width: 100%;
+  text-overflow: ellipsis;
 }
 .search-wrapper input[type="text"]::-webkit-input-placeholder {
   color: white;
