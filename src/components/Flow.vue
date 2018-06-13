@@ -98,7 +98,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['update', 'loadUserProfile']),
+    ...mapActions(['update', 'loadUserProfile', 'setValueByPath']),
     back () {
       if (this.$route.name === 'Financial') {
         if (this.personal.maritalStatus === 'married') {

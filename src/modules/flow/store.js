@@ -543,6 +543,86 @@ const mutations = {
   },
   setValueByPath (state, { path, value }) {
     state = set(state, path, value)
+
+    if (path === 'housing.status' && value === 'own') {
+      state.housing.monthlyRent = null
+      state.housing.rentIncludesUtilities = null
+    }
+    if (path === 'housing.status' && value === 'rent') {
+      state.housing.monthlyMortgagePayment = null
+      state.housing.monthlyMortgagePaymentIncludes = []
+      state.housing.annualPropertyTax = null
+      state.housing.loanBalance = null
+      state.housing.currentInterestRate = null
+      state.housing.termOnCurrentLoan = null
+    }
+    if (path === 'housing.status' && ['Living w/ Parents', 'No Rent'].indexOf(value) !== -1) {
+      state.housing.propertyType = null
+      state.housing.zip = null
+      state.housing.monthlyMortgagePayment = null
+      state.housing.monthlyMortgagePaymentIncludes = []
+      state.housing.annualPropertyTax = null
+      state.housing.loanBalance = null
+      state.housing.currentInterestRate = null
+      state.housing.termOnCurrentLoan = null
+      state.housing.monthlyRent = null
+      state.housing.rentIncludesUtilities = null
+
+      state.utilities = {
+        electricity: {
+          include: false,
+          amount: null
+        },
+        waterSewer: {
+          include: false,
+          amount: null
+        },
+        trash: {
+          include: false,
+          amount: null
+        },
+        naturalGas: {
+          include: false,
+          amount: null
+        },
+        hoa: {
+          include: false,
+          amount: null
+        },
+        other: {
+          include: false,
+          amount: null
+        }
+      }
+    }
+    if (path === 'housing.rentIncludesUtilities' && value === 'Yes') {
+      state.utilities = {
+        electricity: {
+          include: false,
+          amount: null
+        },
+        waterSewer: {
+          include: false,
+          amount: null
+        },
+        trash: {
+          include: false,
+          amount: null
+        },
+        naturalGas: {
+          include: false,
+          amount: null
+        },
+        hoa: {
+          include: false,
+          amount: null
+        },
+        other: {
+          include: false,
+          amount: null
+        }
+      }
+    }
   },
   update (state, { path, value }) {
     console.log('update')
