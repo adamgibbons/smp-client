@@ -7,17 +7,12 @@ import ResetPassword from '@/components/ResetPassword'
 import Logout from '@/components/Logout'
 
 import Splash from '@/components/Splash'
-import Onboard1 from '@/components/Onboard1'
-import Onboard2 from '@/components/Onboard2'
-import Onboard3 from '@/components/Onboard3'
-import Onboard4 from '@/components/Onboard4'
 
 import Pages from '@/components/Pages'
 import Pages1 from '@/components/Pages/Page1'
 import Pages2 from '@/components/Pages/Page2'
 
 import Flow from '@/components/Flow'
-import Start from '@/components/Start'
 
 import Personal1 from '@/components/Personal1'
 import Personal2 from '@/components/Personal2'
@@ -68,22 +63,6 @@ export default new Router({
       component: Splash
     },
     {
-      path: '/onboard-1',
-      component: Onboard1
-    },
-    {
-      path: '/onboard-2',
-      component: Onboard2
-    },
-    {
-      path: '/onboard-3',
-      component: Onboard3
-    },
-    {
-      path: '/onboard-4',
-      component: Onboard4
-    },
-    {
       name: 'Register',
       path: '/register',
       component: Register
@@ -107,10 +86,6 @@ export default new Router({
       name: 'ResetPassword',
       path: '/forgot/:resetToken',
       component: ResetPassword
-    },
-    {
-      path: '/start',
-      component: Start
     },
     {
       path: '/pages',

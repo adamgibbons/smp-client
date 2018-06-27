@@ -7,7 +7,7 @@
       </div>
       <div id="home">
         <router-link to="/">
-          <!-- <i class="fas fa-home"></i> -->
+          <img class="logo" src="@/assets/logo.png" />
         </router-link>
       </div>
     </header>
@@ -73,6 +73,10 @@ html, body {
   font-family: 'helvetica neue', helvetica;
   background: #234c7b;
 }
+header {
+  position: relative;
+  z-index: 100;
+}
 header div {
   font-size: .9em;
   font-weight: 100;
@@ -90,6 +94,56 @@ nav {
   color: white;
 }
 
+.onboarding {
+  color: white;
+  background: url('assets/home.jpg') center no-repeat;
+  background-size: cover;
+  margin: -3.5em 0;
+  position: relative;
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.2;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.onboarding .content {
+  margin: 0 auto 1em;
+  max-width: 600px;
+  width: 90%;
+}
+.onboarding h1 {
+  margin: 5em 0 .66em;
+  font-weight: 400;
+  font-size: 1.66em;
+}
+.onboarding h2 {
+  font-weight: 200;
+  font-size: 1.1rem;
+  margin: 1em 0;
+}
+.onboarding ol {
+  font-weight: 200;
+  margin: 1rem 0;
+  text-align: left;
+}
+.onboarding li {
+  margin: .33em 0;
+}
+/*.onboarding button {
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+  border-radius: 2em;
+  padding: .66em .8em;
+  font-size: 1em;
+}*/
+
+.logo {
+  height: 30px;
+}
+
 .next {
   border-radius: 2em;
   padding: .33em 1em;
@@ -103,7 +157,8 @@ nav {
   opacity: 1;
 }
 .block .button,
-.button  {
+.button,
+.onboarding .button  {
   border-radius: 2em;
   padding: .33em 1em;
   background: transparent;
