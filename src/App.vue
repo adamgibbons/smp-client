@@ -114,7 +114,7 @@ nav {
   width: 90%;
 }
 .onboarding h1 {
-  margin: 5em 0 .66em;
+  margin: 2em 0 .66em;
   font-weight: 400;
   font-size: 1.66em;
 }
