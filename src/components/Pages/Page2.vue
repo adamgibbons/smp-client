@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>We are looking at the BIG PICTURE. No counting cents here...</h1>
-    <h2>When filling out your answers:</h2>
+    <h1>We are looking at the BIG PICTURE.</h1>
+    <h2>No counting cents here... When filling out your answers:</h2>
     <ol>
       <li>Round your numbers.</li>
       <li>Use estimates if you are not sure on exact dollars.</li>

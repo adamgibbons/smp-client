@@ -2,12 +2,15 @@
   <div class="grid-container">
     <header>
       <div id="login">
-        <router-link v-show="!user.id" to="/login">Login</router-link>
-        <span v-show="user.id" @click="logout">Logout</span>
+        <span class="fa fa-bars"></span>
+        <!-- <router-link v-show="!user.id" to="/login">
+        </router-link> -->
+        <!-- <span v-show="user.id" @click="logout">Logout</span> -->
       </div>
       <div id="home">
         <router-link to="/">
           <img class="logo" src="@/assets/logo.png" />
+          <span>TheSocialMoneyProject</span>
         </router-link>
       </div>
     </header>
@@ -70,7 +73,9 @@ html, body {
   overflow: hidden;
   font-size: 18px;
   line-height: 24px;
-  font-family: 'helvetica neue', helvetica;
+  font-family: ;
+  font-family: 'Raleway', 'helvetica neue', helvetica, sans-serif;
+  letter-spacing: 1px;
   background: #234c7b;
 }
 header {
@@ -85,6 +90,7 @@ header div {
 a {
   color: #42b983;
 }
+
 nav {
   margin: 0 auto;
   text-align: center;
@@ -101,7 +107,6 @@ nav {
   margin: -3.5em 0;
   position: relative;
   text-align: center;
-  font-size: 1em;
   line-height: 1.2;
   display: flex;
   flex-flow: column;
@@ -111,34 +116,28 @@ nav {
 .onboarding .content {
   margin: 0 auto 1em;
   max-width: 600px;
-  width: 90%;
+  width: 86%;
+  line-height: 1.33;
 }
 .onboarding h1 {
-  margin: 2em 0 .66em;
+  margin: 1.5em 0 .66em;
   font-weight: 400;
-  font-size: 1.66em;
+  font-size: 1.5em;
 }
 .onboarding h2 {
-  font-weight: 200;
-  font-size: 1.1rem;
+  font-weight: 300;
+  font-size: 1em;
   margin: 1em 0;
 }
 .onboarding ol {
-  font-weight: 200;
-  margin: 1rem 0;
+  font-weight: 300;
+  margin: 1em 0;
   text-align: left;
+  font-size: .85em;
 }
 .onboarding li {
   margin: .33em 0;
 }
-/*.onboarding button {
-  border: 2px solid white;
-  color: white;
-  background: transparent;
-  border-radius: 2em;
-  padding: .66em .8em;
-  font-size: 1em;
-}*/
 
 .logo {
   height: 30px;
@@ -222,13 +221,24 @@ nav {
   left: 0;
   padding: .66em 1em;
 }
+#home a {
+  text-decoration: none;
+}
+#home span {
+  color: white;
+  vertical-align: top;
+  font-size: .66em;
+  font-weight: 300;
+  position: relative;
+  top: 2px;
+}
 #login {
   position: absolute;
   top: 0;
   right: 0;
   padding: .66em 1em;
   font-weight: 400;
-  font-size: 0.7em;
+  font-size: 1em;
   opacity: .8;
 }
 

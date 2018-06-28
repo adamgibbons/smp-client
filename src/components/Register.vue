@@ -1,7 +1,7 @@
 <template>
   <form class="flow gradient body" @submit="signUp">
 
-    <p style="margin: 1em auto;">First, let's start with your name and email so we can send you your results. Don't worry,no spam.</p>
+    <p style="margin: 2.5em auto 0;">First, let's start with your name and email so we can send you your results. Don't worry,no spam.</p>
 
     <div class="text-input-wrapper">
       <input class="text-input" type="text" v-model="form.name" required>
@@ -18,7 +18,7 @@
     <div class="text-input-wrapper">
       <input class="text-input" type="password" v-model="form.password" required>
       <span v-show="passwordIsValid"><i class="far fa-check-circle"></i></span>
-      <label>password (at least five characters)</label>
+      <label>password (min. five characters)</label>
     </div>
 
     <!-- Error message -->
@@ -98,7 +98,7 @@ a {
 }
 
 .text-input-wrapper, p {
-  margin: 2em auto;
+  margin: 1.5em auto;
   width: 100%;
   max-width: 250px;
 }
