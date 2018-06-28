@@ -31,8 +31,8 @@
     </smp-number>
 
     <smp-number
-      title="Extra amount you pay towards any of your debt"
-      subtitle="(This is payments to any of your legal obligations above the Minimum amount due)"
+      title="Extra amount you pay towards debt"
+      tiny="This is payments to any of your legal obligations above the Minimum amount due"
       path="savings.averageMonthlyDebtPayment"
       :min="0"
       :max="1000000"

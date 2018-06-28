@@ -1,13 +1,28 @@
 <template>
   <div class="grid-container">
-    <header>
-      <div id="login">
+    <menu class="user-menu" :class="{expanded: menuIsOpen === true}">
+      <div @click="toggleMenu">
+        <span class="fa fa-times"></span>
+      </div>
+      <div class="menu-item" @click="toggleMenu">
         <router-link v-show="!user.id" to="/login">Login</router-link>
-        <span v-show="user.id" @click="logout">Logout</span>
+      </div>
+      <div class="menu-item" @click="toggleMenu">
+        <router-link v-show="!user.id" to="/register">Sign Up</router-link>
+      </div>
+      <span v-show="user.id" @click="logout">Logout</span>
+    </menu>
+    <header>
+      <div id="login" @click="toggleMenu">
+        <span class="fa fa-bars"></span>
+        <!-- <router-link v-show="!user.id" to="/login">
+        </router-link> -->
+        <!-- <span v-show="user.id" @click="logout">Logout</span> -->
       </div>
       <div id="home">
         <router-link to="/">
-          <!-- <i class="fas fa-home"></i> -->
+          <img class="logo" src="@/assets/logo.png" />
+          <!-- <span>TheSocialMoneyProject</span> -->
         </router-link>
       </div>
     </header>
@@ -22,7 +37,12 @@ import axios from 'axios'
 export default {
   name: 'App',
   computed: mapGetters(['authenticated', 'user']),
-  methods: mapActions(['loadUserProfile', 'setUserId', 'logout']),
+  methods: {
+    ...mapActions(['loadUserProfile', 'setUserId', 'logout']),
+    toggleMenu () {
+      this.menuIsOpen = !this.menuIsOpen
+    }
+  },
   watch: {
     // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
@@ -58,6 +78,11 @@ export default {
           this.$router.replace('/')
         })
     }
+  },
+  data () {
+    return {
+      menuIsOpen: false
+    }
   }
 }
 </script>
@@ -70,8 +95,13 @@ html, body {
   overflow: hidden;
   font-size: 18px;
   line-height: 24px;
-  font-family: 'helvetica neue', helvetica;
+  font-family: 'Raleway', 'helvetica neue', helvetica, sans-serif;
+  letter-spacing: 1px;
   background: #234c7b;
+}
+header {
+  position: relative;
+  z-index: 100;
 }
 header div {
   font-size: .9em;
@@ -81,6 +111,7 @@ header div {
 a {
   color: #42b983;
 }
+
 nav {
   margin: 0 auto;
   text-align: center;
@@ -88,6 +119,49 @@ nav {
   bottom: 1rem;
   width: 100%;
   color: white;
+}
+
+.onboarding {
+  color: white;
+  background: url('assets/home.jpg') center no-repeat;
+  background-size: cover;
+  margin: -3.5em 0;
+  position: relative;
+  text-align: center;
+  line-height: 1.2;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.onboarding .content {
+  margin: 0 auto 1em;
+  max-width: 600px;
+  width: 86%;
+  line-height: 1.33;
+}
+.onboarding h1 {
+  margin: 1.5em 0 .66em;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+.onboarding h2 {
+  font-weight: 300;
+  font-size: 1em;
+  margin: 1em 0;
+}
+.onboarding ol {
+  font-weight: 300;
+  margin: 1em 0;
+  text-align: left;
+  font-size: .85em;
+}
+.onboarding li {
+  margin: .33em 0;
+}
+
+.logo {
+  height: 20px;
 }
 
 .next {
@@ -103,7 +177,8 @@ nav {
   opacity: 1;
 }
 .block .button,
-.button  {
+.button,
+.onboarding .button  {
   border-radius: 2em;
   padding: .33em 1em;
   background: transparent;
@@ -147,6 +222,7 @@ nav {
   margin-bottom: .33em;
   font-size: .8rem;
   margin-bottom: .1em;
+  line-height: 1.33em;
 }
 .block .subtitle {
   font-size: .9em;
@@ -167,13 +243,24 @@ nav {
   left: 0;
   padding: .66em 1em;
 }
+#home a {
+  text-decoration: none;
+}
+#home span {
+  color: white;
+  vertical-align: top;
+  font-size: .66em;
+  font-weight: 300;
+  position: relative;
+  top: 2px;
+}
 #login {
   position: absolute;
   top: 0;
   right: 0;
   padding: .66em 1em;
   font-weight: 400;
-  font-size: 0.7em;
+  font-size: 1em;
   opacity: .8;
 }
 
@@ -252,11 +339,46 @@ nav {
   /*margin-right: .33em;*/
 }
 
-.modal-number .tiny {
+.tiny {
   font-size: .6rem;
-  line-height: 1.2;
+  line-height: 1.3em;
   font-weight: 300;
   margin: .33rem 0 .66rem;
 }
 
+.user-menu {
+  position: absolute;
+  background-color: #182746;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: -150px;
+  transition: all 0.2s ease-in-out;
+  z-index: 200;
+  opacity: .5;
+}
+
+.user-menu.expanded {
+  top: 0;
+  opacity: 1;
+}
+
+.user-menu .fa-times {
+  position: absolute;
+  right: 1rem;
+  top: .9rem;
+  color: white;
+  font-size: 1.33em;
+}
+
+.user-menu .menu-item {
+  margin: .66em 3em .66em 0em;
+}
+
+.user-menu .menu-item a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: .66em 1.5em;
+}
 </style>
