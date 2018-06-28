@@ -10,14 +10,13 @@
       <div class="menu-item" @click="toggleMenu">
         <router-link v-show="!user.id" to="/register">Sign Up</router-link>
       </div>
-      <span v-show="user.id" @click="logout">Logout</span>
+      <div v-show="user.id" class="menu-item" @click="logoutUser">
+        <router-link v-show="user.id" to="/login">Logout</router-link>
+      </div>
     </menu>
     <header>
       <div id="login" @click="toggleMenu">
         <span class="fa fa-bars"></span>
-        <!-- <router-link v-show="!user.id" to="/login">
-        </router-link> -->
-        <!-- <span v-show="user.id" @click="logout">Logout</span> -->
       </div>
       <div id="home">
         <router-link to="/">
@@ -41,6 +40,10 @@ export default {
     ...mapActions(['loadUserProfile', 'setUserId', 'logout']),
     toggleMenu () {
       this.menuIsOpen = !this.menuIsOpen
+    },
+    logoutUser () {
+      this.logout()
+      this.toggleMenu()
     }
   },
   watch: {
