@@ -35,12 +35,11 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSelect from '@/components/smpSelect'
-import smpSearch from '@/components/smpSearch'
+import smpSelect from '@/components/FormElements/smpSelect'
+import smpSearch from '@/components/FormElements/smpSearch'
 import Progress from '@/components/Progress'
-
-import formatOptionsList from '../utils/format-options-list'
 import occupationOptions from '@/data/occupations.json'
+import formatOptionsList from '../utils/format-options-list'
 
 export default {
   methods: {

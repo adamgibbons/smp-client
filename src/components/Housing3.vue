@@ -41,9 +41,9 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpSlider from '@/components/smpSlider'
-import smpNumber from '@/components/smpNumber'
-import smpSelect from '@/components/smpSelect'
+import smpSlider from '@/components/FormElements/smpSlider'
+import smpNumber from '@/components/FormElements/smpNumber'
+import smpSelect from '@/components/FormElements/smpSelect'
 import Progress from '@/components/Progress'
 
 import formatOptionsList from '../utils/format-options-list'

@@ -44,7 +44,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import smpNumber from '@/components/smpNumber'
+import smpNumber from '@/components/FormElements/smpNumber'
 import Progress from '@/components/Progress'
 
 export default {
