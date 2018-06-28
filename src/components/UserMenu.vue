@@ -19,17 +19,12 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters(['authenticated', 'user', 'userMenuIsOpen']),
+  computed: mapGetters(['user', 'userMenuIsOpen']),
   methods: {
-    ...mapActions(['loadUserProfile', 'setUserId', 'logout', 'toggleUserMenu']),
+    ...mapActions(['logout', 'toggleUserMenu']),
     logoutUser () {
       this.logout()
       this.toggleUserMenu()
-    }
-  },
-  data () {
-    return {
-      menuIsOpen: false
     }
   }
 }
