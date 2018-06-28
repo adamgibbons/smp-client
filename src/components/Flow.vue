@@ -6,7 +6,7 @@
         v-show="backButtonIsVisible"
         class="back"
         @click="back">
-        &lsaquo;
+        <i class="fas fa-chevron-left"></i>
       </button>
       <button
         v-show="nextButtonIsVisible"
@@ -234,15 +234,14 @@ export default {
   top: 1em;
 }
 .back {
-  border-radius: 1em;
   background: transparent;
-  border: 2px solid gray;
+  border: none;
   color: gray;
   position: absolute;
   bottom: 0;
-  left: 1rem;
-  padding: .33em .66em;
-  font-size: 1em;
+  left: .66rem;
+  padding: .2em .66em;
+  font-size: 1.33em;
   font-weight: 900;
 }
 select {
