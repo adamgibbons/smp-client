@@ -10,7 +10,7 @@
       <div id="home">
         <router-link to="/">
           <img class="logo" src="@/assets/logo.png" />
-          <span>TheSocialMoneyProject</span>
+          <!-- <span>TheSocialMoneyProject</span> -->
         </router-link>
       </div>
     </header>
@@ -73,7 +73,6 @@ html, body {
   overflow: hidden;
   font-size: 18px;
   line-height: 24px;
-  font-family: ;
   font-family: 'Raleway', 'helvetica neue', helvetica, sans-serif;
   letter-spacing: 1px;
   background: #234c7b;
@@ -201,6 +200,7 @@ nav {
   margin-bottom: .33em;
   font-size: .8rem;
   margin-bottom: .1em;
+  line-height: 1.33em;
 }
 .block .subtitle {
   font-size: .9em;
@@ -317,9 +317,9 @@ nav {
   /*margin-right: .33em;*/
 }
 
-.modal-number .tiny {
+.tiny {
   font-size: .6rem;
-  line-height: 1.2;
+  line-height: 1.3em;
   font-weight: 300;
   margin: .33rem 0 .66rem;
 }

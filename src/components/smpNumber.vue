@@ -10,6 +10,7 @@
     <div class="title">
       {{title}}
       <span v-show="subtitle" class="subtitle">{{subtitle}}</span>
+      <div class="tiny" v-if="!newStyle">{{tiny}}</div>
     </div>
 
     <div v-if="!newStyle" class="control">
