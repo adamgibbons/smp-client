@@ -5,14 +5,14 @@
       <button
         v-show="backButtonIsVisible"
         class="back"
-        @click="back">
+        @click.prevent="back">
         <i class="fas fa-chevron-left"></i>
       </button>
       <button
         v-show="nextButtonIsVisible"
         class="next"
         :class="{disabled: isValid === false}"
-        @click="next"
+        @click.prevent="next"
         :disabled="!isValid">
         Next
       </button>
