@@ -1,7 +1,19 @@
 <template>
   <div class="grid-container">
+    <menu class="user-menu" :class="{expanded: menuIsOpen === true}">
+      <div @click="toggleMenu">
+        <span class="fa fa-times"></span>
+      </div>
+      <div class="menu-item" @click="toggleMenu">
+        <router-link v-show="!user.id" to="/login">Login</router-link>
+      </div>
+      <div class="menu-item" @click="toggleMenu">
+        <router-link v-show="!user.id" to="/register">Sign Up</router-link>
+      </div>
+      <span v-show="user.id" @click="logout">Logout</span>
+    </menu>
     <header>
-      <div id="login">
+      <div id="login" @click="toggleMenu">
         <span class="fa fa-bars"></span>
         <!-- <router-link v-show="!user.id" to="/login">
         </router-link> -->
@@ -25,7 +37,12 @@ import axios from 'axios'
 export default {
   name: 'App',
   computed: mapGetters(['authenticated', 'user']),
-  methods: mapActions(['loadUserProfile', 'setUserId', 'logout']),
+  methods: {
+    ...mapActions(['loadUserProfile', 'setUserId', 'logout']),
+    toggleMenu () {
+      this.menuIsOpen = !this.menuIsOpen
+    }
+  },
   watch: {
     // TODO refine routing logic based on form progress
     authenticated: function (isAuthenticated) {
@@ -60,6 +77,11 @@ export default {
           console.log(err)
           this.$router.replace('/')
         })
+    }
+  },
+  data () {
+    return {
+      menuIsOpen: false
     }
   }
 }
@@ -139,7 +161,7 @@ nav {
 }
 
 .logo {
-  height: 30px;
+  height: 20px;
 }
 
 .next {
@@ -324,4 +346,39 @@ nav {
   margin: .33rem 0 .66rem;
 }
 
+.user-menu {
+  position: absolute;
+  background-color: #182746;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: -150px;
+  transition: all 0.2s ease-in-out;
+  z-index: 200;
+  opacity: .5;
+}
+
+.user-menu.expanded {
+  top: 0;
+  opacity: 1;
+}
+
+.user-menu .fa-times {
+  position: absolute;
+  right: 1rem;
+  top: .9rem;
+  color: white;
+  font-size: 1.33em;
+}
+
+.user-menu .menu-item {
+  margin: .66em 3em .66em 0em;
+}
+
+.user-menu .menu-item a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: .66em 1.5em;
+}
 </style>
