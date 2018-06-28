@@ -43,8 +43,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpNumber from '@/components/smpNumber'
-import smpCheckboxes from '@/components/smpCheckboxes'
+import smpNumber from '@/components/FormElements/smpNumber'
+import smpCheckboxes from '@/components/FormElements/smpCheckboxes'
 import Progress from '@/components/Progress'
 
 export default {

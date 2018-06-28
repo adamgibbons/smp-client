@@ -134,7 +134,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpModalNumber from '../smpModalNumber'
+import smpModalNumber from '@/components/FormElements/smpModalNumber'
 
 export default {
   components: { smpModalNumber },

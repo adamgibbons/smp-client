@@ -35,8 +35,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import smpNumber from '@/components/smpNumber'
-import smpRadios from '@/components/smpRadios'
+import smpNumber from '@/components/FormElements/smpNumber'
+import smpRadios from '@/components/FormElements/smpRadios'
 import Progress from '@/components/Progress'
 
 export default {
